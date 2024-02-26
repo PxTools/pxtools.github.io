@@ -1,0 +1,53 @@
+site_name: PxTools
+
+theme:
+  name: 'material'
+  features:
+    - navigation.footer
+    - navigation.tabs
+
+markdown_extensions:
+
+  # Python Markdown
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+      toc_depth: 4 
+
+  # Python Markdown Extensions
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+nav:
+  - Home: index.md
+  - Documentation:
+    - Px File Format: 
+      - Version 2013: px-file-format/px-2013.md
+    - Common Nordic Metadata Model: 
+      - Version 2.3: cnmm/cnmm_23.md
+      - Version 2.4: cnmm/cnmm_24.md
+  - Tools:
+    - PxWeb: tools/pxweb.md
