@@ -13,8 +13,8 @@ nav:
       - Plans: PxWeb2/project/plans.md
       - Process: PxWeb2/project/process.md
   - Documentation:
-      - Docker: documentation/docker.md
-      - Customization: documentation/customization.md
+      - Docker: PxWeb2/documentation/docker.md
+      - Customization: PxWeb2/documentation/customization.md
       - Px File Format:
           - Version 2013: px-file-format/px-2013.md
       - Common Nordic Metadata Model:

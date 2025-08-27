@@ -7,5 +7,5 @@ The new interface is updated every third Monday after the demo. Follow the devel
 
 ## Try it with your own data
 You are free to test the database with your own data. It works both with px-files and cnmm database
-[How to make a local installation](/documentation/docker/)
+[How to make a local installation](../documentation/docker.md)
 
