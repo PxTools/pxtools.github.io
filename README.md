@@ -6,6 +6,8 @@ We use [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) for t
 
 ## Preview documentation locally while writing
 
+<https://squidfunk.github.io/mkdocs-material/creating-your-site/#previewing-as-you-write>
+
 ### Docker
 
 ``` sh
