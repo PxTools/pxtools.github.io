@@ -6,12 +6,14 @@ copyright: Copyright &copy; 2025 Statistics Sweden and Statistics Norway
 nav:
   - Home: index.md
   - Project PxWeb 2.0:
-      - Overview: project/overview.md
-      - Try PxWeb 2.0: project/try.md
-      - Solution: project/Solution.md
-      - Plans: project/plans.md
-      - Process: project/process.md
+      - Overview: PxWeb2/project/overview.md
+      - Try PxWeb 2.0: PxWeb2/project/try.md
+      - Solution: PxWeb2/project/Solution.md
+      - Plans: PxWeb2/project/plans.md
+      - Process: PxWeb2/project/process.md
   - Documentation:
+      - Docker: documentation/docker.md
+      - Customization: documentation/customization.md
       - Px File Format:
           - Version 2013: px-file-format/px-2013.md
       - Common Nordic Metadata Model:
@@ -20,13 +22,16 @@ nav:
   - Tools:
       - PxWeb: tools/pxweb.md
 
+extra_css:
+  - stylesheets/extra.css
+
 theme:
   name: material
-
+  custom_dir: docs/overrides
   features:
-    #- announce.dismiss
+    - announce.dismiss
     - content.action.edit
-    #- content.action.view
+    - content.action.view
     - content.code.annotate
     - content.code.copy
     # - content.code.select
