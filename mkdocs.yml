@@ -1,13 +1,89 @@
 site_name: PxTools
+site_url: https://www.pxtools.net/
+repo_url: https://github.com/PxTools/pxtools.github.io
+edit_uri: ./edit/main/docs
+copyright: Copyright &copy; 2025 Statistics Sweden and Statistics Norway
+
+nav:
+  - Home: index.md
+  - Project PxWeb 2.0:
+      - Overview: PxWeb2/project/overview.md
+      - Try PxWeb 2.0: PxWeb2/project/try.md
+      - Solution: PxWeb2/project/Solution.md
+      - Plans: PxWeb2/project/plans.md
+      - Process: PxWeb2/project/process.md
+  - Documentation:
+      - Docker: PxWeb2/documentation/docker.md
+      - Customization: PxWeb2/documentation/customization.md
+      - Px File Format:
+          - Version 2013: px-file-format/px-2013.md
+      - Common Nordic Metadata Model:
+          - Version 2.3: cnmm/cnmm_23.md
+          - Version 2.4: cnmm/cnmm_24.md
+  - Tools:
+      - PxWeb: tools/pxweb.md
+
+extra_css:
+  - stylesheets/extra.css
 
 theme:
-  name: 'material'
+  name: material
+  custom_dir: docs/overrides
   features:
+    - announce.dismiss
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    # - content.code.select
+    # - content.footnote.tooltips
+    # - content.tabs.link
+    - content.tooltips
+    # - header.autohide
+    # - navigation.expand
     - navigation.footer
+    - navigation.indexes
+    # - navigation.instant
+    # - navigation.instant.prefetch
+    # - navigation.instant.progress
+    # - navigation.prune
+    - navigation.sections
     - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+    # - toc.integrate
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/link
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch-off
+        name: Switch to system preference
+  font:
+    text: Roboto
+    code: Roboto Mono
+  favicon: assets/favicon.png
+  icon:
+    logo: logo
 
 markdown_extensions:
-
   # Python Markdown
   - abbr
   - admonition
@@ -17,7 +93,7 @@ markdown_extensions:
   - md_in_html
   - toc:
       permalink: true
-      toc_depth: 4 
+      toc_depth: 4
 
   # Python Markdown Extensions
   - pymdownx.arithmatex:
@@ -40,14 +116,3 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
-
-nav:
-  - Home: index.md
-  - Documentation:
-    - Px File Format: 
-      - Version 2013: px-file-format/px-2013.md
-    - Common Nordic Metadata Model: 
-      - Version 2.3: cnmm/cnmm_23.md
-      - Version 2.4: cnmm/cnmm_24.md
-  - Tools:
-    - PxWeb: tools/pxweb.md
