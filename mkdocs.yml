@@ -13,13 +13,14 @@ nav:
       - Plans: PxWeb2/project/plans.md
       - Process: PxWeb2/project/process.md
   - Documentation:
-      - Docker: PxWeb2/documentation/docker.md
-      - Customization: PxWeb2/documentation/customization.md
+      - Getting Started:
+        - Install PxWebApi 2.0: PxWebApi/documentation/installation.md
+        - Install PxWeb2 and PxWebApi 2.0 with Docker: PxWeb2/documentation/docker.md
+      - Customization:
+        - Customize PxWebAPI 2.0: PxWebApi/documentation/configuration.md
+        - Customize PxWeb2: PxWeb2/documentation/customization.md
       - Px File Format:
           - Version 2013: px-file-format/px-2013.md
-      - Common Nordic Metadata Model:
-          - Version 2.3: cnmm/cnmm_23.md
-          - Version 2.4: cnmm/cnmm_24.md
   - Tools:
       - PxWeb: tools/pxweb.md
 
