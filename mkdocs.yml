@@ -13,6 +13,7 @@ nav:
       - Plans: PxWeb2/project/plans.md
       - Process: PxWeb2/project/process.md
   - Documentation:
+      - Overview:  documentation/overview.md
       - Getting Started:
         - Install PxWebApi 2.0: PxWebApi/documentation/installation.md
         - Install PxWeb2 and PxWebApi 2.0 with Docker: PxWeb2/documentation/docker.md
