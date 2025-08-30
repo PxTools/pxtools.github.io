@@ -33,7 +33,7 @@ You can specify how you would like others to reference your data by setting `PxA
 
 You can also specify the license for the data under `PxApiConfiguration.License`.
 
-### Caching
+#### Caching
 You can control how long a response should be cached by setting `PxApiConfiguration.CacheTime` (in seconds).
 
 You also have the option to clear the cache at a specific time by setting `PxApiConfiguration.CacheClearTime`.
