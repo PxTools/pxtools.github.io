@@ -26,6 +26,7 @@ public
 │   └── variables.css
 └── icon
     ├── topicIconMap.json
+    ├── topicIcons.json
     └── topic
         ├── icon1.svg
         ├── icon2.svg
@@ -103,6 +104,12 @@ If you want to add new icons, they must be placed in both of the following folde
 - `/public/icon/topic/small/` — SVG file with dimensions **28x28**
 
 > If you need to change an existing topic ID or add a new mapping to a new SVG icon, this must also be done in the `/public/icon/topic/topicIconMap.json` file.
+
+### topicIcons.json
+
+This configuration file is used by the application to render the Topic Icons gallery (/topicIcons).
+Each entry corresponds to an SVG file located in public/icons/topic/.
+When adding new icons to public/icons/topic/, you must also update topicIcons.json by appending the new filenames.
 
 ## PxWebApi
 
