@@ -24,22 +24,28 @@ public
 │       └── translation.json
 └── theme
 │   └── variables.css
-└── icon
-    ├── topicIconMap.json
-    ├── topicIcons.json
-    └── topic
-        ├── icon1.svg
-        ├── icon2.svg
-        ├── ...
-        └── small/
-            ├── icon1.svg
-            ├── icon2.svg
-            └── ...
+├── icon
+│   ├── topicIconMap.json
+│   ├── topicIcons.json
+│   └── topic
+│       ├── icon1.svg
+│       ├── icon2.svg
+│       ├── ...
+│       └── small/
+│           ├── icon1.svg
+│           ├── icon2.svg
+│           └── ...
+├── content
+│   ├── en
+│   │   └── content.json
+│   └── sv
+│   │   └── content.json
+│   └── ...
 ```
 
 ### config.js
 
-``` javascript
+```javascript
 window.PxWeb2Config = {
   language: {
     supportedLanguages: [
@@ -49,15 +55,67 @@ window.PxWeb2Config = {
     defaultLanguage: "en",
     fallbackLanguage: "en",
   },
-  apiUrl: "..."
+  apiUrl: "...",
 };
 ```
+
+### content.json
+
+The `content.json` file defines customizable text and links that appear in **PxWeb’s user interface**
+This file allows you to configure localized UI content: you can add or change the **breadcrumb navigation** on the start page, add a **detailsSection** after the ingress on the start page, or update the **footer** content for the application.
+
+```sh
+public/content
+├── ar
+│   └── content.json
+├── en
+│   └── content.json
+├── no
+│   └── content.json
+└── sv
+    └── content.json
+```
+
+- Each language folder contains its own `content.json`.
+- The active language determines which file is loaded at runtime.
+- This makes it possible to have different breadcrumbs, footer links, or details text depending on the selected language.
+
+**Structure overview:**
+
+```json
+{
+  "startPage": {
+    "breadCrumb": {
+      "enabled": false,
+      "items": []
+    },
+    "detailsSection": {
+      "enabled": true,
+      "detailHeader": "More about PxWeb",
+      "detailContent": []
+    }
+  },
+  "footer": {
+    "columns": []
+  }
+}
+```
+
+- **startPage.breadCrumb**
+  Optional breadcrumb navigation on start page. Enabled with the `enabled` flag.
+  Each item contains a `label` and an `href`.
+- **startPage.detailsSection** – Optional section below the page ingress. When `enabled` is `true`, the application renders the **`DetailsSection` component**. This section can contain multiple entries, and each entry may be either a `textBlock` (with `header` and `text`) or a `links` block (with `header` and a list of `items`).
+
+- **footer**
+  One or more footer columns with `header` and list of `links`.
+
+  This setup allows administrators to adjust localized content (text and links) for each language without modifying the application code.
 
 ### translation.json
 
 Create a new folder and `translation.json` file using english as a template.
 
-``` json
+```json
 {
   "meta": {
     "languageName": "English",
@@ -77,7 +135,7 @@ Create a new folder and `translation.json` file using english as a template.
 
 The css file will let you adjust colors to match you site profile.
 
-``` css
+```css
 :root {
   --px-border-radius-none: 0;
   --px-border-radius-xxsmall: 0.5px;
@@ -94,8 +152,8 @@ The css file will let you adjust colors to match you site profile.
 
 ### topicIconMap.json
 
-The startpage displays a list of tables using the `TableCard` component.  
-To associate an icon with the main topic a table belongs to, there must be a mapping between the **topic ID** and the corresponding **SVG filename**.  
+The startpage displays a list of tables using the `TableCard` component. 
+To associate an icon with the main topic a table belongs to, there must be a mapping between the **topic ID** and the corresponding **SVG filename**. 
 This mapping is defined in `/public/icon/topic/topicIconMap.json`
 
 If you want to add new icons, they must be placed in both of the following folders:
@@ -113,7 +171,7 @@ When adding new icons to public/icons/topic/, you must also update topicIcons.js
 
 ## PxWebApi
 
-``` sh
+```sh
 PxWeb
 ├── appsettings.Development.json
 ├── appsettings.Release.json
@@ -128,7 +186,7 @@ configs. The [docker](docker.md) example runs i Development mode and use most
 values from `appsettings.json`. There are currently only two places you need to
 add more languages
 
-``` json
+```json
 ...
   "PxApiConfiguration": {
     "Languages": [
@@ -149,7 +207,7 @@ add more languages
 
 Curently it is exactly as in PxWeb 2023
 
-``` xml
+```xml
 <?xml version="1.0" encoding="iso-8859-1"?>
 <SqlDbConfig version="2008"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -160,7 +218,7 @@ Curently it is exactly as in PxWeb 2023
 
 But you have to change `appsettings.json` to use CNMM like this
 
-``` json
+```json
 {
   "DataSource": {
     "DataSourceType": "CNMM",
