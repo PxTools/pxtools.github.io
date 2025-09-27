@@ -3,31 +3,36 @@
 PxWeb comes prebuilt with configuration for tables in English, a set of fonts
 colors and icons. This guide help you customize PxWeb to your needs.
 
-- Change which language that should be available and which one is the default language
-  if a language is not specifyed.
-- Add a new language or change translations of an language.
-- Change colors on the diffrent elements.
-- Change the coner radius on diffrent elements.
-- Change the fonts.
-- Change icons.
-- And more...
+You can:
 
-Bellow follows a list of **How to** on how to acoplich diffrent customizations.
+- Configure available languages and set a default fallback.
+- Add a new language or adjust existing translations.
+- Change colors (design tokens).
+- Adjust corner radii of UI elements.
+- Replace fonts.
+- Change topic icons.
+- Limit table sizes.
+- Control how languages appear in URLs.
+- Hide variables from the variable filter.
+- Customize start page text and footer links (examples included below).
+- Define characters used for missing values.
+
+Below you will find a set of practical **How to** sections.
+
+---
 
 ## Folder structure
 
-When you unzip the zip-file of the official PxWeb 2.0 release. It contains the following
-directory structure. It is good to understand it to be able to know where you
-have to do your modification.
+When you unzip the official PxWeb 2.0 release you get a structure like:
 
 ```sh
 root
-├── index.html 
-├── web.config # (1)!
-├── assets # (2)!
+├── index.html               # (1)!
+├── web.config               # (2)!
+├── assets                   # (3)!
 ├── config
-│   └── config.js
-├── content
+│   └── config.js            # (4)!
+├── content                  # (5)!
 │   ├── ar
 │   │   └── content.json
 │   ├── en
@@ -36,12 +41,12 @@ root
 │   │   └── content.json
 │   └── sv
 │       └── content.json
-├── fonts
+├── fonts                    
 │   ├── PxWeb-font-400.ttf
 │   ├── PxWeb-font-500.ttf
 │   └── PxWeb-font-700.ttf
 ├── icons
-│   ├── topicIconMap.json
+│   ├── topicIconMap.json    # (6)!
 │   └── topic
 │       ├── icon1.svg
 │       ├── icon2.svg
@@ -52,7 +57,7 @@ root
 │           └── ...
 ├── images
 │   └── logo.svg
-├── locales
+├── locales                  # (7)!
 │   ├── ar
 │   │   └── translation.json
 │   ├── en
@@ -65,117 +70,243 @@ root
     └── variables.css
 ```
 
-1. This is a `web.config` that ships with PxWeb tha you can use as a starting point
-   if you are serving PxWeb from an Microsoft Internet Information Server (IIS).
-2. This folder contains all the javascript and css that make up most of the logic
-   of PxWeb. You should not have to edit anything in this folder.
+1. `index.html` is the page that bootstraps PxWeb.
+2. `web.config` is a starting point if you host on Microsoft IIS.  
+3. `assets` contains the compiled JavaScript/CSS for PxWeb. You normally do not
+    edit anything inside this folder.
+4. `config.js` the main config file for PxWeb.
+5. `content` a folder containg content customizations e.g. links in the footer.
+6. `topicIconMap.json` is a file where mapping between tables `SUBJECT-CODE` and
+    icons are made.
+7. `locales` a folder where translated text are placed.
 
-## How to´s
+---
 
-### How to change the API-endpoint
+## How to’s
 
-PxWeb get all the data that it needs from an PxWebAPI 2.0 instance. To show your
-data in PxWeb you will have the set the `apiUrl` in `config/config.js` to the
-base url of your API site. Make user to omit the last backslash it will be added
-automatically.
+### Change the API endpoint
 
-### How to run PxWeb under a subpath
+PxWeb retrieves table metadata and data from a PxWeb API 2.0 instance.  
+Open `config/config.js` and set `apiUrl`:
 
-Lets say you have a web server that is bound to the domain `www.mysite.org` and you
-whant to have PxWeb served in a subpath `pxweb` like `www.mysite.org\pxweb` and
-that you do not have a proxy infron of it instead you will solve it on the web
-server. You will then have to set the `baseApplicationPath` in `config/config.js`
-and also set the `href` attribute for the `base` element in `index.html` to be
+```js hl_lines="11"
+  window.PxWeb2Config = {
+    language: {
+      supportedLanguages: [
+        { shorthand: 'en', languageName: 'English' }
+      ],
+      defaultLanguage: 'en',
+      fallbackLanguage: 'en',
+      showDefaultLanguageInPath: true,
+    },
+    baseApplicationPath: '/',
+    apiUrl: "https://your.api.server/PxWeb/api/v2",
+    maxDataCells: 100000,
+    specialCharacters: ['.', '..', ':', '-', '...', '*'],
+    variableFilterExclusionList: {
+      en: [
+        'observations',
+        'year',
+        'quarter',
+        'month',
+        'every other year',
+        'every fifth year',
+      ]
+    },
+  };
+```
 
-### How to set the limit of how big tables you can view in PxWeb
+Omit a trailing slash, one is added automatically.
 
-You can limit how big tables you are able to view in PxWeb by setting
-`maxDataCells` in `config/config.js` file to the number of cell (data points)
-that can be displayed.
-!!! note
-    Notice that the API endpoint also has a separat setting for this. You should
-    not set the value larger than the API because that can lead to strange
-    behaivour. The reccomended thing is to set it to be the same as for the API.
+### Run PxWeb under a subpath
 
-### How to change the default characters for missing values
+If you serve PxWeb from e.g. `https://www.mysite.org/pxweb` (without an upstream
+reverse proxy):
 
-There are a set of characters that are displayed in the table when data is missing.
-You can set the characters in the array called `specialCharacters` in `config/config.js`.
+1. Set `baseApplicationPath` in `config/config.js`:
 
-### How to exclude some variables from showing up in the variables filter
+   ```js
+   baseApplicationPath: "/pxweb/"
+   ```
 
-In some cases you have variables that you do not whant to be included in the variables
-filter on the first page. Then you can add the to the `variableFilterExclutionList`
-section in `config/config.js`. There is one sub section for each language by the
-[two letter](https://en.wikipedia.org/wiki/ISO_639-1) language code.
-!!! note
-    Notice that you have to add the variable name. If your site have multiple
-    languages then you should add it for each language.
+2. In `index.html`, adjust the `<base>` tag:
 
-### How to set the language(s) of my site
+   ```html
+   <base href="/pxweb/">
+   ```
 
-You can configure your site to support one or more language. This is don in the
-`language.supportedLanguages` section in `config/config.js`. Just add another language
-to the list. To set the main or default language of your site set the `language.defaultLanguage`
-to the [two letter language code](https://en.wikipedia.org/wiki/ISO_639-1) of the
-language you want to have as main language.
+3. Ensure the web server rewrites (if needed) static file requests correctly to
+   that subpath.
 
-!!! tip
-    Use the same set of language as you have configured for the API.
+### Limit how large tables can be viewed
 
-!!! tip
-    The `fallbackLanguage` is used by the localization system if no translation
-    exist for a particular text for a specific language the text for the
-    `fallbackLanguage` is used.
+Set `maxDataCells` in `config/config.js`. Example:
 
-### How to a a completly new language
+```js
+maxDataCells: 500000
+```
 
-If you want to add a completly new language to PxWeb, you can do so easely by creating
-a subfolder to `locales` with the name set to the [two letter  language code](https://en.wikipedia.org/wiki/ISO_639-1)
-Then take a copy of the file `locales/en/translate.json` and place it in your
-newly create folder. Then change the texts inside the copy.
+!!! note "API limitation"
+    The API has its own limit. Do not set the UI limit higher than the API’s
+    backend limit to avoid inconsistent behavior. Usually they should match.
 
-### How to change the fonts
+### Change the default characters for missing values
 
-If you ned to change the fonts simply replace the fints in the folder `fonts` with
-your font.
+Edit the `specialCharacters` array in `config/config.js`:
 
-### How to change the text
+```js
+specialCharacters: ['.', '..', ':', '-', '...', '*']
+```
 
-If text is not correctly translated or you just whnat to change it to make it
-better. You can do so by change it in the `translation.json` file found under
-the `locales` folder and in the sub folder of the specific language. There is
-a subfolder for each [two letter  language code](https://en.wikipedia.org/wiki/ISO_639-1).
-E.g. to change the english texts you should do that in the `locales/en/translate.json`.
-The `translation.json` file has a structure that makes it easy to see where the
-text is displayed in PxWeb.
+These are displayed when a data point is missing or confidential.
 
-### How to hide or show the default language in the URL
+### Exclude variables from the variable filter
 
-You can show or hide the default language in the url by setting the
-`showDefaultLanguageInPath` to either `true` or `false` in `config/config.js`
+To hide certain variables from appearing in the initial variable filter, add
+their (localized) names under `variableFilterExclutionList` per language in `config/config.js`:
 
-### How to change the topic icons on the startpage
+```js
+variableFilterExclutionList: {
+  en: ["Contents"],
+  sv: ["Innehåll"]
+}
+```
 
-The startpage displays a list of tables.  Each table can be associated with an
-icon. The mapping between a table and the which icon to use is done by the tables
-`SOBJECT-CODE` and the name of the icon file. 
-This mapping is defined in `/public/icon/topic/topicIconMap.json`
+Repeat for every supported language.
 
-If you want to add new icons, they must be placed in both of the following folders:
+### Configure site languages
 
-- `/public/icon/topic/` — SVG file with dimensions **36x36**
-- `/public/icon/topic/small/` — SVG file with dimensions **28x28**
+In `config/config.js`:
 
-> If you need to change an existing topic ID or add a new mapping to a new SVG
-  icon, this must also be done in the `/public/icon/topic/topicIconMap.json` file.
+```js hl_lines="2 3 4 5 6 7 8 9 10"
+  window.PxWeb2Config = {
+    language: {
+      supportedLanguages: [
+        { shorthand: 'en', languageName: 'English' },
+        { shorthand: 'sv', languageName: 'Svenska' }
+      ],
+      defaultLanguage: 'sv',
+      fallbackLanguage: 'en',
+      showDefaultLanguageInPath: true,
+    },
+    baseApplicationPath: '/',
+    apiUrl: "https://your.api.server/PxWeb/api/v2",
+    maxDataCells: 100000,
+    specialCharacters: ['.', '..', ':', '-', '...', '*'],
+    variableFilterExclusionList: {
+      en: [
+        'observations',
+        'year',
+        'quarter',
+        'month',
+        'every other year',
+        'every fifth year',
+      ]
+    },
+  };
+```
 
-### How to changes the corner rounding of the visual elements
+- `supportedLanguages`: The active languages (must match those available in the API).
+- `defaultLanguage`: The primary language.
+- `fallbackLanguage`: Used if a translation key is missing for the active language.
+- `showDefaultLanguageInPath`: If `true`, URLs include the default language code.
 
-The are a couple of css variables in `theme/variables.css` that you can change to
-your likings.
+### Add a completely new language
 
-The following variables can be changed.
+1. Create a folder under `locales/` using the ISO 639‑1 two-letter code (e.g. `fr`).
+2. Copy `locales/en/translation.json` into `locales/fr/translation.json`.
+3. Translate the values (keep keys intact).
+4. Add `"fr"` to `supportedLanguages`.
+5. (Optional) Add localized content under `content/fr/content.json` if your
+   content system uses it.
+
+### Change fonts
+
+Replace the font files in the `fonts` directory. Keep file names.
+
+Make sure you have the proper license to self-host fonts.
+
+### Adjust or fix text / translations
+
+Edit the relevant `locales/<lang>/translation.json`.  
+Keys reflect where in the UI a string is used. Only modify values.  
+
+??? tip "Example snippet"
+    ```json
+    {
+      "meta": {
+        "languageName": "English",
+        "shorthand": "en"
+      },
+      "common": {
+        "title": "PxWeb 2.0",
+        "header": {
+          "logo": "PxWeb 2.0",
+          "logo_alt": "To the front page",
+          "language_selector": "Språk/Language"
+        },
+      }
+    }  
+    ```
+
+### Hide or show the default language in the URL
+
+Toggle:
+```js hl_lines="8"
+  window.PxWeb2Config = {
+    language: {
+      supportedLanguages: [
+        { shorthand: 'en', languageName: 'English' }
+      ],
+      defaultLanguage: 'en',
+      fallbackLanguage: 'en',
+      showDefaultLanguageInPath: true, // or false
+    },
+    baseApplicationPath: '/',
+    apiUrl: "https://your.api.server/PxWeb/api/v2",
+    maxDataCells: 100000,
+    specialCharacters: ['.', '..', ':', '-', '...', '*'],
+    variableFilterExclusionList: {
+      en: [
+        'observations',
+        'year',
+        'quarter',
+        'month',
+        'every other year',
+        'every fifth year',
+      ]
+    },
+  };
+```
+
+in the `language` section of `config/config.js`.
+
+### Change topic icons on the start page
+
+Each table can have an associated icon. Mapping is done through the table’s
+`SOBJECT-CODE` in:
+
+```bash
+/icons/topicIconMap.json
+```
+
+Add mapping between subject code and icon file like:
+
+```json
+{
+  "ED": "education.svg",
+  "HE": "health.svg"
+}
+```
+
+If you whant to user your own icons add them in both:
+
+- `/icons/topic/` (SVG 36×36)
+- `/icons/topic/small/` (SVG 28×28)
+
+### Change corner rounding (border radii)
+
+Edit these CSS variables in `theme/variables.css`:
 
 - `--px-border-radius-xxsmall`
 - `--px-border-radius-xsmall`
@@ -184,42 +315,100 @@ The following variables can be changed.
 - `--px-border-radius-large`
 - `--px-border-radius-xlarge`
 
-!!! tip
-    Do not change the`--px-border-radius-none` and `--px-border-radius-full` in
-    `theme/variables.css` if you are uncertain in what you are doing.
+Do not alter `--px-border-radius-none` or `--px-border-radius-full` unless you
+know the side effects (they are used for logical extremes).
 
-### How to change the text and related links on the start page
-
-TODO
-
-### How to change the links in the footer
+### Change the text and related links on the start page
 
 TODO
 
-### How to change the colors
+### Change the links in the footer
 
-PxWeb´s desing system builds on design token. This guide is not the right place
-to explain that concept in deepth but basiclay there are different type of tokens
-in our case primitive tokens and system token. The primitive are for instance a
-brand color. While the system token are more descriptive e.g. surface subtle color.
-The system token build upon the primitive tokens.
+TODO
 
-The colors are defined in `theme/variables.css` as css variables. The once you
-would want to change starts with:
+### Change the colors (Design Tokens)
 
-- `--px-color-brand-`
-- `--px-color-accent-`
-- `--px-color-neutral-`
+PxWeb’s visual styling is driven by CSS custom properties (“design tokens”).
+Understanding token layers helps you customize safely.
 
-You should not change the system tokens.
+Token categories:
 
-[Leonardo](https://leonardocolor.io/theme.html#)
+1. Primitive (Base) Tokens: Raw color values (brand, accent, neutrals, semantic
+   palettes). Example: `--px-color-brand-400`.
+2. Semantic (System) Tokens: Contextual meaning-based tokens mapping to 
+   primitives. Example: `--px-color-surface-default`, `--px-color-text-action`.
+3. Component / Alias Tokens (if introduced later): Optional intermediary 
+   re-mappings for specific components.
 
-#### Colors mappings
+Principles:
 
-Bellow is a list of primitive color tokens and a mapping to the system token that
-uses it. For the name of the system token you can almost see exactly where it is
-used.
+- You normally change only primitive tokens (`--px-color-brand-*`,
+  `--px-color-accent-*`, `--px-color-neutral-*`, and semantic palette roots like
+  `--px-color-info-100`).
+- Semantic tokens derive usability (contrast, hierarchy) from primitives. Avoid
+  editing semantic tokens unless you fully control downstream impacts.
+- Keep sufficient contrast (WCAG AA: 4.5:1 for normal text, 3:1 for large / UI elements).
+- Maintain directional progression (e.g. `-50` lighter → `-900` darkest).
+
+Location:
+All tokens reside in `theme/variables.css`.
+
+Typical edit workflow:
+
+1. Inventory current brand identity (primary, secondary, accent).
+2. Decide which existing scale (brand, accent, neutral) maps to your brand palette.
+3. Replace primitive hex values:
+
+   ```css
+   :root {
+     --px-color-brand-50:  #F5FAFF;
+     --px-color-brand-100: #E3F2FE;
+     --px-color-brand-200: #C6E4FD;
+     --px-color-brand-400: #5BB4F6;
+     --px-color-brand-600: #1D78C7;
+     --px-color-brand-800: #0F3F63;
+     --px-color-brand-900: #072638;
+   }
+   ```
+
+4. Rebuild or reload the page; verify legibility in buttons, table headers,
+   focus outlines.
+5. Test states: hover (`--px-color-surface-action-hover`), active, focus
+   outlines, inverted surfaces (dark backgrounds).
+6. Use a tooling aid (e.g. [Leonardo](https://leonardocolor.io/theme.html)) to
+   generate balanced scales if starting from one or two seed colors.
+7. Run automated accessibility checks (e.g. Lighthouse, axe) to validate contrasts.
+
+Do NOT:
+
+- Randomly change semantic tokens like `--px-color-text-default` unless you
+  intentionally override the model.
+- Mix light/dark semantics arbitrarily; ensure base background tokens stay coherent.
+
+Primitive token groups you can safely adjust:
+
+- `--px-color-brand-*`
+- `--px-color-accent-*`
+- `--px-color-neutral-*`
+
+- Semantic palettes for status:
+
+- `--px-color-info-*`
+- `--px-color-success-*`
+- `--px-color-warning-*`
+- `--px-color-danger-*`
+
+Avoid altering:
+
+- Focus ring semantic tokens unless verifying accessibility (`--px-color-border-focus-outline`).
+- Action text vs. action background pairings (they are tuned for contrast).
+
+Reference mapping (primitive → semantic usage) is documented below to understand
+impact of changing a primitive.
+
+#### Color mappings
+
+Below is the mapping of primitive tokens to semantic tokens that consume them:
 
 - `--px-color-base-00`
     - `--px-color-background-default`
@@ -300,3 +489,43 @@ used.
 - `--px-color-danger-600`
     - `--px-color-border-error`
     - `--px-color-icon-error`
+
+---
+
+## Troubleshooting
+
+| Issue | Possible Cause | Fix |
+|-------|----------------|-----|
+| Language not switching | Missing folder or translation key | Verify `locales/<lang>/translation.json` exists and is valid JSON |
+| Icons not showing | File name mismatch | Ensure mapping file matches actual SVG names |
+| Colors look inconsistent | Edited semantic tokens directly | Revert semantic tokens; adjust primitives only |
+| Table too large error | API limit lower than UI limit | Align `maxDataCells` with API config |
+| Broken layout after font change | Font weights not matching | Provide correct weights or adjust CSS font-weight usage |
+
+---
+
+## Checklist After Customization
+
+- [ ] All languages load without console errors.
+- [ ] Color contrast passes automated tests.
+- [ ] Focus outline visible on interactive elements.
+- [ ] Missing value characters render distinctly.
+- [ ] Icons display in both normal and small variants.
+- [ ] No 404s for font or icon assets.
+- [ ] Table size limit behaves as expected.
+
+---
+
+## Summary
+
+Customize primarily through:
+
+- `config/config.js` (behavior, language, API settings)
+- `locales/<lang>/translation.json` (text)
+- `theme/variables.css` (tokens: colors, radii, possibly fonts)
+- `icons/` (topic icons)
+- `index.html` (base path, structural HTML, optional static footer/start content)
+
+Make incremental changes and test after each step for accessibility and consistency.
+
+---
