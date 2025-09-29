@@ -318,13 +318,66 @@ Edit these CSS variables in `theme/variables.css`:
 Do not alter `--px-border-radius-none` or `--px-border-radius-full` unless you
 know the side effects (they are used for logical extremes).
 
-### Change the text and related links on the start page
+### Change the text and related links on the startpage and in the footer
 
-TODO
+The `content.json` file defines customizable text and links that appear in
+**PxWeb’s user interface** This file allows you to configure localized UI
+content: you can add or change the **breadcrumb navigation** on the start page,
+add a **detailsSection** after the ingress on the start page, or update the
+**footer** content for the application.
 
-### Change the links in the footer
+```sh
+root/content
+├── ar
+│   └── content.json
+├── en
+│   └── content.json
+├── no
+│   └── content.json
+└── sv
+    └── content.json
+```
 
-TODO
+- Each language folder contains its own `content.json`.
+- The active language determines which file is loaded at runtime.
+- This makes it possible to have different breadcrumbs, footer links, or details
+  text depending on the selected language.
+
+**Structure overview:**
+
+```json
+{
+  "startPage": {
+    "breadCrumb": {
+      "enabled": false,
+      "items": []
+    },
+    "detailsSection": {
+      "enabled": true,
+      "detailHeader": "More about PxWeb",
+      "detailContent": []
+    }
+  },
+  "footer": {
+    "columns": []
+  }
+}
+```
+
+- **startPage.breadCrumb**
+  Optional breadcrumb navigation on start page. Enabled with the `enabled` flag.
+  Each item contains a `label` and an `href`.
+- **startPage.detailsSection** – Optional section below the page ingress. When
+  `enabled` is `true`, the application renders the **`DetailsSection` component**.
+  This section can contain multiple entries, and each entry may be either a
+  `textBlock` (with `header` and `text`) or a `links` block (with `header` and a
+  list of `items`).
+
+- **footer**
+  One or more footer columns with `header` and list of `links`.
+
+  This setup allows administrators to adjust localized content (text and links)
+  for each language without modifying the application code.
 
 ### Change the colors (Design Tokens)
 
