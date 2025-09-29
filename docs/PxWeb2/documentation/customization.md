@@ -68,6 +68,7 @@ root
 │       └── translation.json
 └── theme
     └── variables.css
+
 ```
 
 1. `index.html` is the page that bootstraps PxWeb.
