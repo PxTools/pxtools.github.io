@@ -56,6 +56,8 @@ root
 │           ├── icon2.svg
 │           └── ...
 ├── images
+│   ├── favicon.svg
+│   ├── favicon-darkmode.svg
 │   └── logo.svg
 ├── locales                  # (7)!
 │   ├── ar
@@ -235,10 +237,6 @@ Keys reflect where in the UI a string is used. Only modify values.
 ??? tip "Example snippet"
     ```json
     {
-      "meta": {
-        "languageName": "English",
-        "shorthand": "en"
-      },
       "common": {
         "title": "PxWeb 2.0",
         "header": {
