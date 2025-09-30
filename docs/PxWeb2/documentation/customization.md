@@ -1,19 +1,63 @@
 # Customization
 
-PxWeb comes prebuilt with configuration for tables in English.
-This documents describes how to add more languages in both PxWeb and PxWebApi.
-Language codes are [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) (two letters).
+PxWeb comes prebuilt with configuration for tables in English, a set of fonts
+colors and icons. This guide help you customize PxWeb to your needs.
 
-## PxWeb
+You can:
 
-After installation there is as folder called `public` which contain files that
-can be changed.
+- Configure available languages and set a default fallback.
+- Add a new language or adjust existing translations.
+- Change colors (design tokens).
+- Adjust corner radii of UI elements.
+- Replace fonts.
+- Change topic icons.
+- Limit table sizes.
+- Control how languages appear in URLs.
+- Hide variables from the variable filter.
+- Customize start page text and footer links (examples included below).
+- Define characters used for missing values.
+
+Below you will find a set of practical **How to** sections.
+
+---
+
+## Folder structure
+
+When you unzip the official PxWeb 2.0 release you get a structure like:
 
 ```sh
-public
+root
+├── index.html               # (1)!
+├── web.config               # (2)!
+├── assets                   # (3)!
 ├── config
-│   └── config.js
-├── locales
+│   └── config.js            # (4)!
+├── content                  # (5)!
+│   ├── ar
+│   │   └── content.json
+│   ├── en
+│   │   └── content.json
+│   ├── no
+│   │   └── content.json
+│   └── sv
+│       └── content.json
+├── fonts                    
+│   ├── PxWeb-font-400.ttf
+│   ├── PxWeb-font-500.ttf
+│   └── PxWeb-font-700.ttf
+├── icons
+│   ├── topicIconMap.json    # (6)!
+│   └── topic
+│       ├── icon1.svg
+│       ├── icon2.svg
+│       ├── ...
+│       └── small/
+│           ├── icon1.svg
+│           ├── icon2.svg
+│           └── ...
+├── images
+│   └── logo.svg
+├── locales                  # (7)!
 │   ├── ar
 │   │   └── translation.json
 │   ├── en
@@ -23,49 +67,268 @@ public
 │   └── sv
 │       └── translation.json
 └── theme
-│   └── variables.css
-├── icon
-│   ├── topicIconMap.json
-│   ├── topicIcons.json
-│   └── topic
-│       ├── icon1.svg
-│       ├── icon2.svg
-│       ├── ...
-│       └── small/
-│           ├── icon1.svg
-│           ├── icon2.svg
-│           └── ...
-├── content
-│   ├── en
-│   │   └── content.json
-│   └── sv
-│   │   └── content.json
-│   └── ...
+    └── variables.css
+
 ```
 
-### config.js
+1. `index.html` is the page that bootstraps PxWeb.
+2. `web.config` is a starting point if you host on Microsoft IIS.  
+3. `assets` contains the compiled JavaScript/CSS for PxWeb. You normally do not
+    edit anything inside this folder.
+4. `config.js` the main config file for PxWeb.
+5. `content` a folder containg content customizations e.g. links in the footer.
+6. `topicIconMap.json` is a file where mapping between tables `SUBJECT-CODE` and
+    icons are made.
+7. `locales` a folder where translated text are placed.
 
-```javascript
-window.PxWeb2Config = {
-  language: {
-    supportedLanguages: [
-      { shorthand: "en", languageName: "English" },
-      { shorthand: "zz", languageName: "Your Language" },
-    ],
-    defaultLanguage: "en",
-    fallbackLanguage: "en",
-  },
-  apiUrl: "...",
-};
+---
+
+## How to’s
+
+### Change the API endpoint
+
+PxWeb retrieves table metadata and data from a PxWeb API 2.0 instance.  
+Open `config/config.js` and set `apiUrl`:
+
+```js hl_lines="11"
+  window.PxWeb2Config = {
+    language: {
+      supportedLanguages: [
+        { shorthand: 'en', languageName: 'English' }
+      ],
+      defaultLanguage: 'en',
+      fallbackLanguage: 'en',
+      showDefaultLanguageInPath: true,
+    },
+    baseApplicationPath: '/',
+    apiUrl: "https://your.api.server/PxWeb/api/v2",
+    maxDataCells: 100000,
+    specialCharacters: ['.', '..', ':', '-', '...', '*'],
+    variableFilterExclusionList: {
+      en: [
+        'observations',
+        'year',
+        'quarter',
+        'month',
+        'every other year',
+        'every fifth year',
+      ]
+    },
+  };
 ```
 
-### content.json
+Omit a trailing slash, one is added automatically.
 
-The `content.json` file defines customizable text and links that appear in **PxWeb’s user interface**
-This file allows you to configure localized UI content: you can add or change the **breadcrumb navigation** on the start page, add a **detailsSection** after the ingress on the start page, or update the **footer** content for the application.
+### Run PxWeb under a subpath
+
+If you serve PxWeb from e.g. `https://www.mysite.org/pxweb` (without an upstream
+reverse proxy):
+
+1. Set `baseApplicationPath` in `config/config.js`:
+
+   ```js
+   baseApplicationPath: "/pxweb/"
+   ```
+
+2. In `index.html`, adjust the `<base>` tag:
+
+   ```html
+   <base href="/pxweb/">
+   ```
+
+3. Ensure the web server rewrites (if needed) static file requests correctly to
+   that subpath.
+
+### Limit how large tables can be viewed
+
+Set `maxDataCells` in `config/config.js`. Example:
+
+```js
+maxDataCells: 500000
+```
+
+!!! note "API limitation"
+    The API has its own limit. Do not set the UI limit higher than the API’s
+    backend limit to avoid inconsistent behavior. Usually they should match.
+
+### Change the default characters for missing values
+
+Edit the `specialCharacters` array in `config/config.js`:
+
+```js
+specialCharacters: ['.', '..', ':', '-', '...', '*']
+```
+
+These are displayed when a data point is missing or confidential.
+
+### Exclude variables from the variable filter
+
+To hide certain variables from appearing in the initial variable filter, add
+their (localized) names under `variableFilterExclutionList` per language in `config/config.js`:
+
+```js
+variableFilterExclutionList: {
+  en: ["Contents"],
+  sv: ["Innehåll"]
+}
+```
+
+Repeat for every supported language.
+
+### Configure site languages
+
+In `config/config.js`:
+
+```js hl_lines="2 3 4 5 6 7 8 9 10"
+  window.PxWeb2Config = {
+    language: {
+      supportedLanguages: [
+        { shorthand: 'en', languageName: 'English' },
+        { shorthand: 'sv', languageName: 'Svenska' }
+      ],
+      defaultLanguage: 'sv',
+      fallbackLanguage: 'en',
+      showDefaultLanguageInPath: true,
+    },
+    baseApplicationPath: '/',
+    apiUrl: "https://your.api.server/PxWeb/api/v2",
+    maxDataCells: 100000,
+    specialCharacters: ['.', '..', ':', '-', '...', '*'],
+    variableFilterExclusionList: {
+      en: [
+        'observations',
+        'year',
+        'quarter',
+        'month',
+        'every other year',
+        'every fifth year',
+      ]
+    },
+  };
+```
+
+- `supportedLanguages`: The active languages (must match those available in the API).
+- `defaultLanguage`: The primary language.
+- `fallbackLanguage`: Used if a translation key is missing for the active language.
+- `showDefaultLanguageInPath`: If `true`, URLs include the default language code.
+
+### Add a completely new language
+
+1. Create a folder under `locales/` using the ISO 639‑1 two-letter code (e.g. `fr`).
+2. Copy `locales/en/translation.json` into `locales/fr/translation.json`.
+3. Translate the values (keep keys intact).
+4. Add `"fr"` to `supportedLanguages`.
+5. (Optional) Add localized content under `content/fr/content.json` if your
+   content system uses it.
+
+### Change fonts
+
+Replace the font files in the `fonts` directory. Keep file names.
+
+Make sure you have the proper license to self-host fonts.
+
+### Adjust or fix text / translations
+
+Edit the relevant `locales/<lang>/translation.json`.  
+Keys reflect where in the UI a string is used. Only modify values.  
+
+??? tip "Example snippet"
+    ```json
+    {
+      "meta": {
+        "languageName": "English",
+        "shorthand": "en"
+      },
+      "common": {
+        "title": "PxWeb 2.0",
+        "header": {
+          "logo": "PxWeb 2.0",
+          "logo_alt": "To the front page",
+          "language_selector": "Språk/Language"
+        },
+      }
+    }  
+    ```
+
+### Hide or show the default language in the URL
+
+Toggle:
+```js hl_lines="8"
+  window.PxWeb2Config = {
+    language: {
+      supportedLanguages: [
+        { shorthand: 'en', languageName: 'English' }
+      ],
+      defaultLanguage: 'en',
+      fallbackLanguage: 'en',
+      showDefaultLanguageInPath: true, // or false
+    },
+    baseApplicationPath: '/',
+    apiUrl: "https://your.api.server/PxWeb/api/v2",
+    maxDataCells: 100000,
+    specialCharacters: ['.', '..', ':', '-', '...', '*'],
+    variableFilterExclusionList: {
+      en: [
+        'observations',
+        'year',
+        'quarter',
+        'month',
+        'every other year',
+        'every fifth year',
+      ]
+    },
+  };
+```
+
+in the `language` section of `config/config.js`.
+
+### Change topic icons on the start page
+
+Each table can have an associated icon. Mapping is done through the table’s
+`SOBJECT-CODE` in:
+
+```bash
+/icons/topicIconMap.json
+```
+
+Add mapping between subject code and icon file like:
+
+```json
+{
+  "ED": "education.svg",
+  "HE": "health.svg"
+}
+```
+
+If you whant to user your own icons add them in both:
+
+- `/icons/topic/` (SVG 36×36)
+- `/icons/topic/small/` (SVG 28×28)
+
+### Change corner rounding (border radii)
+
+Edit these CSS variables in `theme/variables.css`:
+
+- `--px-border-radius-xxsmall`
+- `--px-border-radius-xsmall`
+- `--px-border-radius-small`
+- `--px-border-radius-medium`
+- `--px-border-radius-large`
+- `--px-border-radius-xlarge`
+
+Do not alter `--px-border-radius-none` or `--px-border-radius-full` unless you
+know the side effects (they are used for logical extremes).
+
+### Change the text and related links on the startpage and in the footer
+
+The `content.json` file defines customizable text and links that appear in
+**PxWeb’s user interface** This file allows you to configure localized UI
+content: you can add or change the **breadcrumb navigation** on the start page,
+add a **detailsSection** after the ingress on the start page, or update the
+**footer** content for the application.
 
 ```sh
-public/content
+root/content
 ├── ar
 │   └── content.json
 ├── en
@@ -78,7 +341,8 @@ public/content
 
 - Each language folder contains its own `content.json`.
 - The active language determines which file is loaded at runtime.
-- This makes it possible to have different breadcrumbs, footer links, or details text depending on the selected language.
+- This makes it possible to have different breadcrumbs, footer links, or details
+  text depending on the selected language.
 
 **Structure overview:**
 
@@ -104,125 +368,218 @@ public/content
 - **startPage.breadCrumb**
   Optional breadcrumb navigation on start page. Enabled with the `enabled` flag.
   Each item contains a `label` and an `href`.
-- **startPage.detailsSection** – Optional section below the page ingress. When `enabled` is `true`, the application renders the **`DetailsSection` component**. This section can contain multiple entries, and each entry may be either a `textBlock` (with `header` and `text`) or a `links` block (with `header` and a list of `items`).
+- **startPage.detailsSection** – Optional section below the page ingress. When
+  `enabled` is `true`, the application renders the **`DetailsSection` component**.
+  This section can contain multiple entries, and each entry may be either a
+  `textBlock` (with `header` and `text`) or a `links` block (with `header` and a
+  list of `items`).
 
 - **footer**
   One or more footer columns with `header` and list of `links`.
 
-  This setup allows administrators to adjust localized content (text and links) for each language without modifying the application code.
+  This setup allows administrators to adjust localized content (text and links)
+  for each language without modifying the application code.
 
-### translation.json
+### Change the colors (Design Tokens)
 
-Create a new folder and `translation.json` file using english as a template.
+PxWeb’s visual styling is driven by CSS custom properties (“design tokens”).
+Understanding token layers helps you customize safely.
 
-```json
-{
-  "meta": {
-    "languageName": "English",
-    "shorthand": "en"
-  },
-  "common": {
-    "title": "Welcome to PxWeb 2.0",
-    "header": {
-      "title": "PxWeb 2.0 [Main]",
-      "logo": "PxWeb 2.0"
-    }
-...
-}
-```
+Token categories:
 
-### variables.css
+1. Primitive (Base) Tokens: Raw color values (brand, accent, neutrals, semantic
+   palettes). Example: `--px-color-brand-400`.
+2. Semantic (System) Tokens: Contextual meaning-based tokens mapping to 
+   primitives. Example: `--px-color-surface-default`, `--px-color-text-action`.
+3. Component / Alias Tokens (if introduced later): Optional intermediary 
+   re-mappings for specific components.
 
-The css file will let you adjust colors to match you site profile.
+Principles:
 
-```css
-:root {
-  --px-border-radius-none: 0;
-  --px-border-radius-xxsmall: 0.5px;
-  --px-border-radius-xsmall: 2px;
-  --px-border-radius-small: 4px;
-  --px-border-radius-medium: 8px;
-  --px-border-radius-large: 16px;
-  --px-border-radius-xlarge: 24px;
-  --px-border-radius-full: 9999px;
-  --px-color-background-default: #FFFFFF;
-  --px-color-background-subtle: #F0F8F9;
-...
-```
+- You normally change only primitive tokens (`--px-color-brand-*`,
+  `--px-color-accent-*`, `--px-color-neutral-*`, and semantic palette roots like
+  `--px-color-info-100`).
+- Semantic tokens derive usability (contrast, hierarchy) from primitives. Avoid
+  editing semantic tokens unless you fully control downstream impacts.
+- Keep sufficient contrast (WCAG AA: 4.5:1 for normal text, 3:1 for large / UI elements).
+- Maintain directional progression (e.g. `-50` lighter → `-900` darkest).
 
-### topicIconMap.json
+Location:
+All tokens reside in `theme/variables.css`.
 
-The startpage displays a list of tables using the `TableCard` component. 
-To associate an icon with the main topic a table belongs to, there must be a mapping between the **topic ID** and the corresponding **SVG filename**. 
-This mapping is defined in `/public/icon/topic/topicIconMap.json`
+Typical edit workflow:
 
-If you want to add new icons, they must be placed in both of the following folders:
+1. Inventory current brand identity (primary, secondary, accent).
+2. Decide which existing scale (brand, accent, neutral) maps to your brand palette.
+3. Replace primitive hex values:
 
-- `/public/icon/topic/` — SVG file with dimensions **36x36**
-- `/public/icon/topic/small/` — SVG file with dimensions **28x28**
+   ```css
+   :root {
+     --px-color-brand-50:  #F5FAFF;
+     --px-color-brand-100: #E3F2FE;
+     --px-color-brand-200: #C6E4FD;
+     --px-color-brand-400: #5BB4F6;
+     --px-color-brand-600: #1D78C7;
+     --px-color-brand-800: #0F3F63;
+     --px-color-brand-900: #072638;
+   }
+   ```
 
-> If you need to change an existing topic ID or add a new mapping to a new SVG icon, this must also be done in the `/public/icon/topic/topicIconMap.json` file.
+4. Rebuild or reload the page; verify legibility in buttons, table headers,
+   focus outlines.
+5. Test states: hover (`--px-color-surface-action-hover`), active, focus
+   outlines, inverted surfaces (dark backgrounds).
+6. Use a tooling aid (e.g. [Leonardo](https://leonardocolor.io/theme.html)) to
+   generate balanced scales if starting from one or two seed colors.
+7. Run automated accessibility checks (e.g. Lighthouse, axe) to validate contrasts.
 
-### topicIcons.json
+Do NOT:
 
-This configuration file is used by the application to render the Topic Icons gallery (/topicIcons).
-Each entry corresponds to an SVG file located in public/icons/topic/.
-When adding new icons to public/icons/topic/, you must also update topicIcons.json by appending the new filenames.
+- Randomly change semantic tokens like `--px-color-text-default` unless you
+  intentionally override the model.
+- Mix light/dark semantics arbitrarily; ensure base background tokens stay coherent.
 
-## PxWebApi
+Primitive token groups you can safely adjust:
 
-```sh
-PxWeb
-├── appsettings.Development.json
-├── appsettings.Release.json
-├── appsettings.json
-├── SqlDb.config
-```
+- `--px-color-brand-*`
+- `--px-color-accent-*`
+- `--px-color-neutral-*`
 
-### appsettings.json
+- Semantic palettes for status:
 
-Your can have several [appsettings](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/configuration/)
-configs. The [docker](docker.md) example runs i Development mode and use most
-values from `appsettings.json`. There are currently only two places you need to
-add more languages
+- `--px-color-info-*`
+- `--px-color-success-*`
+- `--px-color-warning-*`
+- `--px-color-danger-*`
 
-```json
-...
-  "PxApiConfiguration": {
-    "Languages": [
-      { "Id": "en", "Label": "English" }
-    ],
-    "DefaultLanguage": "en",
-    "MaxDataCells": 10000,
-    "SourceReferences": [
-      {
-        "Language": "en",
-        "Text": "Source: Statistics Sweden"
-      }
-    ]
-...
-```
+Avoid altering:
 
-### SqlDb.config
+- Focus ring semantic tokens unless verifying accessibility (`--px-color-border-focus-outline`).
+- Action text vs. action background pairings (they are tuned for contrast).
 
-Curently it is exactly as in PxWeb 2023
+Reference mapping (primitive → semantic usage) is documented below to understand
+impact of changing a primitive.
 
-```xml
-<?xml version="1.0" encoding="iso-8859-1"?>
-<SqlDbConfig version="2008"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:noNamespaceSchemaLocation="SqlDbConfig.xsd">
-  <Database id="<ID>" metaModel="2.4">
-...
-```
+#### Color mappings
 
-But you have to change `appsettings.json` to use CNMM like this
+Below is the mapping of primitive tokens to semantic tokens that consume them:
 
-```json
-{
-  "DataSource": {
-    "DataSourceType": "CNMM",
-    "CNMM": {
-      "DatabaseID": "<ID>"
-    }
-```
+- `--px-color-base-00`
+    - `--px-color-background-default`
+    - `--px-color-surface-default`
+    - `--px-color-border-on-inverted`
+    - `--px-color-text-on-inverted`
+    - `--px-color-text-on-action`
+    - `--px-color-icon-on-inverted`
+    - `--px-color-icon-on-action`
+- `--px-color-brand-alpha-800`
+    - `--px-color-surface-scrim`
+- `--px-color-brand-50`
+    - `--px-color-background-subtle`
+    - `--px-color-surface-subtle`
+- `--px-color-brand-100`
+    - `--px-color-surface-moderate`
+    - `--px-color-surface-action-subtle-hover`
+- `--px-color-brand-200`
+    - `--px-color-surface-search-string-highlight`
+    - `--px-color-surface-action-subtle-active`
+    - `--px-color-border-subtle`
+    - `--px-color-border-divider-subtle`
+- `--px-color-brand-400`
+    - `--px-color-border-moderate`
+    - `--px-color-border-divider`
+    - `--px-color-border-hover`
+- `--px-color-brand-600`
+    - `--px-color-text-subtle`
+- `--px-color-brand-800`
+    - `--px-color-surface-inverted`
+    - `--px-color-surface-action`
+    - `--px-color-border-action`
+    - `--px-color-border-selected`
+    - `--px-color-text-action`
+    - `--px-color-icon-action`
+- `--px-color-brand-900`
+    - `--px-color-surface-action-hover`
+    - `--px-color-surface-action-active`
+    - `--px-color-border-default`
+    - `--px-color-border-focus-boxshadow`
+    - `--px-color-text-default`
+    - `--px-color-text-on-action-subtle`
+    - `--px-color-icon-default`
+    - `--px-color-icon-on-action-subtle`
+- `--px-color-accent-300`
+    - `--px-color-border-focus-outline-on-inverted`
+- `--px-color-accent-500`
+    - `--px-color-border-focus-outline`
+- `--px-color-neutral-100`
+    - `--px-color-surface-neutral-subtle`
+- `--px-color-neutral-200`
+    - `--px-color-surface-neutral-moderate`
+- `--px-color-info-100`
+    - `--px-color-surface-info-subtle`
+- `--px-color-info-200`
+    - `--px-color-surface-info-moderate`
+- `--px-color-info-600`
+    - `--px-color-border-info`
+    - `--px-color-icon-info`
+- `--px-color-success-100`
+    - `--px-color-surface-success-subtle`
+- `--px-color-success-200`
+    - `--px-color-surface-success-moderate`
+- `--px-color-success-600`
+    - `--px-color-border-success`
+    - `--px-color-icon-success`
+- `--px-color-warning-100`
+    - `--px-color-surface-warning-subtle`
+- `--px-color-warning-200`
+    - `--px-color-surface-warning-moderate`
+- `--px-color-warning-600`
+    - `--px-color-border-warning`
+    - `--px-color-icon-warning`
+- `--px-color-danger-100`
+    - `--px-color-surface-error-subtle`
+- `--px-color-danger-200`
+    - `--px-color-surface-error-moderate`
+- `--px-color-danger-600`
+    - `--px-color-border-error`
+    - `--px-color-icon-error`
+
+---
+
+## Troubleshooting
+
+| Issue | Possible Cause | Fix |
+|-------|----------------|-----|
+| Language not switching | Missing folder or translation key | Verify `locales/<lang>/translation.json` exists and is valid JSON |
+| Icons not showing | File name mismatch | Ensure mapping file matches actual SVG names |
+| Colors look inconsistent | Edited semantic tokens directly | Revert semantic tokens; adjust primitives only |
+| Table too large error | API limit lower than UI limit | Align `maxDataCells` with API config |
+| Broken layout after font change | Font weights not matching | Provide correct weights or adjust CSS font-weight usage |
+
+---
+
+## Checklist After Customization
+
+- [ ] All languages load without console errors.
+- [ ] Color contrast passes automated tests.
+- [ ] Focus outline visible on interactive elements.
+- [ ] Missing value characters render distinctly.
+- [ ] Icons display in both normal and small variants.
+- [ ] No 404s for font or icon assets.
+- [ ] Table size limit behaves as expected.
+
+---
+
+## Summary
+
+Customize primarily through:
+
+- `config/config.js` (behavior, language, API settings)
+- `locales/<lang>/translation.json` (text)
+- `theme/variables.css` (tokens: colors, radii, possibly fonts)
+- `icons/` (topic icons)
+- `index.html` (base path, structural HTML, optional static footer/start content)
+
+Make incremental changes and test after each step for accessibility and consistency.
+
+---
