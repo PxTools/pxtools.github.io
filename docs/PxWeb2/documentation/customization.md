@@ -1,7 +1,7 @@
 # Customization
 
 PxWeb comes prebuilt with configuration for tables in English, a set of fonts
-colors and icons. This guide help you customize PxWeb to your needs.
+colors and icons. Download the [zip file for the latest release](https://github.com/pxtools/PxWeb2/releases/latest) from GitHub. This guide help you customize PxWeb to your needs.
 
 You can:
 
