@@ -6,8 +6,8 @@ This instruction guides you in how to install PxWeb 2.0 on IIS.
 
 - A supported Windows server with IIS installed.
 - ApiUrl to your PxWebapi2 installation.
-  If your tables endpoint is at "<https://your.api.server/PxWeb/api/v2/tables>"
-  then your ApiUrl is "<https://your.api.server/PxWeb/api/v2>"  (omit a trailing slash, one is added automatically)
+  If your tables endpoint is at `https://your.api.server/PxWeb/api/v2/tables`
+  then your ApiUrl is `https://your.api.server/PxWeb/api/v2`  (omit a trailing slash, one is added automatically)
 
 ## Installation steps
 
