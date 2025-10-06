@@ -1,7 +1,7 @@
 # Plans
 
 The project launched two test versions in June and December 2024 and from then and on the new interface of PxWeb 2.0 is updated every third Monday after the demo. 
-The goal is to deliver a version of PxWeb 2.0 based on PxWebAPI 2.0 during September 2025.
+The goal is to deliver a version of PxWeb 2.0 based on PxWebApi 2.0 during September 2025.
 
 ## PxWebApi 2.0 Release end of August 2025
 - Follows JSON-stat2 format
@@ -33,7 +33,7 @@ The goal is to deliver a version of PxWeb 2.0 based on PxWebAPI 2.0 during Septe
 - Opportunity to see main functionality, buttons and setup
 - Possible to choose values in variables/contents and it will be updated in the table at once
 - Number, decimal and updates in table
-- Using PxWebAPI 2.0 to get information in PxWeb 2.0
+- Using PxWebApi 2.0 to get information in PxWeb 2.0
 - The test version gets data from a test database in SCB – it shows Swedish and English texts
 
 ## PxWeb 2.0 testversion June 2024
