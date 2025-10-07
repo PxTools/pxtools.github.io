@@ -19,9 +19,9 @@ nav:
           - Install PxWeb 2.0 on IIS: PxWeb2/documentation/installation-on-iis.md
       - Customization:
           - Customize PxWebApi 2.0: PxWebApi/documentation/configuration.md
-          - Customize PxWeb2: PxWeb2/documentation/customization.md
+          - Customize PxWeb 2.0: PxWeb2/documentation/customization.md
       - Demo:
-          - Install PxWeb2 and PxWebApi 2.0 with Docker: PxWeb2/documentation/docker.md
+          - Try PxWeb 2.0 with Docker: PxWeb2/documentation/docker.md
       - Px File Format:
           - Version 2013: px-file-format/px-2013.md
   - Tools:

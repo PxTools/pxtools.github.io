@@ -61,7 +61,7 @@ Follow instructions for one of the databases
   office's local security policies.
 
     These are the files you need to change. A detailed description is in the
-    [customization chapter](customization.md).
+    [configuration chapter](../../PxWebApi/documentation/configuration.md).
 
     ```sh
     docker/pxwebapi/appsettings.json
