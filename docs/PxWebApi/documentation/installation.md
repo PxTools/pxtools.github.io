@@ -9,9 +9,9 @@ This instruction guides you in how to install PxWebApi 2.0 on a clean install of
 - Download the [zip file for the latest release](https://github.com/pxtools/PxWebApi/releases/latest) from GitHub. Make sure to _Unblock_ it if its block by right clicking on it in _File Explorer_ and check the `Unblock` checkbox.
 - Extract the zip file to the location of your choice.
 - Copy the content of the `release` folder that you just extracted to `C:\inetpub\wwwroot`.
-- Give the user `IIS APPPOOL\DefaultAppPoo` `Modify` and `Write` permissions to the folder  `C:\inetpub\wwwroot\wwwroot\ControllerStates`.
-- Create a folder called `sq` under `C:\inetpub\wwwroot\wwwroot` and place you data in that folder. And give the user `IIS APPPOOL\DefaultAppPoo` `Modify` and `Write` permissions.
-- Create a folder called `Database` under `C:\inetpub\wwwroot\wwwroot` and place you data in that folder. And give the user `IIS APPPOOL\DefaultAppPoo` `Modify` and `Write` permissions.
+- Give the user `IIS APPPOOL\DefaultAppPool` `Modify` and `Write` permissions to the folder  `C:\inetpub\wwwroot\wwwroot\ControllerStates`.
+- Create a folder called `sq` under `C:\inetpub\wwwroot\wwwroot` and place you data in that folder. And give the user `IIS APPPOOL\DefaultAppPool` `Modify` and `Write` permissions.
+- Create a folder called `Database` under `C:\inetpub\wwwroot\wwwroot` and place you data in that folder. And give the user `IIS APPPOOL\DefaultAppPool` `Modify` and `Write` permissions.
 
 !!! info
     If you do not have any data of your own you can download the 
