@@ -54,7 +54,7 @@ If you are trying to run PxWeb directly on the server under localhost you might 
 
 Change localhost in the URL to the computer name of the server.
 
-### Refuses to connect to PxWebApi
+### PxWeb refuses to connect to PxWebApi
 
 If you get an error message looking like this in the console of your browser:
 
