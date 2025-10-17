@@ -36,7 +36,7 @@ This instruction guides you in how to install PxWeb 2 on IIS.
     <add name="Content-Security-Policy" value="default-src 'self'; connect-src 'self' https://api.scb.se; script-src 'self'" />
     ```
 
-1. In IIS find the folder and convert it to application. (Consider using a separate Application pool for this)
+1. In IIS find the folder and convert it to an application. (Consider using a separate Application pool for this)
 
 1. Open "http(s)://"server adress"/pxweb2 .
 
