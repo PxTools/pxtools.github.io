@@ -355,6 +355,10 @@ root/content
       "enabled": true,
       "detailHeader": "More about PxWeb",
       "detailContent": []
+    },
+    "noResultSearchHelp": {
+      "enabled": true,
+      "helpText": []
     }
   },
   "footer": {
@@ -371,6 +375,10 @@ root/content
   This section can contain multiple entries, and each entry may be either a
   `textBlock` (with `header` and `text`) or a `links` block (with `header` and a
   list of `items`).
+- **startPage.noResultSearchHelp** – Optional section displayed below
+  the “no results” message when no tables match the search or filters.
+  When `enabled` is `true`, each string in the `helpText` array is shown
+  as a separate list item under a help heading.
 
 - **footer**
   One or more footer columns with `header` and list of `links`.
