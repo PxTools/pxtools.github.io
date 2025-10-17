@@ -1,4 +1,4 @@
-# Configuring PxWebApi 2.0
+# Configuring PxWebApi 2
 The configuration is split into several different files, each with a specific purpose. The main file you will need to modify is `appsettings.json`.
 
 ## appsettings.json
