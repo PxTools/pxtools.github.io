@@ -1,6 +1,6 @@
-# Install PxWebApi 2.0 on your IIS server
+# Install PxWebApi 2 on your IIS server
 
-This instruction guides you in how to install PxWeb 2.0 on IIS.
+This instruction guides you in how to install PxWeb 2 on IIS.
 
 ## Prerequisites
 
