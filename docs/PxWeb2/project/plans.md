@@ -1,19 +1,20 @@
 # Plans
 
-## Remaining to develop after 2025 in PxWeb 2.0
+## Remaining to develop after 2025 in PxWeb 2
 - Graph
 - Hierarchy
 - Sort order
 - Sum
+- more...
 
 ## Remaining to develop 2025 
-- Show PxWebApi 2.0 in PxWeb
+- Show PxWebApi 2 in PxWeb
 - Search in beginning of words
 - Hide empty rows from table
 - Chose code/text
 - Saved query as alternative to the algorithm (documentation)
 
-## PxWeb 2.0 Release October 2025 
+## PxWeb 2 Release October 2025 
 - Startpage
 - Save to file
 - Saved query
@@ -21,7 +22,7 @@
 - Pivoting
 - Head and footer
 
-## PxWebApi 2.0 Release end of August 2025
+## PxWebApi 2.0 Release September 2025
 - Follows JSON-stat2 format
 - Save to file
 - Saved query
