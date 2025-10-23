@@ -15,7 +15,7 @@ It will be possible to change
 - corner radius of the elements in the interface.
 ## Open source at GitHub
 The new interface will be able do install directly from GitHub. Also documentation will be found here. 
-[PxTools at GitHub](https://github.com/pxtools)
+[PxTools at GitHub](https://www.pxtools.net/documentation/overview/)
 ## Usertest
 We are following the UX design process in this project.
 ![The Ux design process](https://github.com/PxTools/PxWeb2/assets/81364833/8534bfdb-1d0c-49ef-8f2b-5b59357a37bf)
