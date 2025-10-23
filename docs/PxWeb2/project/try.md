@@ -1,9 +1,9 @@
 # Follow the development of PxWeb 2
 
-## Tables from the Swedish database
+## Tables from Statistics Sweden database
 - [Database from Statistics Sweden](https://test.pxweb2.pages.dev/sv/)
   
-## Tables from the Norwegian database
+## Tables from Statistics Norway database
 - [Database from Statistics Norway](https://test-ssb.pxweb2.pages.dev/no/)
 
 ## Try it with your own data
