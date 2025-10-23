@@ -1,6 +1,8 @@
-# Overview
+# Introduction to PxWeb
 ## Background
-The user interface in PxWeb ccould no longer be further developed effectively due to technological limitations, while the users needs and expectations are constantly changing. Statistics Sweden and Statistics Norway therefore together created a new user interface based on PxWebApi 2
+PxWeb is an application for diseminating statistics in dynamic tables from an SQL- or file based database at the web. Statistics Sweden and Statistics Norway has together run a project that started January 2024 and created a new user interface based on PxWebApi 2 that was released in it's first version October 2025.The user interface in PxWeb could no longer be further developed effectively due to technological limitations, while the users needs and expectations are constantly changing. 
+
+
 
 ## Two project goals
 - The project will work on a new userfriendly interface based on PxWebApi 2.0 during 2024 - 2025 with the launch of the first test-version in mid-2024
