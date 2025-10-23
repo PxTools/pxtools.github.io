@@ -16,7 +16,7 @@ The steering group consist of managers at Communication and IT in SCB and SSB.
 The team had participants from both Statistics Sweden and Statistics Norway.
 The team is set up with
 - Project leader
-- Scrum master
+- Scrummaster
 - Architects
 - Designer (UX and UI)
 - Developers
