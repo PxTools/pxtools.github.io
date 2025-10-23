@@ -1,5 +1,5 @@
 # PxWeb solution
-In this project, we have made some choices about how we will work in the project across two countries, in order to create opportunities for other countries to contribute in the long term with both development and user testing of PxWeb 2.0. In addition, we have made some choices to find the best solution for installing PxWeb. All this to reach the main goal to create a user-friendly PxWeb.
+In the project, we have made some choices about how we will work in the project across two countries, in order to create opportunities for other countries to contribute in the long term with both development and user testing of PxWeb 2.0. In addition, we have made some choices to find the best solution for installing PxWeb. All this to reach the main goal to create a user-friendly PxWeb.
 ## WCAG and Search Engine Optimization (SEO)
 - The new interface will follow the rules for A and AA in [WCAG 2.1](https://www.w3.org/TR/WCAG21/)
 - SEO is the use of methods that achieve better visibility or "ranking" on search engines result page.
@@ -15,7 +15,7 @@ It will be possible to change
 - corner radius of the elements in the interface.
 ## Open source at GitHub
 The new interface will be able do install directly from GitHub. Also documentation will be found here. 
-[PxTools at GitHub](https://github.com/pxtools)
+[PxTools at GitHub](https://www.pxtools.net/documentation/overview/)
 ## Usertest
 We are following the UX design process in this project.
 ![The Ux design process](https://github.com/PxTools/PxWeb2/assets/81364833/8534bfdb-1d0c-49ef-8f2b-5b59357a37bf)

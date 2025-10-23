@@ -1,30 +1,33 @@
 # Plans
 
-The project launched two test versions in June and December 2024 and from then and on the new interface of PxWeb 2.0 is updated every third Monday after the demo. 
-The goal is to deliver a version of PxWeb 2.0 based on PxWebApi 2.0 during September 2025.
+## Remaining to develop after 2025 in PxWeb 2
+- Graph
+- Hierarchy
+- Sort order
+- Sum
+- more...
 
-## PxWebApi 2.0 Release end of August 2025
+## Remaining to develop 2025 
+- Show PxWebApi 2 in PxWeb
+- Search in beginning of words
+- Hide empty rows from table
+- Chose code/text
+- Saved query as alternative to the algorithm (documentation)
+
+## PxWeb 2 Release October 2025 
+- Startpage
+- Save to file
+- Saved query
+- URL and breadcrumb
+- Pivoting
+- Head and footer
+
+## PxWebApi 2.0 Release September 2025
 - Follows JSON-stat2 format
 - Save to file
 - Saved query
 - Pivot
 
-## PxWeb 2.0 Release end of September 2025 
-- Startpage
-- Save to file
-- Saved query
-- URL and breadcrumb
-- Saved queary as alternative to the algorithm
-- Pivoting
-- Head and footer
-- Show PxWebApi 2.0
-
-## Remaining to develop after September 2025 in PxWeb 2.0
-- Graph
-- code/text
-- Hierarchy
-- Sort order
-- Sum
 ------------------------------------------------------------------------------------------- 
 ## PxWeb 2.0 testversion December 2024
 - Comprehensible table at first glance - Using an algorithm to show an understandable table the first time you look at it
