@@ -7,7 +7,7 @@
 - [Database from Statistics Norway](https://test-ssb.pxweb2.pages.dev/no/)
 
 ## Try it with your own data
-You are free to test the database with your own data. It works both with px-files and cnmm database
+You are free to test PxWeb2 with your own data. It works both with px-files and cnmm database
 - [Read the documentation](https://www.pxtools.net/documentation/overview/)
 
 
