@@ -1,4 +1,4 @@
-# Scrum process 
+# Process in the project (January 2024 - October 2025)
 - The project group work in sprints of three weeks.
 - The group follow the scrum rituals with sprintplanning, refinement, retro and daily stand-up.
 - The sprints end with a demo (sprint review) on Monday every third week at twelve o'clock.
