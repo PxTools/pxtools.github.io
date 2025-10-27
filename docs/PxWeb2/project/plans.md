@@ -1,18 +1,23 @@
 # Plans
 
+## Remaining to develop 2025 
+- Show PxWebApi 2 in PxWeb
+- Improve search at start page
+- Search in beginning of words
+- Hide empty rows from table
+- Chose code/text
+- Button to improve table layout
+- Freeze table head
+- Possibility for own link in logo
+- WCAG-fixes
+- Saved query as alternative to the algorithm (documentation)
+
 ## Remaining to develop after 2025 in PxWeb 2
 - Graph
 - Hierarchy
 - Sort order
 - Sum
 - more...
-
-## Remaining to develop 2025 
-- Show PxWebApi 2 in PxWeb
-- Search in beginning of words
-- Hide empty rows from table
-- Chose code/text
-- Saved query as alternative to the algorithm (documentation)
 
 ## PxWeb 2 Release October 2025 
 - Startpage
