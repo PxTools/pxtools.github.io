@@ -2,12 +2,14 @@
 
 ## Remaining to develop 2025 
 - Show PxWebApi 2 in PxWeb
-- Improve search at start page
-- Search in beginning of words
-- Hide empty rows from table
-- Chose code/text
 - Button to improve table layout
 - Freeze table head
+- Improve search at start page (search for variables and values)
+- Search in beginning of words in variable list
+- Hide empty rows from table
+- Chose to show code or text
+- Manual pivoting
+- Possibility for text and links in Help 
 - Possibility for own link in logo
 - WCAG-fixes
 - Saved query as alternative to the algorithm (documentation)
