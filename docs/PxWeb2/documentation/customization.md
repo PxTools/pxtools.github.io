@@ -366,7 +366,19 @@ root/content
     }
   },
   "footer": {
-    "columns": []
+    "columns": [
+      {
+        "header": "This is a header",
+          "links": [
+            {
+              "text": "Link text",
+              "url": "https://your.link.here",
+              "external": true
+            },
+            { "text": "Contact us", "url": "mailto:mail@example.com" }
+          ]
+      }
+    ]
   }
 }
 ```
@@ -381,7 +393,7 @@ root/content
   list of `items`).
 
 - **footer**
-  One or more footer columns with `header` and list of `links`.
+  One or more footer columns with `header` and list of `links`. If links have `external` set to `true`, they automatically will have the icon for external links and will open in a new tab. See example above.
 
   This setup allows administrators to adjust localized content (text and links)
   for each language without modifying the application code.
