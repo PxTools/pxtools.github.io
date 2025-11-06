@@ -279,9 +279,9 @@ Example of how `simple_date_with_time` for english is displayed in PxWeb2 UI:
 ??? tip "norwegian date formats"
     ```json
     "date": {
-    "simple_date": "{{value, datetime(day: '2-digit'; month: '2-digit'; year: 'numeric')}}",
-    "simple_date_with_time": "{{value, datetime(year: 'numeric'; month: '2-digit'; day: '2-digit'; hour: 'numeric'; minute: 'numeric')}}"
-  },
+      "simple_date": "{{value, datetime(day: '2-digit'; month: '2-digit'; year: 'numeric')}}",
+      "simple_date_with_time": "{{value, datetime(year: 'numeric'; month: '2-digit'; day: '2-digit'; hour: 'numeric'; minute: 'numeric')}}"
+    }
     ```
 
 Example of how `simple_date_with_time` for norwegian is displayed with two digit configuration in PxWeb2 UI:
