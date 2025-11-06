@@ -229,6 +229,14 @@ Replace the font files in the `fonts` directory. Keep file names.
 
 Make sure you have the proper license to self-host fonts.
 
+### Change logo and favicon
+To change the logo/favicon in PxWeb replace svgs in the image folder. The names must be the same.
+
+For image replace `images/logo.svg` with your own logo.
+Replace `images/favicon.ico` / `images/favicon-darkmode.svg` with your own favicon.
+
+The svg **must** include viewbox and width/height attributes for it to be rendered correctly.
+
 ### Adjust or fix text / translations
 
 Edit the relevant `locales/<lang>/translation.json`.  
