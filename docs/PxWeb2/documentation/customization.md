@@ -425,7 +425,30 @@ root/content
     "detailsSection": {
       "enabled": true,
       "detailHeader": "More about PxWeb",
-      "detailContent": []
+      "detailContent": [
+                {
+          "textBlock": {
+            "header": "When to use this section",
+            "text": "This is an optional section that can be used for content that may be useful for some users, but is not essential for everyone. Key information that all users need to see should always appear in the lead paragraph."
+          }
+        },
+        {
+          "links": {
+            "header": "Useful resources",
+            "items": [
+              {
+                "text": "Example link 1",
+                "url": "#"
+              },
+              {
+                "text": "Example link 2 (open in new tab)",
+                "url": "#",
+                "openInNewTab": true
+              }
+            ]
+          }
+        }
+      ]
     }
   },
   "footer": {
@@ -453,7 +476,7 @@ root/content
   `enabled` is `true`, the application renders the **`DetailsSection` component**.
   This section can contain multiple entries, and each entry may be either a
   `textBlock` (with `header` and `text`) or a `links` block (with `header` and a
-  list of `items`).
+  list of `items`). Links described in `items` have `text`, `url`, and an optional `openInNewTab` boolean. If `openInNewTab` is `true`, the link opens in a new browser tab.
 
 - **footer**
   One or more footer columns with `header` and list of `links`. If links have `external` set to `true`, they automatically will have the icon for external links and will open in a new tab. See example above.
