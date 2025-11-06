@@ -256,6 +256,37 @@ Keys reflect where in the UI a string is used. Only modify values.
     }  
     ```
 
+### Change date format in translation file
+
+Edit the relevant `locales/<lang>/translation.json` file.  
+We have two date formats defined under `date` in translation files - `simple_date` and `simple_date_with_time`. 
+
+Change the format options as needed. **PxWeb2** uses `Intl.DateTimeFormat` for date formatting. See documentation for options here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat
+
+Here is an examples configuration used for english and norwegian:
+
+??? tip "english date formats"
+    ```json
+    "date": {
+      "simple_date": "{{value, datetime}}",
+      "simple_date_with_time": "{{value, datetime(year: 'numeric'; month: 'numeric'; day: 'numeric'; hour: 'numeric'; minute: 'numeric')}}"
+    }
+    ``` 
+
+Example of how `simple_date_with_time` for english is displayed in PxWeb2 UI:
+`2/21/2025, 8:00 AM`
+
+??? tip "norwegian date formats"
+    ```json
+    "date": {
+    "simple_date": "{{value, datetime(day: '2-digit'; month: '2-digit'; year: 'numeric')}}",
+    "simple_date_with_time": "{{value, datetime(year: 'numeric'; month: '2-digit'; day: '2-digit'; hour: 'numeric'; minute: 'numeric')}}"
+  },
+    ```
+
+Example of how `simple_date_with_time` for norwegian is displayed with two digit configuration in PxWeb2 UI:
+`21.02.2025, 08:00`
+
 ### Hide or show the default language in the URL
 
 Toggle:
