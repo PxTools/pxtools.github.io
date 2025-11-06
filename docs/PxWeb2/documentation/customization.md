@@ -287,6 +287,38 @@ Example of how `simple_date_with_time` for english is displayed in PxWeb2 UI:
 Example of how `simple_date_with_time` for norwegian is displayed with two digit configuration in PxWeb2 UI:
 `21.02.2025, 08:00`
 
+### Override separators in number formatting per language
+Edit the relevant `locales/<lang>/translation.json` file.
+We have defined multiple number formatting rules under `number` in translation files. Here are some expamples of number formats that are used:
+
+??? tip "number formats"
+    ```json
+    "number": {
+        "simple_number": "{{value, pxNumber}}",
+        "simple_number_with_zero_decimal": "{{value, pxNumber(minimumFractionDigits: 0; maximumFractionDigits: 0;)}}",
+        "simple_number_with_one_decimal": "{{value, pxNumber(minimumFractionDigits: 1; maximumFractionDigits: 1;)}}",
+        "simple_number_with_two_decimals": "{{value, pxNumber(minimumFractionDigits: 2; maximumFractionDigits: 2;)}}",
+      }
+    ```
+
+- `simple_number`: Default number formatting.
+- `simple_number_with_zero_decimal`: Number formatting with no decimal places.
+- `simple_number_with_one_decimal`: Number formatting with one decimal place.
+- `simple_number_with_two_decimals`: Number formatting with two decimal places.
+
+The group and decimal separators are determined by the language locale. However, if you want to customize the number formatting further, you can add additional options to the `pxNumber` formatter.
+
+To override decimal add `decimalSeparator` to the `number_format` object. Likewise, to override group separator add `thousandSeparator` to the `number_format` object.
+
+If you need to add space as a group separator, you add the value `nbsp` for non-breaking space or `nnbsp` for narrow non-breaking space, e.g. `thousandSeparator: 'nbsp'`.
+
+Here is an example of how to override both decimal and group separators for simple_number_with_two_decimals. Use `,` as decimal separator and non-breaking space as group separator:
+```json
+"number": {
+    "simple_number_with_two_decimals": "{{value, pxNumber(minimumFractionDigits: 2; maximumFractionDigits: 2; decimalSeparator: ','; thousandSeparator: 'nbsp';)}}",
+  }
+```
+
 ### Hide or show the default language in the URL
 
 Toggle:
