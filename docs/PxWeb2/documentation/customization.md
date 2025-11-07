@@ -229,6 +229,14 @@ Replace the font files in the `fonts` directory. Keep file names.
 
 Make sure you have the proper license to self-host fonts.
 
+### Change logo and favicon
+To change the logo/favicon in PxWeb replace svgs in the image folder. The names must be the same.
+
+For image replace `images/logo.svg` with your own logo.
+Replace `images/favicon.ico` / `images/favicon-darkmode.svg` with your own favicon.
+
+The svg **must** include viewbox and width/height attributes for it to be rendered correctly.
+
 ### Adjust or fix text / translations
 
 Edit the relevant `locales/<lang>/translation.json`.  
@@ -247,6 +255,69 @@ Keys reflect where in the UI a string is used. Only modify values.
       }
     }  
     ```
+
+### Change date format in translation file
+
+Edit the relevant `locales/<lang>/translation.json` file.  
+We have two date formats defined under `date` in translation files - `simple_date` and `simple_date_with_time`. 
+
+Change the format options as needed. **PxWeb2** uses `Intl.DateTimeFormat` for date formatting. See documentation for options here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat
+
+Here is an examples configuration used for english and norwegian:
+
+??? tip "english date formats"
+    ```json
+    "date": {
+      "simple_date": "{{value, datetime}}",
+      "simple_date_with_time": "{{value, datetime(year: 'numeric'; month: 'numeric'; day: 'numeric'; hour: 'numeric'; minute: 'numeric')}}"
+    }
+    ``` 
+
+Example of how `simple_date_with_time` for english is displayed in PxWeb2 UI:
+`2/21/2025, 8:00 AM`
+
+??? tip "norwegian date formats"
+    ```json
+    "date": {
+      "simple_date": "{{value, datetime(day: '2-digit'; month: '2-digit'; year: 'numeric')}}",
+      "simple_date_with_time": "{{value, datetime(year: 'numeric'; month: '2-digit'; day: '2-digit'; hour: 'numeric'; minute: 'numeric')}}"
+    }
+    ```
+
+Example of how `simple_date_with_time` for norwegian is displayed with two digit configuration in PxWeb2 UI:
+`21.02.2025, 08:00`
+
+### Override separators in number formatting per language
+Edit the relevant `locales/<lang>/translation.json` file.
+We have defined multiple number formatting rules under `number` in translation files. Here are some expamples of number formats that are used:
+
+??? tip "number formats"
+    ```json
+    "number": {
+        "simple_number": "{{value, pxNumber}}",
+        "simple_number_with_zero_decimal": "{{value, pxNumber(minimumFractionDigits: 0; maximumFractionDigits: 0;)}}",
+        "simple_number_with_one_decimal": "{{value, pxNumber(minimumFractionDigits: 1; maximumFractionDigits: 1;)}}",
+        "simple_number_with_two_decimals": "{{value, pxNumber(minimumFractionDigits: 2; maximumFractionDigits: 2;)}}",
+      }
+    ```
+
+- `simple_number`: Default number formatting.
+- `simple_number_with_zero_decimal`: Number formatting with no decimal places.
+- `simple_number_with_one_decimal`: Number formatting with one decimal place.
+- `simple_number_with_two_decimals`: Number formatting with two decimal places.
+
+The group and decimal separators are determined by the language locale. However, if you want to customize the number formatting further, you can add additional options to the `pxNumber` formatter.
+
+To override decimal add `decimalSeparator` to the `number_format` object. Likewise, to override group separator add `thousandSeparator` to the `number_format` object.
+
+If you need to add space as a group separator, you add the value `nbsp` for non-breaking space or `nnbsp` for narrow non-breaking space, e.g. `thousandSeparator: 'nbsp'`.
+
+Here is an example of how to override both decimal and group separators for simple_number_with_two_decimals. Use `,` as decimal separator and non-breaking space as group separator:
+```json
+"number": {
+    "simple_number_with_two_decimals": "{{value, pxNumber(minimumFractionDigits: 2; maximumFractionDigits: 2; decimalSeparator: ','; thousandSeparator: 'nbsp';)}}",
+  }
+```
 
 ### Hide or show the default language in the URL
 
@@ -354,11 +425,46 @@ root/content
     "detailsSection": {
       "enabled": true,
       "detailHeader": "More about PxWeb",
-      "detailContent": []
+      "detailContent": [
+                {
+          "textBlock": {
+            "header": "When to use this section",
+            "text": "This is an optional section that can be used for content that may be useful for some users, but is not essential for everyone. Key information that all users need to see should always appear in the lead paragraph."
+          }
+        },
+        {
+          "links": {
+            "header": "Useful resources",
+            "items": [
+              {
+                "text": "Example link 1",
+                "url": "#"
+              },
+              {
+                "text": "Example link 2 (open in new tab)",
+                "url": "#",
+                "openInNewTab": true
+              }
+            ]
+          }
+        }
+      ]
     }
   },
   "footer": {
-    "columns": []
+    "columns": [
+      {
+        "header": "This is a header",
+          "links": [
+            {
+              "text": "Link text",
+              "url": "https://your.link.here",
+              "external": true
+            },
+            { "text": "Contact us", "url": "mailto:mail@example.com" }
+          ]
+      }
+    ]
   }
 }
 ```
@@ -370,10 +476,10 @@ root/content
   `enabled` is `true`, the application renders the **`DetailsSection` component**.
   This section can contain multiple entries, and each entry may be either a
   `textBlock` (with `header` and `text`) or a `links` block (with `header` and a
-  list of `items`).
+  list of `items`). Links described in `items` have `text`, `url`, and an optional `openInNewTab` boolean. If `openInNewTab` is `true`, the link opens in a new browser tab.
 
 - **footer**
-  One or more footer columns with `header` and list of `links`.
+  One or more footer columns with `header` and list of `links`. If links have `external` set to `true`, they automatically will have the icon for external links and will open in a new tab. See example above.
 
   This setup allows administrators to adjust localized content (text and links)
   for each language without modifying the application code.
