@@ -83,7 +83,8 @@ queries that take a long time to process.
 
 Saved queries are an essential part of the API. Users can create, view, and run
 saved queries. Saved queries can also be used as the default selection when a
-user does not specify any selection when downloading data.
+user does not specify any selection when downloading data see.
+See [Default selection](#default-selection)
 
 You can store saved queries either as files on the file system or in a relational
 database. Select the storage method by setting `SavedQuery.Backend`.
@@ -190,3 +191,35 @@ default, logs are saved in the `/logs` directory. PxWebApi 2.0 relies on log4net
 for logging, which allows you to customize log levels, formats, and destinations.
 For more information on how to configure log4net, please refer to the official
 documentation [here](https://logging.apache.org/log4net/manual/configuration.html).
+
+## Default selection
+
+When data is extracted without giving a selection a default selection is used.
+Then default selection is calculated by an algorithm that selected diffrent
+values from the variables in the tabled depending on the type of variables and
+the number of values. If you are not satisfied with the selection that the
+algorithms selects, you can replace what is beeing used as default selection with
+a saved query. The way to do this is manual and how it is done depends on the
+type of storage for your saved queries.
+
+!!! note
+    Make sure that the `tableId` is the same as the one that the saved query targets.
+
+### Saved queries as files
+
+When you have saved queries stored as files on the filesystem. You replace the
+default selection for a table by taking a copy of the files for the saved queries
+that you would like to be used as the default selection. Rename the copy of the
+files by replacing the saved query id with the id for the table. Then place the
+copy of the files in the right subfolder.
+
+### Saved queries in a database
+
+If you have saved queries stored in a relational database. You replace the
+default selection by adding a entry in the `DefaultSelection` table. This
+requiers two values the id for the table and the id for the saved query.
+
+!!! note
+    Make sure that the `tableId` is the same as the one that the saved query targets.
+    TableId is the primary key so you might have to do a update insted of an insert
+    if a saved query have already been used before.
