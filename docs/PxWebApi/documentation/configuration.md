@@ -112,28 +112,33 @@ The database needs to have two tables `SavedQueryMeta2` and `DefaultSelection`
 With the following structure.
 
 ```
-Table SavedQueryMeta2(
-	[QueryId] [int] NOT NULL,
-	[DataSourceType] [varchar](10) NOT NULL,
-	[DatabaseId] [varchar](500) NULL,
-	[DataSourceId] [varchar](500) NOT NULL,
-	[Status] [char](1) NOT NULL,
-	[StatusUse] [char](1) NOT NULL,
-	[StatusChange] [char](1) NOT NULL,
-	[OwnerId] [varchar](80) NOT NULL,
-	[MyDescription] [varchar](250) NOT NULL,
-	[Tags] [varchar](250) NULL,
-	[CreatedDate] [smalldatetime] NOT NULL,
-	[ChangedDate] [smalldatetime] NULL,
-	[ChangedBy] [varchar](80) NULL,
-	[UsedDate] [smalldatetime] NULL,
-	[DataSourceUpdateDate] [smalldatetime] NULL,
-	[SavedQueryFormat] [varchar](10) NOT NULL,
-	[SavedQueryStorage] [char](1) NOT NULL,
-	[QueryText] [varchar](max) NOT NULL,
-	[Runs] [int] NOT NULL,
-	[Fails] [int] NOT NULL,
+SavedQueryMeta2 (
+	QueryId int NOT NULL,
+	DataSourceType varchar(10) NOT NULL,
+	DatabaseId varchar(500) NULL,
+	DataSourceId varchar(500) NOT NULL,
+	Status char(1) NOT NULL,
+	StatusUse char(1) NOT NULL,
+	StatusChange char(1) NOT NULL,
+	OwnerId varchar(80) NOT NULL,
+	MyDescription varchar(250) NOT NULL,
+	Tags varchar(250) NULL,
+	CreatedDate smalldatetime NOT NULL,
+	ChangedDate smalldatetime NULL,
+	ChangedBy varchar(80) NULL,
+	UsedDate smalldatetime NULL,
+	DataSourceUpdateDate smalldatetime NULL,
+	SavedQueryFormat varchar(10) NOT NULL,
+	SavedQueryStorage char(1) NOT NULL,
+	QueryText varchar(max) NOT NULL,
+	Runs int NOT NULL,
+	Fails int NOT NULL,
 )
+
+DefaultSelection (
+	TableId varchar(20) NOT NULL,
+	SavedQueryId int NOT NULL,
+ )
 
 ```
 
