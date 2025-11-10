@@ -90,12 +90,52 @@ database. Select the storage method by setting `SavedQuery.Backend`.
 
 #### File
 
-Specify the path where saved queries should be stored by setting `SavedQuery.FileStorage.Path`.
+With this option saved queries are stored to the local file system. Each saved
+query is represented with two files with the name but with two diffrent suffixes
+`.sqa` and `.sqs`. The `sqa` file is the file that contains the saved query. The
+`sqs` file contains metadata about the saved query.
+
+The files are stored in a subdirectory to `SavedQuery.FileStorage.Path` the name
+of the subdirectory is the same of the first character of the id for the saved query.
+
+You can change the locationwhere saved queries are stored by setting `SavedQuery.FileStorage.Path`.
 
 #### Database
 
-Specify the connection string and other relevant settings for storing saved
-queries in a database.
+If you select to store saved queries in a relational database you then must set
+the connection string to the database having the tables needed for saved queries
+by setting `Saved.Query.DatabaseStorage.ConnectionString`. There are two
+implementations one for `Microsoft` Sql Server and one for `Oracle`. Set the one
+wanted with the setting `SavedQuery.DatabaseStorage.DatabaseVendor`.
+
+The database needs to have two tables `SavedQueryMeta2` and `DefaultSelection`
+With the following structure.
+
+```
+Table SavedQueryMeta2(
+	[QueryId] [int] NOT NULL,
+	[DataSourceType] [varchar](10) NOT NULL,
+	[DatabaseId] [varchar](500) NULL,
+	[DataSourceId] [varchar](500) NOT NULL,
+	[Status] [char](1) NOT NULL,
+	[StatusUse] [char](1) NOT NULL,
+	[StatusChange] [char](1) NOT NULL,
+	[OwnerId] [varchar](80) NOT NULL,
+	[MyDescription] [varchar](250) NOT NULL,
+	[Tags] [varchar](250) NULL,
+	[CreatedDate] [smalldatetime] NOT NULL,
+	[ChangedDate] [smalldatetime] NULL,
+	[ChangedBy] [varchar](80) NULL,
+	[UsedDate] [smalldatetime] NULL,
+	[DataSourceUpdateDate] [smalldatetime] NULL,
+	[SavedQueryFormat] [varchar](10) NOT NULL,
+	[SavedQueryStorage] [char](1) NOT NULL,
+	[QueryText] [varchar](max) NOT NULL,
+	[Runs] [int] NOT NULL,
+	[Fails] [int] NOT NULL,
+)
+
+```
 
 ### Rate limiting
 
