@@ -1,45 +1,25 @@
-# Project overview
+# Introduction to PxWeb
 ## Background
-The user interface in PxWeb can no longer be further developed effectively due to technological limitations, while the users needs and expectations are constantly changing. Statistics Sweden and Statistics Norway will therefore together create a new user interface based on PxWebApi 2.0
-
-## New user interface for PxWeb
-- PxWebApi 2.0 Beta was released i March 
-- The API gives us the opportunity to make a new user interface for PxWeb on a new technical platform
-- The project is a cooperation between Statistics Sweden and Statistics Norway
-
-## Two project goals
-- The project will work on a new userfriendly interface based on PxWebApi 2.0 during 2024 - 2025 with the launch of the first test-version in mid-2024
-
-- The project will test and establish good and sustained collaboration processes between SCB and SSB at both operational level and management level in the further development of PX-tools
-
-
+PxWeb is an application for disseminating statistics in dynamic tables from an SQL or file-based database on the web. The user interface in the current version of PxWeb could no longer be effectively developed due to technological limitations, and users needs and expectations are constantly changing so Statistics Sweden and Statistics Norway jointly initiated a project in January 2024. The aim of the project was to create a new user interface based on PxWebApi 2 and was released in its first version in October 2025.
+## Two goals of the Project (January 2024 - October 2025)
+The project had two goals
+- A new user-friendly interface for PxWeb based on PxWebApi 2 
+- Test and establish effective and sustainable collaboration processes between Statistics Sweden, SCB and Statistics Norway, SSB at both operational level and management level in the further development of PX-tools
 ## Organization 
-
 ### Steering group
-The steering group consists of managers at Communication and IT in SCB and SSB. 
-
+The steering group consist of managers at Communication and IT in SCB and SSB. 
 ### Project team
-The team has participants from both Statistics Sweden and Statistics Norway.
+The team had participants from both Statistics Sweden and Statistics Norway.
 The team is set up with
 - Project leader
 - Scrum master
 - Architects
-- Designer (UX and UI)
+- UX/UI Designer
 - Developers
 - Specialists
-- Tech lead
+- Technical lead
 - Test leader 
 - Testers 
-  
-### Cooperation
-The other Nordic countries will be involved in tessting and participate at the demos.
-
-## Contact for questions and comments
-Project leader: Kristin Glomsås, Statistics Norway [kristin.glomsas@ssb.no](mailto:kristin.glomsas@ssb.no)
-
-Scrum master: Åsa Arrhén, Statistics Sweden [asa.arrhen@scb.se](mailto:asa.arrhen@scb.se)
-
-
-
-
-
+  ## Contact for questions and comments
+Kristin Glomsås, Statistics Norway [kristin.glomsas@ssb.no](mailto:kristin.glomsas@ssb.no)
+Åsa Arrhén, Statistics Sweden [px@scb.se](mailto:px@scb.se)

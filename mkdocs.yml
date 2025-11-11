@@ -6,22 +6,22 @@ copyright: Copyright &copy; 2025 Statistics Sweden and Statistics Norway
 
 nav:
   - Home: index.md
-  - Project PxWeb 2.0:
+  - PxWeb 2:
       - Overview: PxWeb2/project/overview.md
-      - Try PxWeb 2.0: PxWeb2/project/try.md
+      - Try PxWeb 2: PxWeb2/project/try.md
       - Solution: PxWeb2/project/Solution.md
       - Plans: PxWeb2/project/plans.md
       - Process: PxWeb2/project/process.md
   - Documentation:
       - Overview: documentation/overview.md
       - Getting Started:
-          - Install PxWebApi 2.0 on IIS: PxWebApi/documentation/installation.md
-          - Install PxWeb 2.0 on IIS: PxWeb2/documentation/installation-on-iis.md
+          - Install PxWebApi 2 on IIS: PxWebApi/documentation/installation.md
+          - Install PxWeb 2 on IIS: PxWeb2/documentation/installation-on-iis.md
       - Customization:
-          - Customize PxWebApi 2.0: PxWebApi/documentation/configuration.md
-          - Customize PxWeb 2.0: PxWeb2/documentation/customization.md
+          - Customize PxWebApi 2: PxWebApi/documentation/configuration.md
+          - Customize PxWeb 2: PxWeb2/documentation/customization.md
       - Demo:
-          - Try PxWeb 2.0 with Docker: PxWeb2/documentation/docker.md
+          - Try PxWeb 2 with Docker: PxWeb2/documentation/docker.md
       - Px File Format:
           - Version 2013: px-file-format/px-2013.md
   - Tools:
