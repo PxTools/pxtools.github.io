@@ -114,7 +114,7 @@ Provide:
 - Connection string: `SavedQuery.DatabaseStorage.ConnectionString`
 - Vendor: `SavedQuery.DatabaseStorage.DatabaseVendor` (`SqlServer` or `Oracle`)
 
-The database requirs the tables: `SavedQueryMeta2` and `DefaultSelection`.
+The database requires the tables: `SavedQueryMeta2` and `DefaultSelection`.
 
 Schema (conceptual):
 
@@ -214,7 +214,7 @@ query. The override process depends on the saved query backend.
 
 !!! note
     The saved query must target the same table (`tableId` match) or the override
-    will fail or have unexpected behaivior.
+    will fail or have unexpected behavior.
 
     Also note that this is an manual process to replace the default selection.
 
