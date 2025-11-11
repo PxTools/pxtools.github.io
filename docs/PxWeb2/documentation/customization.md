@@ -469,6 +469,10 @@ root/content
           }
         }
       ]
+    },
+    "noResultSearchHelp": {
+      "enabled": true,
+      "helpText": []
     }
   },
   "footer": {
@@ -496,7 +500,13 @@ root/content
   `enabled` is `true`, the application renders the **`DetailsSection` component**.
   This section can contain multiple entries, and each entry may be either a
   `textBlock` (with `header` and `text`) or a `links` block (with `header` and a
-  list of `items`). Links described in `items` have `text`, `url`, and an optional `openInNewTab` boolean. If `openInNewTab` is `true`, the link opens in a new browser tab.
+  list of `items`). Links described in `items` have `text`, `url`, and an optional
+  `openInNewTab` boolean. If `openInNewTab` is `true`, the link opens in a new
+  browser tab.
+- **startPage.noResultSearchHelp** – Optional section displayed below
+  the “no results” message when no tables match the search or filters.
+  When `enabled` is `true`, each string in the `helpText` array is shown
+  as a separate list item under a help heading.
 
 - **footer**
   One or more footer columns with `header` and list of `links`. If links have `external` set to `true`, they automatically will have the icon for external links and will open in a new tab. See example above.
