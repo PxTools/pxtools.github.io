@@ -10,6 +10,7 @@ You can:
 - Change colors (design tokens).
 - Adjust corner radii of UI elements.
 - Replace fonts.
+- Change logo and favicon
 - Change topic icons.
 - Limit table sizes.
 - Control how languages appear in URLs.
@@ -116,6 +117,9 @@ Open `config/config.js` and set `apiUrl`:
         'every fifth year',
       ]
     },
+    homePage: {
+      en: '', 
+    },
   };
 ```
 
@@ -206,6 +210,9 @@ In `config/config.js`:
         'every fifth year',
       ]
     },
+    homePage: {
+      en: '', 
+    },
   };
 ```
 
@@ -236,6 +243,16 @@ To change the logo/favicon in PxWeb replace svgs in the image folder. The names 
 
 For image replace `images/logo.svg` with your own logo.
 Replace `images/favicon.ico` / `images/favicon-darkmode.svg` with your own favicon.
+
+### Change logo URL
+By default you will come to the PxWeb start page when clicking the logo. However, it is possible to configure this. You can configure a new logo URL per language by editing `homePage` in `config/config.js`:
+
+```js
+  homePage: {
+    en: 'https://www.mypxweb.com',     // Set to your English homepage URL
+    sv: 'https://www.mypxweb.com/sv/', // Set to your Swedish homepage URL
+  },
+```
 
 ### Adjust or fix text / translations
 
@@ -345,6 +362,9 @@ Toggle:
         'every other year',
         'every fifth year',
       ]
+    },
+    homePage: {
+      en: '', 
     },
   };
 ```
