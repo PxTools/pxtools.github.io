@@ -81,67 +81,78 @@ queries that take a long time to process.
 
 ### Saved query storage
 
-Saved queries are an essential part of the API. Users can create, view, and run
-saved queries. Saved queries can also be used as the default selection when a
-user does not specify any selection when downloading data see.
-See [Default selection](#default-selection)
+Saved queries can be viewed as templates for repeatable data extractions. Users
+can create, list, and execute them. A saved query can also serve as the default selection
+for a table when a request omits an explicit selection (see
+[Default selection](#default-selection)).
 
-You can store saved queries either as files on the file system or in a relational
-database. Select the storage method by setting `SavedQuery.Backend`.
+Supported storage backends:
+
+- File system
+- Relational database (SQL Server or Oracle)
+
+Choose backend with `SavedQuery.Backend` (e.g. `"File"` or `"Database"`).
 
 #### File
 
-With this option saved queries are stored to the local file system. Each saved
-query is represented with two files with the name but with two diffrent suffixes
-`.sqa` and `.sqs`. The `sqa` file is the file that contains the saved query. The
-`sqs` file contains metadata about the saved query.
+Each saved query is represented by two sibling files sharing the same base name
+but having diffrent suffixes:
 
-The files are stored in a subdirectory to `SavedQuery.FileStorage.Path` the name
-of the subdirectory is the same of the first character of the id for the saved query.
+- `.sqa` – the serialized saved query (definition)
+- `.sqs` – metadata (creation date, last run, etc.)
 
-You can change the locationwhere saved queries are stored by setting `SavedQuery.FileStorage.Path`.
+Directory layout: Saved queries are grouped in subfolders under
+`SavedQuery.FileStorage.Path`. The subfolder name is the first character of the
+saved query id. This prevents extremely large single directories.
+
+Change the root storage path with `SavedQuery.FileStorage.Path`.
 
 #### Database
 
-If you select to store saved queries in a relational database you then must set
-the connection string to the database having the tables needed for saved queries
-by setting `Saved.Query.DatabaseStorage.ConnectionString`. There are two
-implementations one for `Microsoft` Sql Server and one for `Oracle`. Set the one
-wanted with the setting `SavedQuery.DatabaseStorage.DatabaseVendor`.
+Provide:
 
-The database needs to have two tables `SavedQueryMeta2` and `DefaultSelection`
-With the following structure.
+- Connection string: `SavedQuery.DatabaseStorage.ConnectionString`
+- Vendor: `SavedQuery.DatabaseStorage.DatabaseVendor` (`SqlServer` or `Oracle`)
 
-```
+The database requirs the tables: `SavedQueryMeta2` and `DefaultSelection`.
+
+Schema (conceptual):
+
+```sql
 SavedQueryMeta2 (
-	QueryId int NOT NULL,
-	DataSourceType varchar(10) NOT NULL,
-	DatabaseId varchar(500) NULL,
-	DataSourceId varchar(500) NOT NULL,
-	Status char(1) NOT NULL,
-	StatusUse char(1) NOT NULL,
-	StatusChange char(1) NOT NULL,
-	OwnerId varchar(80) NOT NULL,
-	MyDescription varchar(250) NOT NULL,
-	Tags varchar(250) NULL,
-	CreatedDate smalldatetime NOT NULL,
-	ChangedDate smalldatetime NULL,
-	ChangedBy varchar(80) NULL,
-	UsedDate smalldatetime NULL,
-	DataSourceUpdateDate smalldatetime NULL,
-	SavedQueryFormat varchar(10) NOT NULL,
-	SavedQueryStorage char(1) NOT NULL,
-	QueryText varchar(max) NOT NULL,
-	Runs int NOT NULL,
-	Fails int NOT NULL,
+    QueryId int NOT NULL,
+    DataSourceType varchar(10) NOT NULL,
+    DatabaseId varchar(500) NULL,
+    DataSourceId varchar(500) NOT NULL,
+    Status char(1) NOT NULL,
+    StatusUse char(1) NOT NULL,
+    StatusChange char(1) NOT NULL,
+    OwnerId varchar(80) NOT NULL,
+    MyDescription varchar(250) NOT NULL,
+    Tags varchar(250) NULL,
+    CreatedDate smalldatetime NOT NULL,
+    ChangedDate smalldatetime NULL,
+    ChangedBy varchar(80) NULL,
+    UsedDate smalldatetime NULL,
+    DataSourceUpdateDate smalldatetime NULL,
+    SavedQueryFormat varchar(10) NOT NULL,
+    SavedQueryStorage char(1) NOT NULL,
+    QueryText varchar(max) NOT NULL,
+    Runs int NOT NULL,
+    Fails int NOT NULL,
 )
 
 DefaultSelection (
-	TableId varchar(20) NOT NULL,
-	SavedQueryId int NOT NULL,
- )
-
+    TableId varchar(20) NOT NULL,
+    SavedQueryId int NOT NULL,
+)
 ```
+
+Notes:
+
+- `QueryText` stores the actual saved query (e.g. JSON) used for execution.
+- `Runs` / `Fails` enable simple usage statistics.
+- `DefaultSelection` maps a table id to the saved query used as its default.
 
 ### Rate limiting
 
@@ -194,32 +205,45 @@ documentation [here](https://logging.apache.org/log4net/manual/configuration.htm
 
 ## Default selection
 
-When data is extracted without giving a selection a default selection is used.
-Then default selection is calculated by an algorithm that selected diffrent
-values from the variables in the tabled depending on the type of variables and
-the number of values. If you are not satisfied with the selection that the
-algorithms selects, you can replace what is beeing used as default selection with
-a saved query. The way to do this is manual and how it is done depends on the
-type of storage for your saved queries.
+When a data request is submitted without any explicit selection, PxWebApi builds
+one automatically. The built-in algorithm picks a small, representative set of
+variable values based on variable types and cardinalities.
+
+If that automatic selection is not suitable, you can override it with a saved
+query. The override process depends on the saved query backend.
 
 !!! note
-    Make sure that the `tableId` is the same as the one that the saved query targets.
+    The saved query must target the same table (`tableId` match) or the override
+    will fail or have unexpected behaivior.
 
-### Saved queries as files
+    Also note that this is an manual process to replace the default selection.
 
-When you have saved queries stored as files on the filesystem. You replace the
-default selection for a table by taking a copy of the files for the saved queries
-that you would like to be used as the default selection. Rename the copy of the
-files by replacing the saved query id with the id for the table. Then place the
-copy of the files in the right subfolder.
+### File backend override
 
-### Saved queries in a database
+Steps:
 
-If you have saved queries stored in a relational database. You replace the
-default selection by adding a entry in the `DefaultSelection` table. This
-requiers two values the id for the table and the id for the saved query.
+1. Identify (or create) the saved query you want to use (its `.sqa` + `.sqs`).
+2. Copy both files.
+3. Rename the copies so the base name equals the target table id (keep suffixes).
+4. Place them in the correct subfolder under `SavedQuery.FileStorage.Path`.
+    (Subfolder name = first character of the table id.)
+5. Clear cache if needed; subsequent no-selection requests now use the saved query.
+
+### Database backend override
+
+Add or update the mapping in `DefaultSelection`:
+
+```sql
+-- Pseudocode mapping description
+TableId      = <table id>
+SavedQueryId = <QueryId from SavedQueryMeta2>
+```
+
+Procedure:
+
+1. Confirm the saved query exists (`SavedQueryMeta2.QueryId`).
+2. UPDATE if present, INSERT if absent.
+3. Clear caches if immediate effect is required.
 
 !!! note
-    Make sure that the `tableId` is the same as the one that the saved query targets.
-    TableId is the primary key so you might have to do a update insted of an insert
-    if a saved query have already been used before.
+    `TableId` should acts as primary key; use UPDATE if a row already exists.
