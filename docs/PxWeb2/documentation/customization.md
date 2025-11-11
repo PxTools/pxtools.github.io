@@ -244,8 +244,6 @@ To change the logo/favicon in PxWeb replace svgs in the image folder. The names 
 For image replace `images/logo.svg` with your own logo.
 Replace `images/favicon.ico` / `images/favicon-darkmode.svg` with your own favicon.
 
-The svg **must** include viewbox and width/height attributes for it to be rendered correctly.
-
 ### Change logo URL
 By default you will come to the PxWeb start page when clicking the logo. However, it is possible to configure this. You can configure a new logo URL per language by editing `homePage` in `config/config.js`:
 
