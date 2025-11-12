@@ -10,7 +10,7 @@ The project had two goals
 The steering group consist of managers at Communication and IT in SCB and SSB. 
 ### Project team
 The team had participants from both Statistics Sweden and Statistics Norway.
-The team is set up with
+The team was set up with
 - Project leader
 - Scrum master
 - Architects
@@ -20,6 +20,6 @@ The team is set up with
 - Technical lead
 - Test leader 
 - Testers 
-  ## Contact for questions and comments
-Kristin Glomsås, Statistics Norway [kristin.glomsas@ssb.no](mailto:kristin.glomsas@ssb.no)
-Åsa Arrhén, Statistics Sweden [px@scb.se](mailto:px@scb.se)
+## Contact for questions and comments
+- Kristin Glomsås, Statistics Norway [kristin.glomsas@ssb.no](mailto:kristin.glomsas@ssb.no)
+- Åsa Arrhén, Statistics Sweden [px@scb.se](mailto:px@scb.se)
