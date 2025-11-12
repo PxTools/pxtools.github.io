@@ -20,6 +20,6 @@ The team is set up with
 - Technical lead
 - Test leader 
 - Testers 
-  ## Contact for questions and comments
-Kristin Glomsås, Statistics Norway [kristin.glomsas@ssb.no](mailto:kristin.glomsas@ssb.no)
-Åsa Arrhén, Statistics Sweden [px@scb.se](mailto:px@scb.se)
+## Contact for questions and comments
+- Kristin Glomsås, Statistics Norway [kristin.glomsas@ssb.no](mailto:kristin.glomsas@ssb.no)
+- Åsa Arrhén, Statistics Sweden [px@scb.se](mailto:px@scb.se)
