@@ -10,7 +10,7 @@ The project had two goals
 The steering group consist of managers at Communication and IT in SCB and SSB. 
 ### Project team
 The team had participants from both Statistics Sweden and Statistics Norway.
-The team is set up with
+The team was set up with
 - Project leader
 - Scrum master
 - Architects
