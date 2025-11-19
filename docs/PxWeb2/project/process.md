@@ -33,7 +33,7 @@ We build a design system that can be used by all so the same components can be u
 Each organization should easily be able to adapt the interface a little, but it should still be possible to see that it is a Px-product. 
 The changes will be possible to introduce both before and after installation of PxWeb 2.0.
 It will be possible to change
-- colors
+- colours
 - font
 - corner radius of the elements in the interface.
 ### Open source at GitHub
