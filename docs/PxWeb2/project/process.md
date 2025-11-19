@@ -6,7 +6,7 @@ The user interface in PxWeb "classic" could no longer be effectively developed d
 The project had two goals
 - A new user-friendly interface for PxWeb based on PxWebApi 2 
 - Test and establish effective and sustainable collaboration processes between Statistics Sweden, SCB and Statistics Norway, SSB at both operational level and management level in the further development of PX-tools
-### Organization 
+## Organization 
 ### Steering group
 The steering group consist of managers at Communication and IT in SCB and SSB. 
 ### Project team
