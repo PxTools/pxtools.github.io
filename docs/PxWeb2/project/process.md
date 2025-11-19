@@ -38,7 +38,7 @@ It will be possible to change
 - corner radius of the elements in the interface.
 - Change icons
 - Add languages
-[Documentation of possible customization] (https://www.pxtools.net/PxWeb2/documentation/customization/)
+- [Documentation of possible customization](https://www.pxtools.net/PxWeb2/documentation/customization/)
 ### Open source at GitHub
 The new interface is able to install directly from GitHub. Also documentation is found here. 
 [PxTools at GitHub](https://www.pxtools.net/documentation/overview/)
