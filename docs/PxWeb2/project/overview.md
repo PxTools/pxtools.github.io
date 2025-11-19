@@ -4,7 +4,7 @@ PxWeb is an application for disseminating statistics in dynamic tables from an S
 ## PxWeb demos
 The latest version of PxWeb2: [PxWeb 2](https://pxweb2.pages.dev/en/)
 
-PxWeb at Statistics Norway: [Statbank Norway] (https://www.ssb.no/statbank2/en/)
+PxWeb at Statistics Norway: [Statbank Norway](https://www.ssb.no/statbank2/en/)
 
 ##Release versions
 PxWeb is updated continously. Release policy
