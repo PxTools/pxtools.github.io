@@ -1,10 +1,10 @@
-# Follow the development of PxWeb 2
+# 
 
-## Tables from Statistics Sweden database
-- [Database from Statistics Sweden](https://test.pxweb2.pages.dev/sv/)
+## T
+https://pxweb2.pages.dev/en/
   
-## Tables from Statistics Norway database
-- [Database from Statistics Norway](https://test-ssb.pxweb2.pages.dev/no/)
+## Statistics Norway database
+
 
 ## Try it with your own data
 You are free to test PxWeb2 with your own data. It works both with px-files and cnmm database
