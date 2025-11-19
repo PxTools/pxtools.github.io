@@ -1,4 +1,4 @@
-#The project New interface for PxWeb (January 2024 - October 2025)
+# The project New interface for PxWeb (January 2024 - October 2025)
 
 ## Background
 The user interface in PxWeb "classic" could no longer be effectively developed due to technological limitations, and users needs and expectations are constantly changing so Statistics Sweden and Statistics Norway jointly initiated a project in January 2024. The aim of the project was to create a new user interface based on PxWebApi 2 and was released in its first version in October 2025.
