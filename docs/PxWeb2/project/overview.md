@@ -1,4 +1,4 @@
-# Introduction to PxWeb
+# Introduction to PxWeb 2
 PxWeb is an application for disseminating statistics in dynamic tables from an SQL or file-based database on the web. January 2024 - October 2025 Statistics Norway and Statistics Sweden had a common project to create a new user freindly interface based on PxWebApi 2 that was released In October 2025.
 
 ## PxWeb demos
