@@ -31,11 +31,14 @@ We build a design system that can be used by all so the same components can be u
 [Design system in Storybook](https://pxweb2.pages.dev/storybook/)
 ### Options in PxWeb 2
 Each organization should easily be able to adapt the interface a little, but it should still be possible to see that it is a Px-product. 
-The changes will be possible to introduce both before and after installation of PxWeb 2.0.
+The changes will be possible to introduce both before and after installation of PxWeb 2.
 It will be possible to change
 - colours
 - font
 - corner radius of the elements in the interface.
+- Change icons
+- Add languages
+[Documentation of possible customization] (https://www.pxtools.net/PxWeb2/documentation/customization/)
 ### Open source at GitHub
 The new interface is able to install directly from GitHub. Also documentation is found here. 
 [PxTools at GitHub](https://www.pxtools.net/documentation/overview/)
