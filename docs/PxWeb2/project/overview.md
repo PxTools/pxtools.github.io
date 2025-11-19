@@ -8,7 +8,7 @@ PxWeb at Statistics Norway: [Statbank Norway](https://www.ssb.no/statbank2/en/)
 
 ## Release versions
 - PxWeb is updated continously. Release policy (länk kommer)
-- Follow the content of the versions [Version history] (https://github.com/user-attachments/assets/b21abdf9-0767-43ac-a930-1e5da31244fd/)
+- Follow the content of the versions [Version history](https://github.com/user-attachments/assets/b21abdf9-0767-43ac-a930-1e5da31244fd/)
 
 ## Contact for questions and comments
 - Kristin Glomsås, Statistics Norway [kristin.glomsas@ssb.no](mailto:kristin.glomsas@ssb.no)
