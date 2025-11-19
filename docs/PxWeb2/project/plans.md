@@ -2,7 +2,7 @@
 
 ## Remaining to develop 2025 
 - Show PxWebApi 2 in PxWeb
-- Button to improve table layout
+- Button to improve table layout - DONE
 - Freeze table head
 - Improve search at start page (search for content in tables)
 - Search in beginning of words in variable list
@@ -12,7 +12,7 @@
 - Possibility for text and links in Help 
 - Possibility for own link in logo
 - WCAG-fixes
-- Saved query as alternative to the algorithm (documentation)
+- Saved query as alternative to the algorithm (documentation) - DONE
 
 ## Remaining to develop after 2025 in PxWeb 2
 - Graph
