@@ -29,7 +29,7 @@ In the project, we have made some choices about how we will work in the project 
 ### PxWeb 2.0 designsystem
 We build a design system that can be used by all so the same components can be used for all px products so they get a common expression and be recognizable. 
 [Design system in Storybook](https://pxweb2.pages.dev/storybook/)
-### Options in PxWeb 2.0
+### Options in PxWeb 2
 Each organization should easily be able to adapt the interface a little, but it should still be possible to see that it is a Px-product. 
 The changes will be possible to introduce both before and after installation of PxWeb 2.0.
 It will be possible to change
