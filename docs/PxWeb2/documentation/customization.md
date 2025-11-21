@@ -42,7 +42,7 @@ root
 │   │   └── content.json
 │   └── sv
 │       └── content.json
-├── fonts                    
+├── fonts
 │   ├── PxWeb-font-400.ttf
 │   ├── PxWeb-font-500.ttf
 │   └── PxWeb-font-700.ttf
@@ -75,13 +75,13 @@ root
 ```
 
 1. `index.html` is the page that bootstraps PxWeb.
-2. `web.config` is a starting point if you host on Microsoft IIS.  
+2. `web.config` is a starting point if you host on Microsoft IIS.
 3. `assets` contains the compiled JavaScript/CSS for PxWeb. You normally do not
-    edit anything inside this folder.
+   edit anything inside this folder.
 4. `config.js` the main config file for PxWeb.
 5. `content` a folder containg content customizations e.g. links in the footer.
 6. `topicIconMap.json` is a file where mapping between tables `SUBJECT-CODE` and
-    icons are made.
+   icons are made.
 7. `locales` a folder where translated text are placed.
 
 ---
@@ -94,33 +94,25 @@ PxWeb retrieves table metadata and data from a PxWeb API 2.0 instance.
 Open `config/config.js` and set `apiUrl`:
 
 ```js hl_lines="11"
-  window.PxWeb2Config = {
-    language: {
-      supportedLanguages: [
-        { shorthand: 'en', languageName: 'English' }
-      ],
-      defaultLanguage: 'en',
-      fallbackLanguage: 'en',
-      showDefaultLanguageInPath: true,
-    },
-    baseApplicationPath: '/',
-    apiUrl: "https://your.api.server/PxWeb/api/v2",
-    maxDataCells: 100000,
-    specialCharacters: ['.', '..', ':', '-', '...', '*'],
-    variableFilterExclusionList: {
-      en: [
-        'observations',
-        'year',
-        'quarter',
-        'month',
-        'every other year',
-        'every fifth year',
-      ]
-    },
-    homePage: {
-      en: '', 
-    },
-  };
+window.PxWeb2Config = {
+  language: {
+    supportedLanguages: [{ shorthand: "en", languageName: "English" }],
+    defaultLanguage: "en",
+    fallbackLanguage: "en",
+    showDefaultLanguageInPath: true,
+  },
+  baseApplicationPath: "/",
+  apiUrl: "https://your.api.server/PxWeb/api/v2",
+  maxDataCells: 100000,
+  showBreadCrumbOnStartPage: false,
+  specialCharacters: [".", "..", ":", "-", "...", "*"],
+  variableFilterExclusionList: {
+    en: ["observations", "year", "quarter", "month", "every other year", "every fifth year"],
+  },
+  homePage: {
+    en: "",
+  },
+};
 ```
 
 Omit a trailing slash, one is added automatically.
@@ -133,13 +125,13 @@ reverse proxy):
 1. Set `baseApplicationPath` in `config/config.js`:
 
    ```js
-   baseApplicationPath: "/pxweb/"
+   baseApplicationPath: "/pxweb/";
    ```
 
 2. In `index.html`, adjust the `<base>` tag:
 
    ```html
-   <base href="/pxweb/">
+   <base href="/pxweb/" />
    ```
 
 3. Ensure the web server rewrites (if needed) static file requests correctly to
@@ -150,19 +142,19 @@ reverse proxy):
 Set `maxDataCells` in `config/config.js`. Example:
 
 ```js
-maxDataCells: 500000
+maxDataCells: 500000;
 ```
 
 !!! note "API limitation"
-    The API has its own limit. Do not set the UI limit higher than the API’s
-    backend limit to avoid inconsistent behavior. Usually they should match.
+The API has its own limit. Do not set the UI limit higher than the API’s
+backend limit to avoid inconsistent behavior. Usually they should match.
 
 ### Change the default characters for missing values
 
 Edit the `specialCharacters` array in `config/config.js`:
 
 ```js
-specialCharacters: ['.', '..', ':', '-', '...', '*']
+specialCharacters: [".", "..", ":", "-", "...", "*"];
 ```
 
 These are displayed when a data point is missing or confidential.
@@ -186,34 +178,28 @@ Repeat for every supported language.
 In `config/config.js`:
 
 ```js hl_lines="2 3 4 5 6 7 8 9 10"
-  window.PxWeb2Config = {
-    language: {
-      supportedLanguages: [
-        { shorthand: 'en', languageName: 'English' },
-        { shorthand: 'sv', languageName: 'Svenska' }
-      ],
-      defaultLanguage: 'sv',
-      fallbackLanguage: 'en',
-      showDefaultLanguageInPath: true,
-    },
-    baseApplicationPath: '/',
-    apiUrl: "https://your.api.server/PxWeb/api/v2",
-    maxDataCells: 100000,
-    specialCharacters: ['.', '..', ':', '-', '...', '*'],
-    variableFilterExclusionList: {
-      en: [
-        'observations',
-        'year',
-        'quarter',
-        'month',
-        'every other year',
-        'every fifth year',
-      ]
-    },
-    homePage: {
-      en: '', 
-    },
-  };
+window.PxWeb2Config = {
+  language: {
+    supportedLanguages: [
+      { shorthand: "en", languageName: "English" },
+      { shorthand: "sv", languageName: "Svenska" },
+    ],
+    defaultLanguage: "sv",
+    fallbackLanguage: "en",
+    showDefaultLanguageInPath: true,
+  },
+  baseApplicationPath: "/",
+  apiUrl: "https://your.api.server/PxWeb/api/v2",
+  maxDataCells: 100000,
+  showBreadCrumbOnStartPage: false,
+  specialCharacters: [".", "..", ":", "-", "...", "*"],
+  variableFilterExclusionList: {
+    en: ["observations", "year", "quarter", "month", "every other year", "every fifth year"],
+  },
+  homePage: {
+    en: "",
+  },
+};
 ```
 
 - `supportedLanguages`: The active languages (must match those available in the API).
@@ -237,6 +223,7 @@ Replace the font files in the `fonts` directory. Keep file names.
 Make sure you have the proper license to self-host fonts.
 
 ### Change logo and favicon
+
 The svg **must** include viewbox and width/height attributes for it to be rendered correctly.
 
 To change the logo/favicon in PxWeb replace svgs in the image folder. The names must be the same.
@@ -245,6 +232,7 @@ For image replace `images/logo.svg` with your own logo.
 Replace `images/favicon.ico` / `images/favicon-darkmode.svg` with your own favicon.
 
 ### Change logo URL
+
 By default you will come to the PxWeb start page when clicking the logo. However, it is possible to configure this. You can configure a new logo URL per language by editing `homePage` in `config/config.js`:
 
 ```js
@@ -254,13 +242,22 @@ By default you will come to the PxWeb start page when clicking the logo. However
   },
 ```
 
+### Show breadcrumbs on start page
+
+Optional breadcrumb navigation on start page.
+Edit the `showBreadCrumbOnStartPage` in `config/config.js`:
+
+```js
+showBreadCrumbOnStartPage: true,
+```
+
 ### Adjust or fix text / translations
 
 Edit the relevant `locales/<lang>/translation.json`.  
-Keys reflect where in the UI a string is used. Only modify values.  
+Keys reflect where in the UI a string is used. Only modify values.
 
 ??? tip "Example snippet"
-    ```json
+`json
     {
       "common": {
         "title": "PxWeb 2.0",
@@ -271,52 +268,53 @@ Keys reflect where in the UI a string is used. Only modify values.
         },
       }
     }  
-    ```
+    `
 
 ### Change date format in translation file
 
 Edit the relevant `locales/<lang>/translation.json` file.  
-We have two date formats defined under `date` in translation files - `simple_date` and `simple_date_with_time`. 
+We have two date formats defined under `date` in translation files - `simple_date` and `simple_date_with_time`.
 
 Change the format options as needed. **PxWeb2** uses `Intl.DateTimeFormat` for date formatting. See documentation for options here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat
 
 Here is an examples configuration used for english and norwegian:
 
 ??? tip "english date formats"
-    ```json
+`json
     "date": {
       "simple_date": "{{value, datetime}}",
       "simple_date_with_time": "{{value, datetime(year: 'numeric'; month: 'numeric'; day: 'numeric'; hour: 'numeric'; minute: 'numeric')}}"
     }
-    ``` 
+    `
 
 Example of how `simple_date_with_time` for english is displayed in PxWeb2 UI:
 `2/21/2025, 8:00 AM`
 
 ??? tip "norwegian date formats"
-    ```json
+`json
     "date": {
       "simple_date": "{{value, datetime(day: '2-digit'; month: '2-digit'; year: 'numeric')}}",
       "simple_date_with_time": "{{value, datetime(year: 'numeric'; month: '2-digit'; day: '2-digit'; hour: 'numeric'; minute: 'numeric')}}"
     }
-    ```
+    `
 
 Example of how `simple_date_with_time` for norwegian is displayed with two digit configuration in PxWeb2 UI:
 `21.02.2025, 08:00`
 
 ### Override separators in number formatting per language
+
 Edit the relevant `locales/<lang>/translation.json` file.
 We have defined multiple number formatting rules under `number` in translation files. Here are some expamples of number formats that are used:
 
 ??? tip "number formats"
-    ```json
+`json
     "number": {
         "simple_number": "{{value, pxNumber}}",
         "simple_number_with_zero_decimal": "{{value, pxNumber(minimumFractionDigits: 0; maximumFractionDigits: 0;)}}",
         "simple_number_with_one_decimal": "{{value, pxNumber(minimumFractionDigits: 1; maximumFractionDigits: 1;)}}",
         "simple_number_with_two_decimals": "{{value, pxNumber(minimumFractionDigits: 2; maximumFractionDigits: 2;)}}",
       }
-    ```
+    `
 
 - `simple_number`: Default number formatting.
 - `simple_number_with_zero_decimal`: Number formatting with no decimal places.
@@ -330,6 +328,7 @@ To override decimal add `decimalSeparator` to the `number_format` object. Likewi
 If you need to add space as a group separator, you add the value `nbsp` for non-breaking space or `nnbsp` for narrow non-breaking space, e.g. `thousandSeparator: 'nbsp'`.
 
 Here is an example of how to override both decimal and group separators for simple_number_with_two_decimals. Use `,` as decimal separator and non-breaking space as group separator:
+
 ```json
 "number": {
     "simple_number_with_two_decimals": "{{value, pxNumber(minimumFractionDigits: 2; maximumFractionDigits: 2; decimalSeparator: ','; thousandSeparator: 'nbsp';)}}",
@@ -339,34 +338,27 @@ Here is an example of how to override both decimal and group separators for simp
 ### Hide or show the default language in the URL
 
 Toggle:
+
 ```js hl_lines="8"
-  window.PxWeb2Config = {
-    language: {
-      supportedLanguages: [
-        { shorthand: 'en', languageName: 'English' }
-      ],
-      defaultLanguage: 'en',
-      fallbackLanguage: 'en',
-      showDefaultLanguageInPath: true, // or false
-    },
-    baseApplicationPath: '/',
-    apiUrl: "https://your.api.server/PxWeb/api/v2",
-    maxDataCells: 100000,
-    specialCharacters: ['.', '..', ':', '-', '...', '*'],
-    variableFilterExclusionList: {
-      en: [
-        'observations',
-        'year',
-        'quarter',
-        'month',
-        'every other year',
-        'every fifth year',
-      ]
-    },
-    homePage: {
-      en: '', 
-    },
-  };
+window.PxWeb2Config = {
+  language: {
+    supportedLanguages: [{ shorthand: "en", languageName: "English" }],
+    defaultLanguage: "en",
+    fallbackLanguage: "en",
+    showDefaultLanguageInPath: true, // or false
+  },
+  baseApplicationPath: "/",
+  apiUrl: "https://your.api.server/PxWeb/api/v2",
+  maxDataCells: 100000,
+  showBreadCrumbOnStartPage: false,
+  specialCharacters: [".", "..", ":", "-", "...", "*"],
+  variableFilterExclusionList: {
+    en: ["observations", "year", "quarter", "month", "every other year", "every fifth year"],
+  },
+  homePage: {
+    en: "",
+  },
+};
 ```
 
 in the `language` section of `config/config.js`.
@@ -438,15 +430,11 @@ root/content
 ```json
 {
   "startPage": {
-    "breadCrumb": {
-      "enabled": false,
-      "items": []
-    },
     "detailsSection": {
       "enabled": true,
       "detailHeader": "More about PxWeb",
       "detailContent": [
-                {
+        {
           "textBlock": {
             "header": "When to use this section",
             "text": "This is an optional section that can be used for content that may be useful for some users, but is not essential for everyone. Key information that all users need to see should always appear in the lead paragraph."
@@ -479,23 +467,20 @@ root/content
     "columns": [
       {
         "header": "This is a header",
-          "links": [
-            {
-              "text": "Link text",
-              "url": "https://your.link.here",
-              "external": true
-            },
-            { "text": "Contact us", "url": "mailto:mail@example.com" }
-          ]
+        "links": [
+          {
+            "text": "Link text",
+            "url": "https://your.link.here",
+            "external": true
+          },
+          { "text": "Contact us", "url": "mailto:mail@example.com" }
+        ]
       }
     ]
   }
 }
 ```
 
-- **startPage.breadCrumb**
-  Optional breadcrumb navigation on start page. Enabled with the `enabled` flag.
-  Each item contains a `label` and an `href`.
 - **startPage.detailsSection** – Optional section below the page ingress. When
   `enabled` is `true`, the application renders the **`DetailsSection` component**.
   This section can contain multiple entries, and each entry may be either a
@@ -523,9 +508,9 @@ Token categories:
 
 1. Primitive (Base) Tokens: Raw color values (brand, accent, neutrals, semantic
    palettes). Example: `--px-color-brand-400`.
-2. Semantic (System) Tokens: Contextual meaning-based tokens mapping to 
+2. Semantic (System) Tokens: Contextual meaning-based tokens mapping to
    primitives. Example: `--px-color-surface-default`, `--px-color-text-action`.
-3. Component / Alias Tokens (if introduced later): Optional intermediary 
+3. Component / Alias Tokens (if introduced later): Optional intermediary
    re-mappings for specific components.
 
 Principles:
@@ -549,12 +534,12 @@ Typical edit workflow:
 
    ```css
    :root {
-     --px-color-brand-50:  #F5FAFF;
-     --px-color-brand-100: #E3F2FE;
-     --px-color-brand-200: #C6E4FD;
-     --px-color-brand-400: #5BB4F6;
-     --px-color-brand-600: #1D78C7;
-     --px-color-brand-800: #0F3F63;
+     --px-color-brand-50: #f5faff;
+     --px-color-brand-100: #e3f2fe;
+     --px-color-brand-200: #c6e4fd;
+     --px-color-brand-400: #5bb4f6;
+     --px-color-brand-600: #1d78c7;
+     --px-color-brand-800: #0f3f63;
      --px-color-brand-900: #072638;
    }
    ```
@@ -599,96 +584,96 @@ impact of changing a primitive.
 Below is the mapping of primitive tokens to semantic tokens that consume them:
 
 - `--px-color-base-00`
-    - `--px-color-background-default`
-    - `--px-color-surface-default`
-    - `--px-color-border-on-inverted`
-    - `--px-color-text-on-inverted`
-    - `--px-color-text-on-action`
-    - `--px-color-icon-on-inverted`
-    - `--px-color-icon-on-action`
+  - `--px-color-background-default`
+  - `--px-color-surface-default`
+  - `--px-color-border-on-inverted`
+  - `--px-color-text-on-inverted`
+  - `--px-color-text-on-action`
+  - `--px-color-icon-on-inverted`
+  - `--px-color-icon-on-action`
 - `--px-color-brand-alpha-800`
-    - `--px-color-surface-scrim`
+  - `--px-color-surface-scrim`
 - `--px-color-brand-50`
-    - `--px-color-background-subtle`
-    - `--px-color-surface-subtle`
+  - `--px-color-background-subtle`
+  - `--px-color-surface-subtle`
 - `--px-color-brand-100`
-    - `--px-color-surface-moderate`
-    - `--px-color-surface-action-subtle-hover`
+  - `--px-color-surface-moderate`
+  - `--px-color-surface-action-subtle-hover`
 - `--px-color-brand-200`
-    - `--px-color-surface-search-string-highlight`
-    - `--px-color-surface-action-subtle-active`
-    - `--px-color-border-subtle`
-    - `--px-color-border-divider-subtle`
+  - `--px-color-surface-search-string-highlight`
+  - `--px-color-surface-action-subtle-active`
+  - `--px-color-border-subtle`
+  - `--px-color-border-divider-subtle`
 - `--px-color-brand-400`
-    - `--px-color-border-moderate`
-    - `--px-color-border-divider`
-    - `--px-color-border-hover`
+  - `--px-color-border-moderate`
+  - `--px-color-border-divider`
+  - `--px-color-border-hover`
 - `--px-color-brand-600`
-    - `--px-color-text-subtle`
+  - `--px-color-text-subtle`
 - `--px-color-brand-800`
-    - `--px-color-surface-inverted`
-    - `--px-color-surface-action`
-    - `--px-color-border-action`
-    - `--px-color-border-selected`
-    - `--px-color-text-action`
-    - `--px-color-icon-action`
+  - `--px-color-surface-inverted`
+  - `--px-color-surface-action`
+  - `--px-color-border-action`
+  - `--px-color-border-selected`
+  - `--px-color-text-action`
+  - `--px-color-icon-action`
 - `--px-color-brand-900`
-    - `--px-color-surface-action-hover`
-    - `--px-color-surface-action-active`
-    - `--px-color-border-default`
-    - `--px-color-border-focus-boxshadow`
-    - `--px-color-text-default`
-    - `--px-color-text-on-action-subtle`
-    - `--px-color-icon-default`
-    - `--px-color-icon-on-action-subtle`
+  - `--px-color-surface-action-hover`
+  - `--px-color-surface-action-active`
+  - `--px-color-border-default`
+  - `--px-color-border-focus-boxshadow`
+  - `--px-color-text-default`
+  - `--px-color-text-on-action-subtle`
+  - `--px-color-icon-default`
+  - `--px-color-icon-on-action-subtle`
 - `--px-color-accent-300`
-    - `--px-color-border-focus-outline-on-inverted`
+  - `--px-color-border-focus-outline-on-inverted`
 - `--px-color-accent-500`
-    - `--px-color-border-focus-outline`
+  - `--px-color-border-focus-outline`
 - `--px-color-neutral-100`
-    - `--px-color-surface-neutral-subtle`
+  - `--px-color-surface-neutral-subtle`
 - `--px-color-neutral-200`
-    - `--px-color-surface-neutral-moderate`
+  - `--px-color-surface-neutral-moderate`
 - `--px-color-info-100`
-    - `--px-color-surface-info-subtle`
+  - `--px-color-surface-info-subtle`
 - `--px-color-info-200`
-    - `--px-color-surface-info-moderate`
+  - `--px-color-surface-info-moderate`
 - `--px-color-info-600`
-    - `--px-color-border-info`
-    - `--px-color-icon-info`
+  - `--px-color-border-info`
+  - `--px-color-icon-info`
 - `--px-color-success-100`
-    - `--px-color-surface-success-subtle`
+  - `--px-color-surface-success-subtle`
 - `--px-color-success-200`
-    - `--px-color-surface-success-moderate`
+  - `--px-color-surface-success-moderate`
 - `--px-color-success-600`
-    - `--px-color-border-success`
-    - `--px-color-icon-success`
+  - `--px-color-border-success`
+  - `--px-color-icon-success`
 - `--px-color-warning-100`
-    - `--px-color-surface-warning-subtle`
+  - `--px-color-surface-warning-subtle`
 - `--px-color-warning-200`
-    - `--px-color-surface-warning-moderate`
+  - `--px-color-surface-warning-moderate`
 - `--px-color-warning-600`
-    - `--px-color-border-warning`
-    - `--px-color-icon-warning`
+  - `--px-color-border-warning`
+  - `--px-color-icon-warning`
 - `--px-color-danger-100`
-    - `--px-color-surface-error-subtle`
+  - `--px-color-surface-error-subtle`
 - `--px-color-danger-200`
-    - `--px-color-surface-error-moderate`
+  - `--px-color-surface-error-moderate`
 - `--px-color-danger-600`
-    - `--px-color-border-error`
-    - `--px-color-icon-error`
+  - `--px-color-border-error`
+  - `--px-color-icon-error`
 
 ---
 
 ## Troubleshooting
 
-| Issue | Possible Cause | Fix |
-|-------|----------------|-----|
-| Language not switching | Missing folder or translation key | Verify `locales/<lang>/translation.json` exists and is valid JSON |
-| Icons not showing | File name mismatch | Ensure mapping file matches actual SVG names |
-| Colors look inconsistent | Edited semantic tokens directly | Revert semantic tokens; adjust primitives only |
-| Table too large error | API limit lower than UI limit | Align `maxDataCells` with API config |
-| Broken layout after font change | Font weights not matching | Provide correct weights or adjust CSS font-weight usage |
+| Issue                           | Possible Cause                    | Fix                                                               |
+| ------------------------------- | --------------------------------- | ----------------------------------------------------------------- |
+| Language not switching          | Missing folder or translation key | Verify `locales/<lang>/translation.json` exists and is valid JSON |
+| Icons not showing               | File name mismatch                | Ensure mapping file matches actual SVG names                      |
+| Colors look inconsistent        | Edited semantic tokens directly   | Revert semantic tokens; adjust primitives only                    |
+| Table too large error           | API limit lower than UI limit     | Align `maxDataCells` with API config                              |
+| Broken layout after font change | Font weights not matching         | Provide correct weights or adjust CSS font-weight usage           |
 
 ---
 
