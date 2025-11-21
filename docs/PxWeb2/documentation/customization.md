@@ -422,7 +422,7 @@ root/content
 
 - Each language folder contains its own `content.json`.
 - The active language determines which file is loaded at runtime.
-- This makes it possible to have different breadcrumbs, footer links, or details
+- This makes it possible to have different footer links, or details
   text depending on the selected language.
 
 **Structure overview:**
