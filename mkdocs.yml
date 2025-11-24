@@ -7,11 +7,9 @@ copyright: Copyright &copy; 2025 Statistics Sweden and Statistics Norway
 nav:
   - Home: index.md
   - PxWeb 2:
-      - Overview: PxWeb2/project/overview.md
-      - Try PxWeb 2: PxWeb2/project/try.md
-      - Solution: PxWeb2/project/Solution.md
+      - Introduction: PxWeb2/project/overview.md
       - Plans: PxWeb2/project/plans.md
-      - Process: PxWeb2/project/process.md
+      - The project: PxWeb2/project/process.md
   - Documentation:
       - Overview: documentation/overview.md
       - Getting Started:
