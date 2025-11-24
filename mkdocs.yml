@@ -22,6 +22,8 @@ nav:
           - Try PxWeb 2 with Docker: PxWeb2/documentation/docker.md
       - Px File Format:
           - Version 2013: px-file-format/px-2013.md
+      - User Guides:
+          - PxWebApi 2 User Guide: PxWebApi/documentation/user-guide.md
   - Tools:
       - PxWeb: tools/pxweb.md
 
