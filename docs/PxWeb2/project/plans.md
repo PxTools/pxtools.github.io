@@ -1,6 +1,6 @@
-# Plans
+# Plans 
 
-## Remaining to develop 2025 
+## Remaining to develop in PxWeb 2 
 - Show PxWebApi 2 in PxWeb
 - Button to improve table layout - DONE
 - Freeze table head
@@ -14,13 +14,15 @@
 - WCAG-fixes
 - Saved query as alternative to the algorithm (documentation) - DONE
 
-## Remaining to develop after 2025 in PxWeb 2
+## Further plan PxWeb 2.x
 - Graph
 - Hierarchy
 - Sort order
 - Sum
 - more...
 
+## Releases in the project
+---------------
 ## PxWeb 2 Release October 2025 
 - Startpage
 - Save to file
