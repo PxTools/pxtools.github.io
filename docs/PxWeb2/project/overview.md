@@ -7,7 +7,6 @@ Latest version of PxWeb2: [PxWeb 2](https://pxweb2.pages.dev/en/)
 PxWeb at Statistics Norway: [Statbank Norway](https://www.ssb.no/statbank2/en/)
 
 ## Release versions
-- PxWeb is continously updated. Release policy (link will come)
 - Follow the releases: [Version history](https://github.com/PxTools/PxWeb2/releases)
 
 ## Contact for questions and comments
