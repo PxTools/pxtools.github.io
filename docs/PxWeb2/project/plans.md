@@ -10,8 +10,7 @@
 - Chose to show code or text
 - Manual pivoting
 - Possibility for text and links in Help 
-- Possibility for own link in logo
-- WCAG-fixes
+- Possibility for own link in logo - DONE
 - Saved query as alternative to the algorithm (documentation) - DONE
 
 ## Further plan PxWeb 2.x
