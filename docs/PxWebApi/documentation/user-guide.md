@@ -1,20 +1,395 @@
 # PxWebApi 2 user guide
 
-This guide describes how the PxWebApi works in general. Each organization that
-installs PxWebApi to make their database accessible can configure the API to
-suit their own needs. Each organizations may set different limits, licenses,
+This guide describes how the PxWebApi works in general. Note that each
+organization that installs PxWebApi to make their database accessible can
+configure the API to suit their own needs by setting different limits, licenses,
 languages, or rate controls according to their own policies.
+
+Examples in this guide will be done against Statistic Norways API.
 
 See also the [OpenAPI specifications for the PxWebApi 2](https://github.com/PxTools/PxApiSpecs)
 at GitHub.
+
+## Basic concepts
+
+The PxWebApi uses some abstractions to represent the different parts of the
+statistical database. This section aims to give the reader a better
+understanding of those abstractions laying a foundation for understanding the
+structure of the API and the data that it provides.
+
+### Table
+
+A table is the representation of a statistical table. Others may sometimes refer
+to the same concept a dataset, cube, or multi-dimensional cube. But we have
+chose to call it a table due to historical reasons. A table consists of two
+parts the data that contains the numbers and the metadata that gives the data a
+context/meaning. E.g. data 10 452 326 and the metadata the population of Sweden
+December 31 2021.
+
+### Database
+
+A database is a collection of tables that are organized and structured together
+according to some schema.
+
+A common mistake is to mix the database concept with a relational database
+management system like Oracle Database or Microsoft SQL Server.
+
+Also sometimes when referring to the database one might refer to the instance of
+the database.
+
+### Folder
+
+Folders are used to organize tables in a database. A folder can contain other
+folders or tables. Usually, the first level of folders in a database are referred
+to the subject areas of the database. Others might also call them the themes of
+the database.
+
+### Variable
+
+Tables are multidimensional and variables are the concept used to describe the
+data (others may refer to variables as dimensions).  Take the example data
+10 452 326 and the metadata the population of Sweden December 31 2021. 10 452 326
+is described by tree variables
+
+1. What we are measuring, in our case this is the population. This variable is
+   special and is referred to as the content variable. There and only be one
+   content variable. Sometimes when there is just one content the content
+   variable may be omitted instead the context is given by other metadata for
+   the table.
+2. The point in time that the number is associated to in our case 31 December
+   2021. This variable type is also special and is referred to as the time
+   variable. There should always be one and only one time variable.
+3. The region. In our case it is Sweden. This is also a special kind of variable
+   called a geographical variable. A table might have zero or many geographical
+   variables but usually only have one if they have any.
+
+There is a fourth kind of variable that is just called a variable that is used
+to describe the data. Imagen, that we had divided 10 452 326 by gender so we
+have two data cells instead 5 260 707 and 5 191 619 one for male and one for
+female. Then that fourth variable would be gender.
+
+### Value
+
+Variables have distinct values that make up the space for it. E.g. our gender
+variable above have two values one for male and one for female.
+
+### Codelist
+
+A variable might have code list associated to that defined a new space for the
+variable by providing different sets of values. E.g. imagine, you have a regional
+variable with values for each municipality in Sweden. Then you might have a
+codelist that transforms the municipalities into counties.
+
+### Data cell
+
+A data cell is the individual measure in a table.
+The total number of cells for a table is given by the product of the number of
+values for each variable.
 
 ## Finding tables
 
 You can find tables via the API by hiting the `tables` endpoint. E.g. you can
 get the tables in english for Statistics Norways databas with the following URL
-[https://data.ssb.no/api/pxwebapi/v2/tables?lang=en](https://data.ssb.no/api/pxwebapi/v2/tables?lang=en)
 
-The `tables` endpoint can take the following optional arguments
+> [https://data.ssb.no/api/pxwebapi/v2/tables?lang=en](https://data.ssb.no/api/pxwebapi/v2/tables?lang=en)
+
+This will return the following response
+
+```json
+{
+    "language": "en",
+    "tables": [
+        {
+            "id": "13760",
+            "label": "13760: Labour force, employment, unemployment and man-weeks worked, by sex and age. Break and seasonally adjusted figures 2006M01-2025M09",
+            "description": "",
+            "updated": "2025-10-23T06:00:00Z",
+            "firstPeriod": "2006M01",
+            "lastPeriod": "2025M09",
+            "category": "public",
+            "variableNames": [
+                "gender",
+                "age",
+                "type of adjustment",
+                "contents",
+                "month"
+            ],
+            "source": "Statistics Norway",
+            "subjectCode": "al",
+            "timeUnit": "Monthly",
+            "paths": [
+                [
+                    {
+                        "id": "al",
+                        "label": "Labour market and earnings"
+                    },
+                    {
+                        "id": "al03",
+                        "label": "Unemployment"
+                    },
+                    {
+                        "id": "aku",
+                        "label": "Labour force survey"
+                    }
+                ],
+                [
+                    {
+                        "id": "al",
+                        "label": "Labour market and earnings"
+                    },
+                    {
+                        "id": "al06",
+                        "label": "Employment"
+                    },
+                    {
+                        "id": "aku",
+                        "label": "Labour force survey"
+                    }
+                ],
+                [
+                    {
+                        "id": "in",
+                        "label": "Immigration and immigrants"
+                    },
+                    {
+                        "id": "in01",
+                        "label": "Labour market and earnings"
+                    },
+                    {
+                        "id": "aku",
+                        "label": "Labour force survey"
+                    }
+                ]
+            ],
+            "links": [
+                {
+                    "rel": "self",
+                    "hreflang": "en",
+                    "href": "https://data.ssb.no/api/pxwebapi/v2/tables/13760?lang=en"
+                },
+                {
+                    "rel": "alternate",
+                    "hreflang": "no",
+                    "href": "https://data.ssb.no/api/pxwebapi/v2/tables/13760?lang=no"
+                },
+                {
+                    "rel": "metadata",
+                    "hreflang": "en",
+                    "href": "https://data.ssb.no/api/pxwebapi/v2/tables/13760/metadata?lang=en"
+                },
+                {
+                    "rel": "data",
+                    "hreflang": "en",
+                    "href": "https://data.ssb.no/api/pxwebapi/v2/tables/13760/data?lang=en&outputFormat=json-stat2"
+                }
+            ]
+        },
+        {
+            "id": "14483",
+            "label": "14483: Population, by labour force status, age and sex. Break and seasonally adjusted figures 2009K1-2025K3",
+            "description": "",
+            "updated": "2025-11-06T07:00:00Z",
+            "firstPeriod": "2009K1",
+            "lastPeriod": "2025K3",
+            "category": "public",
+            "variableNames": [
+                "gender",
+                "age",
+                "type of adjustment",
+                "contents",
+                "quarter"
+            ],
+            "source": "Statistics Norway",
+            "subjectCode": "al",
+            "timeUnit": "Quarterly",
+            "paths": [
+                [
+                    {
+                        "id": "al",
+                        "label": "Labour market and earnings"
+                    },
+                    {
+                        "id": "al03",
+                        "label": "Unemployment"
+                    },
+                    {
+                        "id": "aku",
+                        "label": "Labour force survey"
+                    }
+                ],
+                [
+                    {
+                        "id": "al",
+                        "label": "Labour market and earnings"
+                    },
+                    {
+                        "id": "al06",
+                        "label": "Employment"
+                    },
+                    {
+                        "id": "aku",
+                        "label": "Labour force survey"
+                    }
+                ],
+                [
+                    {
+                        "id": "in",
+                        "label": "Immigration and immigrants"
+                    },
+                    {
+                        "id": "in01",
+                        "label": "Labour market and earnings"
+                    },
+                    {
+                        "id": "aku",
+                        "label": "Labour force survey"
+                    }
+                ]
+            ],
+            "links": [
+                {
+                    "rel": "self",
+                    "hreflang": "en",
+                    "href": "https://data.ssb.no/api/pxwebapi/v2/tables/14483?lang=en"
+                },
+                {
+                    "rel": "alternate",
+                    "hreflang": "no",
+                    "href": "https://data.ssb.no/api/pxwebapi/v2/tables/14483?lang=no"
+                },
+                {
+                    "rel": "metadata",
+                    "hreflang": "en",
+                    "href": "https://data.ssb.no/api/pxwebapi/v2/tables/14483/metadata?lang=en"
+                },
+                {
+                    "rel": "data",
+                    "hreflang": "en",
+                    "href": "https://data.ssb.no/api/pxwebapi/v2/tables/14483/data?lang=en&outputFormat=json-stat2"
+                }
+            ]
+        },
+        {
+            "id": "13618",
+            "label": "13618: Population, by labour force status, age and sex. Break adjusted figures 2009-2024",
+            "description": "",
+            "updated": "2025-02-10T07:00:00Z",
+            "firstPeriod": "2009",
+            "lastPeriod": "2024",
+            "category": "public",
+            "variableNames": [
+                "labour force status",
+                "gender",
+                "age",
+                "contents",
+                "year"
+            ],
+            "source": "Statistics Norway",
+            "subjectCode": "al",
+            "timeUnit": "Annual",
+            "paths": [
+                [
+                    {
+                        "id": "al",
+                        "label": "Labour market and earnings"
+                    },
+                    {
+                        "id": "al03",
+                        "label": "Unemployment"
+                    },
+                    {
+                        "id": "aku",
+                        "label": "Labour force survey"
+                    }
+                ],
+                [
+                    {
+                        "id": "al",
+                        "label": "Labour market and earnings"
+                    },
+                    {
+                        "id": "al06",
+                        "label": "Employment"
+                    },
+                    {
+                        "id": "aku",
+                        "label": "Labour force survey"
+                    }
+                ],
+                [
+                    {
+                        "id": "in",
+                        "label": "Immigration and immigrants"
+                    },
+                    {
+                        "id": "in01",
+                        "label": "Labour market and earnings"
+                    },
+                    {
+                        "id": "aku",
+                        "label": "Labour force survey"
+                    }
+                ]
+            ],
+            "links": [
+                {
+                    "rel": "self",
+                    "hreflang": "en",
+                    "href": "https://data.ssb.no/api/pxwebapi/v2/tables/13618?lang=en"
+                },
+                {
+                    "rel": "alternate",
+                    "hreflang": "no",
+                    "href": "https://data.ssb.no/api/pxwebapi/v2/tables/13618?lang=no"
+                },
+                {
+                    "rel": "metadata",
+                    "hreflang": "en",
+                    "href": "https://data.ssb.no/api/pxwebapi/v2/tables/13618/metadata?lang=en"
+                },
+                {
+                    "rel": "data",
+                    "hreflang": "en",
+                    "href": "https://data.ssb.no/api/pxwebapi/v2/tables/13618/data?lang=en&outputFormat=json-stat2"
+                }
+            ]
+        }
+    ],
+    "page": {
+        "pageNumber": 1,
+        "pageSize": 3,
+        "totalElements": 3877,
+        "totalPages": 1293,
+        "links": [
+            {
+                "rel": "next",
+                "hreflang": "en",
+                "href": "https://data.ssb.no/api/pxwebapi/v2/tables/?lang=en&pagesize=3&pageNumber=2"
+            },
+            {
+                "rel": "last",
+                "hreflang": "en",
+                "href": "https://data.ssb.no/api/pxwebapi/v2/tables/?lang=en&pagesize=3&pageNumber=1293"
+            }
+        ]
+    },
+    "links": [
+        {
+            "rel": "self",
+            "hreflang": "en",
+            "href": "https://data.ssb.no/api/pxwebapi/v2/tables/?lang=en&pagesize=3&pageNumber=1"
+        }
+    ]
+}
+```
+
+The response will contain a list of tables that are in the database in that
+specific language. It also conatins information about result pages. The hole list
+is not returned in one response instead the list is split up in pages containing
+subparts of the complete list of tables.
+
+The `tables` endpoint can take the following optional arguments to filter and
+select a specific slice of the resulting list of tables:
 
 - `lang` an laguage parameter specifing which language the result should be in.
 - `query` an query string that can filter out tables.
@@ -60,8 +435,10 @@ Use the parameter pastdays if you want to find tables that have been updated in,
 ## Basic information about the table
 
 Basic information about the table can be retrieved with a URL like this `tables/{TABLE-ID}`
-Example from Statistics Norway for table with id 05810 would be
-[https://data.ssb.no/api/pxwebapi/v2/tables/05810?lang=en](https://data.ssb.no/api/pxwebapi/v2/tables/05810?lang=en)
+
+Example from Statistics Norway for table with `id` *05810* would be
+
+> [https://data.ssb.no/api/pxwebapi/v2/tables/05810?lang=en](https://data.ssb.no/api/pxwebapi/v2/tables/05810?lang=en)
 
 This would give us the following result
 
@@ -154,16 +531,25 @@ This would give us the following result
 }
 ```
 
-Here you can see among other things the table title (*label*), the first and
-latest period in the time series (*firstPeriod* and *lastPeriod*), and which
-variables are included (*variableNames*). Path shows the table's location(s) in
+Here you can see among other things the table title (`label`), the first and
+latest period in the time series (`firstPeriod` and `lastPeriod`), and which
+variables are included (`variableNames`). `Paths` shows the table's location(s) in
 the subject structure.
 
 ## Metadata for the table
 
-Detailed metadata for a given table number can be retrieved using a URL in the form https://data.ssb.no/api/pxwebapi/v2/tables/five-digit table number/metadata?lang=en. The metadata is displayed in the json-stat2 format, where objects are shown as { } and lists as [ ]. Extracts from here can be used to create the query. 
+Detailed metadata for a given table can be retrieved using he endpoint `tables/{TABLE-ID}/metadata`.
+The metadata is displayed in the JSON-stat v2 format.
 
-Example from table 05810: https://data.ssb.no/api/pxwebapi/v2/tables/05810/metadata?lang=en 
+!!! note
+    You will need to read the metadata to be able to construct queries for
+    extracting data.
+
+Example from Statistics Norway table with *id* 05810
+
+> [https://data.ssb.no/api/pxwebapi/v2/tables/05810/metadata?lang=en](https://data.ssb.no/api/pxwebapi/v2/tables/05810/metadata?lang=en)
+
+This would result in the following response.
 
 ```json
 {
@@ -452,35 +838,61 @@ Example from table 05810: https://data.ssb.no/api/pxwebapi/v2/tables/05810/metad
 }
 ```
 
-The metadata consists of a table title label (level 1) as well as a list of variables for the table. For the variable objects dimension (level 2), the most important properties are: 
+The metadata consists of a table title `label` (level 1) as well as a list of
+variables for the table. For the variable objects dimension (level 2), the most
+important properties are:
 
-- Variable id (*id*)
-- Variable name (*label*)
-- Elimination (*elimination*)
+- Variable id (`id`)
+- Variable name (`label`)
+- Elimination (`elimination`)
 
-Each variable object contains two lists (level 3), one with value codes index and one with presentation texts for the values label. 
+Each variable object contains two lists (level 3), one with value codes index
+and one with presentation texts for the values label.
 
-For contents variables, the unit of measurement and the number of decimals are always specified. 
+For contents variables, the unit of measurement and the number of decimals are
+always specified.
 
-For each statistical variable, there may be under extension: 
+For each value of the content variable, there may be more metadata under extension:
 
-- Measuring type (measuringType: Stock, Flow, Average, Other)
-- Price type (priceType: Current, Fixed, NotApplicable) 
-- Seasonal and calender adjustment (adjustment: SesOnly, WorkOnly, WorkAndSes, None) 
-- Base period (basePeriod) 
+- Measuring type (`Stock`, `Flow`, `Average`, `Other`)
+- Price type (`Current`, `Fixed`, `NotApplicable`)
+- Seasonal and calender adjustment (`SesOnly`, `WorkOnly`, `WorkAndSes`, `None`)
+- Base period
 
 ## Retrieve data from table
 
-Data (figures) for a given table number can be retrieved with a URL in the following form https://data.ssb.no/api/pxwebapi/v2/tables/five-digit table number/data?lang=en . 
+Data (figures) for a given table number can be retrieved with a URL in the
+following endpoint `tables/{TABLE-ID}}/data`.
 
-For table 05810 https://data.ssb.no/api/pxwebapi/v2/tables/05810/data?lang=en will provide a table broken down by gender and age for the latest period. This corresponds to the default extraction you get when you select the same table in PxWeb. Please note that in the default table, only two dimensions will show more than one value. To extract numbers in multiple dimensions, this must be specified in the API query (see section Queries against a table). 
+Exampel from Statistics Norway for table with `id` *05810* whould look like this:
 
-The default format is json-stat2, but you can also choose other formats (see section Output formats).
+> [https://data.ssb.no/api/pxwebapi/v2/tables/05810/data?lang=en](https://data.ssb.no/api/pxwebapi/v2/tables/05810/data?lang=en)
 
-## Queries against a table
-You can use PxWeb to build API queries, or you can use applications like Postman, Hoppscotch or similar to construct your own queries. In this guide, we will show examples of queries via Postman. 
+This will provide a table broken down by gender and age for the latest period.
+This corresponds to the default extraction you get when you select the same
+table in PxWeb. Please note that in the default table, only two dimensions will
+show more than one value. To extract numbers in multiple dimensions, this must
+be specified in the API query (see section Queries against a table).
 
-### Parameters for use in queries
+!!! note
+    The data from Statistics Norway API is in the JSON-stat v2. And that the
+    default format that you get the data in may vary depending on the organization.
+
+### Queries against a table
+
+You can use PxWeb to build API queries, or you can create queries from scratch
+by looking at the metadata and construct the right objects.
+
+The query contains per variable a list of values that should be included in the
+response and also if a specific codelist so be applied.
+
+The query can be represented in two way:
+
+1. As query parameters in the URL when doing a HTTP GET request.
+2. As a JSON object attached as the content when doing a HTTP POST request.
+
+#### Queries as URL parameters
+
 Use the lang parameter if you want the English language. The default language is Norwegian. 
 
 To specify variable and values, use valueCodes[variable-id]=value-index1, value-index2 etc. 
