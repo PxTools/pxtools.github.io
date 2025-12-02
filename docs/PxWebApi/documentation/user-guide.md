@@ -5,7 +5,9 @@ organization that installs PxWebApi to make their database accessible can
 configure the API to suit their own needs by setting different limits, licenses,
 languages, or rate controls according to their own policies.
 
-Examples in this guide will be done against Statistic Norways API.
+!!! note "Examples"
+    Examples in this guide will be done against Statistic Norways API for thiere
+    Statbank.
 
 See also the [OpenAPI specifications for the PxWebApi 2](https://github.com/PxTools/PxApiSpecs)
 at GitHub.
@@ -404,33 +406,23 @@ select a specific slice of the resulting list of tables:
 
 ### Examples
 
-### Search for tables with parameter query
+#### Search for "pizza" in all tables
 
-The **query** parameter searches in table titles, variables, and variable values. The search is case-insensitive. The title filter restricts the search to the **title** field. 
+Add the `query` parameter to the url like
 
-Examples: 
+> <https://data.ssb.no/api/pxwebapi/v2/tables?lang=en&query=pizza>
 
-- Search for "pizza" in all tables:
-  https://data.ssb.no/api/pxwebapi/v2/tables?lang=en&query=pizza
- 
-- Search for tables published on a given date or in a given time interval:https://data.ssb.no/api/pxwebapi/v2/tables/?lang=en&query=updated:20250908*
-  https://data.ssb.no/api/pxwebapi/v2/tables/?lang=en&query=updated:[20250908 TO 20250912*]
- 
-- Search for titles containing word "age" AND word starting with "child":
-  https://data.ssb.no/api/pxwebapi/v2/tables?lang=en&query=title:age AND child*
- 
-- Search for "commodity number" and "HS" less than 5 words apart:
-  https://data.ssb.no/api/pxwebapi/v2/tables?lang=en&query="commodity number hs" ~5
- 
-- Search for not discontinued tables where the title contains "children":
-  https://data.ssb.no/api/pxwebapi/v2/tables?lang=en&query=title:children&includeDiscontinued=false
- 
-- Search for not dicontinued tables where the title contains "enterprise" and where county (C) is the lowest regional division:
-  https://data.ssb.no/api/pxwebapi/v2/tables?lang=en&query=title:enterprises AND title:(C)&includeDiscontinued=false
+#### Search for not discontinued tables where also containing the term "children"
 
-### Search for tables that have been recently updated
+Add the `includeDiscontinued` query parameter like
 
-Use the parameter pastdays if you want to find tables that have been updated in, for example, the past 3 days: https://data.ssb.no/api/pxwebapi/v2/tables?pastdays=3&lang=en  
+> <https://data.ssb.no/api/pxwebapi/v2/tables?lang=en&query=children&includeDiscontinued=true>
+
+#### Search for tables that have been recently updated
+
+Use the parameter `pastDays` if you want to find tables that have been updated like
+
+> <https://data.ssb.no/api/pxwebapi/v2/tables?pastdays=3&lang=en>
 
 ## Basic information about the table
 
@@ -864,7 +856,7 @@ For each value of the content variable, there may be more metadata under extensi
 Data (figures) for a given table number can be retrieved with a URL in the
 following endpoint `tables/{TABLE-ID}}/data`.
 
-Exampel from Statistics Norway for table with `id` *05810* whould look like this:
+**Exampel from Statistics Norway for table with `id` *05810* whould look like this:**
 
 > [https://data.ssb.no/api/pxwebapi/v2/tables/05810/data?lang=en](https://data.ssb.no/api/pxwebapi/v2/tables/05810/data?lang=en)
 
@@ -930,34 +922,44 @@ URL: https://data.ssb.no/api/pxwebapi/v2/tables/03013/data?lang=en&valueCodes[Ko
 
 ## Output formats
 
-The API can provide the result in 7 main formats: 
+The API can provide the result in 7 main formats:
 
-The API can provide the result in 7 main formats: 
+- `json-stat2`  (default)
+- `csv` (text format)
+- `px` (used in PxWeb and PxWin)
+- `xlsx` (Excel)
+- `html`
+- `json-px`
+- `parquet`
 
-- json-stat2  (default) 
-- csv (text format) 
-- px (used in PxWeb and PxWin) 
-- xlsx (Excel) 
-- html 
-- json-px 
-- parquet 
+You select the format you want the response to be in by setting the parameter `outputFormat`.
 
-For the formats csv, html and xlsx you can specify the display of code/text and table title:
+### Additionally paramaters
 
-- UseCodes (display codes) 
-- UseTexts (display text) 
-- UseCodesAndTexts (display codes and text) 
-- IncludeTitle (include table title) 
+Some of the output format can take extra parameters that determines how the
+table is serialized.
 
-And for csv files, you can choose between different separators:
+For the formats `csv`, `html` and `xlsx` you can specify the display of
+code/text and table title:
 
-- SeparatorTab (tabulator between columns) 
-- SparatorSpace (space between columns) 
-- SeparatorSemicolon (semicolon between columns) 
+- `UseCodes` (display codes)
+- `UseTexts` (display text)
+- `UseCodesAndTexts` (display codes and text)
+- `IncludeTitle` (include table title)
 
-Example: 
-URL: https://data.ssb.no/api/pxwebapi/v2/tables/03024/data?lang=en&valuecodes[ContentsCode]=*&valuecodes[Varegrupper2]=*&stub=VareGrupper2,Tid&heading=ContentsCode&valuecodes[Tid]=top(3)&outputformat=csv&outputformatparams=separatorsemicolon,usecodesandtexts  
+And for `csv` files, you can choose between different separators:
 
+- `SeparatorTab` (tabulator between columns)
+- `SparatorSpace` (space between columns)
+- `SeparatorSemicolon` (semicolon between columns)
+
+You can set these on the `outputFormatParams` parameter. If multiple parameters
+are specified use a comma to separate them apart. E.g.
+
+> <https://data.ssb.no/api/pxwebapi/v2/tables/03024/data?lang=en&valuecodes[ContentsCode]=*&valuecodes[Varegrupper2]=*&stub=VareGrupper2,Tid&heading=ContentsCode&valuecodes[Tid]=top(3)&outputformat=csv&outputformatparams=separatorsemicolon,usecodesandtexts>
+
+
+TODO note block?
 In output formats csv, html, and xlsx, you can use stub to specify which variables to place in the front column of the table and heading for the variables to place in the table header. 
 
 If you place all variables in the stub, you get a so-called pivot-friendly table: https://data.ssb.no/api/pxwebapi/v2/tables/03024/data?lang=en&valuecodes[ContentsCode]=*&valuecodes[Varegrupper2]=*&stub=VareGrupper2,Tid,ContentsCode&valuecodes[Tid]=top(3)&outputformat=csv&outputformatparams=separatorsemicolon,usecodesandtexts 
@@ -965,52 +967,84 @@ If you place all variables in the stub, you get a so-called pivot-friendly table
 The decimal separator is . (period) for all languages and all formats, except Excel in Norwegian where the decimal separator is comma. 
 
 ## Elimination
-An eliminable variable can be completely removed from the query. 
 
-If the variable is eliminable (true), it will display: 
+An eliminable variable can be completely removed from the query.
 
-1. either an elimination value, usually the sum 
-2. or all values ​​will be aggregated into one. 
+If the variable is eliminable (true), it will display:
 
-If the variable is not eliminable (false), you must select something from it. Time and contents variable (ContentsCode) are not eliminable. 
+1. either an elimination value, usually the sum
+2. or all values ​​will be aggregated into one.
+
+If the variable is not eliminable (false), you must select something from it.
+Time and contents variable (ContentsCode) are not eliminable.
 
 ## Valuesets
-A variable can have multiple valuesets associated with it. In that case, these will be listed under endpoint metadata, specified as codeLists/vs. For example, the region variable can have both a county list and a municipality list: 
-https://data.ssb.no/api/pxwebapi/v2/codeLists/vs_Fylker?lang=en 
 
-https://data.ssb.no/api/pxwebapi/v2/codeLists/vs_Kommun?lang=en 
+A variable can have multiple valuesets associated with it. In that case, these
+will be listed under endpoint metadata, specified as codeLists/vs. For example,
+the region variable can have both a county list and a municipality list:
 
-You can specify which value range you want to retrieve numbers from by using parameter codelist when retrieving data: https://data.ssb.no/api/pxwebapi/v2/tables/01222/data?lang=en&valueCodes[Region]=*&valueCodes[ContentsCode]=Folketallet1&valueCodes[Tid]=from(2022K1)&codelist[Region]=vs_Fylker
+> <https://data.ssb.no/api/pxwebapi/v2/codeLists/vs_Fylker?lang=en>
+> <https://data.ssb.no/api/pxwebapi/v2/codeLists/vs_Kommun?lang=en>
+
+You can specify which value range you want to retrieve numbers from by using
+parameter codelist when retrieving data e.g.
+
+> <https://data.ssb.no/api/pxwebapi/v2/tables/01222/data?lang=en&valueCodes[Region]=*&valueCodes[ContentsCode]=Folketallet1&valueCodes[Tid]=from(2022K1)&codelist[Region]=vs_Fylker>
 
 ## Groupings (aggregation or selection)
-A variable can have groupings associated with it. In that case, groupings will appear under endpoint metadata, specified as codeLists/agg. An example from https://data.ssb.no/api/pxwebapi/v2/tables/07459/metadata?lang=en is Municipalities 2024, aggregated time series: 
 
-Excerpt from table 07459 about grouping agg_KommSummer
-From https://data.ssb.no/api/pxwebapi/v2/codeLists/agg_KommSummer?lang=en you can see how the grouping is constructed: 
+A variable can have groupings associated with it. In that case, groupings will
+appear under endpoint metadata, specified as codeLists/agg. An example from
 
-Excerpt from table 07459 about groupings.
-Under valueMap you can see which municipality codes are summed up to the group codes K-3101, K-3203, etc. The grouping is used together with outputValues[Region]= aggregated to select aggregated numbers, here to sum up numbers for merged municipalities and municipalities that have changed codes over the years. Example for Moss, which in 2020 was merged by municipalities 0104 and 0136, and which in 2024 changed code from 3002 to 3103: 
+> <https://data.ssb.no/api/pxwebapi/v2/tables/07459/metadata?lang=en>
 
-https://data.ssb.no/api/pxwebapi/v2/tables/07459/data?lang=en&valueCodes[Region]=K-3103&valueCodes[Tid]=*&valueCodes[ContentsCode]=Personer1&codelist[Region]=agg_KommSummer&outputValues[Region]=aggregated 
- 
-Another example from the same table is Counties 2024-: 
+is Municipalities 2024, aggregated time series:
 
-Excerpt from table 07459 about grouping Agg_Fylker2024
-From https://data.ssb.no/api/pxwebapi/v2/codeLists/agg_Fylker2024?lang=en you can see how the grouping is constructed: 
+Excerpt from table *07459* about grouping *agg_KommSummer*
+From <https://data.ssb.no/api/pxwebapi/v2/codeLists/agg_KommSummer?lang=en> you
+can see how the grouping is constructed:
+
+Excerpt from table *07459* about groupings.
+Under `valueMap` you can see which municipality codes are summed up to the group
+codes `K-3101`, `K-3203`, etc. The grouping is used together with `outputValues[Region]=`
+aggregated to select aggregated numbers, here to sum up numbers for merged
+municipalities and municipalities that have changed codes over the years.
+Example for *Moss*, which in *2020* was merged by municipalities `0104` and `0136`,
+and which in *2024* changed code from `3002` to `3103`:
+
+> <https://data.ssb.no/api/pxwebapi/v2/tables/07459/data?lang=en&valueCodes[Region]=K-3103&valueCodes[Tid]=*&valueCodes[ContentsCode]=Personer1&codelist[Region]=agg_KommSummer&outputValues[Region]=aggregated>
+
+Another example from the same table is Counties 2024-:
+
+Excerpt from table *07459* about grouping *Agg_Fylker2024*
+From <https://data.ssb.no/api/pxwebapi/v2/codeLists/agg_Fylker2024?lang=en> you
+can see how the grouping is constructed:
 
 Excerpt from table 07459 shows how the grouping is structured.
-Here code and valueMap are the same. The grouping is used together with outputValues[Region]= single to select some values ​​from the full list, in this case the latest county division. 
+Here code and valueMap are the same. The grouping is used together with
+`outputValues[Region]=` single to select some values ​​from the full list, in
+this case the latest county division.  
 
-Example where we retrieve figures for the latest year for all the current county codes: https://data.ssb.no/api/pxwebapi/v2/tables/07459/data?lang=en&valueCodes[Region]=*&valueCodes[ContentsCode]=Personer1&valueCodes[Tid]=top(1)&codelist[Region]=agg_Fylker2024&outputValues[Region]=single 
+Example where we retrieve figures for the latest year for all the current county
+codes:
+
+> <https://data.ssb.no/api/pxwebapi/v2/tables/07459/data?lang=en&valueCodes[Region]=*&valueCodes[ContentsCode]=Personer1&valueCodes[Tid]=top(1)&codelist[Region]=agg_Fylker2024&outputValues[Region]=single>
 
 ## Footnotes
 
-Any footnotes are provided under note and may be associated with a table, variable, or value. Multiple footnotes may be attached to the same element. They are then separated by quotation marks and commas. See e.g. 
-https://data.ssb.no/api/pxwebapi/v2/tables/12880/metadata?lang=en. 
+Any footnotes are provided under note and may be associated with a table,
+variable, or value. Multiple footnotes may be attached to the same element.
+They are then separated by quotation marks and commas. See e.g.
+<https://data.ssb.no/api/pxwebapi/v2/tables/12880/metadata?lang=en>.
 
 ## POST queries
 
 PxWebApi 2 also supports POST queries. See example at https://github.com/janbrus/ssb-api-python-examples/blob/master/PxWebApi2/laks_nor.ipynb  
+
+## Language
+
+Most of the endpoints take a `lang` parameter specifying 
 
 # What's new in PxWebApi version 2
 
@@ -1027,38 +1061,12 @@ Here is a brief overview of what is new in the new version of PxWebApi v2.
 - to() - up to and including (inclusive)
 - bottom() - opposite of the existing top()
 
-**More flexible data retrieval**
-- Fetch predefined datasets without specifying parameters
-- More metadata in JSON-stat2, including footnotes (also applies to version 1)
-- Metadata in the API is can now be shown as JSON-stat2
-- Codelists in metadata. Available via Codelists 
-
-**Layout control for CSV and XLSX**
-New parameters give full control and flexibility over what goes in rows and columns. This makes CSV and XLSX much more usable.
-
-**View options**
-- UseCodes – show only codes
-- UseTexts – show only text
-- UseCodesAndTexts – show both codes and text
-- IncludeTitle – include table title
 
 **Structure control**
 - stub – determine which variables should be displayed in the front column
 - heading – determine variables in the table header
 **Tip**: Place all variables in stub to get a pivot-friendly table
 
-**CSV separator**
-- SeparatorTab – tabulator
-- SeparatorSpace – space
-- SeparatorSemicolon – semicolon
-
-Example:
-```
-    outputformat=csv
-    outputformatparams=separatorsemicolon,usecodesandtexts
-    heading=ContentsCode
-    stub=VareGrupper2,Tid
-```
 
 **HTML output** is new in the API.
 Styling tips:
@@ -1079,24 +1087,15 @@ Styling tips:
 	</style>
 ```
 
-**Other news**
-More metadata in JSON-stat 2, such as footnotes. Also applies to API v1
-
-There is also a new format for using http POST.
-Its also good to know that it seems like the  GET URL is not case sensitive.
-
 **Known limitations**
 **Static URLs**
 URLs generated in Statbank are static and do not automatically include future figures. It is necessary to edit it manually to get updated figures. Use e.g. filter from() or top(). In version 1 it was possible to "select all" by eliminating the time variable. This is not possible in v2.
-
-
-
 
 ## Response codes
 
 Possible error codes if the query does not return a response:
 
-- 400 – “Bad request” - errors in syntax of the query. 
+- 400 – “Bad request” - errors in syntax of the query.
 - 403 – Blocking when querying for large data sets. The API limit is 800,000 cells. 
 - 404 – Resource not found. May be due to a misspelled URL or URL exceeding the limit of approximately 2100 characters.  
 - 429 – Too many queries within a minute. The limit is 30 queries within 60 seconds. Run large queries in sequence. Get the result of the first, before you run the next. 
@@ -1209,8 +1208,3 @@ Contact statistikkbanken@ssb.no if you have questions about the tables or the AP
 https://github.com/PxTools/PxApiSpecs 
 
 https://github.com/PxTools/PxWebApi  
-
- 
-
- 
-
