@@ -106,6 +106,7 @@ Open `config/config.js` and set `apiUrl`:
     baseApplicationPath: '/',
     apiUrl: "https://your.api.server/PxWeb/api/v2",
     maxDataCells: 100000,
+    showBreadCrumbOnStartPage: false,
     specialCharacters: ['.', '..', ':', '-', '...', '*'],
     variableFilterExclusionList: {
       en: [
@@ -199,6 +200,7 @@ In `config/config.js`:
     baseApplicationPath: '/',
     apiUrl: "https://your.api.server/PxWeb/api/v2",
     maxDataCells: 100000,
+    showBreadCrumbOnStartPage: false,
     specialCharacters: ['.', '..', ':', '-', '...', '*'],
     variableFilterExclusionList: {
       en: [
@@ -252,6 +254,14 @@ By default you will come to the PxWeb start page when clicking the logo. However
     en: 'https://www.mypxweb.com',     // Set to your English homepage URL
     sv: 'https://www.mypxweb.com/sv/', // Set to your Swedish homepage URL
   },
+```
+
+### Show breadcrumb on start page
+You can set if breadcrumbs should be shown on start page
+Set `showBreadCrumbOnStartPage` in `config/config.js`. Example:
+
+```js
+  showBreadCrumbOnStartPage: true,
 ```
 
 ### Adjust or fix text / translations
@@ -352,6 +362,7 @@ Toggle:
     baseApplicationPath: '/',
     apiUrl: "https://your.api.server/PxWeb/api/v2",
     maxDataCells: 100000,
+    showBreadCrumbOnStartPage: false,
     specialCharacters: ['.', '..', ':', '-', '...', '*'],
     variableFilterExclusionList: {
       en: [
@@ -412,8 +423,7 @@ know the side effects (they are used for logical extremes).
 
 The `content.json` file defines customizable text and links that appear in
 **PxWeb’s user interface** This file allows you to configure localized UI
-content: you can add or change the **breadcrumb navigation** on the start page,
-add a **detailsSection** after the ingress on the start page, or update the
+content: you can add a **detailsSection** after the ingress on the start page, or update the
 **footer** content for the application.
 
 ```sh
@@ -430,7 +440,7 @@ root/content
 
 - Each language folder contains its own `content.json`.
 - The active language determines which file is loaded at runtime.
-- This makes it possible to have different breadcrumbs, footer links, or details
+- This makes it possible to have different footer links, or details
   text depending on the selected language.
 
 **Structure overview:**
@@ -438,10 +448,6 @@ root/content
 ```json
 {
   "startPage": {
-    "breadCrumb": {
-      "enabled": false,
-      "items": []
-    },
     "detailsSection": {
       "enabled": true,
       "detailHeader": "More about PxWeb",
@@ -493,9 +499,6 @@ root/content
 }
 ```
 
-- **startPage.breadCrumb**
-  Optional breadcrumb navigation on start page. Enabled with the `enabled` flag.
-  Each item contains a `label` and an `href`.
 - **startPage.detailsSection** – Optional section below the page ingress. When
   `enabled` is `true`, the application renders the **`DetailsSection` component**.
   This section can contain multiple entries, and each entry may be either a
