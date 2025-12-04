@@ -42,18 +42,6 @@ This instruction guides you in how to install PxWeb 2 on IIS.
 
 ## Troubleshooting
 
-### Problem running PxWeb on localhost
-
-If you are trying to run PxWeb directly on the server under localhost you might get an error looking like this in the console of your browser:
-
-  ```
-  Uncaught EvalError: Refused to evaluate a string as JavaScript because 'unsafe-eval' is not an allowed source of script in the following Content Security Policy directive: "script-src 'self'".
-  ```
-
-#### Solution
-
-Change localhost in the URL to the computer name of the server.
-
 ### PxWeb refuses to connect to PxWebApi
 
 If you get an error message looking like this in the console of your browser:
