@@ -6,11 +6,28 @@ configure the API to suit their own needs by setting different limits, licenses,
 languages, or rate controls according to their own policies.
 
 !!! note "Examples"
-    Examples in this guide will be done against Statistic Norways API for thiere
+    Examples in this guide will be done against Statistic Norways API for their
     Statbank.
 
 See also the [OpenAPI specifications for the PxWebApi 2](https://github.com/PxTools/PxApiSpecs)
 at GitHub.
+
+## What's new in PxWebApi version 2
+
+Some of the most important changes in version 2 of the PxWebApi are:
+
+- **Most important** is the GET URL support. This makes the API easier to integrate.
+- **Better masking characters**. You can now mask individual characters with `?`,
+  in addition to the existing `*` for multiple characters. E.g.: `202?M12`
+  selects only December numbers for the 2020s.
+- **New selection expressions**
+    - `from` retrieve data from and including a starting point.
+    - `range` define a specific interval, e.g. from municipal list.
+    - `to` up to and including (inclusive).
+    - `bottom` opposite of the existing `top`.
+- **Structure control**
+    - `stub` – determine which variables should be displayed in the front column
+    - `heading` – determine variables in the table header
 
 ## Basic concepts
 
@@ -91,7 +108,7 @@ values for each variable.
 ## Finding tables
 
 You can find tables via the API by hiting the `tables` endpoint. E.g. you can
-get the tables in english for Statistics Norways databas with the following URL
+get the tables in english for Statistics Norways database with the following URL
 
 > [https://data.ssb.no/api/pxwebapi/v2/tables?lang=en](https://data.ssb.no/api/pxwebapi/v2/tables?lang=en)
 
@@ -385,7 +402,7 @@ This will return the following response
 }
 ```
 
-The response will contain a list of tables that are in the database in that
+The response will contains a list of tables that are in the database in that
 specific language. It also conatins information about result pages. The hole list
 is not returned in one response instead the list is split up in pages containing
 subparts of the complete list of tables.
@@ -393,22 +410,22 @@ subparts of the complete list of tables.
 The `tables` endpoint can take the following optional arguments to filter and
 select a specific slice of the resulting list of tables:
 
-- `lang` an laguage parameter specifing which language the result should be in.
+- `lang` an language parameter specifying which language the result should be in.
 - `query` an query string that can filter out tables.
 - `pastDays` filters out tables in the result so only tables updated since the
    number of `pastDays`.
-- `includeDiscontined` if discontined tables should be included or not in the result.
+- `includeDiscontinued` if discontinued tables should be included or not in the result.
 - `pageSize` All tables might not be included in the response depending on how
    many tables there is in the result and the `pageSize` sets how many tables
    are returned in the response. The default value might be changed by the organization.
-- `pageNumber`  The `pageNumber` specifies which page sould be in the response. The
-  default is the first page.
+- `pageNumber`  The `pageNumber` specifies which page should be in the response.
+  The default is the first page.
 
 ### Examples
 
 #### Search for "pizza" in all tables
 
-Add the `query` parameter to the url like
+Add the `query` parameter to the URL like
 
 > <https://data.ssb.no/api/pxwebapi/v2/tables?lang=en&query=pizza>
 
@@ -430,7 +447,7 @@ Basic information about the table can be retrieved with a URL like this `tables/
 
 Example from Statistics Norway for table with `id` *05810* would be
 
-> [https://data.ssb.no/api/pxwebapi/v2/tables/05810?lang=en](https://data.ssb.no/api/pxwebapi/v2/tables/05810?lang=en)
+> <https://data.ssb.no/api/pxwebapi/v2/tables/05810?lang=en>
 
 This would give us the following result
 
@@ -848,7 +865,7 @@ For each value of the content variable, there may be more metadata under extensi
 
 - Measuring type (`Stock`, `Flow`, `Average`, `Other`)
 - Price type (`Current`, `Fixed`, `NotApplicable`)
-- Seasonal and calender adjustment (`SesOnly`, `WorkOnly`, `WorkAndSes`, `None`)
+- Seasonal and calendar adjustment (`SesOnly`, `WorkOnly`, `WorkAndSes`, `None`)
 - Base period
 
 ## Retrieve data from table
@@ -856,7 +873,7 @@ For each value of the content variable, there may be more metadata under extensi
 Data (figures) for a given table number can be retrieved with a URL in the
 following endpoint `tables/{TABLE-ID}}/data`.
 
-**Exampel from Statistics Norway for table with `id` *05810* whould look like this:**
+**Example from Statistics Norway for table with `id` *05810* whould look like this:**
 
 > [https://data.ssb.no/api/pxwebapi/v2/tables/05810/data?lang=en](https://data.ssb.no/api/pxwebapi/v2/tables/05810/data?lang=en)
 
@@ -883,42 +900,194 @@ The query can be represented in two way:
 1. As query parameters in the URL when doing a HTTP GET request.
 2. As a JSON object attached as the content when doing a HTTP POST request.
 
-#### Queries as URL parameters
+When the listing the values that should be selected you can either list the
+specific codes or you could use special selection expressions to select value
+codes that matches the expression. You can also combine value codes and.
+selection expressions.
 
-Use the lang parameter if you want the English language. The default language is Norwegian. 
+#### Query as URL parameters
 
-To specify variable and values, use valueCodes[variable-id]=value-index1, value-index2 etc. 
+To specify variable and values, use the following syntax:
 
-You can specify one of several code lists for the variable, use codeList[variable-id]=code-list-id. 
+```
+valueCodes[variable-id]=value-code1, value-code2
+```
 
-If the code list is a grouping, you can use outputValues[variable-id]=aggregated|single to specify whether you want aggregated or single values. 
+You need to specify value codes for each variable that is not eliminable. The
+value codes are given in a comma separated list. If the value code should be
+surrounded by square brackets like `3,[1,2],4+5`. See bellow on how to specify
+value codes.
 
-Use outputformat if you want to get something other than the default format.
+You change can specify a different codelist for a variable the possible once
+are given in the metadata response. In these cases, you need to add the paramter
+`codelist` that specifies which codelist to use. When doing so the value codes referred
+in `valueCodes` are the value codes in the selected codelist.
+You select the codelist in the following syntax
 
-### Truncate with asterisk, mask individual characters with a question mark
-In this example from table 03013, we retrieve numbers for the statistic variable (ContentsCode) KpiIndMnd for all consumption groups with a two-digit code (??) and for all months in 2020 (2020*): 
+```
+codelist[variable-id]=codelist-id.
+```
 
-The generated URL looks like this: https://data.ssb.no/api/pxwebapi/v2/tables/03013/data?lang=en&valueCodes[Konsumgrp]=??&valueCodes[ContentsCode]=KpiIndMnd&valueCodes[Tid]=2020*
+You can also specify the format you want the data in. See Output formats bellow.
 
-It is possible to set truncation signs both in front of and behind the search term. 
+#### Query in the POST body
 
-### Fetch the latest periods, or the first values
+You can also specify the query as an JSON object and pass that in the body of a
+HTTP POST request.
 
-If you want figures for the n most recent months, you can use top(n): 
+The syntax of the body is as follows:
 
-URL: https://data.ssb.no/api/pxwebapi/v2/tables/03013/data?lang=en&valueCodes[Konsumgrp]=??&valueCodes[ContentsCode]=KpiIndMnd&valueCodes[Tid]=top(3) 
+```json
+{
+  "selection": [
+    {
+      "variableCode": "variable id",
+      "codelist": "",
+      "valueCodes": [
+        "value-code1",
+        "value-code2",
+        "etc"
+      ]
+    }
+  ],
+  "placement": {
+    "heading": [
+      "string"
+    ],
+    "stub": [
+      "string"
+    ]
+  }
+}
+```
 
-With [top(n, start)] you can retrieve n values starting from the start position. Bottom works the same way as top, but retrieves values from the end of the list. 
+You need to provide a selection object in the `selection` array for each
+variable that is not eliminable. Each selection object can contain the
+following properties:
 
-### Fetch all values from a given starting value
-If you want figures for all values from starting value x, you can use from(x):
+- `variableCode` the id of the variable
+- `valueCodes` an array of value codes that should be selected for
+  that specific variable.
+- `codelist` (optional) if a specific codelist should be selected for that variable.
 
-URL: https://data.ssb.no/api/pxwebapi/v2/tables/03013/data?lang=en&valueCodes[Konsumgrp]=??&valueCodes[ContentsCode]=KpiIndMnd&valueCodes[Tid]=from(2022M01)
+??? tip "Doing POST queries in Python examples"
+    See how you can do POST queries in Python here <https://github.com/janbrus/ssb-api-python-examples/blob/master/PxWebApi2/laks_nor.ipynb>
 
-### Retrieve all values in a given range
-You can use [range (x,y)] to get all values in the range from x to y:
+#### Selection expressions
 
-URL: https://data.ssb.no/api/pxwebapi/v2/tables/03013/data?lang=en&valueCodes[Konsumgrp]=[range(01.1,02.2)]&valueCodes[ContentsCode]=KpiIndMnd&valueCodes[Tid]=from(2022M01)
+Selection expression  can be used to select value codes that matches the expression.
+The following expressions exists:
+
+- `*` (wildcard)
+- `?` (mask)
+- `top`
+- `bottom`
+- `range`
+- `to`
+- `from`
+
+##### `*` (wildcard)
+
+This matche based on a criteria that contains 1 or 2 wildcards e.g.
+
+- `*` selects all codes.
+- `12*` select all codes that starts with *12*.
+- `*2` selects all codes that ends with *2*.
+- `*4*` select all codes that contains a *4*.
+
+##### `?` (mask)
+
+This matche on a criteria that contains a question mark e.g.
+
+- `??` selects all codes that are two characters long.
+- `1?` select all codes that are two characters long and starts with `1`.
+
+##### top
+
+This expression selects the top number of values. If the variable is the time
+variable that will be the latest time periods otherwise it will be the first code
+as specified in the metadata.
+
+The syntax of the experssion is:
+
+```
+top(numberOfValues, offset)
+```
+
+where `numberOfValues` specifies the number of values codes that should be
+selected from the top and `offset` is an optional offset from the top. E.g.
+
+- `top(5)` will select the first 5 values.
+- `top(5, 1)` will skip the first value and select the next 5 values.
+
+##### bottom
+
+This expression selects the bottom number of values. If the variable is the time
+variable that will be the first time periods otherwise it will be the last code
+as specified in the metadata.
+
+The syntax of the experssion is:
+
+```
+bottom(numberOfValues, offset)
+```
+
+where `numberOfValues` specifies the number of values codes that should be
+selected from the bottom and `offset` is an optional offset from the bottom. E.g.
+
+- `bottom(5)` will select the last 5 values.
+- `bottom(5, 1)` will skip the last value and select the next 5 values counting
+  from the bottom.
+
+##### range
+
+This expression selects all value code between two value codes as they are given
+in the metadata.
+
+The syntax is in the form
+
+```
+range(value-code1, value-code2)
+```
+
+Example if you have a time variable that have codes from the year 2000 to 2025
+then `range(2002,2005)` would select the codes for the years 2002 to 2005.
+
+##### from
+
+This expression selects all value code from the specified value code.
+
+The syntax is in the form
+
+```
+from(value-code1)
+```
+
+Example if you have a time variable that have codes from the year 2000 to 2025
+then `from(2005)` would select the codes for the 2005 to 2025. When new data
+comes for the year 2026 that will also be included.
+
+##### to
+
+This expression selects all value code the bottom to the specified value code.
+
+The syntax is in the form
+
+```
+to(value-code1)
+```
+
+Example if you have a time variable that have codes from the year 2000 to 2025
+then `to(2005)` would select the codes from the 2000 to 2005.
+
+#### Variable placements
+
+The placement of variables can be set when fetching data. When doing `GET` query
+you set the `stub` and `heading` query parameters and specify the variables id
+comma separated from each other.
+
+When doing a POST query, the placement are given i the `placement` property of
+the query.
 
 ## Output formats
 
@@ -934,7 +1103,43 @@ The API can provide the result in 7 main formats:
 
 You select the format you want the response to be in by setting the parameter `outputFormat`.
 
-### Additionally paramaters
+??? info "About JSON-stat v2"
+    JSON-stat is a format specifically developed to display statistical tables,
+    that is, datasets with many dimensions. JSON-stat represents the values in
+    the data cubes as a flat array (row-major order). It shows a tree structure,
+    with main elements dataset, dimension, and value with associated status. In
+    addition, contents variables, geographical variables, and time are assigned
+    their own roles ('role') for easy access.
+
+    JSON-stat is used by many statistical agencies, as well as the APIs of 
+    Eurostat and the World Bank. There are also ready-made libraries for, among 
+    others: Javascript, Python, R, and Java. 
+
+    JSON-stat Toolkit is useful, especially for JavaScript. To understand the 
+    structure of JSON-stat, it is recommended to try out the JSON-stat explorer.
+    The toolkit also includes JSON-stat Command Line Conversion Tools. These
+    flexible conversion tools such as jsonstat2csv provide a better-customized
+    CSV. This assumes that node.js is installed.
+
+    - `jsonstat2csv` converts JSON-stat into CSV
+    - `arrow2jsonstat` converts an Apache Arrow file to JSON-stat
+    - `csv2jsonstat` converts CSV into JSON-stat
+    - `jsonstat2array` converts JSON-stat into an array of arrays
+    - `jsonstat2arrobj` converts JSON-stat into an array of objects
+    - `jsonstat2arrow` converts JSON-stat to the Apache Arrow format
+    - `jsonstat2objarr` converts JSON-stat into an object of column-oriented arrays
+    - `jsonstat2object` converts JSON-stat into a Google DataTable object
+    - `jsonstatdice` creates JSON-stat from JSON-stat
+    - `sdmx2jsonstat` converts SDMX(JSON) into JSON-stat - convert OECD, UN and 
+       IMF API-data to JSON-stat
+
+    For JSON-stat examples in Javascript, see:
+
+    -  <https://observablehq.com/@jsonstat>
+    -  <https://github.com/badosa>
+    -  <https://bl.ocks.org/badosa>.
+
+### Additionally parameters
 
 Some of the output format can take extra parameters that determines how the
 table is serialized.
@@ -958,13 +1163,11 @@ are specified use a comma to separate them apart. E.g.
 
 > <https://data.ssb.no/api/pxwebapi/v2/tables/03024/data?lang=en&valuecodes[ContentsCode]=*&valuecodes[Varegrupper2]=*&stub=VareGrupper2,Tid&heading=ContentsCode&valuecodes[Tid]=top(3)&outputformat=csv&outputformatparams=separatorsemicolon,usecodesandtexts>
 
-
-TODO note block?
-In output formats csv, html, and xlsx, you can use stub to specify which variables to place in the front column of the table and heading for the variables to place in the table header. 
-
-If you place all variables in the stub, you get a so-called pivot-friendly table: https://data.ssb.no/api/pxwebapi/v2/tables/03024/data?lang=en&valuecodes[ContentsCode]=*&valuecodes[Varegrupper2]=*&stub=VareGrupper2,Tid,ContentsCode&valuecodes[Tid]=top(3)&outputformat=csv&outputformatparams=separatorsemicolon,usecodesandtexts 
-
-The decimal separator is . (period) for all languages and all formats, except Excel in Norwegian where the decimal separator is comma. 
+!!! tip "Placement of variables"
+    In output formats `csv`, `html`, and `xlsx`, you can use `stub` and `heading`
+    to specify where variables are to be placed.
+    If you place all variables in the `stub`, you get a so-called pivot-friendly
+    e.g. <https://data.ssb.no/api/pxwebapi/v2/tables/03024/data?lang=en&valuecodes[ContentsCode]=*&valuecodes[Varegrupper2]=*&stub=VareGrupper2,Tid,ContentsCode&valuecodes[Tid]=top(3)&outputformat=csv&outputformatparams=separatorsemicolon,usecodesandtexts>
 
 ## Elimination
 
@@ -1036,175 +1239,39 @@ codes:
 Any footnotes are provided under note and may be associated with a table,
 variable, or value. Multiple footnotes may be attached to the same element.
 They are then separated by quotation marks and commas. See e.g.
-<https://data.ssb.no/api/pxwebapi/v2/tables/12880/metadata?lang=en>.
 
-## POST queries
-
-PxWebApi 2 also supports POST queries. See example at https://github.com/janbrus/ssb-api-python-examples/blob/master/PxWebApi2/laks_nor.ipynb  
+> <https://data.ssb.no/api/pxwebapi/v2/tables/12880/metadata?lang=en>.
 
 ## Language
 
-Most of the endpoints take a `lang` parameter specifying 
-
-# What's new in PxWebApi version 2
-
-I have previously worked with SSB's external APIs. I do some work on it in my spare time as a retiree. 
-Here is a brief overview of what is new in the new version of PxWebApi v2.
-
-**Most important** is the GET URL support. This makes the API easier to integrate.
-
-**Better masking characters**. You can now mask individual characters with ? , in addition to the existing * for multiple characters. E.g.: 202?M12 - only December numbers for the 2020s.
-
-**New filters**
-- from() – retrieve data from and including a starting point
-- range([,]) – define a specific interval, e.g. from municipal list
-- to() - up to and including (inclusive)
-- bottom() - opposite of the existing top()
-
-
-**Structure control**
-- stub – determine which variables should be displayed in the front column
-- heading – determine variables in the table header
-**Tip**: Place all variables in stub to get a pivot-friendly table
-
-
-**HTML output** is new in the API.
-Styling tips:
-```
-	<style type="text/css">
-	    th[scope="col"] {
-	        text-align: center;
-	    }
-	    th[scope="row"] {
-	        text-align: left;
-	    }
-	    td {
-	        text-align: right;
-	    }
-	    caption{
-	    	font-weight: bold;
-	    }
-	</style>
-```
-
-**Known limitations**
-**Static URLs**
-URLs generated in Statbank are static and do not automatically include future figures. It is necessary to edit it manually to get updated figures. Use e.g. filter from() or top(). In version 1 it was possible to "select all" by eliminating the time variable. This is not possible in v2.
+Most of the endpoints take a `lang` parameter specifying which language the response
+should be in.
 
 ## Response codes
 
 Possible error codes if the query does not return a response:
 
-- 400 – “Bad request” - errors in syntax of the query.
-- 403 – Blocking when querying for large data sets. The API limit is 800,000 cells. 
-- 404 – Resource not found. May be due to a misspelled URL or URL exceeding the limit of approximately 2100 characters.  
-- 429 – Too many queries within a minute. The limit is 30 queries within 60 seconds. Run large queries in sequence. Get the result of the first, before you run the next. 
-- 503 – Service unavailable. 
+- `400` – “Bad request” - errors in syntax of the query.
+- `403` – Blocking when querying for large data sets. The API limit varies between
+  organizations cells.
+- `404` – Resource not found. May be due to a misspelled URL or URL exceeding
+  the limit of approximately 2100 characters.
+- `429` – Too many queries within a minute. The limit varies between organizations.
+  Run large queries in sequence. Get the result of the first, before you run the
+  next.
+- `503` – Service unavailable.
 
 ## Known issues
 
-Endpoint navigation has been removed for the time being. Instead, the endpoint tables shows the table's location(s) in the subject structure under paths. An overview of the entire subject structure can be found at https://www.ssb.no/xp/_/service/mimir/subjectStructureStatistics
+- Endpoint navigation has been removed for the time being. Instead, the endpoint
+  tables shows the table's location(s) in the subject structure under paths.
 
-The URL in the GET request cannot exceed a limit of approximately 2100 characters. Instead of listing long value lists in the query, use * (asterisk), question mark, from/to or range. 
+- The URL in the GET request cannot exceed a limit of approximately 2100
+  characters. Instead of listing long value lists in the query, use * (asterisk),
+  question mark, from/to or range.
 
-Also note that the GET URL that PxWeb generates will always list exactly the same periods that you selected. In practice, you will most often want the query to include all newer periods the next time you run it. In that case, you must adjust the URL to valueCode[Time]=* or =from(start time), alternatively =top(number of newest periods).
-
-## Other
-How to use StatBank 
-Before using the API users should be used to the StatBank: How to use StatBank Norway.
-
-It is useful to keep track of the page that provides structural changes and tables that are being terminated and replaced by new ones.
-
-It happens that more values ​​are added to existing code lists. Therefore, you will get a more robust query by using * (asterisk) after valueCode instead of listing all the values.
-
-Special characters in URL
-Some special characters are recoded in the URL:
-
- (space)
-
-%20
-
-+
-
-%2B
-
-"
-
-%22
-
-(
-
-%28
-
-)
-
-%29
-
-[
-
-%5B
-
-]
-
-%5D
-
-If you use Postman to create the query, the characters are changed automatically
-
-Special characters in tables 
-The API can display special characters instead of figures: 
-
-. 
-
-Category not applicable 
-Figures do not exist at this time, because the category was not in use when the figures were collected. 
-
-.. 
-
-Data not available 
-Figures have not been entered into our databases or are too unreliable to be published. 
-
-: 
-
-Confidential 
-Figures are not published so as to avoid identifying persons or companies. 
-
-In json-stat2, the special characters are displayed under status, while the data is shown as null. 
-
-JSON 
-JSON syntax see: https://www.json.org. 
-
-We recommend having a JSON viewer in your browser. Many browsers have this built-in. You can also download add-ons such as https://jsonview.com.  
-
-JSON-stat 
-JSON-stat is a format specifically developed to display statistical tables, that is, datasets with many dimensions. JSON-stat represents the values in the data cubes as a flat array (row-major order). It shows a tree structure, with main elements dataset, dimension, and value with associated status. In addition, contents variables, geographical variables, and time are assigned their own roles ('role') for easy access. 
-
-JSON-stat is used by many statistical agencies, as well as the APIs of Eurostat and the World Bank. There are also ready-made libraries for, among others: Javascript, Python, R, and Java. 
-
-JSON-stat Toolkit is useful, especially for JavaScript. To understand the structure of JSON-stat, it is recommended to try out the JSON-stat explorer. The toolkit also includes JSON-stat Command Line Conversion Tools. These flexible conversion tools such as jsonstat2csv provide a better-customized CSV. This assumes that node.js is installed.
-
-jsonstat2csv - converts JSON-stat into CSV
-arrow2jsonstat - converts an Apache Arrow file to JSON-stat
-csv2jsonstat - converts CSV into JSON-stat
-jsonstat2array - converts JSON-stat into an array of arrays
-jsonstat2arrobj - converts JSON-stat into an array of objects
-jsonstat2arrow - converts JSON-stat to the Apache Arrow format
-jsonstat2objarr - converts JSON-stat into an object of column-oriented arrays
-jsonstat2object - converts JSON-stat into a Google DataTable object
-jsonstatdice - creates JSON-stat from JSON-stat
-sdmx2jsonstat - converts SDMX(JSON) into JSON-stat - convert OECD, UN and IMF API-data to JSON-stat
-For JSON-stat examples in Javascript, see: https://observablehq.com/@jsonstat, https://github.com/badosa and https://bl.ocks.org/badosa.
-
-Links to classifications and variable definitions 
-In the JSON-stat datasets, we link to a classification like this: {"Kjonn": "urn:ssb:classification:klass:2"}. The number at the end is an ID so that urn:ssb:classification:klass:2 can be rewritten as: https://www.ssb.no/klass/klassifikasjoner/2 or this address in the Klass API: https://data.ssb.no/api/klass/v1/classifications/2?language=en. 
-
-Variable definitions are specified in JSON-stat in the form {CostType: "urn:ssb:conceptvariable:vardok:1116"} where 1116 is an ID. This can be rewritten to https://www.ssb.no/a/metadata/conceptvariable/vardok/1116/en. /en indicates language. The value can be either en, nb, or nn. If you add /xml after /a, you will get XML.
-
-15. Examples of code for using the API 
-See https://github.com/janbrus/ssb-api-python-examples/tree/master/PxWebApi2 for simple code examples that use PxWebApi 2. 
-
-16. Contact 
-Contact statistikkbanken@ssb.no if you have questions about the tables or the API. It is also possible to provide feedback on GitHub: 
-
-https://github.com/PxTools/PxApiSpecs 
-
-https://github.com/PxTools/PxWebApi  
+- Also note that the GET URL that PxWeb generates will always list exactly the
+  same periods that you selected. In practice, you will most often want the query
+  to include all newer periods the next time you run it. In that case, you must
+  adjust the URL to `valueCode[Time]=*` or `from(start time)`, alternatively
+  `top(number of newest periods)`.
