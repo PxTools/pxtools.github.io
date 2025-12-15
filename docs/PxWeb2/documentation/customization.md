@@ -44,8 +44,11 @@ root
 │       └── content.json
 ├── fonts                    
 │   ├── PxWeb-font-400.ttf
+│   ├── PxWeb-font-400-Italic.ttf
 │   ├── PxWeb-font-500.ttf
+│   ├── PxWeb-font-500-Italic.ttf
 │   └── PxWeb-font-700.ttf
+│   └── PxWeb-font-700-Italic.ttf
 ├── icons
 │   ├── topicIconMap.json    # (6)!
 │   └── topic
