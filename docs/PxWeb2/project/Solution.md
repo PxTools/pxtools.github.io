@@ -1,26 +1,51 @@
-# PxWeb 2 solution
-In the project, we have made some choices about how we will work in the project across two countries, in order to create opportunities for other countries to contribute in the long term with both development and user testing of PxWeb 2.0. In addition, we have made some choices to find the best solution for installing PxWeb. All this to reach the main goal to create a user-friendly PxWeb.
-## WCAG and Search Engine Optimization (SEO)
-- The new interface will follow the rules for A and AA in [WCAG 2.1](https://www.w3.org/TR/WCAG21/)
-- SEO is the use of methods that achieve better visibility or "ranking" on search engines result page.
-## PxWeb 2.0 designsystem
-We build a design system that can be used by all so the same components can be used for all px products so they get a common expression and be recognizable. 
-[Design system in Storybook](https://pxweb2.pages.dev/storybook/)
-## Options in PxWeb 2.0
-Each organization should easily be able to adapt the interface a little, but it should still be possible to see that it is a Px-product. 
-The changes will be possible to introduce both before and after installation of PxWeb 2.0.
-It will be possible to change
-- colors
-- font
-- corner radius of the elements in the interface.
-## Open source at GitHub
-The new interface is able to install directly from GitHub. Also documentation is found here. 
-[PxTools at GitHub](https://www.pxtools.net/documentation/overview/)
-## Usertest
-We have been following following the UX design process in this project.
-![The Ux design process](https://github.com/PxTools/PxWeb2/assets/81364833/8534bfdb-1d0c-49ef-8f2b-5b59357a37bf)
-All the choices we made are based on user insigth. 
-The main focus has been navigation, understand the main fuctionaility in PxWeb and how the most used task should work.
-We have several usertests during the project, both on desktop and mobile. 
-## Possibility for connection
-In the PxWeb 2.0 interface, it is easy to connect other tools such as Highcharts, Tableau, Power BI and other AI products. This can be connected both by using saved queries from PxWeb 2.0 or by connecting directly to PxWebApi 2.0.
+# Is PxWeb right for you?
+PxWeb is open source and can be downloaded and customized without charge. However, this installation requires IT-skills. Also, to publish statistics in PxWeb you need to create px-files, either by technically integrating with your own IT environment using Python, R or similar, or by manually producing the files using the tool [PxEdit](https://stat.fi/tup/tilastotietokannat/px-tuoteperhe_en.html) Another solution is to use an SQL database, but this also requires in-house technical support. 
+
+## PxWeb might be right for your organization if: 
+### 1. Your tables are multidimensional
+Unlike most open source data tools, PxWeb is custom made to deal with:
+- multidimensional tables
+- official metadata
+- classifications and hierarchies
+- table building
+PxWeb is specially designed for disseminating official statistics and handles this without the need for adaptations.
+
+### 2. You want an analytical tool and not just static tables
+Your users can among other things:
+- Filter variables
+- Pivot the table
+- Make their own extractions
+- Compare categories
+Many open source tools only give the user static tables
+
+You want an automatic, metadata rich, built-in API for all your tables and datasets
+Every time you publish a table in PxWeb, you also get an API. This is one of the main reasons economists, researchers, data scientists and financial journalists like PxWeb. 
+
+### 3. You want mobile friendly data dissemination
+Many argue that accessing official statistics and other multidimensional tables requires expert knowledge and a computer. We beg to differ. PxWeb provides users with an easy way to look up tables and data on the go using their mobile devices.
+
+### 4. You want a format which is tailor made for statistics
+[The Px-format](https://www.scb.se/en/services/statistical-programs-for-px-files/px-file-format/) is: 
+- Structured for statistics
+- Easy to version
+- Rich on metadata
+- Stable over time
+- High perfomance. Px-files usually offer better performance than other, more complex, data formats such as SDMX. 
+Other solutions often require conversion to CSV/JSON without metadata, or complex data models. The px-format is what many described as developer friendly. It should be noted that for extremely large datasets, the px-format might be limited and you will need to establish another solution for that dataset. 
+
+### 5. You want a stable, easy and low maintenance application
+Pxweb is: 
+- Easy to install
+- Easy to run
+- Lightweight and requires limited server capacity
+- Good performance
+However, if you have a high number of datasets, manually producing it in PxEdit can be time consuming. To integrate with internal systems and to automate px-file production will require an IT investment. 
+
+### 6. You want open source code, no licence fees and a chance to influence further development
+- PxWeb is open source and several public organisations such as Statistics Sweden and Statistics Norway are collaborating in its continual development. This ensures longevity and predictability.
+- Through our web community you can track what new features and changes are coming in the next release. You can also discuss technical issues you might have and propose new features. You can also attend our annual international Px-meeting.
+- The metadata rich PxWebApi makes it easy for you to develop customized applications if you have specific needs. 
+
+### 7. If you need a multilanguage dissemination system 
+Many public institutions and statistical agencies are required to support several languages. PxWeb supports this out of the box, whereas a lot of other applications requires more manual work, adaptations in existing publishing solutions etc. 
+
