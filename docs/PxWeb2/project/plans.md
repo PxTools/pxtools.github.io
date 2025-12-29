@@ -1,6 +1,6 @@
-# Plans 
+# Upcomin features
 
-## Remaining to develop in PxWeb 2 
+## Remaining to develop in PxWeb 
 - Show PxWebApi 2 in PxWeb
 - Freeze table head
 - Improve search at start page (search for content in tables)
@@ -14,7 +14,10 @@
 - Possibility for own link in logo - DONE
 - Saved query as alternative to the algorithm (documentation) - DONE
 
-## Further plan PxWeb 2.x
+### Follow the releases
+[Release versions](https://github.com/PxTools/PxWeb2/releases)
+
+## Further plans for PxWeb 2.x
 - Graph
 - Hierarchy
 - Sort order
