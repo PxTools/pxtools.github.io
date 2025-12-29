@@ -42,8 +42,10 @@ To facilitate the use of PxWeb, several organisations have developed complimenta
 - For graphs and figures (PxGraph – requires a Highcharts lisence)
 
 ### More information about tools for px-files  
-Statistics Sweden: [Statistical programs for px-files] (https://www.scb.se/en/services/statistical-programs-for-px-files/) 
-Statistics Finland: [Px suite] (https://stat.fi/tup/tilastotietokannat/px-tuoteperhe_en.html)
+Statistics Sweden: 
+[Statistical programs for px-files](https://www.scb.se/en/services/statistical-programs-for-px-files/)  
+Statistics Finland: 
+[Px suite](https://stat.fi/tup/tilastotietokannat/px-tuoteperhe_en.html)
 
 ## Contact for questions and comments 
 Please make an issue at Github with your question or comment about PxWeb
