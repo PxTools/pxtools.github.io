@@ -10,41 +10,41 @@ Its popularity comes from being:
 - designed specifically for statistics published by national statistical offices and other government agencies
 
 ## PxWeb offers
-### A user centric approach to dissemination of statistics
+### 1. A user centric approach to dissemination of statistics
 PxWeb is developed with user needs at the forefront. We care about the professionals who uses PxWeb for work, but also more casual users who need statistics to make informed decisions in their daily lives. 
-### A multidimensional Table Engine
+### 2.  A multidimensional Table Engine
 PxWeb handles datasets with many variables (e.g., year × region × sex). Users can:
 - Select which variables to include
 - Filter or pivot data
 - Generate a custom table
-### Built-in API 
+### 3. A built-in API 
 Every dataset published in PXWeb automatically gets an API endpoint, allowing:
 - developers to access data programmatically
 - reproducible reporting
 - integration with R, Python, Power BI, etc.
-### Standardised Table Format (Px/Axes)
+### 4. Standardised Table Format (Px/Axes)
 PxWeb uses the px-file format, designed for statistical tables with:
 - consistent metadata
 - classifications
 - variable hierarchies
 - units, footnotes and descriptions
-### Multilingual Support
+### 5. Multilingual Support
 Interfaces and metadata can be translated easily which is important for organisations serving multiple language groups.
-### Easy maintenance
+### 6. Easy maintenance
 Users can update datasets by:
 - replacing px-files
 - automating updates via scripts
 - integrating PxWeb with internal production systems
-### Open-source complimentary applications
+### 7. Open-source complimentary applications
 To facilitate the use of PxWeb, several organisations have developed complimentary open source Px-tools: 
 - For browsing and editing px-files (PxWin)
 - For producing px-files (PxEdit and PxJob)
 - For graphs and figures (PxGraph – requires a Highcharts lisence)
 
-Information about more PxTools<br/>  
-Statistics Sweden: [Statistical programs for px-files] (https://www.scb.se/en/services/statistical-programs-for-px-files/) <br/>
-Statistics Finland: [Px suite] (https://stat.fi/tup/tilastotietokannat/px-tuoteperhe_en.html)<br/>
+### More information about tools for px-files  
+Statistics Sweden: [Statistical programs for px-files] (https://www.scb.se/en/services/statistical-programs-for-px-files/) 
+Statistics Finland: [Px suite] (https://stat.fi/tup/tilastotietokannat/px-tuoteperhe_en.html)
 
 ## Contact for questions and comments 
 Please make an issue at Github with your question or comment about PxWeb
-[Issues] (https://github.com/PxTools/PxWeb2/issues(
+[Issues] (https://github.com/PxTools/PxWeb2/issues)
