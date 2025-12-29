@@ -1,8 +1,23 @@
-# Introduction to PxWeb 2
-PxWeb is an application for disseminating statistics in dynamic tables from an SQL or file-based database on the web. January 2024 to October 2025, Statistics Norway and Statistics Sweden collaborated in a joint project to create a new user-friendly interface based on PxWebApi 2, which was released In October 2025.
+# What is PxWeb? 
+PxWeb is an open-source software for publishing and browsing statistical tables online, developed by Statistics Sweden and Statistics Norway. 
+You can customize PxWeb so it match your organisation’s visual profile, including colours, fonts, logo and icons. 
 
-## PxWeb demos
-Latest version of PxWeb2: [PxWeb 2](https://pxweb2.pages.dev/en/)
+Its popularity comes from being:
+•	Open-source, no license fees
+•	WCAG compliant
+•	Lightweight, high performance
+•	Mobile friendly
+•	Designed specifically for statistics published by national statistical offices and other government agencies
+
+## PxWeb offers
+### A user centric approach to dissemination of statistics
+PxWeb is developed with user needs at the forefront. We care about the professionals who uses PxWeb for work, but also more casual users who need statistics to make informed decisions in their daily lives. 
+### A multidimensional Table Engine
+PxWeb handles datasets with many variables (e.g., year × region × sex). Users can:
+Select which variables to include
+Filter or pivot data
+Generate a custom table
+
 
 PxWeb at Statistics Norway: [Statbank Norway](https://www.ssb.no/statbank2/en/)
 
