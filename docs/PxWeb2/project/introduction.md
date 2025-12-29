@@ -23,19 +23,28 @@ Every dataset published in PXWeb automatically gets an API endpoint, allowing:
 - reproducible reporting
 - integration with R, Python, Power BI, etc.
 ### Standardised Table Format (Px/Axes)
-PxWeb uses the Px-file format, designed for statistical tables with:
+PxWeb uses the px-file format, designed for statistical tables with:
 - consistent metadata
 - classifications
 - variable hierarchies
 - units, footnotes and descriptions
+### Multilingual Support
+Interfaces and metadata can be translated easily which is important for organisations serving multiple language groups.
+### Easy maintenance
+Users can update datasets by:
+- replacing px-files
+- automating updates via scripts
+- integrating PxWeb with internal production systems
+### Open-source complimentary applications
+To facilitate the use of PxWeb, several organisations have developed complimentary open source Px-tools: 
+- For browsing and editing px-files (PxWin)
+- For producing px-files (PxEdit and PxJob)
+- For graphs and figures (PxGraph – requires a Highcharts lisence)
 
+Information about more PxTools<br/>  
+Statistics Sweden: [Statistical programs for px-files] (https://www.scb.se/en/services/statistical-programs-for-px-files/) <br/>
+Statistics Finland: [Px suite] (https://stat.fi/tup/tilastotietokannat/px-tuoteperhe_en.html)<br/>
 
-
-PxWeb at Statistics Norway: [Statbank Norway](https://www.ssb.no/statbank2/en/)
-
-## Release versions
-- Follow the releases: [Version history](https://github.com/PxTools/PxWeb2/releases)
-
-## Contact for questions and comments TEST
-- Kristin Glomsås, Statistics Norway [kristin.glomsas@ssb.no](mailto:kristin.glomsas@ssb.no)
-- Åsa Arrhén, Statistics Sweden [px@scb.se](mailto:px@scb.se)
+## Contact for questions and comments 
+Please make an issue at Github with your question or comment about PxWeb
+[Issues] (https://github.com/PxTools/PxWeb2/issues(
