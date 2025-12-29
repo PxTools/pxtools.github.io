@@ -2,14 +2,15 @@
 
 ## Remaining to develop in PxWeb 2 
 - Show PxWebApi 2 in PxWeb
-- Button to improve table layout - DONE
 - Freeze table head
 - Improve search at start page (search for content in tables)
 - Search in beginning of words in variable list
 - Hide empty rows from table
 - Chose to show code or text
 - Manual pivoting
-- Possibility for text and links in Help 
+- Possibility for text and links in Help
+- Possibility for bulk download of tables
+- Button to improve table layout - DONE
 - Possibility for own link in logo - DONE
 - Saved query as alternative to the algorithm (documentation) - DONE
 
