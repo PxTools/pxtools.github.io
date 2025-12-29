@@ -37,9 +37,9 @@ Users can update datasets by:
 - integrating PxWeb with internal production systems
 ### 7. Open-source complimentary applications
 To facilitate the use of PxWeb, several organisations have developed complimentary open source Px-tools: 
-- For browsing and editing px-files (PxWin)
-- For producing px-files (PxEdit and PxJob)
-- For graphs and figures (PxGraph – requires a Highcharts lisence)
+- PxWin - for browsing and editing px-files 
+- PxEdit and PxJob - For producing px-files
+- PxGraph - For graphs and figures (requires a Highcharts lisence)
 
 ### More information about tools for px-files  
 Statistics Sweden: 
