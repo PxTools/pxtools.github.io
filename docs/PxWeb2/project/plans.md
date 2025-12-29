@@ -14,9 +14,6 @@
 - Possibility for own link in logo - DONE
 - Saved query as alternative to the algorithm (documentation) - DONE
 
-### Follow the releases
-[Release versions](https://github.com/PxTools/PxWeb2/releases)
-
 ## Further plans for PxWeb 2.x
 - Graph
 - Hierarchy
