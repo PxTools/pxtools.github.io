@@ -9,6 +9,6 @@ PxWeb at Statistics Norway: [Statbank Norway](https://www.ssb.no/statbank2/en/)
 ## Release versions
 - Follow the releases: [Version history](https://github.com/PxTools/PxWeb2/releases)
 
-## Contact for questions and comments
+## Contact for questions and comments TEST
 - Kristin Glomsås, Statistics Norway [kristin.glomsas@ssb.no](mailto:kristin.glomsas@ssb.no)
 - Åsa Arrhén, Statistics Sweden [px@scb.se](mailto:px@scb.se)
