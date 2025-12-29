@@ -1,4 +1,4 @@
-# Upcomin features
+# Upcoming features
 
 ## Remaining to develop in PxWeb 
 - Show PxWebApi 2 in PxWeb
