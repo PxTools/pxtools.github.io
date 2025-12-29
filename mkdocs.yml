@@ -8,7 +8,7 @@ nav:
   - Home: index.md
   - PxWeb 2:
       - Introduction: PxWeb2/project/introduction.md
-      - IsPxWeb right for you?: PxWeb2/project/solution.md
+      - Is PxWeb right for you?: PxWeb2/project/solution.md
       - Demo: PxWeb2/project/demo.md
       - Plans: PxWeb2/project/plans.md
      
