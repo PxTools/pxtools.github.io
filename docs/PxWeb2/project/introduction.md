@@ -49,4 +49,4 @@ Statistics Finland:
 
 ## Contact for questions and comments 
 Please make an issue at Github with your question or comment about PxWeb
-[Issues] (https://github.com/PxTools/PxWeb2/issues)
+[Issues](https://github.com/PxTools/PxWeb2/issues)
