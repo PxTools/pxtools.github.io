@@ -422,11 +422,11 @@ Edit these CSS variables in `theme/variables.css`:
 Do not alter `--px-border-radius-none` or `--px-border-radius-full` unless you
 know the side effects (they are used for logical extremes).
 
-### Change the text and related links on the startpage and in the footer
+### Change the text and related links on the startpage, table page and in the footer
 
 The `content.json` file defines customizable text and links that appear in
 **PxWeb’s user interface** This file allows you to configure localized UI
-content: you can add a **detailsSection** after the ingress on the start page, or update the
+content: you can add a **detailsSection** after the ingress on the start page, update the **help section** on the table page, or update the
 **footer** content for the application.
 
 ```sh
@@ -481,7 +481,10 @@ root/content
     },
     "noResultSearchHelp": {
       "enabled": true,
-      "helpText": []
+      "helpText": [
+        "Use *title:* to search only in the table name, for example *title:stockholm*.",
+        "You can add or remove items from this search help list to make it relevant for your specific database."
+      ]
     }
   },
   "footer": {
@@ -498,6 +501,25 @@ root/content
           ]
       }
     ]
+  },
+  "tableViewer": {
+    "helpSection": {
+      "description": "Help and guidance on how to use the PxWeb interface can be found on our help pages:",
+      "links": [
+        {
+          "text": "Example link 1",
+          "url": "#"
+        },
+        {
+          "text": "Example link 2",
+          "url": "#"
+        }
+      ],
+      "informationCard": {
+        "enabled": true,
+        "text": "For questions about the figures and table content, see the “Information” button."
+      }
+    }
   }
 }
 ```
@@ -512,10 +534,15 @@ root/content
 - **startPage.noResultSearchHelp** – Optional section displayed below
   the “no results” message when no tables match the search or filters.
   When `enabled` is `true`, each string in the `helpText` array is shown
-  as a separate list item under a help heading.
+  as a separate list item under a help heading. The text will be rendered using a custom markdown renderer to allow *italic* formatting with asterisks.
 
 - **footer**
   One or more footer columns with `header` and list of `links`. If links have `external` set to `true`, they automatically will have the icon for external links and will open in a new tab. See example above.
+
+- **tableViewer.helpSection** – Optional help section on the table page.
+  Contains a `description` string, a list of `links` (with `text` and `url`), and
+  an optional `informationCard` (with `enabled` boolean and `text`). Links will always be opened in a new tab.
+  When at least on the above is defined, the application renders the **`HelpSection` component**.
 
   This setup allows administrators to adjust localized content (text and links)
   for each language without modifying the application code.
