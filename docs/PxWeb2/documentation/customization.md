@@ -387,7 +387,7 @@ in the `language` section of `config/config.js`.
 
 ### Change the position of the language code in the URL
 
-```js hl_lines="8"
+```js hl_lines="9"
   window.PxWeb2Config = {
     language: {
       supportedLanguages: [
