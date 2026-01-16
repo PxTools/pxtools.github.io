@@ -13,7 +13,7 @@ You can:
 - Change logo and favicon
 - Change topic icons.
 - Limit table sizes.
-- Control how languages appear in URLs.
+- Control how and where languages appear in URLs.
 - Hide variables from the variable filter.
 - Customize start page text and footer links (examples included below).
 - Define characters used for missing values.
@@ -384,6 +384,47 @@ Toggle:
 ```
 
 in the `language` section of `config/config.js`.
+
+### Change the position of the language code in the URL
+
+```js hl_lines="9"
+  window.PxWeb2Config = {
+    language: {
+      supportedLanguages: [
+        { shorthand: 'en', languageName: 'English' }
+      ],
+      defaultLanguage: 'en',
+      fallbackLanguage: 'en',
+      showDefaultLanguageInPath: true,
+      positionInPath: 'before', // or 'after'
+    },
+    baseApplicationPath: '/pxweb/',
+    apiUrl: "https://your.api.server/PxWeb/api/v2",
+    maxDataCells: 100000,
+    showBreadCrumbOnStartPage: false,
+    specialCharacters: ['.', '..', ':', '-', '...', '*'],
+    variableFilterExclusionList: {
+      en: [
+        'observations',
+        'year',
+        'quarter',
+        'month',
+        'every other year',
+        'every fifth year',
+      ]
+    },
+    homePage: {
+      en: '', 
+    },
+  };
+```
+
+Set `positionInPath` in `config/config.js` to either `before` or `after` the
+base application path. The above example will yield URLs like:
+
+- `https://www.mysite.org/en/pxweb/`
+
+The setting only has an effect if `baseApplicationPath` is not `/`.
 
 ### Change topic icons on the start page
 
