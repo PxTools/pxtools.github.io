@@ -8,11 +8,7 @@
 - Hide empty rows from table
 - Chose to show code or text
 - Manual pivoting
-- Possibility for text and links in Help
 - Possibility for bulk download of tables
-- Button to improve table layout - DONE
-- Possibility for own link in logo - DONE
-- Saved query as alternative to the algorithm (documentation) - DONE
 
 ## Further plans for PxWeb 2.x
 - Graph
@@ -21,8 +17,11 @@
 - Sum
 - more...
 
-## Releases in the project
----------------
+## Release versions
+- Latest releases: [Version history](https://github.com/PxTools/PxWeb2/releases)
+--------------------------------------------------------------------------------------------  
+## Releases in the project 
+
 ## PxWeb 2 Release October 2025 
 - Startpage
 - Save to file
