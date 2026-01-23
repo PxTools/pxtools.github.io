@@ -11,32 +11,34 @@ Its popularity comes from being:
 
 ## PxWeb offers
 ### 1. A user centric approach to dissemination of statistics
-PxWeb is developed with user needs at the forefront. We care about the professionals who uses PxWeb for work, but also more casual users who need statistics to make informed decisions in their daily lives. 
+PxWeb is developed with user needs at the forefront. We care about the professionals who uses PxWeb for work, but also more casual users who need statistics to make informed decisions in their daily lifes. 
 ### 2.  A multidimensional Table Engine
-PxWeb handles datasets with many variables (e.g., year × region × sex). Users can:
+PxWeb handles datasets with many variables (e.g. year × region × sex). Users can
 - Select which variables to include
 - Filter or pivot data
 - Generate a custom table
 ### 3. A built-in API 
-Every dataset published in PXWeb automatically gets an API endpoint, allowing:
+Every dataset published in PXWeb automatically gets an API endpoint, allowing;
 - developers to access data programmatically
-- reproducible reporting
 - integration with R, Python, Power BI, etc.
-### 4. Standardised Table Format (Px/Axes)
+### 4. Standardised file format
 PxWeb uses the px-file format, designed for statistical tables with:
 - consistent metadata
 - classifications
 - variable hierarchies
 - units, footnotes and descriptions
-### 5. Multilingual Support
+### 5. Support for two datasources
+- Px-file database
+- SQL database (accordning to Common Nordic data Model)
+### 6. Multilingual support
 Interfaces and metadata can be translated easily which is important for organisations serving multiple language groups.
-### 6. Easy maintenance
+### 7. Easy maintenance
 Users can update datasets by:
 - replacing px-files
 - automating updates via scripts
 - integrating PxWeb with internal production systems
-### 7. Open-source complimentary applications
-To facilitate the use of PxWeb, several organisations have developed complimentary open source Px-tools: 
+### 8. Open-source complimentary applications
+To facilitate the use of PxWeb, other organisations have developed complimentary open source Px-tools: 
 - PxWin - for browsing and editing px-files 
 - PxEdit and PxJob - For producing px-files
 - PxGraph - For graphs and figures (requires a Highcharts lisence)
