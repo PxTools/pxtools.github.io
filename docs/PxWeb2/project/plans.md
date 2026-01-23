@@ -3,7 +3,6 @@
 ## Remaining to develop in PxWeb 
 - Show PxWebApi 2 in PxWeb
 - Freeze table head
-- Improve search at start page (search for content in tables)
 - Search in beginning of words in variable list
 - Hide empty rows from table
 - Chose to show code or text
