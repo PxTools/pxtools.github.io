@@ -79,11 +79,56 @@ and executes a statement. The default statement is `select 1`, but you can chang
 this by setting `DataSource.DataSourceType.CNMM.HealthCheckQuery`. Avoid using
 queries that take a long time to process.
 
+##### Change the root node
+
+A `CNMM` database should have a root node in `MenuSelection` called `START`.
+However, there are cases where you have a single physical `CNMM` database that
+contains data for several logical statistical databases. In this scenario, the
+second level represents the root node for each logical statistical database. You
+can configure the API to only expose tables located under a specific node in
+`MenuSelection` by setting the `DataSource.DataSourceType.CNMM.RootNode`
+configuration option.
+
+For example, if your database structure looks like this:
+
+```sh
+START
+├── AA
+│   └── TABLE_01
+└── BB
+    ├── TABLE_02
+    ├── TABLE_03
+    ├── TABLE_04
+    └── TABLE_05
+```
+
+If you set your configuration in `appsettings.json` like this:
+
+```json
+{
+    "DataSource": {
+        "DataSourceType": "CNMM",
+        "CNMM": {
+            "DatabaseID": "My",
+            "HealthCheckQuery": "select 1",
+            "RootNode": "AA"
+        }
+    }
+}
+```
+
+Then only `TABLE_01` would be accessible from the API.
+
+!!! note
+    Since the API can only expose the contents of one database at a time, you
+    would need a separate instance of the API if you also want to expose the
+    contents under the node `BB` in the example above.
+
 ### Saved query storage
 
 Saved queries can be viewed as templates for repeatable data extractions. Users
-can create, list, and execute them. A saved query can also serve as the default selection
-for a table when a request omits an explicit selection (see
+can create, list, and execute them. A saved query can also serve as the default
+selection for a table when a request omits an explicit selection (see
 [Default selection](#default-selection)).
 
 Supported storage backends:
