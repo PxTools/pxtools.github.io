@@ -1,7 +1,7 @@
 # Is PxWeb right for you?
 PxWeb is open source and can be downloaded and customized without charge. However, this installation requires IT-skills. Also, to publish statistics in PxWeb you need to create px-files, either by technically integrating with your own IT environment using Python, R or similar, or by manually producing the files using the tool [PxEdit](https://stat.fi/tup/tilastotietokannat/px-tuoteperhe_en.html) Another solution is to use an SQL database, but this also requires in-house technical support. 
 
-## PxWeb might be right for your organization if: 
+## PxWeb might be right for your organisation if: 
 ### 1. Your tables are multidimensional
 Unlike most open source data tools, PxWeb is custom made to deal with:
 - multidimensional tables
