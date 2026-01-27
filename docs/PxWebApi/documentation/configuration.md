@@ -81,7 +81,7 @@ queries that take a long time to process.
 
 ##### Change the root node
 
-A `CNMM` database should have a root node in `MenuSelection` called `START`.
+A `CNMM` database must have a root node in `MenuSelection` called `START`.
 However, there are cases where you have a single physical `CNMM` database that
 contains data for several logical statistical databases. In this scenario, the
 second level represents the root node for each logical statistical database. You
