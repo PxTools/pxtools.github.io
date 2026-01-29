@@ -1,27 +1,26 @@
-# Plans 
+# Upcoming features
 
-## Remaining to develop in PxWeb 2 
+## Remaining to develop in PxWeb 
 - Show PxWebApi 2 in PxWeb
-- Button to improve table layout - DONE
 - Freeze table head
-- Improve search at start page (search for content in tables)
 - Search in beginning of words in variable list
 - Hide empty rows from table
 - Chose to show code or text
 - Manual pivoting
-- Possibility for text and links in Help 
-- Possibility for own link in logo - DONE
-- Saved query as alternative to the algorithm (documentation) - DONE
+- Possibility for bulk download of tables
 
-## Further plan PxWeb 2.x
+## Further plans for PxWeb 2.x
 - Graph
 - Hierarchy
 - Sort order
 - Sum
 - more...
 
-## Releases in the project
----------------
+## Release versions
+- Latest releases: [Version history](https://github.com/PxTools/PxWeb2/releases)
+--------------------------------------------------------------------------------------------  
+## Releases in the project 
+
 ## PxWeb 2 Release October 2025 
 - Startpage
 - Save to file
