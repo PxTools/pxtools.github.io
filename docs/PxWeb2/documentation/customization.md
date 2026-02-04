@@ -97,7 +97,7 @@ PxWeb retrieves table metadata and data from a PxWeb API 2.0 instance.
 Open `config/config.js` and set `apiUrl`:
 
 ```js hl_lines="11"
-  window.PxWeb2Config = {
+  globalThis.PxWeb2Config = {
     language: {
       supportedLanguages: [
         { shorthand: 'en', languageName: 'English' }
@@ -109,6 +109,7 @@ Open `config/config.js` and set `apiUrl`:
     baseApplicationPath: '/',
     apiUrl: "https://your.api.server/PxWeb/api/v2",
     maxDataCells: 100000,
+    useDynamicContentInTitle: false,
     showBreadCrumbOnStartPage: false,
     specialCharacters: ['.', '..', ':', '-', '...', '*'],
     variableFilterExclusionList: {
@@ -190,7 +191,7 @@ Repeat for every supported language.
 In `config/config.js`:
 
 ```js hl_lines="2 3 4 5 6 7 8 9 10"
-  window.PxWeb2Config = {
+  globalThis.PxWeb2Config = {
     language: {
       supportedLanguages: [
         { shorthand: 'en', languageName: 'English' },
@@ -203,6 +204,7 @@ In `config/config.js`:
     baseApplicationPath: '/',
     apiUrl: "https://your.api.server/PxWeb/api/v2",
     maxDataCells: 100000,
+    useDynamicContentInTitle: false,
     showBreadCrumbOnStartPage: false,
     specialCharacters: ['.', '..', ':', '-', '...', '*'],
     variableFilterExclusionList: {
@@ -353,7 +355,7 @@ Here is an example of how to override both decimal and group separators for simp
 
 Toggle:
 ```js hl_lines="8"
-  window.PxWeb2Config = {
+  globalThis.PxWeb2Config = {
     language: {
       supportedLanguages: [
         { shorthand: 'en', languageName: 'English' }
@@ -365,6 +367,7 @@ Toggle:
     baseApplicationPath: '/',
     apiUrl: "https://your.api.server/PxWeb/api/v2",
     maxDataCells: 100000,
+    useDynamicContentInTitle: false,
     showBreadCrumbOnStartPage: false,
     specialCharacters: ['.', '..', ':', '-', '...', '*'],
     variableFilterExclusionList: {
@@ -388,7 +391,7 @@ in the `language` section of `config/config.js`.
 ### Change the position of the language code in the URL
 
 ```js hl_lines="9"
-  window.PxWeb2Config = {
+  globalThis.PxWeb2Config = {
     language: {
       supportedLanguages: [
         { shorthand: 'en', languageName: 'English' }
@@ -401,6 +404,7 @@ in the `language` section of `config/config.js`.
     baseApplicationPath: '/pxweb/',
     apiUrl: "https://your.api.server/PxWeb/api/v2",
     maxDataCells: 100000,
+    useDynamicContentInTitle: false,
     showBreadCrumbOnStartPage: false,
     specialCharacters: ['.', '..', ':', '-', '...', '*'],
     variableFilterExclusionList: {
