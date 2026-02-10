@@ -1,4 +1,4 @@
-#Saved queries in PxWeb2 and PxWebApi2.
+### Saved queries in PxWeb2 and PxWebApi2.
 A saved query has an output format, which was selected when it was created.
 
 If the output format is "Screen" you should get the table with your selections in the gui. 
@@ -12,4 +12,5 @@ The url to the gui is used to get pxweb "as it was", also for "download" output 
 The url to the api is used to download  the data of any savedquery. For the "sceen" output format will download jsonstat2 files. 
 
 `http://mysite/api/pxwebapi/v2/savedqueries/N/data`  will download the file.
+
 `http://mysite/api/pxwebapi/v2/savedqueries/N` will get you the definition of the savedquery.
