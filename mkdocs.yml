@@ -26,6 +26,8 @@ nav:
           - Version 2013: px-file-format/px-2013.md
       - User Guides:
           - PxWebApi 2 User Guide: PxWebApi/documentation/user-guide.md
+      - Other:
+          - Changes in savedquery usage: Other/changes-in-savedquery-usage.md
   - Tools:
       - PxWeb: tools/pxweb.md
 
