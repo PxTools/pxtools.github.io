@@ -162,16 +162,24 @@ maxDataCells: 500000
     The API has its own limit. Do not set the UI limit higher than the API’s
     backend limit to avoid inconsistent behavior. Usually they should match.
 
-### Use of dynamic content texts in table title
+### Table title configuration
 
-The default behaviour when creating the table title is to use content text at table level. 
+The default behaviour when creating the table title is to use content text at table level followed by an enumeration of selected variable names. Example:
 
-The `useDynamicContentInTitle` setting makes it possible to get the following behaviour for the table title:
+```
+Content at table level by variable1, variable2 and variable3
+```
 
-- One content value selected: Content text used in table title 
-- More than one content value selected: Content text from table level used in table title
+For CNMM databases it is possible to configure an alternative way of creating the table title with the following behaviour:
 
-The default value for this setting is `false`.
+#### One content value selected: 
+```
+Alternative text for selected content by variable1, variable2 and variable3
+```
+#### Two or more content values selected: 
+```
+Content at table level by variable1, variable2 and variable3
+```
 
 If you want to use dynamic content texts in the table title, set `useDynamicContentInTitle` in `config/config.js` to `true`:
 
