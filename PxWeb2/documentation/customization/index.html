@@ -1,0 +1,3099 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://www.pxtools.net/PxWeb2/documentation/customization/">
+      
+      
+        <link rel="prev" href="../../../PxWebApi/documentation/configuration/">
+      
+      
+        <link rel="next" href="../docker/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Customize PxWeb 2 - PxTools</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#customization" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="PxTools" class="md-header__button md-logo" aria-label="PxTools" data-md-component="logo">
+      
+  <img src="../../../assets/favicon-darkmode.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PxTools
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Customize PxWeb 2
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/PxTools/pxtools.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../project/introduction/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  PxWeb 2
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../documentation/overview/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Documentation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../tools/pxweb/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Tools
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="PxTools" class="md-nav__button md-logo" aria-label="PxTools" data-md-component="logo">
+      
+  <img src="../../../assets/favicon-darkmode.svg" alt="logo">
+
+    </a>
+    PxTools
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/PxTools/pxtools.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PxWeb 2
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    PxWeb 2
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/solution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Is PxWeb right for you?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/demo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Demo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/plans/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plans
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documentation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Documentation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../documentation/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../PxWebApi/documentation/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install PxWebApi 2 on IIS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation-on-iis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install PxWeb 2 on IIS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Customization
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Customization
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../PxWebApi/documentation/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Customize PxWebApi 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Customize PxWeb 2
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Customize PxWeb 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#folder-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Folder structure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-tos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to’s
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to’s">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#change-the-api-endpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Change the API endpoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-pxweb-under-a-subpath" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run PxWeb under a subpath
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limit-how-large-tables-can-be-viewed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limit how large tables can be viewed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#table-title-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Table title configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Table title configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#one-content-value-selected" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        One content value selected:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#two-or-more-content-values-selected" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two or more content values selected:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-the-default-characters-for-missing-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Change the default characters for missing values
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exclude-variables-from-the-variable-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exclude variables from the variable filter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-site-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configure site languages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-completely-new-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Add a completely new language
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-fonts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Change fonts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-logo-and-favicon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Change logo and favicon
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-logo-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Change logo URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-breadcrumb-on-start-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Show breadcrumb on start page
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adjust-or-fix-text-translations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adjust or fix text / translations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-date-format-in-translation-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Change date format in translation file
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#override-separators-in-number-formatting-per-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Override separators in number formatting per language
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hide-or-show-the-default-language-in-the-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hide or show the default language in the URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-the-position-of-the-language-code-in-the-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Change the position of the language code in the URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-topic-icons-on-the-start-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Change topic icons on the start page
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-corner-rounding-border-radii" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Change corner rounding (border radii)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-the-text-and-related-links-on-the-startpage-table-page-and-in-the-footer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Change the text and related links on the startpage, table page and in the footer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-the-colors-design-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Change the colors (Design Tokens)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Change the colors (Design Tokens)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#color-mappings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Color mappings
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checklist-after-customization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checklist After Customization
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Demo
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Demo
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Try PxWeb 2 with Docker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Px File Format
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Px File Format
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../px-file-format/px-2013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Version 2013
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../PxWebApi/documentation/user-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PxWebApi 2 User Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Other
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Other
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Other/changes-in-savedquery-usage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changes in savedquery usage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tools
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/pxweb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PxWeb
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#folder-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Folder structure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-tos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to’s
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to’s">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#change-the-api-endpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Change the API endpoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-pxweb-under-a-subpath" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run PxWeb under a subpath
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limit-how-large-tables-can-be-viewed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limit how large tables can be viewed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#table-title-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Table title configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Table title configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#one-content-value-selected" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        One content value selected:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#two-or-more-content-values-selected" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two or more content values selected:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-the-default-characters-for-missing-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Change the default characters for missing values
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exclude-variables-from-the-variable-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exclude variables from the variable filter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-site-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configure site languages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-completely-new-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Add a completely new language
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-fonts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Change fonts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-logo-and-favicon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Change logo and favicon
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-logo-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Change logo URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-breadcrumb-on-start-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Show breadcrumb on start page
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adjust-or-fix-text-translations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adjust or fix text / translations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-date-format-in-translation-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Change date format in translation file
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#override-separators-in-number-formatting-per-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Override separators in number formatting per language
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hide-or-show-the-default-language-in-the-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hide or show the default language in the URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-the-position-of-the-language-code-in-the-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Change the position of the language code in the URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-topic-icons-on-the-start-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Change topic icons on the start page
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-corner-rounding-border-radii" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Change corner rounding (border radii)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-the-text-and-related-links-on-the-startpage-table-page-and-in-the-footer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Change the text and related links on the startpage, table page and in the footer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-the-colors-design-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Change the colors (Design Tokens)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Change the colors (Design Tokens)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#color-mappings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Color mappings
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checklist-after-customization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checklist After Customization
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/PxTools/pxtools.github.io/edit/main/docs/PxWeb2/documentation/customization.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/PxTools/pxtools.github.io/raw/main/docs/PxWeb2/documentation/customization.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<h1 id="customization">Customization<a class="headerlink" href="#customization" title="Permanent link">&para;</a></h1>
+<p>PxWeb comes prebuilt with configuration for tables in English, a set of fonts
+colors and icons. This guide help you customize PxWeb to your needs.</p>
+<p>You can:</p>
+<ul>
+<li>Configure available languages and set a default fallback.</li>
+<li>Add a new language or adjust existing translations.</li>
+<li>Change colors (design tokens).</li>
+<li>Adjust corner radii of UI elements.</li>
+<li>Replace fonts.</li>
+<li>Change logo and favicon</li>
+<li>Change topic icons.</li>
+<li>Limit table sizes.</li>
+<li>Control how and where languages appear in URLs.</li>
+<li>Hide variables from the variable filter.</li>
+<li>Customize start page text and footer links (examples included below).</li>
+<li>Define characters used for missing values.</li>
+</ul>
+<p>Below you will find a set of practical <strong>How to</strong> sections.</p>
+<hr />
+<h2 id="folder-structure">Folder structure<a class="headerlink" href="#folder-structure" title="Permanent link">&para;</a></h2>
+<p>When you unzip the official PxWeb 2.0 release you get a structure like:</p>
+<div class="highlight"><pre><span></span><code>root
+├──<span class="w"> </span>index.html<span class="w">               </span><span class="c1"># (1)!</span>
+├──<span class="w"> </span>web.config<span class="w">               </span><span class="c1"># (2)!</span>
+├──<span class="w"> </span>assets<span class="w">                   </span><span class="c1"># (3)!</span>
+├──<span class="w"> </span>config
+│<span class="w">   </span>└──<span class="w"> </span>config.js<span class="w">            </span><span class="c1"># (4)!</span>
+├──<span class="w"> </span>content<span class="w">                  </span><span class="c1"># (5)!</span>
+│<span class="w">   </span>├──<span class="w"> </span>ar
+│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>content.json
+│<span class="w">   </span>├──<span class="w"> </span>en
+│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>content.json
+│<span class="w">   </span>├──<span class="w"> </span>no
+│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>content.json
+│<span class="w">   </span>└──<span class="w"> </span>sv
+│<span class="w">       </span>└──<span class="w"> </span>content.json
+├──<span class="w"> </span>fonts<span class="w">                    </span>
+│<span class="w">   </span>├──<span class="w"> </span>PxWeb-font-400.ttf
+│<span class="w">   </span>├──<span class="w"> </span>PxWeb-font-400-Italic.ttf
+│<span class="w">   </span>├──<span class="w"> </span>PxWeb-font-500.ttf
+│<span class="w">   </span>├──<span class="w"> </span>PxWeb-font-500-Italic.ttf
+│<span class="w">   </span>└──<span class="w"> </span>PxWeb-font-700.ttf
+│<span class="w">   </span>└──<span class="w"> </span>PxWeb-font-700-Italic.ttf
+├──<span class="w"> </span>icons
+│<span class="w">   </span>├──<span class="w"> </span>topicIconMap.json<span class="w">    </span><span class="c1"># (6)!</span>
+│<span class="w">   </span>└──<span class="w"> </span>topic
+│<span class="w">       </span>├──<span class="w"> </span>icon1.svg
+│<span class="w">       </span>├──<span class="w"> </span>icon2.svg
+│<span class="w">       </span>├──<span class="w"> </span>...
+│<span class="w">       </span>└──<span class="w"> </span>small/
+│<span class="w">           </span>├──<span class="w"> </span>icon1.svg
+│<span class="w">           </span>├──<span class="w"> </span>icon2.svg
+│<span class="w">           </span>└──<span class="w"> </span>...
+├──<span class="w"> </span>images
+│<span class="w">   </span>├──<span class="w"> </span>favicon.svg
+│<span class="w">   </span>├──<span class="w"> </span>favicon-darkmode.svg
+│<span class="w">   </span>└──<span class="w"> </span>logo.svg
+├──<span class="w"> </span>locales<span class="w">                  </span><span class="c1"># (7)!</span>
+│<span class="w">   </span>├──<span class="w"> </span>ar
+│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>translation.json
+│<span class="w">   </span>├──<span class="w"> </span>en
+│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>translation.json
+│<span class="w">   </span>├──<span class="w"> </span>no
+│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>translation.json
+│<span class="w">   </span>└──<span class="w"> </span>sv
+│<span class="w">       </span>└──<span class="w"> </span>translation.json
+└──<span class="w"> </span>theme
+<span class="w">    </span>└──<span class="w"> </span>variables.css
+</code></pre></div>
+<ol>
+<li><code>index.html</code> is the page that bootstraps PxWeb.</li>
+<li><code>web.config</code> is a starting point if you host on Microsoft IIS.  </li>
+<li><code>assets</code> contains the compiled JavaScript/CSS for PxWeb. You normally do not
+    edit anything inside this folder.</li>
+<li><code>config.js</code> the main config file for PxWeb.</li>
+<li><code>content</code> a folder containg content customizations e.g. links in the footer.</li>
+<li><code>topicIconMap.json</code> is a file where mapping between tables <code>SUBJECT-CODE</code> and
+    icons are made.</li>
+<li><code>locales</code> a folder where translated text are placed.</li>
+</ol>
+<hr />
+<h2 id="how-tos">How to’s<a class="headerlink" href="#how-tos" title="Permanent link">&para;</a></h2>
+<h3 id="change-the-api-endpoint">Change the API endpoint<a class="headerlink" href="#change-the-api-endpoint" title="Permanent link">&para;</a></h3>
+<p>PxWeb retrieves table metadata and data from a PxWeb API 2.0 instance.<br />
+Open <code>config/config.js</code> and set <code>apiUrl</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nb">globalThis</span><span class="p">.</span><span class="nx">PxWeb2Config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">language</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">supportedLanguages</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nx">shorthand</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;en&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">languageName</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;English&#39;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="nx">defaultLanguage</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;en&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">fallbackLanguage</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;en&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">showDefaultLanguageInPath</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">baseApplicationPath</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="p">,</span>
+<span class="hll"><span class="w">    </span><span class="nx">apiUrl</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;https://your.api.server/PxWeb/api/v2&quot;</span><span class="p">,</span>
+</span><span class="w">    </span><span class="nx">maxDataCells</span><span class="o">:</span><span class="w"> </span><span class="mf">100000</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">useDynamicContentInTitle</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">showBreadCrumbOnStartPage</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">specialCharacters</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;.&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;..&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;...&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;*&#39;</span><span class="p">],</span>
+<span class="w">    </span><span class="nx">variableFilterExclusionList</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">en</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s1">&#39;observations&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="s1">&#39;year&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="s1">&#39;quarter&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="s1">&#39;month&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="s1">&#39;every other year&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="s1">&#39;every fifth year&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">homePage</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">en</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">  </span><span class="p">};</span>
+</code></pre></div>
+<p>Omit a trailing slash, one is added automatically.</p>
+<h3 id="run-pxweb-under-a-subpath">Run PxWeb under a subpath<a class="headerlink" href="#run-pxweb-under-a-subpath" title="Permanent link">&para;</a></h3>
+<p>If you serve PxWeb from e.g. <code>https://www.mysite.org/pxweb</code> (without an upstream
+reverse proxy):</p>
+<ol>
+<li>Set <code>baseApplicationPath</code> in <code>config/config.js</code>:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="nx">baseApplicationPath</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;/pxweb/&quot;</span>
+</code></pre></div>
+<ol>
+<li>In <code>index.html</code>, adjust the <code>&lt;base&gt;</code> tag:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">base</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/pxweb/&quot;</span><span class="p">&gt;</span>
+</code></pre></div>
+<ol>
+<li>Ensure the web server rewrites (if needed) static file requests correctly to
+   that subpath.</li>
+</ol>
+<h3 id="limit-how-large-tables-can-be-viewed">Limit how large tables can be viewed<a class="headerlink" href="#limit-how-large-tables-can-be-viewed" title="Permanent link">&para;</a></h3>
+<p>Set <code>maxDataCells</code> in <code>config/config.js</code>. Example:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">maxDataCells</span><span class="o">:</span><span class="w"> </span><span class="mf">500000</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">API limitation</p>
+<p>The API has its own limit. Do not set the UI limit higher than the API’s
+backend limit to avoid inconsistent behavior. Usually they should match.</p>
+</div>
+<h3 id="table-title-configuration">Table title configuration<a class="headerlink" href="#table-title-configuration" title="Permanent link">&para;</a></h3>
+<p>The default behaviour when creating the table title is to use content text at table level followed by an enumeration of selected variable names. Example:</p>
+<div class="highlight"><pre><span></span><code>Content at table level by variable1, variable2 and variable3
+</code></pre></div>
+<p>For CNMM databases it is possible to configure an alternative way of creating the table title with the following behaviour:</p>
+<h4 id="one-content-value-selected">One content value selected:<a class="headerlink" href="#one-content-value-selected" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>Alternative text for selected content by variable1, variable2 and variable3
+</code></pre></div>
+<h4 id="two-or-more-content-values-selected">Two or more content values selected:<a class="headerlink" href="#two-or-more-content-values-selected" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>Content at table level by variable1, variable2 and variable3
+</code></pre></div>
+<p>If you want to use dynamic content texts in the table title, set <code>useDynamicContentInTitle</code> in <code>config/config.js</code> to <code>true</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">useDynamicContentInTitle</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Only for CNMM databases</p>
+<p>This setting can only be used for CNMM databases. If your database is a PX-file database, this setting should be set to <code>false</code>.</p>
+</div>
+<h3 id="change-the-default-characters-for-missing-values">Change the default characters for missing values<a class="headerlink" href="#change-the-default-characters-for-missing-values" title="Permanent link">&para;</a></h3>
+<p>Edit the <code>specialCharacters</code> array in <code>config/config.js</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">specialCharacters</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;.&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;..&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;...&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;*&#39;</span><span class="p">]</span>
+</code></pre></div>
+<p>These are displayed when a data point is missing or confidential.</p>
+<h3 id="exclude-variables-from-the-variable-filter">Exclude variables from the variable filter<a class="headerlink" href="#exclude-variables-from-the-variable-filter" title="Permanent link">&para;</a></h3>
+<p>To hide certain variables from appearing in the initial variable filter, add
+their (localized) names under <code>variableFilterExclutionList</code> per language in <code>config/config.js</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">variableFilterExclutionList</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">en</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Contents&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nx">sv</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Innehåll&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Repeat for every supported language.</p>
+<h3 id="configure-site-languages">Configure site languages<a class="headerlink" href="#configure-site-languages" title="Permanent link">&para;</a></h3>
+<p>In <code>config/config.js</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nb">globalThis</span><span class="p">.</span><span class="nx">PxWeb2Config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="hll"><span class="w">    </span><span class="nx">language</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span class="hll"><span class="w">      </span><span class="nx">supportedLanguages</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+</span><span class="hll"><span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nx">shorthand</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;en&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">languageName</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;English&#39;</span><span class="w"> </span><span class="p">},</span>
+</span><span class="hll"><span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nx">shorthand</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;sv&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">languageName</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Svenska&#39;</span><span class="w"> </span><span class="p">}</span>
+</span><span class="hll"><span class="w">      </span><span class="p">],</span>
+</span><span class="hll"><span class="w">      </span><span class="nx">defaultLanguage</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;sv&#39;</span><span class="p">,</span>
+</span><span class="hll"><span class="w">      </span><span class="nx">fallbackLanguage</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;en&#39;</span><span class="p">,</span>
+</span><span class="hll"><span class="w">      </span><span class="nx">showDefaultLanguageInPath</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span class="hll"><span class="w">    </span><span class="p">},</span>
+</span><span class="w">    </span><span class="nx">baseApplicationPath</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">apiUrl</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;https://your.api.server/PxWeb/api/v2&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">maxDataCells</span><span class="o">:</span><span class="w"> </span><span class="mf">100000</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">useDynamicContentInTitle</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">showBreadCrumbOnStartPage</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">specialCharacters</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;.&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;..&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;...&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;*&#39;</span><span class="p">],</span>
+<span class="w">    </span><span class="nx">variableFilterExclusionList</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">en</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s1">&#39;observations&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="s1">&#39;year&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="s1">&#39;quarter&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="s1">&#39;month&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="s1">&#39;every other year&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="s1">&#39;every fifth year&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">homePage</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">en</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">  </span><span class="p">};</span>
+</code></pre></div>
+<ul>
+<li><code>supportedLanguages</code>: The active languages (must match those available in the API).</li>
+<li><code>defaultLanguage</code>: The primary language.</li>
+<li><code>fallbackLanguage</code>: Used if a translation key is missing for the active language.</li>
+<li><code>showDefaultLanguageInPath</code>: If <code>true</code>, URLs include the default language code.</li>
+</ul>
+<h3 id="add-a-completely-new-language">Add a completely new language<a class="headerlink" href="#add-a-completely-new-language" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Create a folder under <code>locales/</code> using the ISO 639‑1 two-letter code (e.g. <code>fr</code>).</li>
+<li>Copy <code>locales/en/translation.json</code> into <code>locales/fr/translation.json</code>.</li>
+<li>Translate the values (keep keys intact).</li>
+<li>Add <code>"fr"</code> to <code>supportedLanguages</code>.</li>
+<li>(Optional) Add localized content under <code>content/fr/content.json</code> if your
+   content system uses it.</li>
+</ol>
+<h3 id="change-fonts">Change fonts<a class="headerlink" href="#change-fonts" title="Permanent link">&para;</a></h3>
+<p>Replace the font files in the <code>fonts</code> directory. Keep file names.</p>
+<p>Make sure you have the proper license to self-host fonts.</p>
+<h3 id="change-logo-and-favicon">Change logo and favicon<a class="headerlink" href="#change-logo-and-favicon" title="Permanent link">&para;</a></h3>
+<p>The svg <strong>must</strong> include viewbox and width/height attributes for it to be rendered correctly.</p>
+<p>To change the logo/favicon in PxWeb replace svgs in the image folder. The names must be the same.</p>
+<p>For image replace <code>images/logo.svg</code> with your own logo.
+Replace <code>images/favicon.ico</code> / <code>images/favicon-darkmode.svg</code> with your own favicon.</p>
+<h3 id="change-logo-url">Change logo URL<a class="headerlink" href="#change-logo-url" title="Permanent link">&para;</a></h3>
+<p>By default you will come to the PxWeb start page when clicking the logo. However, it is possible to configure this. You can configure a new logo URL per language by editing <code>homePage</code> in <code>config/config.js</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nx">homePage</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">en</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;https://www.mypxweb.com&#39;</span><span class="p">,</span><span class="w">     </span><span class="c1">// Set to your English homepage URL</span>
+<span class="w">    </span><span class="nx">sv</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;https://www.mypxweb.com/sv/&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// Set to your Swedish homepage URL</span>
+<span class="w">  </span><span class="p">},</span>
+</code></pre></div>
+<h3 id="show-breadcrumb-on-start-page">Show breadcrumb on start page<a class="headerlink" href="#show-breadcrumb-on-start-page" title="Permanent link">&para;</a></h3>
+<p>You can set if breadcrumbs should be shown on start page
+Set <code>showBreadCrumbOnStartPage</code> in <code>config/config.js</code>. Example:</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nx">showBreadCrumbOnStartPage</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</code></pre></div>
+<h3 id="adjust-or-fix-text-translations">Adjust or fix text / translations<a class="headerlink" href="#adjust-or-fix-text-translations" title="Permanent link">&para;</a></h3>
+<p>Edit the relevant <code>locales/&lt;lang&gt;/translation.json</code>.<br />
+Keys reflect where in the UI a string is used. Only modify values.  </p>
+<details class="tip">
+<summary>Example snippet</summary>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;common&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PxWeb 2.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;header&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;logo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PxWeb 2.0&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;logo_alt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;To the front page&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;language_selector&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Språk/Language&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span><span class="w">  </span>
+</code></pre></div>
+</details>
+<h3 id="change-date-format-in-translation-file">Change date format in translation file<a class="headerlink" href="#change-date-format-in-translation-file" title="Permanent link">&para;</a></h3>
+<p>Edit the relevant <code>locales/&lt;lang&gt;/translation.json</code> file.<br />
+We have two date formats defined under <code>date</code> in translation files - <code>simple_date</code> and <code>simple_date_with_time</code>. </p>
+<p>Change the format options as needed. <strong>PxWeb2</strong> uses <code>Intl.DateTimeFormat</code> for date formatting. See documentation for options here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat</p>
+<p>Here is an examples configuration used for english and norwegian:</p>
+<details class="tip">
+<summary>english date formats</summary>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;date&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;simple_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{value, datetime}}&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;simple_date_with_time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{value, datetime(year: &#39;numeric&#39;; month: &#39;numeric&#39;; day: &#39;numeric&#39;; hour: &#39;numeric&#39;; minute: &#39;numeric&#39;)}}&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+<p>Example of how <code>simple_date_with_time</code> for english is displayed in PxWeb2 UI:
+<code>2/21/2025, 8:00 AM</code></p>
+<details class="tip">
+<summary>norwegian date formats</summary>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;date&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;simple_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{value, datetime(day: &#39;2-digit&#39;; month: &#39;2-digit&#39;; year: &#39;numeric&#39;)}}&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;simple_date_with_time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{value, datetime(year: &#39;numeric&#39;; month: &#39;2-digit&#39;; day: &#39;2-digit&#39;; hour: &#39;numeric&#39;; minute: &#39;numeric&#39;)}}&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+<p>Example of how <code>simple_date_with_time</code> for norwegian is displayed with two digit configuration in PxWeb2 UI:
+<code>21.02.2025, 08:00</code></p>
+<h3 id="override-separators-in-number-formatting-per-language">Override separators in number formatting per language<a class="headerlink" href="#override-separators-in-number-formatting-per-language" title="Permanent link">&para;</a></h3>
+<p>Edit the relevant <code>locales/&lt;lang&gt;/translation.json</code> file.
+We have defined multiple number formatting rules under <code>number</code> in translation files. Here are some expamples of number formats that are used:</p>
+<details class="tip">
+<summary>number formats</summary>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;number&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;simple_number&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{value, pxNumber}}&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;simple_number_with_zero_decimal&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{value, pxNumber(minimumFractionDigits: 0; maximumFractionDigits: 0;)}}&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;simple_number_with_one_decimal&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{value, pxNumber(minimumFractionDigits: 1; maximumFractionDigits: 1;)}}&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;simple_number_with_two_decimals&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{value, pxNumber(minimumFractionDigits: 2; maximumFractionDigits: 2;)}}&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div>
+</details>
+<ul>
+<li><code>simple_number</code>: Default number formatting.</li>
+<li><code>simple_number_with_zero_decimal</code>: Number formatting with no decimal places.</li>
+<li><code>simple_number_with_one_decimal</code>: Number formatting with one decimal place.</li>
+<li><code>simple_number_with_two_decimals</code>: Number formatting with two decimal places.</li>
+</ul>
+<p>The group and decimal separators are determined by the language locale. However, if you want to customize the number formatting further, you can add additional options to the <code>pxNumber</code> formatter.</p>
+<p>To override decimal add <code>decimalSeparator</code> to the <code>number_format</code> object. Likewise, to override group separator add <code>thousandSeparator</code> to the <code>number_format</code> object.</p>
+<p>If you need to add space as a group separator, you add the value <code>nbsp</code> for non-breaking space or <code>nnbsp</code> for narrow non-breaking space, e.g. <code>thousandSeparator: 'nbsp'</code>.</p>
+<p>Here is an example of how to override both decimal and group separators for simple_number_with_two_decimals. Use <code>,</code> as decimal separator and non-breaking space as group separator:
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;number&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;simple_number_with_two_decimals&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{value, pxNumber(minimumFractionDigits: 2; maximumFractionDigits: 2; decimalSeparator: &#39;,&#39;; thousandSeparator: &#39;nbsp&#39;;)}}&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div></p>
+<h3 id="hide-or-show-the-default-language-in-the-url">Hide or show the default language in the URL<a class="headerlink" href="#hide-or-show-the-default-language-in-the-url" title="Permanent link">&para;</a></h3>
+<p>Toggle:
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nb">globalThis</span><span class="p">.</span><span class="nx">PxWeb2Config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">language</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">supportedLanguages</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nx">shorthand</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;en&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">languageName</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;English&#39;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="nx">defaultLanguage</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;en&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">fallbackLanguage</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;en&#39;</span><span class="p">,</span>
+<span class="hll"><span class="w">      </span><span class="nx">showDefaultLanguageInPath</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="c1">// or false</span>
+</span><span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">baseApplicationPath</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">apiUrl</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;https://your.api.server/PxWeb/api/v2&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">maxDataCells</span><span class="o">:</span><span class="w"> </span><span class="mf">100000</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">useDynamicContentInTitle</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">showBreadCrumbOnStartPage</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">specialCharacters</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;.&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;..&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;...&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;*&#39;</span><span class="p">],</span>
+<span class="w">    </span><span class="nx">variableFilterExclusionList</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">en</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s1">&#39;observations&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="s1">&#39;year&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="s1">&#39;quarter&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="s1">&#39;month&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="s1">&#39;every other year&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="s1">&#39;every fifth year&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">homePage</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">en</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">  </span><span class="p">};</span>
+</code></pre></div></p>
+<p>in the <code>language</code> section of <code>config/config.js</code>.</p>
+<h3 id="change-the-position-of-the-language-code-in-the-url">Change the position of the language code in the URL<a class="headerlink" href="#change-the-position-of-the-language-code-in-the-url" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nb">globalThis</span><span class="p">.</span><span class="nx">PxWeb2Config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">language</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">supportedLanguages</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nx">shorthand</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;en&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">languageName</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;English&#39;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="nx">defaultLanguage</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;en&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">fallbackLanguage</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;en&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">showDefaultLanguageInPath</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="hll"><span class="w">      </span><span class="nx">positionInPath</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;before&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// or &#39;after&#39;</span>
+</span><span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">baseApplicationPath</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/pxweb/&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">apiUrl</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;https://your.api.server/PxWeb/api/v2&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">maxDataCells</span><span class="o">:</span><span class="w"> </span><span class="mf">100000</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">useDynamicContentInTitle</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">showBreadCrumbOnStartPage</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">specialCharacters</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;.&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;..&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;...&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;*&#39;</span><span class="p">],</span>
+<span class="w">    </span><span class="nx">variableFilterExclusionList</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">en</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s1">&#39;observations&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="s1">&#39;year&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="s1">&#39;quarter&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="s1">&#39;month&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="s1">&#39;every other year&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="s1">&#39;every fifth year&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">homePage</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">en</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">  </span><span class="p">};</span>
+</code></pre></div>
+<p>Set <code>positionInPath</code> in <code>config/config.js</code> to either <code>before</code> or <code>after</code> the
+base application path. The above example will yield URLs like:</p>
+<ul>
+<li><code>https://www.mysite.org/en/pxweb/</code></li>
+</ul>
+<p>The setting only has an effect if <code>baseApplicationPath</code> is not <code>/</code>.</p>
+<h3 id="change-topic-icons-on-the-start-page">Change topic icons on the start page<a class="headerlink" href="#change-topic-icons-on-the-start-page" title="Permanent link">&para;</a></h3>
+<p>Each table can have an associated icon. Mapping is done through the table’s
+<code>SOBJECT-CODE</code> in:</p>
+<div class="highlight"><pre><span></span><code>/icons/topicIconMap.json
+</code></pre></div>
+<p>Add mapping between subject code and icon file like:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;ED&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;education.svg&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;HE&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;health.svg&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>If you whant to user your own icons add them in both:</p>
+<ul>
+<li><code>/icons/topic/</code> (SVG 36×36)</li>
+<li><code>/icons/topic/small/</code> (SVG 28×28)</li>
+</ul>
+<h3 id="change-corner-rounding-border-radii">Change corner rounding (border radii)<a class="headerlink" href="#change-corner-rounding-border-radii" title="Permanent link">&para;</a></h3>
+<p>Edit these CSS variables in <code>theme/variables.css</code>:</p>
+<ul>
+<li><code>--px-border-radius-xxsmall</code></li>
+<li><code>--px-border-radius-xsmall</code></li>
+<li><code>--px-border-radius-small</code></li>
+<li><code>--px-border-radius-medium</code></li>
+<li><code>--px-border-radius-large</code></li>
+<li><code>--px-border-radius-xlarge</code></li>
+</ul>
+<p>Do not alter <code>--px-border-radius-none</code> or <code>--px-border-radius-full</code> unless you
+know the side effects (they are used for logical extremes).</p>
+<h3 id="change-the-text-and-related-links-on-the-startpage-table-page-and-in-the-footer">Change the text and related links on the startpage, table page and in the footer<a class="headerlink" href="#change-the-text-and-related-links-on-the-startpage-table-page-and-in-the-footer" title="Permanent link">&para;</a></h3>
+<p>The <code>content.json</code> file defines customizable text and links that appear in
+<strong>PxWeb’s user interface</strong> This file allows you to configure localized UI
+content: you can add a <strong>detailsSection</strong> after the ingress on the start page, update the <strong>help section</strong> on the table page, or update the
+<strong>footer</strong> content for the application.</p>
+<div class="highlight"><pre><span></span><code>root/content
+├──<span class="w"> </span>ar
+│<span class="w">   </span>└──<span class="w"> </span>content.json
+├──<span class="w"> </span>en
+│<span class="w">   </span>└──<span class="w"> </span>content.json
+├──<span class="w"> </span>no
+│<span class="w">   </span>└──<span class="w"> </span>content.json
+└──<span class="w"> </span>sv
+<span class="w">    </span>└──<span class="w"> </span>content.json
+</code></pre></div>
+<ul>
+<li>Each language folder contains its own <code>content.json</code>.</li>
+<li>The active language determines which file is loaded at runtime.</li>
+<li>This makes it possible to have different footer links, or details
+  text depending on the selected language.</li>
+</ul>
+<p><strong>Structure overview:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;startPage&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;detailsSection&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;detailHeader&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;More about PxWeb&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;detailContent&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;textBlock&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;header&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;When to use this section&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;This is an optional section that can be used for content that may be useful for some users, but is not essential for everyone. Key information that all users need to see should always appear in the lead paragraph.&quot;</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;links&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;header&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Useful resources&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">              </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Example link 1&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#&quot;</span>
+<span class="w">              </span><span class="p">},</span>
+<span class="w">              </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Example link 2 (open in new tab)&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;openInNewTab&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">              </span><span class="p">}</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;noResultSearchHelp&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;helpText&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;Use *title:* to search only in the table name, for example *title:stockholm*.&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;You can add or remove items from this search help list to make it relevant for your specific database.&quot;</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;footer&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;columns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;header&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;This is a header&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;links&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Link text&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://your.link.here&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">&quot;external&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Contact us&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mailto:mail@example.com&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">          </span><span class="p">]</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;tableViewer&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;helpSection&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Help and guidance on how to use the PxWeb interface can be found on our help pages:&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;links&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Example link 1&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Example link 2&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;informationCard&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;For questions about the figures and table content, see the “Information” button.&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li><strong>startPage.detailsSection</strong> – Optional section below the page ingress. When
+  <code>enabled</code> is <code>true</code>, the application renders the <strong><code>DetailsSection</code> component</strong>.
+  This section can contain multiple entries, and each entry may be either a
+  <code>textBlock</code> (with <code>header</code> and <code>text</code>) or a <code>links</code> block (with <code>header</code> and a
+  list of <code>items</code>). Links described in <code>items</code> have <code>text</code>, <code>url</code>, and an optional
+  <code>openInNewTab</code> boolean. If <code>openInNewTab</code> is <code>true</code>, the link opens in a new
+  browser tab.</li>
+<li>
+<p><strong>startPage.noResultSearchHelp</strong> – Optional section displayed below
+  the “no results” message when no tables match the search or filters.
+  When <code>enabled</code> is <code>true</code>, each string in the <code>helpText</code> array is shown
+  as a separate list item under a help heading. The text will be rendered using a custom markdown renderer to allow <em>italic</em> formatting with asterisks.</p>
+</li>
+<li>
+<p><strong>footer</strong>
+  One or more footer columns with <code>header</code> and list of <code>links</code>. If links have <code>external</code> set to <code>true</code>, they automatically will have the icon for external links and will open in a new tab. See example above.</p>
+</li>
+<li>
+<p><strong>tableViewer.helpSection</strong> – Optional help section on the table page.
+  Contains a <code>description</code> string, a list of <code>links</code> (with <code>text</code> and <code>url</code>), and
+  an optional <code>informationCard</code> (with <code>enabled</code> boolean and <code>text</code>). Links will always be opened in a new tab.
+  When at least on the above is defined, the application renders the <strong><code>HelpSection</code> component</strong>.</p>
+</li>
+</ul>
+<p>This setup allows administrators to adjust localized content (text and links)
+  for each language without modifying the application code.</p>
+<h3 id="change-the-colors-design-tokens">Change the colors (Design Tokens)<a class="headerlink" href="#change-the-colors-design-tokens" title="Permanent link">&para;</a></h3>
+<p>PxWeb’s visual styling is driven by CSS custom properties (“design tokens”).
+Understanding token layers helps you customize safely.</p>
+<p>Token categories:</p>
+<ol>
+<li>Primitive (Base) Tokens: Raw color values (brand, accent, neutrals, semantic
+   palettes). Example: <code>--px-color-brand-400</code>.</li>
+<li>Semantic (System) Tokens: Contextual meaning-based tokens mapping to 
+   primitives. Example: <code>--px-color-surface-default</code>, <code>--px-color-text-action</code>.</li>
+<li>Component / Alias Tokens (if introduced later): Optional intermediary 
+   re-mappings for specific components.</li>
+</ol>
+<p>Principles:</p>
+<ul>
+<li>You normally change only primitive tokens (<code>--px-color-brand-*</code>,
+  <code>--px-color-accent-*</code>, <code>--px-color-neutral-*</code>, and semantic palette roots like
+  <code>--px-color-info-100</code>).</li>
+<li>Semantic tokens derive usability (contrast, hierarchy) from primitives. Avoid
+  editing semantic tokens unless you fully control downstream impacts.</li>
+<li>Keep sufficient contrast (WCAG AA: 4.5:1 for normal text, 3:1 for large / UI elements).</li>
+<li>Maintain directional progression (e.g. <code>-50</code> lighter → <code>-900</code> darkest).</li>
+</ul>
+<p>Location:
+All tokens reside in <code>theme/variables.css</code>.</p>
+<p>Typical edit workflow:</p>
+<ol>
+<li>Inventory current brand identity (primary, secondary, accent).</li>
+<li>Decide which existing scale (brand, accent, neutral) maps to your brand palette.</li>
+<li>Replace primitive hex values:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="nd">root</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nv">--px-color-brand-50</span><span class="p">:</span><span class="w">  </span><span class="mh">#F5FAFF</span><span class="p">;</span>
+<span class="w">  </span><span class="nv">--px-color-brand-100</span><span class="p">:</span><span class="w"> </span><span class="mh">#E3F2FE</span><span class="p">;</span>
+<span class="w">  </span><span class="nv">--px-color-brand-200</span><span class="p">:</span><span class="w"> </span><span class="mh">#C6E4FD</span><span class="p">;</span>
+<span class="w">  </span><span class="nv">--px-color-brand-400</span><span class="p">:</span><span class="w"> </span><span class="mh">#5BB4F6</span><span class="p">;</span>
+<span class="w">  </span><span class="nv">--px-color-brand-600</span><span class="p">:</span><span class="w"> </span><span class="mh">#1D78C7</span><span class="p">;</span>
+<span class="w">  </span><span class="nv">--px-color-brand-800</span><span class="p">:</span><span class="w"> </span><span class="mh">#0F3F63</span><span class="p">;</span>
+<span class="w">  </span><span class="nv">--px-color-brand-900</span><span class="p">:</span><span class="w"> </span><span class="mh">#072638</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<ol>
+<li>Rebuild or reload the page; verify legibility in buttons, table headers,
+   focus outlines.</li>
+<li>Test states: hover (<code>--px-color-surface-action-hover</code>), active, focus
+   outlines, inverted surfaces (dark backgrounds).</li>
+<li>Use a tooling aid (e.g. <a href="https://leonardocolor.io/theme.html">Leonardo</a>) to
+   generate balanced scales if starting from one or two seed colors.</li>
+<li>Run automated accessibility checks (e.g. Lighthouse, axe) to validate contrasts.</li>
+</ol>
+<p>Do NOT:</p>
+<ul>
+<li>Randomly change semantic tokens like <code>--px-color-text-default</code> unless you
+  intentionally override the model.</li>
+<li>Mix light/dark semantics arbitrarily; ensure base background tokens stay coherent.</li>
+</ul>
+<p>Primitive token groups you can safely adjust:</p>
+<ul>
+<li><code>--px-color-brand-*</code></li>
+<li><code>--px-color-accent-*</code></li>
+<li>
+<p><code>--px-color-neutral-*</code></p>
+</li>
+<li>
+<p>Semantic palettes for status:</p>
+</li>
+<li>
+<p><code>--px-color-info-*</code></p>
+</li>
+<li><code>--px-color-success-*</code></li>
+<li><code>--px-color-warning-*</code></li>
+<li><code>--px-color-danger-*</code></li>
+</ul>
+<p>Avoid altering:</p>
+<ul>
+<li>Focus ring semantic tokens unless verifying accessibility (<code>--px-color-border-focus-outline</code>).</li>
+<li>Action text vs. action background pairings (they are tuned for contrast).</li>
+</ul>
+<p>Reference mapping (primitive → semantic usage) is documented below to understand
+impact of changing a primitive.</p>
+<h4 id="color-mappings">Color mappings<a class="headerlink" href="#color-mappings" title="Permanent link">&para;</a></h4>
+<p>Below is the mapping of primitive tokens to semantic tokens that consume them:</p>
+<ul>
+<li><code>--px-color-base-00</code><ul>
+<li><code>--px-color-background-default</code></li>
+<li><code>--px-color-surface-default</code></li>
+<li><code>--px-color-border-on-inverted</code></li>
+<li><code>--px-color-text-on-inverted</code></li>
+<li><code>--px-color-text-on-action</code></li>
+<li><code>--px-color-icon-on-inverted</code></li>
+<li><code>--px-color-icon-on-action</code></li>
+</ul>
+</li>
+<li><code>--px-color-brand-alpha-800</code><ul>
+<li><code>--px-color-surface-scrim</code></li>
+</ul>
+</li>
+<li><code>--px-color-brand-50</code><ul>
+<li><code>--px-color-background-subtle</code></li>
+<li><code>--px-color-surface-subtle</code></li>
+</ul>
+</li>
+<li><code>--px-color-brand-100</code><ul>
+<li><code>--px-color-surface-moderate</code></li>
+<li><code>--px-color-surface-action-subtle-hover</code></li>
+</ul>
+</li>
+<li><code>--px-color-brand-200</code><ul>
+<li><code>--px-color-surface-search-string-highlight</code></li>
+<li><code>--px-color-surface-action-subtle-active</code></li>
+<li><code>--px-color-border-subtle</code></li>
+<li><code>--px-color-border-divider-subtle</code></li>
+</ul>
+</li>
+<li><code>--px-color-brand-400</code><ul>
+<li><code>--px-color-border-moderate</code></li>
+<li><code>--px-color-border-divider</code></li>
+<li><code>--px-color-border-hover</code></li>
+</ul>
+</li>
+<li><code>--px-color-brand-600</code><ul>
+<li><code>--px-color-text-subtle</code></li>
+</ul>
+</li>
+<li><code>--px-color-brand-800</code><ul>
+<li><code>--px-color-surface-inverted</code></li>
+<li><code>--px-color-surface-action</code></li>
+<li><code>--px-color-border-action</code></li>
+<li><code>--px-color-border-selected</code></li>
+<li><code>--px-color-text-action</code></li>
+<li><code>--px-color-icon-action</code></li>
+</ul>
+</li>
+<li><code>--px-color-brand-900</code><ul>
+<li><code>--px-color-surface-action-hover</code></li>
+<li><code>--px-color-surface-action-active</code></li>
+<li><code>--px-color-border-default</code></li>
+<li><code>--px-color-border-focus-boxshadow</code></li>
+<li><code>--px-color-text-default</code></li>
+<li><code>--px-color-text-on-action-subtle</code></li>
+<li><code>--px-color-icon-default</code></li>
+<li><code>--px-color-icon-on-action-subtle</code></li>
+</ul>
+</li>
+<li><code>--px-color-accent-300</code><ul>
+<li><code>--px-color-border-focus-outline-on-inverted</code></li>
+</ul>
+</li>
+<li><code>--px-color-accent-500</code><ul>
+<li><code>--px-color-border-focus-outline</code></li>
+</ul>
+</li>
+<li><code>--px-color-neutral-100</code><ul>
+<li><code>--px-color-surface-neutral-subtle</code></li>
+</ul>
+</li>
+<li><code>--px-color-neutral-200</code><ul>
+<li><code>--px-color-surface-neutral-moderate</code></li>
+</ul>
+</li>
+<li><code>--px-color-info-100</code><ul>
+<li><code>--px-color-surface-info-subtle</code></li>
+</ul>
+</li>
+<li><code>--px-color-info-200</code><ul>
+<li><code>--px-color-surface-info-moderate</code></li>
+</ul>
+</li>
+<li><code>--px-color-info-600</code><ul>
+<li><code>--px-color-border-info</code></li>
+<li><code>--px-color-icon-info</code></li>
+</ul>
+</li>
+<li><code>--px-color-success-100</code><ul>
+<li><code>--px-color-surface-success-subtle</code></li>
+</ul>
+</li>
+<li><code>--px-color-success-200</code><ul>
+<li><code>--px-color-surface-success-moderate</code></li>
+</ul>
+</li>
+<li><code>--px-color-success-600</code><ul>
+<li><code>--px-color-border-success</code></li>
+<li><code>--px-color-icon-success</code></li>
+</ul>
+</li>
+<li><code>--px-color-warning-100</code><ul>
+<li><code>--px-color-surface-warning-subtle</code></li>
+</ul>
+</li>
+<li><code>--px-color-warning-200</code><ul>
+<li><code>--px-color-surface-warning-moderate</code></li>
+</ul>
+</li>
+<li><code>--px-color-warning-600</code><ul>
+<li><code>--px-color-border-warning</code></li>
+<li><code>--px-color-icon-warning</code></li>
+</ul>
+</li>
+<li><code>--px-color-danger-100</code><ul>
+<li><code>--px-color-surface-error-subtle</code></li>
+</ul>
+</li>
+<li><code>--px-color-danger-200</code><ul>
+<li><code>--px-color-surface-error-moderate</code></li>
+</ul>
+</li>
+<li><code>--px-color-danger-600</code><ul>
+<li><code>--px-color-border-error</code></li>
+<li><code>--px-color-icon-error</code></li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Issue</th>
+<th>Possible Cause</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Language not switching</td>
+<td>Missing folder or translation key</td>
+<td>Verify <code>locales/&lt;lang&gt;/translation.json</code> exists and is valid JSON</td>
+</tr>
+<tr>
+<td>Icons not showing</td>
+<td>File name mismatch</td>
+<td>Ensure mapping file matches actual SVG names</td>
+</tr>
+<tr>
+<td>Colors look inconsistent</td>
+<td>Edited semantic tokens directly</td>
+<td>Revert semantic tokens; adjust primitives only</td>
+</tr>
+<tr>
+<td>Table too large error</td>
+<td>API limit lower than UI limit</td>
+<td>Align <code>maxDataCells</code> with API config</td>
+</tr>
+<tr>
+<td>Broken layout after font change</td>
+<td>Font weights not matching</td>
+<td>Provide correct weights or adjust CSS font-weight usage</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="checklist-after-customization">Checklist After Customization<a class="headerlink" href="#checklist-after-customization" title="Permanent link">&para;</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> All languages load without console errors.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Color contrast passes automated tests.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Focus outline visible on interactive elements.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Missing value characters render distinctly.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Icons display in both normal and small variants.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> No 404s for font or icon assets.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Table size limit behaves as expected.</li>
+</ul>
+<hr />
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p>Customize primarily through:</p>
+<ul>
+<li><code>config/config.js</code> (behavior, language, API settings)</li>
+<li><code>locales/&lt;lang&gt;/translation.json</code> (text)</li>
+<li><code>theme/variables.css</code> (tokens: colors, radii, possibly fonts)</li>
+<li><code>icons/</code> (topic icons)</li>
+<li><code>index.html</code> (base path, structural HTML, optional static footer/start content)</li>
+</ul>
+<p>Make incremental changes and test after each step for accessibility and consistency.</p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+    
+      
+        
+        <nav class="md-footer__inner md-grid" aria-label="Footer" >
+          
+            
+            <a href="../../../PxWebApi/documentation/configuration/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Customize PxWebApi 2">
+              <div class="md-footer__button md-icon">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+              </div>
+              <div class="md-footer__title">
+                <span class="md-footer__direction">
+                  Previous
+                </span>
+                <div class="md-ellipsis">
+                  Customize PxWebApi 2
+                </div>
+              </div>
+            </a>
+          
+          
+            
+          <a href="../docker/" class="md-footer__link md-footer__link--next" aria-label="Next: Try PxWeb 2 with Docker">
+              <div class="md-footer__title">
+                <span class="md-footer__direction">
+                  Next
+                </span>
+                <div class="md-ellipsis">
+                  Try PxWeb 2 with Docker
+                </div>
+              </div>
+              <div class="md-footer__button md-icon">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+              </div>
+            </a>
+          
+        </nav>
+      
+    
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Statistics Sweden and Statistics Norway
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+        
+      </div>
+    </div>
+  </footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,5177 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://www.pxtools.net/px-file-format/px-2013/">
+      
+      
+        <link rel="prev" href="../../PxWeb2/documentation/docker/">
+      
+      
+        <link rel="next" href="../../PxWebApi/documentation/user-guide/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Version 2013 - PxTools</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#px-file-format-2013" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="PxTools" class="md-header__button md-logo" aria-label="PxTools" data-md-component="logo">
+      
+  <img src="../../assets/favicon-darkmode.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PxTools
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Version 2013
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/PxTools/pxtools.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../PxWeb2/project/introduction/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  PxWeb 2
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../documentation/overview/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Documentation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../tools/pxweb/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Tools
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="PxTools" class="md-nav__button md-logo" aria-label="PxTools" data-md-component="logo">
+      
+  <img src="../../assets/favicon-darkmode.svg" alt="logo">
+
+    </a>
+    PxTools
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/PxTools/pxtools.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PxWeb 2
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    PxWeb 2
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PxWeb2/project/introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PxWeb2/project/solution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Is PxWeb right for you?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PxWeb2/project/demo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Demo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PxWeb2/project/plans/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plans
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documentation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Documentation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PxWebApi/documentation/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install PxWebApi 2 on IIS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PxWeb2/documentation/installation-on-iis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install PxWeb 2 on IIS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Customization
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Customization
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PxWebApi/documentation/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Customize PxWebApi 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PxWeb2/documentation/customization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Customize PxWeb 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Demo
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Demo
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PxWeb2/documentation/docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Try PxWeb 2 with Docker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Px File Format
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Px File Format
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Version 2013
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Version 2013
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#readers-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Readers guide
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Readers guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-this-instruction-covers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What this instruction covers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-this-guide-is-organized" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How this guide is organized
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#related-documents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related documents
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting started
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keywords" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keywords
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Keywords">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alphabetical-list-of-keywords" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alphabetical list of keywords
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mandatory-keywords" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mandatory keywords
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mandatory keywords">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CONTENTS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DATA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decimals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DECIMALS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DESCRIPTION
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#heading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HEADING
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MATRIX
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stub" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        STUB
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subject-area" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SUBJECT-AREA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subject-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SUBJECT-CODE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#title" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TITLE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#units" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UNITS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VALUES
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-keywords" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optional keywords
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Optional keywords">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aggregallowed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AGGREGALLOWED
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attribute-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ATTRIBUTE-ID
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attribute-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ATTRIBUTE-TEXT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ATTRIBUTES
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autopen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AUTOPEN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#axis-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AXIS-VERSION
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#baseperiod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BASEPERIOD
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cellnote" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CELLNOTE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cellnotex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CELLNOTEX
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cfprices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CFPRICES
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#charset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CHARSET
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codepage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CODEPAGE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CODES
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confidential" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CONFIDENTIAL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CONTACT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contvariable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CONTVARIABLE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copyright" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        COPYRIGHT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creation-date" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CREATION-DATE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DATABASE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datanote" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DATANOTE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datanotecell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DATANOTECELL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datanotesum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DATANOTESUM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datasymbol1-datasymbol2-datasymbol3-datasymbol4-datasymbol5-datasymbol6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DATASYMBOL1, DATASYMBOL2, DATASYMBOL3, DATASYMBOL4, DATASYMBOL5, DATASYMBOL6
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datasymbolnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DATASYMBOLNIL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datasymbolsum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DATASYMBOLSUM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dayadj" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DAYADJ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#default-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DEFAULT-GRAPH
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#descriptiondefault" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DESCRIPTIONDEFAULT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#directory-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DIRECTORY-PATH
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#domain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DOMAIN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#doublecolumn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DOUBLECOLUMN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elimination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ELIMINATION
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#first-published" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FIRST-PUBLISHED
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hierarchies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HIERARCHIES
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hierarchylevels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HIERARCHYLEVELS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hierarchylevelsopen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HIERARCHYLEVELSOPEN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hierarchynames" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HIERARCHYNAMES
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#info" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        INFO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#infofile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        INFOFILE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KEYS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#language" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LANGUAGE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LANGUAGES
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#last-updated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LAST-UPDATED
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#link" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LINK
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MAP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#meta-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        META-ID
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#next-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NEXT-UPDATE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NOTE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NOTEX
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#official-statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OFFICIAL-STATISTICS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#partitioned" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PARTITIONED
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#precision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PRECISION
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prestext" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PRESTEXT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#px-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PX-SERVER
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refperiod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        REFPERIOD
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rounding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ROUNDING
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seasadj" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SEASADJ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#showdecimals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SHOWDECIMALS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SOURCE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stockfa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        STOCKFA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#survey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SURVEY
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#synonyms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SYNONYMS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tableid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TABLEID
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timeval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TIMEVAL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UPDATE-FREQUENCY
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#valuenote" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VALUENOTE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#valuenotex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VALUENOTEX
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VARIABLE-TYPE
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recommended-order-of-the-keywords" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended order of the keywords
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PxWebApi/documentation/user-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PxWebApi 2 User Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Other
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Other
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Other/changes-in-savedquery-usage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changes in savedquery usage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tools
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/pxweb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PxWeb
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#readers-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Readers guide
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Readers guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-this-instruction-covers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What this instruction covers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-this-guide-is-organized" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How this guide is organized
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#related-documents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related documents
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting started
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keywords" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keywords
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Keywords">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alphabetical-list-of-keywords" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alphabetical list of keywords
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mandatory-keywords" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mandatory keywords
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mandatory keywords">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CONTENTS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DATA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decimals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DECIMALS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DESCRIPTION
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#heading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HEADING
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MATRIX
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stub" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        STUB
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subject-area" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SUBJECT-AREA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subject-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SUBJECT-CODE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#title" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TITLE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#units" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UNITS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VALUES
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-keywords" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optional keywords
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Optional keywords">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aggregallowed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AGGREGALLOWED
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attribute-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ATTRIBUTE-ID
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attribute-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ATTRIBUTE-TEXT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ATTRIBUTES
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autopen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AUTOPEN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#axis-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AXIS-VERSION
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#baseperiod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BASEPERIOD
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cellnote" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CELLNOTE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cellnotex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CELLNOTEX
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cfprices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CFPRICES
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#charset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CHARSET
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codepage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CODEPAGE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CODES
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confidential" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CONFIDENTIAL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CONTACT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contvariable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CONTVARIABLE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copyright" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        COPYRIGHT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creation-date" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CREATION-DATE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DATABASE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datanote" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DATANOTE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datanotecell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DATANOTECELL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datanotesum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DATANOTESUM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datasymbol1-datasymbol2-datasymbol3-datasymbol4-datasymbol5-datasymbol6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DATASYMBOL1, DATASYMBOL2, DATASYMBOL3, DATASYMBOL4, DATASYMBOL5, DATASYMBOL6
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datasymbolnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DATASYMBOLNIL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datasymbolsum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DATASYMBOLSUM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dayadj" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DAYADJ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#default-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DEFAULT-GRAPH
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#descriptiondefault" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DESCRIPTIONDEFAULT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#directory-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DIRECTORY-PATH
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#domain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DOMAIN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#doublecolumn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DOUBLECOLUMN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elimination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ELIMINATION
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#first-published" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FIRST-PUBLISHED
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hierarchies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HIERARCHIES
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hierarchylevels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HIERARCHYLEVELS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hierarchylevelsopen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HIERARCHYLEVELSOPEN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hierarchynames" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HIERARCHYNAMES
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#info" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        INFO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#infofile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        INFOFILE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KEYS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#language" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LANGUAGE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LANGUAGES
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#last-updated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LAST-UPDATED
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#link" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LINK
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MAP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#meta-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        META-ID
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#next-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NEXT-UPDATE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NOTE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NOTEX
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#official-statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OFFICIAL-STATISTICS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#partitioned" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PARTITIONED
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#precision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PRECISION
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prestext" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PRESTEXT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#px-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PX-SERVER
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refperiod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        REFPERIOD
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rounding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ROUNDING
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seasadj" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SEASADJ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#showdecimals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SHOWDECIMALS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SOURCE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stockfa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        STOCKFA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#survey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SURVEY
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#synonyms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SYNONYMS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tableid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TABLEID
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timeval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TIMEVAL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UPDATE-FREQUENCY
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#valuenote" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VALUENOTE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#valuenotex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VALUENOTEX
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VARIABLE-TYPE
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recommended-order-of-the-keywords" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended order of the keywords
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/PxTools/pxtools.github.io/edit/main/docs/px-file-format/px-2013.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/PxTools/pxtools.github.io/raw/main/docs/px-file-format/px-2013.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<h1 id="px-file-format-2013">PX file format 2013<a class="headerlink" href="#px-file-format-2013" title="Permanent link">&para;</a></h1>
+<h2 id="readers-guide">Readers guide<a class="headerlink" href="#readers-guide" title="Permanent link">&para;</a></h2>
+<h3 id="what-this-instruction-covers">What this instruction covers<a class="headerlink" href="#what-this-instruction-covers" title="Permanent link">&para;</a></h3>
+<p>This manual describes how a PC-Axis PX file is constructed.
+The manual is intended for people that wants to get a introduction of how to
+use and to extend the Core part of the PC-Axis SDK.
+The reader are not required have any type of PC-Axis experience to
+understand the content but it helps. </p>
+<h3 id="how-this-guide-is-organized">How this guide is organized<a class="headerlink" href="#how-this-guide-is-organized" title="Permanent link">&para;</a></h3>
+<p>The document is divided into two part. The first part defines how the PX file
+structure works. The second part defined all keywords used in the PC-Axis
+File Format.</p>
+<h3 id="related-documents">Related documents<a class="headerlink" href="#related-documents" title="Permanent link">&para;</a></h3>
+<p>Earlier versions of the PC-Axis file format.</p>
+<h2 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
+<p>We must first try to explain the basic structure of the PX-file. PX-files
+consist of keywords that describes the contents or the data cube. Some
+keywords are mandatory while some are optional.
+Some keywords have an language option and some keywords have a sub key
+and there is always at least one value specified for a keyword.
+Some basic rules for how keywords are written
+- The keyword is mandatory.
+- Language is optional.
+- Language is always written within square brackets.
+- Language is always written immediately after the keyword.
+- The sub key is optional.
+- The sub key is always written within parentheses.
+- The sub key is written is written after language if present otherwise it is written after the keyword.
+- Value(s) are mandatory.
+- Value(s) are always written after the equal sign.
+- If there are multiple values each value is written within quotation marks and are separated by a comma sign.
+- If there is only one value then it can be written without any quotation marks.
+- Values(s) are delimited with quotation marks which means that a value itself cannot contain a quotation mark.
+- The end of values (and the beginning of a new keyword) is always
+marked with a semicolon.
+- Longer texts are divided into several records (except for value text orvariable names which must in one line when in parentheses after a keyword).</p>
+<p><div class="highlight"><pre><span></span><code>KEYWORD[LANGUAGE](SUB-KEY)=&quot;VALUE_1&quot;,&quot;VALUE_2&quot;, …;
+KEYWORD[LANGUAGE](SUB-KEY)=VALUE_1;
+KEYWORD[LANGUAGE]=&quot;VALUE_1&quot;,&quot;VALUE_2&quot;, …;
+KEYWORD (SUB-KEY)=&quot;VALUE_1&quot;,&quot;VALUE_2&quot;, …;
+KEYWORD[LANGUAGE]=VALUE_1;
+KEYWORD(SUB-KEY)=VALUE_1;
+</code></pre></div>
+The file itself is divided into two parts one metadata part and the data part.
+The data part starts after the keyword <code>DATA</code>.
+If the keyword <code>CHARSET</code> is missing it means that all texts are in DOS text
+format, so that the same files can be used both in the DOS and the Windows
+version of PC-Axis.
+Starting with version 2005 it is possible to have more than one language in a
+PX file. The second language is repeated for all necessary keywords.
+<code>CONTENTS="Population";</code>, <code>CONTENTS[sv]=”Befolkning”;</code> etc. Which
+languages are available are given in the keyword <code>LANGUAGES</code>.</p>
+<h2 id="keywords">Keywords<a class="headerlink" href="#keywords" title="Permanent link">&para;</a></h2>
+<h3 id="alphabetical-list-of-keywords">Alphabetical list of keywords<a class="headerlink" href="#alphabetical-list-of-keywords" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Keyword</th>
+<th>Mandatory</th>
+<th>Multiplicity</th>
+<th>Language dependent</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AGGREGALLOWED</td>
+<td>No</td>
+<td>0-1</td>
+<td>No</td>
+<td>YES</td>
+</tr>
+<tr>
+<td>ATTRIBUTE-ID</td>
+<td>No</td>
+<td>0-1</td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td>ATTRIBUTE-TEXT</td>
+<td>No</td>
+<td>0-1</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>ATTRIBUTES</td>
+<td>No</td>
+<td>0-?</td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td>AUTOPEN</td>
+<td>No</td>
+<td>0-1</td>
+<td>No</td>
+<td>NO</td>
+</tr>
+<tr>
+<td>AXIS-VERSION</td>
+<td>No</td>
+<td>0-1</td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td>BASEPERIOD</td>
+<td>No</td>
+<td>0-?</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>CELLNOTE</td>
+<td>No</td>
+<td>0-?</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>CELLNOTEX</td>
+<td>No</td>
+<td>0-?</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>CFPRICES</td>
+<td>No</td>
+<td>0-?</td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td>CHARSET</td>
+<td>No</td>
+<td>0-1</td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td>CODEPAGE</td>
+<td>No</td>
+<td>0-1</td>
+<td>No</td>
+<td>iso-8859-1</td>
+</tr>
+<tr>
+<td>CODES</td>
+<td>Yes</td>
+<td>0-16</td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td>CONFIDENTIAL</td>
+<td>No</td>
+<td>0-1</td>
+<td>No</td>
+<td>0</td>
+</tr>
+<tr>
+<td>CONTACT</td>
+<td>No</td>
+<td>0-?</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>CONTENTS</td>
+<td>Yes</td>
+<td>1</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>CONTVARIABLE</td>
+<td>Yes</td>
+<td>0-1</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>COPYRIGHT</td>
+<td>No</td>
+<td>0-1</td>
+<td>No</td>
+<td>NO</td>
+</tr>
+<tr>
+<td>CREATION-DATE</td>
+<td>Yes</td>
+<td>0-1</td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td>DATA</td>
+<td>Yes</td>
+<td>1</td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td>DATABASE</td>
+<td>No</td>
+<td>0-1</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>DATANOTE</td>
+<td>No</td>
+<td>0-?</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>DATANOTECELL</td>
+<td>No</td>
+<td>0-1</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>DATANOTESUM</td>
+<td>No</td>
+<td>0-1</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>DATASYMBOL1</td>
+<td>No</td>
+<td>0-1</td>
+<td>Yes</td>
+<td>.</td>
+</tr>
+<tr>
+<td>DATASYMBOL2</td>
+<td>No</td>
+<td>0-1</td>
+<td>Yes</td>
+<td>..</td>
+</tr>
+<tr>
+<td>DATASYMBOL3</td>
+<td>No</td>
+<td>0-1</td>
+<td>Yes</td>
+<td>...</td>
+</tr>
+<tr>
+<td>DATASYMBOL4</td>
+<td>No</td>
+<td>0-1</td>
+<td>Yes</td>
+<td>....</td>
+</tr>
+<tr>
+<td>DATASYMBOL5</td>
+<td>No</td>
+<td>0-1</td>
+<td>Yes</td>
+<td>.....</td>
+</tr>
+<tr>
+<td>DATASYMBOL6</td>
+<td>No</td>
+<td>0-1</td>
+<td>Yes</td>
+<td>......</td>
+</tr>
+<tr>
+<td>DATASYMBOLNIL</td>
+<td>No</td>
+<td>0-1</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td>DATASYMBOLSUM</td>
+<td>No</td>
+<td>0-1</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>DAYADJ</td>
+<td>0-1</td>
+<td>0-?</td>
+<td>Yes</td>
+<td>NO</td>
+</tr>
+<tr>
+<td>DECIMALS</td>
+<td>Yes</td>
+<td>1</td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td>DEFAULT-GRAPH</td>
+<td>No</td>
+<td>0-1</td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td>DESCRIPTION</td>
+<td>No</td>
+<td>0-1</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>DESCRIPTIONDEFAULT</td>
+<td>No</td>
+<td>0-1</td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td>DIRECTORY-PATH</td>
+<td>No</td>
+<td>0-1</td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td>DOMAIN</td>
+<td>No</td>
+<td>0-16</td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td>DOUBLECOLUMN</td>
+<td>No</td>
+<td>0-16</td>
+<td>Yes</td>
+<td>NO</td>
+</tr>
+<tr>
+<td>ELIMINATION</td>
+<td>No</td>
+<td>0-16</td>
+<td>Yes</td>
+<td>NO</td>
+</tr>
+<tr>
+<td>FIRST-PUBLISHED</td>
+<td>No</td>
+<td>0-1</td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td>HEADING</td>
+<td>Yes</td>
+<td>(0)-1</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>HIERARCHIES</td>
+<td>No</td>
+<td>0-1</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>HIERARCHYLEVELS</td>
+<td>No</td>
+<td>0-1</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>HIERARCHYLEVELSOPEN</td>
+<td>No</td>
+<td>0-1</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>HIERARCHYNAMES</td>
+<td>No</td>
+<td>0-1</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>INFO</td>
+<td>No</td>
+<td>0-1</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>INFOFILE</td>
+<td>No</td>
+<td>0-1</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>KEYS</td>
+<td>No</td>
+<td>0-16</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>LANGUAGE</td>
+<td>Yes</td>
+<td>1</td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td>LANGUAGES</td>
+<td>No</td>
+<td>0-1</td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td>LAST-UPDATED</td>
+<td>No</td>
+<td>0-1</td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td>LINK</td>
+<td>No</td>
+<td>0-1</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>MAP</td>
+<td>No</td>
+<td>0-1</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>MATRIX</td>
+<td>Yes</td>
+<td>1</td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td>META-ID</td>
+<td>No</td>
+<td>0-?</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>NEXT-UPDATE</td>
+<td>No</td>
+<td>0-1</td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td>NOTE</td>
+<td>No</td>
+<td>0-?</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>NOTEX</td>
+<td>No</td>
+<td>0-?</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>OFFICIAL-STATISTICS</td>
+<td>No</td>
+<td>0-1</td>
+<td>No</td>
+<td>NO</td>
+</tr>
+<tr>
+<td>PARTITIONED</td>
+<td>No</td>
+<td>0-16</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>PRECISION</td>
+<td>No</td>
+<td>0-?</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>PRESTEXT</td>
+<td>No</td>
+<td>0-16</td>
+<td>No</td>
+<td>1</td>
+</tr>
+<tr>
+<td>PX-SERVER</td>
+<td>No</td>
+<td>0-1</td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td>REFPERIOD</td>
+<td>No</td>
+<td>0-1/0-?</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>ROUNDING</td>
+<td>No</td>
+<td>0-1</td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td>SEASADJ</td>
+<td>No</td>
+<td>0-?</td>
+<td>No</td>
+<td>NO</td>
+</tr>
+<tr>
+<td>SHOWDECIMALS</td>
+<td>No</td>
+<td>0-1</td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td>SOURCE</td>
+<td>No</td>
+<td>0-1</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>STOCKFA</td>
+<td>No</td>
+<td>0-?</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>STUB</td>
+<td>Yes</td>
+<td>0-1</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>SUBJECT-AREA</td>
+<td>Yes</td>
+<td>1</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>SUBJECT-CODE</td>
+<td>Yes</td>
+<td>1</td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td>SURVEY</td>
+<td>No</td>
+<td>0-1</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>SYNONYMS</td>
+<td>No</td>
+<td>0-1</td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td>TABLEID</td>
+<td>No</td>
+<td>0-1</td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td>TIMEVAL</td>
+<td>No</td>
+<td>0-1</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>TITLE</td>
+<td>Yes</td>
+<td>1</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>UNITS</td>
+<td>Yes</td>
+<td>1-?</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>UPDATE-FREQUENCY</td>
+<td>No</td>
+<td>0-1</td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td>VALUENOTE</td>
+<td>No</td>
+<td>0-?</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>VALUENOTEX</td>
+<td>No</td>
+<td>0-?</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>VALUES</td>
+<td>Yes</td>
+<td>1-16</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>VARIABLE-TYPE</td>
+<td>No</td>
+<td>0-16</td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="mandatory-keywords">Mandatory keywords<a class="headerlink" href="#mandatory-keywords" title="Permanent link">&para;</a></h3>
+<p>These keywords are compulsory. The text (the contents belonging to the key
+word) should be written on the same line as the keyword or on a line of its
+own, always within quotation marks.</p>
+<h4 id="contents">CONTENTS<a class="headerlink" href="#contents" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> Text
+<strong>Length:</strong> 256 characters
+<strong>Multiline:</strong> No</p>
+<p>Information about the contents, which makes up the first part of a title
+created when retrieving tables from PC-Axis. The text must not exceed 256
+characters (before 2002 only 100 chars).</p>
+<h4 id="data">DATA<a class="headerlink" href="#data" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> integer/text
+<strong>Length:</strong> N/A
+<strong>Multiline:</strong> Yes</p>
+<p>The keyword <code>DATA</code> must be placed at the end of the file, followed by all the
+data cells or if <code>KEYS</code> are used the variable values and all data cells that differ
+from <code>0</code>.</p>
+<h5 id="file-without-keys">File without <code>KEYS</code><a class="headerlink" href="#file-without-keys" title="Permanent link">&para;</a></h5>
+<p>After the key word follows all data cells that belong to the table.
+In most cases the cells are written with one record per line in the table. The
+number of records will thus be determined by the number of values in the
+stub. The length of the records depends upon the number of values in the
+heading, and also upon the size of figures.
+Table cells that contain a dash, one, two, three, four, five or six dots should
+be within quotation marks.
+For data without keys it is possible to write all cells in just one record,
+terminated by a semicolon.
+PC-Axis accepts the delimiters comma, space, semicolon, tabulator. The
+different delimiters are synonyms and can be mixed in the file.
+Recommended delimiter is space.</p>
+<h5 id="files-with-keys">Files with <code>KEYS</code><a class="headerlink" href="#files-with-keys" title="Permanent link">&para;</a></h5>
+<p>For every variable in the stub is indicated the value for the variable within
+quotation marks, comma separated, followed by all data cells for that row
+(no quotation marks, space separated).</p>
+<p>Whether the text from <code>VALUES</code> or from <code>CODES</code> are used for a variable is
+indicated by the keyword <code>KEYS(”var”)=CODES</code> or
+<code>KEYS(”var”)=VALUES</code>. It is possible to use <code>VALUES</code> from one variable
+and <code>CODES</code> for another in the same file.
+Rows that only contain 0 (zeros) are excluded from the file
+One - six dots
+Data that is missing is stored as one, two, three, four, five or six dots.
+It is not possible to get a dot or two dots by excluding a value. Thus, you
+cannot write <code>1,,2,3</code> in order to get <code>1,".",3,4</code>
+For PC-Axis version prior to 2005 a dash is presented as 0 and saved as 0.
+Thus, you cannot afterwards find out if the original value was - or 0. Starting
+with 2005 PC-Axis keeps track on which cells are – and the keyword
+<code>DATASYMBOLNIL</code> can be used to show something else in the table.
+How the dots are shown on screen is determined by the keywords
+<code>DATASYMBOL1</code>, etc. If these keywords are missing the presentation is
+taken from PC-Axis language files.</p>
+<h5 id="number-of-decimals-when-a-file-is-saved">Number of decimals when a file is saved<a class="headerlink" href="#number-of-decimals-when-a-file-is-saved" title="Permanent link">&para;</a></h5>
+<p>The keyword <code>DECIMALS</code> determines the number of decimals to be saved. If
+the file also contains the key word <code>PRECISION</code>, PC-AXIS saves as many
+decimals as corresponds to the largest number specified by <code>DECIMALS</code> or
+<code>PRECISION</code>. All cells are stored with the same number of decimals.</p>
+<h4 id="decimals">DECIMALS<a class="headerlink" href="#decimals" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> integer [0, 15]
+<strong>Length:</strong> Lines of 256 characters
+<strong>Multiline:</strong> No</p>
+<p>The number of decimals in the table cells. 0 - 15. (0-6 if <code>SHOWDECIMALS</code>
+is not included). Indicates how many decimals will be saved in the PC-Axis
+file. Written without quotation marks. Compare <code>SHOWDECIMALS</code>.</p>
+<h4 id="description">DESCRIPTION<a class="headerlink" href="#description" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> N/A
+<strong>Multiline:</strong> Yes</p>
+<p>If a file contains <code>DESCRIPTION</code>, when fetching from a disk, this text is used
+to show the contents of the disk. C.f. <code>TITLE</code>.
+If the user wants to save a file in PC-AXIS and writes a text that describes
+the file, this text will be saved as <code>DESCRIPTION</code>. The text will be used to
+show the contents of tables in the SUBJECT AREA. The text is not
+presented as a note nor in any other way when the table is presented on the
+screen unless the keyword <code>DESCRIPTIONDEFAULT</code> is used. In this case
+the description is shown instead of the title.</p>
+<h4 id="heading">HEADING<a class="headerlink" href="#heading" title="Permanent link">&para;</a></h4>
+<p><strong><em>Type:</em></strong> text
+<strong><em>Length:</em></strong> 256 character per value
+<strong><em>Multiline:</em></strong> Yes</p>
+<p>At least one of the keywords <code>STUB</code> or <code>HEADING</code> must be included. Usually
+both are included, as you choose one or several variables for the stub and the
+heading, respectively. The keywords are followed by a list with the chosen
+variables. The variables are within quotation marks and separated by
+commas. If the list with the variables has to be divided up into several lines,
+this should be done after a comma and not within the variable name.</p>
+<h4 id="matrix">MATRIX<a class="headerlink" href="#matrix" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> 20
+<strong>Multiline:</strong> No</p>
+<p>The name of the matrix. Is suggested as file name when the file is fetched.
+(new length 2008).</p>
+<h4 id="stub">STUB<a class="headerlink" href="#stub" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> 256 characters per value
+<strong>Multiline:</strong> Yes</p>
+<p>At least one of the keywords <code>STUB</code> or <code>HEADING</code> must be included. Usually
+both are included, as you choose one or several variables for the stub and the
+heading, respectively. The keywords are followed by a list with the chosen
+variables. The variables are within quotation marks and separated by
+commas. If the list with the variables has to be divided up into several lines,
+this should be done after a comma and not within the variable name.</p>
+<h4 id="subject-area">SUBJECT-AREA<a class="headerlink" href="#subject-area" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> 256 characters
+<strong>Multiline:</strong> No</p>
+<p>The name of the subject area in plain text, as shown in the menu "Select
+subject area". The text must not exceed 256 characters (new length in 2008).</p>
+<h4 id="subject-code">SUBJECT-CODE<a class="headerlink" href="#subject-code" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> 20 characters
+<strong>Multiline:</strong> No</p>
+<p>Subject area code. It is used to create files with tables available in PC-Axis.
+The text must not exceed 20 characters (new length 2008).</p>
+<h4 id="title">TITLE<a class="headerlink" href="#title" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> Lines of 256 characters
+<strong>Multiline:</strong> Yes</p>
+<p>The title of the table, reflecting its contents and variables. Is not needed if the
+file contains <code>DESCRIPTION</code>, in that case the text belonging to description is
+used. How the heading of a table will look depends on which variables the
+user chooses; the heading thus created will then be saved as <code>TITLE</code>.
+(Compare also <code>DESCRIPTIONDEFAULT</code>)
+If the file contains <code>DESCRIPTION</code> the text for this key word will be used.</p>
+<h4 id="units">UNITS<a class="headerlink" href="#units" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> 256 characters
+<strong>Multiline:</strong> No</p>
+<p>Unit text, e.g. ton, index. The text must not exceed 256 characters (new
+length 2008). Compare <code>UNITS</code> for <code>CONTVARIABLE</code>.
+When there is a <code>CONTVARIABLE</code> the keyword <code>UNITS</code> takes an index and
+is repeated for every value for the contents variable. <code>UNITS("value")="tons"</code>.</p>
+<h4 id="values">VALUES<a class="headerlink" href="#values" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> 256 characters per value
+<strong>Multiline:</strong> Yes</p>
+<p>The keyword <code>VALUES</code> occurs once for each variable in the table, and is
+followed by the variable name in parentheses, within quotation marks. The
+values will be in the same order as in the stub and heading, respectively.
+They are within quotation marks and separated by commas. Each value name
+must not exceed 256 characters. If the values have to be divided up into
+several lines, this should be done after a comma and not within the value
+name. See also the keyword <code>TIMEVAL</code> below.</p>
+<h3 id="optional-keywords">Optional keywords<a class="headerlink" href="#optional-keywords" title="Permanent link">&para;</a></h3>
+<h4 id="aggregallowed">AGGREGALLOWED<a class="headerlink" href="#aggregallowed" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> {YES,NO}
+<strong>Length:</strong> N/A
+<strong>Multiline:</strong> No</p>
+<p>If the contents of the table cannot be aggregated, contains for instance index
+and average, the keyword <code>AGGREGALLOWED=NO;</code> is used to stop the
+user from making a sum. If the keyword is missing aggregations are allowed</p>
+<h4 id="attribute-id">ATTRIBUTE-ID<a class="headerlink" href="#attribute-id" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> 256 characters per value
+<strong>Multiline:</strong> Yes</p>
+<p>This keyword list the identities of all attributes. Indirectly it also specifies the
+number of attributes.
+Each attribute id is separate with a comma sign and it is written within
+quotes.
+The <code>ATTRIBUTE-ID</code> keyword must be written before the <code>ATTRIBUTES</code>
+keyword and must exist if the <code>ATTRIBUTES</code> keyword is present.
+The <code>ATTRIBUTE-ID</code> keyword is multilingual, that is you do not have to
+specify it for each language.</p>
+<p><strong>Example</strong>
+<div class="highlight"><pre><span></span><code>ATTRIBUTE-ID=&quot;ObsStatus&quot;,&quot;ObsConf&quot;;
+</code></pre></div></p>
+<h4 id="attribute-text">ATTRIBUTE-TEXT<a class="headerlink" href="#attribute-text" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> Lines of 256 characters
+<strong>Multiline:</strong> Yes</p>
+<p>This keyword specifies a textual representation of the attribute for
+presentational purpose and it is optional.
+Each attribute text is separate with a comma sign and written within quotes.
+The <code>ATTRIBUTE-TEXT</code> keyword must occur after the <code>ATTRIBUTE-ID</code>
+and it is also language dependent. The order of the texts should be the same
+as for the order of the ids.</p>
+<p><strong>Example</strong>
+<div class="highlight"><pre><span></span><code>ATTRIBUTE-TEXT=&quot;Observation status&quot;,&quot;Observation confidence&quot;;
+ATTRIBUTE-TEXT[&quot;sv&quot;]=&quot;Status&quot;,&quot;Tillit&quot;;
+</code></pre></div></p>
+<h4 id="attributes">ATTRIBUTES<a class="headerlink" href="#attributes" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> Lines of 256 characters
+<strong>Multiline:</strong> Yes</p>
+<p>This keyword specifies all attributes for as single observation value. Each
+attribute value is separated with a comma sign and written within quotes. The
+attribute values must appear in the same order as they appeared in the
+<code>ATTRIBUTE-ID</code> keyword.
+The <code>ATTRIBUTES</code> keyword must be written after <code>ATTRIBUTE-ID</code> and the
+<code>CODES</code> keyword. Which observation it refers to is given by the key which is
+written within parenthesis after the keyword and before the equal sign.
+The format of the key is one value code for each variable in the order
+indicated by <code>STUB</code> and <code>HEADING</code> starting with the variables in the <code>STUB</code>.
+If the attribute key is missing then this will indicate the default values for the
+attributes for all measures that do not have any <code>ATTRIBUTES</code> specified.
+This is also referred to as the default attributes. The default attributes should
+always be specified in order to save space and unnecessary repetition.</p>
+<p><strong>Example</strong>
+<div class="highlight"><pre><span></span><code>ATTRIBUTES(&quot;01&quot;,&quot;A01&quot;,&quot;2005&quot;)=&quot;A&quot;,&quot;P&quot;;
+ATTRIBUTES=&quot;A&quot;,&quot;F&quot;;
+</code></pre></div></p>
+<h4 id="autopen">AUTOPEN<a class="headerlink" href="#autopen" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> {YES,NO}
+<strong>Length:</strong> N/A
+<strong>Multiline:</strong> No
+<strong>Default value:</strong> NO</p>
+<p>If the file is published on the Internet and the user selects a number of
+variables and values it is possible to remove the windows “Select variables
+and values” in PC-Axis and instead show the complete table in PC-Axis
+when the file is downloaded. <code>AUTOPEN=YES;</code>.</p>
+<h4 id="axis-version">AXIS-VERSION<a class="headerlink" href="#axis-version" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> 20 characters
+<strong>Multiline:</strong> No</p>
+<p>Version number for PC-Axis (new text length 2008). Is read and saved but
+otherwise not used.</p>
+<h4 id="baseperiod">BASEPERIOD<a class="headerlink" href="#baseperiod" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> Lines of 256 characters
+<strong>Multiline:</strong> Yes</p>
+<p>Base period for, for instance index series. Is shown with the footnote. If there
+is a contents variable the keyword is repeated for each value of the contents
+variable.</p>
+<h4 id="cellnote">CELLNOTE<a class="headerlink" href="#cellnote" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> Lines of 256 characters
+<strong>Multiline:</strong> Yes</p>
+<p>Footnote for a single cell or a group of cells. Which cell it refers to is given
+by values and variables. If a value is given as * the note refers to all values
+for that variable. Only one value can be given for each variable. The values
+are given in the variable order indicated by <code>STUB</code> and <code>HEADING</code>, starting
+with <code>STUB</code>.</p>
+<p><strong>Example</strong>
+<div class="highlight"><pre><span></span><code>CELLNOTE(&quot;*&quot;,&quot;*&quot;,&quot;Örebro&quot;, &quot;1995&quot;)=&quot;Lekebergs kommun has been excluded from Örebro&quot;;
+</code></pre></div></p>
+<h4 id="cellnotex">CELLNOTEX<a class="headerlink" href="#cellnotex" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> Lines of 256 characters
+<strong>Multiline:</strong> Yes</p>
+<p>As CELLNOTE but shown mandatory as for NOTEX.</p>
+<h4 id="cfprices">CFPRICES<a class="headerlink" href="#cfprices" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> {C,F}
+<strong>Length:</strong> N/A
+<strong>Multiline:</strong> No</p>
+<p>Indicates if data is in current or fixed prices. <code>C</code> is used for Current and <code>F</code> for
+Fixed prices. Quotation marks must be used. <code>CFPRICES="C"</code> or
+<code>CFPRICES("value")="C"</code>.</p>
+<h4 id="charset">CHARSET<a class="headerlink" href="#charset" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> 20 characters
+<strong>Multiline:</strong> No</p>
+<p><code>CHARSET=”ANSI”;</code> indicates that the texts in the file are written in
+Windows format. If the keyword is missing it means that the texts in the file
+are in DOS format. They will be translated by PC-Axis to Windows. This
+keyword must appear in the beginning of the file before any texts that can
+include characters outside A-Z, 0-9.</p>
+<h4 id="codepage">CODEPAGE<a class="headerlink" href="#codepage" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> 20 characters
+<strong>Multiline:</strong> No</p>
+<p>Is used when creating XML format to get correct characters. Default <code>iso8859-1</code>. Max 20 chars.</p>
+<h4 id="codes">CODES<a class="headerlink" href="#codes" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> Lines of 256 characters
+<strong>Multiline:</strong> Yes</p>
+<p>The key word <code>CODES</code> is used if a variable exists both in code and plain text.
+The codes are written in the same way as <code>VALUES</code>. Not more than 256
+characters.</p>
+<h4 id="confidential">CONFIDENTIAL<a class="headerlink" href="#confidential" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> integer
+<strong>Length:</strong> 20 characters
+<strong>Multiline:</strong> No
+<strong>Default value:</strong> 0</p>
+<p>Possibility to do some manipulation with the data in the data part of the file.
+Is only suitable if the user cannot download the total file since the data can
+be read in any editor. Max 20 chars.
+The only other value that it can take is 1 and that uses the simple disclosure
+control. Which is that it displays values of 1 to be 0 and values of 2 to be 3.</p>
+<h4 id="contact">CONTACT<a class="headerlink" href="#contact" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> Lines of 256 characters
+<strong>Multiline:</strong> Yes</p>
+<p>States the person who can give information about the statistics. Is written in
+the form name, organization, telephone, fax, e-mail. Several persons can be
+stated in the same text string and are then divided by the #-sign. Is shown
+with the footnote. If there is a contents variable the keyword is repeated for
+each value <code>CONTACT("value")="xx"</code>.</p>
+<p><strong>Example</strong>
+<div class="highlight"><pre><span></span><code>CONTACT=&quot;Maria Svensson, SCB, +4619176800, +4619176900,
+maria.svensson@scb.se&quot;;
+</code></pre></div></p>
+<h4 id="contvariable">CONTVARIABLE<a class="headerlink" href="#contvariable" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> 256 characters
+<strong>Multiline:</strong> Yes</p>
+<p>This is used to indicate that the table has two or more different contents. For
+instance the contents Import and the contents Export. The variable name
+must also be found either as <code>STUB</code> or <code>HEADING</code>. When a content variable
+exists a number of keywords will be indexed: <code>DAYADJ</code>, <code>SEASADJ</code>,
+<code>STOCKFA</code>, <code>UNITS</code>, <code>CONTACT</code>, <code>LASTUPDATED</code>, <code>REFPERIOD</code>,
+<code>BASEPERIOD</code>, <code>CFPRICES</code>. The keyword <code>CONTVARIABLE</code> must proceed
+the first keyword that will be indexed.</p>
+<h4 id="copyright">COPYRIGHT<a class="headerlink" href="#copyright" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> 20 characters
+<strong>Multiline:</strong> No</p>
+<p>Copyright is given as <code>YES</code> or <code>NO</code>. If <code>COPYRIGHT=YES</code> the copyright
+refers to the organization given in <code>SOURCE</code>. Is shown together with
+footnotes.</p>
+<h4 id="creation-date">CREATION-DATE<a class="headerlink" href="#creation-date" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> 256 characters
+<strong>Multiline:</strong> Yes</p>
+<p>Date when file was created. Written in format <code>CCYYMMDD hh:mm</code>, e.g.
+<code>”19960612 14:20”</code>. Is shown together with footnotes.</p>
+<h4 id="database">DATABASE<a class="headerlink" href="#database" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> Lines of 256 characters
+<strong>Multiline:</strong> Yes</p>
+<p>The name of the database from where the statistics is retrieved. Is shown
+with the footnote.</p>
+<h4 id="datanote">DATANOTE<a class="headerlink" href="#datanote" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> 20 characters
+<strong>Multiline:</strong> Yes</p>
+<p>The <code>DATANOTE</code> keyword is used to indicate that a note exists for a certain
+element of the statistical cube
+If no sub key is specified like below the data note * is valid for the hole
+table.
+<code>DATANOTE="*";</code>
+If there is just one part sub key like below. Then the sub key must refer to a
+variable and the data note is for that variable.
+<code>DATANOTE("VARIABLE")="*";</code>
+The example above states that the data note * should be displayed for
+variable <code>VARIABLE</code>.
+If the sub key is divided into two parts. Then the first part of the sub key
+refers to a variable and the second part refers to a value for that variable.
+<code>DATANOTE("VARIABLE","VALUE")="*";</code>
+The example above states that the data note * should be displayed for value
+<code>VALUE</code> for variable <code>VARIABLE</code>.
+The keyword is multilingual so different data notes can be used for different
+languages.
+It is recommended to add the data note to the note text. E.g. if you have a
+note on the time period 2010 it could look something like this in the PX file.</p>
+<div class="highlight"><pre><span></span><code>DATANOTE(&quot;tid&quot;,&quot;2010&quot;)=&quot;*&quot;;
+VALUENOTE(&quot;tid&quot;,&quot;2010&quot;)=&quot;* Preliminary results&quot;;
+</code></pre></div>
+<h4 id="datanotecell">DATANOTECELL<a class="headerlink" href="#datanotecell" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> 20 characters
+<strong>Multiline:</strong> No
+This keyword needs information for which value for each variable it applies
+and the symbol is presented together with the figure. CODES are used in the
+parentheses to indicate the right value. * means all values for the variable.</p>
+<p><strong>Example</strong>
+<div class="highlight"><pre><span></span><code>DATANOTECELL(&quot;*&quot;, &quot;20&quot;, &quot;*&quot;, &quot;BE0101F2&quot;, &quot;*&quot;)=&quot;Ae&quot;;
+</code></pre></div></p>
+<h4 id="datanotesum">DATANOTESUM<a class="headerlink" href="#datanotesum" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> 20 characters
+<strong>Multiline:</strong> No</p>
+<p>This keyword gives information which symbol is presented together with the
+figure after a sum has been made consisting of differing datanote symbols.</p>
+<h4 id="datasymbol1-datasymbol2-datasymbol3-datasymbol4-datasymbol5-datasymbol6">DATASYMBOL1, DATASYMBOL2, DATASYMBOL3, DATASYMBOL4, DATASYMBOL5, DATASYMBOL6<a class="headerlink" href="#datasymbol1-datasymbol2-datasymbol3-datasymbol4-datasymbol5-datasymbol6" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> 20 characters
+<strong>Multiline:</strong> No</p>
+<p>This if used to indicate how a stored “.” is to be presented in a table.</p>
+<h4 id="datasymbolnil">DATASYMBOLNIL<a class="headerlink" href="#datasymbolnil" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> 20 characters
+<strong>Multiline:</strong> No</p>
+<p>This is used to indicate how a stored “-” is to be presented in a table. The <code>–</code>
+indicates that the figure is absolutely nil.</p>
+<h4 id="datasymbolsum">DATASYMBOLSUM<a class="headerlink" href="#datasymbolsum" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> 20 characters
+<strong>Multiline:</strong> No</p>
+<p>This if used to indicate how a sum of differing numbers of dots will be
+shown. The sum is stored as <code>“…….”</code>.</p>
+<h4 id="dayadj">DAYADJ<a class="headerlink" href="#dayadj" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> {YES, NO}
+<strong>Length:</strong> N/A
+<strong>Multiline:</strong> No</p>
+<p><code>DAYADJ=YES</code> means that data is adjusted e.g. to take into account the
+number of working days. Default is <code>DAYADJ=NO</code> or
+<code>DAYADJ("value")=NO</code>.</p>
+<h4 id="default-graph">DEFAULT-GRAPH<a class="headerlink" href="#default-graph" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> integer
+<strong>Length:</strong> 1-10
+<strong>Multiline:</strong> No</p>
+<p>This keyword is read and saved in the PX-file but not shown in PC-axis.</p>
+<h4 id="descriptiondefault">DESCRIPTIONDEFAULT<a class="headerlink" href="#descriptiondefault" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> {YES, NO}
+<strong>Length:</strong> N/A
+<strong>Multiline:</strong> No</p>
+<p>For some languages it is difficult to build a table title dynamically. The
+keyword <code>DESCRIPTIONDEFAULT=YES;</code> means that the text after
+keyword Description will be used as title for the table.</p>
+<h4 id="directory-path">DIRECTORY-PATH<a class="headerlink" href="#directory-path" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> 256 characters
+<strong>Multiline:</strong> Yes</p>
+<p>This keyword is read and saved in the PX-file but not shown in PC-axis.</p>
+<h4 id="domain">DOMAIN<a class="headerlink" href="#domain" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> 256 characters
+<strong>Multiline:</strong> Yes</p>
+<p>Can occur once for each variable. Is used to determine which value sets are
+of interest, and thus which aggregation lists can be used. (New text length
+2008).</p>
+<h4 id="doublecolumn">DOUBLECOLUMN<a class="headerlink" href="#doublecolumn" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> {YES, NO}
+<strong>Length:</strong> N/A
+<strong>Multiline:</strong> No</p>
+<p>This keyword is used to get code and text in separate columns for the
+specified variable <code>DOUBLECOLUMN(”region”)=YES;</code>. On screen it only
+has effect if the user selects presentation in matrix format.</p>
+<h4 id="elimination">ELIMINATION<a class="headerlink" href="#elimination" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> {YES, NO, text}
+<strong>Length:</strong> 256 characters
+<strong>Multiline:</strong> Yes</p>
+<p>States if and how a variable may be eliminated in a table. If the key word is
+written as <code>ELIMINATION("variable name")="value name"</code> this value will be
+used as an elimination value if the user does not select the variable to the
+table. If the key word is written <code>ELIMINATION("variable name")=YES</code> this
+means that the variable will be eliminated by the summing up of all the
+values for that variable in the file.</p>
+<h4 id="first-published">FIRST-PUBLISHED<a class="headerlink" href="#first-published" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> {YES, NO, text}
+<strong>Length:</strong> 256 characters
+<strong>Multiline:</strong> Yes</p>
+<p>The date when the data cube was first published in the format <code>CCYYMMDD hh:mm</code>.</p>
+<p><strong>Example</strong>
+<div class="highlight"><pre><span></span><code>FIRST-PUBLISHED=20130224 20:55
+</code></pre></div></p>
+<h4 id="hierarchies">HIERARCHIES<a class="headerlink" href="#hierarchies" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> Lines of 256 characters for each value
+<strong>Multiline:</strong> Yes</p>
+<p><strong>Example 1</strong>
+<div class="highlight"><pre><span></span><code>HIERARCHIES(“Country”)=&quot;parent&quot;,&quot;parent&quot;:&quot;child&quot;,...
+</code></pre></div></p>
+<p><strong>Example 2</strong>
+<div class="highlight"><pre><span></span><code>HIERARCHIES(&quot;Country&quot;)=”E25&quot;,&quot;E25&quot;:&quot;E15&quot;,&quot;E15&quot;:&quot;E12&quot;,
+&quot;E12&quot;:&quot;AT&quot;,&quot;E12&quot;:&quot;BE&quot;,&quot;E12&quot;:&quot;FI&quot;,&quot;E12&quot;:&quot;FR&quot;,&quot;E12&quot;:&quot;DE&quot;,
+&quot;E12&quot;:&quot;GR&quot;,&quot;E12&quot;:&quot;IR&quot;,&quot;E12&quot;:&quot;IT&quot;,&quot;E12&quot;:&quot;LU&quot;,&quot;E12&quot;:&quot;NL&quot;,
+&quot;E12&quot;:&quot;PT&quot;,&quot;E12&quot;:&quot;ES&quot;,&quot;E15&quot;:&quot;DK&quot;,&quot;E15&quot;:&quot;SW&quot;,&quot;E15&quot;:&quot;UK&quot;,
+&quot;E25&quot;:&quot;E10&quot;,&quot;E10&quot;:&quot;CY&quot;,&quot;E10&quot;:&quot;CZ&quot;,&quot;E10&quot;:&quot;EE&quot;,&quot;E10&quot;:&quot;HU&quot;,
+&quot;E10&quot;:&quot;LV&quot;,&quot;E10&quot;:&quot;LT&quot;,&quot;E10&quot;:&quot;MT&quot;,&quot;E10&quot;:&quot;PL&quot;,&quot;E10&quot;:&quot;SK&quot;, &quot;E10&quot;:&quot;SI&quot;;
+</code></pre></div></p>
+<h4 id="hierarchylevels">HIERARCHYLEVELS<a class="headerlink" href="#hierarchylevels" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> integer
+<strong>Length:</strong> N/A
+<strong>Multiline:</strong> No</p>
+<p>Indicate the number of levels existing for a symmetrical tree.</p>
+<p><strong>Example</strong>
+<div class="highlight"><pre><span></span><code>HIERARCHYLEVELS(&quot;Country&quot;)=4
+</code></pre></div></p>
+<h4 id="hierarchylevelsopen">HIERARCHYLEVELSOPEN<a class="headerlink" href="#hierarchylevelsopen" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> integer
+<strong>Length:</strong> N/A
+<strong>Multiline:</strong> No</p>
+<p>Indicate how the tree is to be displayed when the tree is shown for the first
+time</p>
+<p><strong>Example</strong>
+<div class="highlight"><pre><span></span><code>HIERARCHYLEVELSOPEN(&quot;Country&quot;)=1
+</code></pre></div>
+the first level is open.</p>
+<h4 id="hierarchynames">HIERARCHYNAMES<a class="headerlink" href="#hierarchynames" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> Lines of 256 characters per name
+<strong>Multiline:</strong> Yes</p>
+<p>To give names to the levels in a symmetrical tree.</p>
+<p><strong>Example</strong>
+<div class="highlight"><pre><span></span><code>HIERARCHYNAMES(&quot;Country&quot;)=&quot;NameOfLevel1&quot;,&quot;NameOfLevel2&quot;,..
+</code></pre></div></p>
+<h4 id="info">INFO<a class="headerlink" href="#info" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> Lines of 256 characters
+<strong>Multiline:</strong> Yes</p>
+<p>This keyword is read and saved in the PX-file but not shown in PC-axis.</p>
+<h4 id="infofile">INFOFILE<a class="headerlink" href="#infofile" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> Lines of 256 characters
+<strong>Multiline:</strong> Yes</p>
+<p>Name of a file containing more information for the statistics. If the keyword
+exists in the file a new button is shown in the toolbar and the user can click
+for more information. Depending on the file type and to which program the
+type is associated the corresponding program is started and the information
+shown. (Word for .DOC, Notepad for .TXT etc).</p>
+<h4 id="keys">KEYS<a class="headerlink" href="#keys" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> {VALUES, CODES}
+<strong>Length:</strong> N/A
+<strong>Multiline:</strong> No</p>
+<p>If this keyword is used it must occur as many times as there are variables in
+the stub. It contains the name of the variable and whether the key is taken
+from <code>VALUES</code> or <code>CODES</code>. </p>
+<p><strong>Example</strong>
+<div class="highlight"><pre><span></span><code>KEYS(&quot;age&quot;)=VALUES;
+KEYS(&quot;region&quot;)=CODES;
+</code></pre></div>
+When it is used all data rows start with the Value/code of the variables in the
+stub. See Description of <code>DATA</code>.</p>
+<h4 id="language">LANGUAGE<a class="headerlink" href="#language" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> 2 characters
+<strong>Multiline:</strong> No
+The language used in the PC-Axis file (2 chars), sv for Swedish, en for
+English etc. Compare language codes for text files. If the keyword is used,
+the words for “and” and “by” are read from the text file of that language.
+Otherwise these words are read from the text file of the language in which
+the program is running.</p>
+<h4 id="languages">LANGUAGES<a class="headerlink" href="#languages" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> 2 characters per language
+<strong>Multiline:</strong> Yes</p>
+<p>If more than one language in the PC-Axis file then all languages are
+mentioned here (2 chars each)</p>
+<p><strong>Example</strong>
+<div class="highlight"><pre><span></span><code>LANGUAGES=&quot;en&quot;,&quot;sv&quot;;
+</code></pre></div></p>
+<h4 id="last-updated">LAST-UPDATED<a class="headerlink" href="#last-updated" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> 256 characters
+<strong>Multiline:</strong> No</p>
+<p>Date and time for latest update format <code>CCYYMMDD hh:mm</code>. Example
+<code>”19960528 11:35”</code>. Is also used in Aremos file format. The date is not
+updated in PC-AXIS when changes are made to the table. If there is a
+contents variable it is written as <code>LAST-UPDATED("value")= 19990318 18:12</code></p>
+<h4 id="link">LINK<a class="headerlink" href="#link" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> 256 characters
+<strong>Multiline:</strong> Yes</p>
+<p>This keyword is read and saved in the PX-file but not shown in PC-axis.</p>
+<h4 id="map">MAP<a class="headerlink" href="#map" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> 256 characters
+<strong>Multiline:</strong> Yes</p>
+<p>Used for a geographic variable for which maps can be made (new text length
+2008). </p>
+<p><strong>Example</strong>
+<div class="highlight"><pre><span></span><code>MAP(&quot;region&quot;)=&quot;Sweden_municipality&quot;;
+</code></pre></div></p>
+<h4 id="meta-id">META-ID<a class="headerlink" href="#meta-id" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> 256
+<strong>Multiline:</strong> No</p>
+<p>The <code>META-ID</code> keyword is used to reference a external meta information
+about a table, variable or value.
+I there is no subkey specified the <code>META-ID</code> refers to the cube
+<code>META-ID="RT:12";</code>
+If there is just one part sub key like below. Then the sub key must refer to a
+variable and the data note is for that variable.
+<code>META-ID("VARIABLE")="V:167";</code>
+The example above states that the reference id for variable <code>VARIABLE</code> is
+<code>V:167</code>.
+If the sub key is divided into two parts. Then the first part of the sub key
+refers to a variable and the second part refers to a value for that variable.
+<code>META-ID("VARIABLE","VALUE")=VAL:232;</code>
+The example above states that the reference id for value <code>VALUE</code> for variable
+<code>VARIABLE</code> is <code>VAL:232</code>.</p>
+<h4 id="next-update">NEXT-UPDATE<a class="headerlink" href="#next-update" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> 256 characters
+<strong>Multiline:</strong> Yes</p>
+<p>This keyword is read and saved in the PX-file but not shown in PC-axis.</p>
+<h4 id="note">NOTE<a class="headerlink" href="#note" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> Lines of 256 characters
+<strong>Multiline:</strong> Yes</p>
+<p>Contains a footnote which is showed in the statistical databases if the user
+demands it. In PC-AXIS it is shown if the user presses F7. The footnote may
+either refer to the entire table or to a table variable. In the latter case the key
+word must be followed by the variable name in parentheses.</p>
+<h4 id="notex">NOTEX<a class="headerlink" href="#notex" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> Lines of 256 characters
+<strong>Multiline:</strong> Yes</p>
+<p>Contains a note which is always shown in the statistical databases. In PCAXIS the note is shown automatically, before the table is presented on the
+screen. The note may either refer to the entire table or to a table variable. In
+the latter case the key word should be followed by the variable name in
+parentheses.</p>
+<h4 id="official-statistics">OFFICIAL-STATISTICS<a class="headerlink" href="#official-statistics" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> {YES, NO}
+<strong>Length:</strong> N/A
+<strong>Multiline:</strong> No</p>
+<p>Indicates if the data table is included in the official statistics of the
+organization.</p>
+<h4 id="partitioned">PARTITIONED<a class="headerlink" href="#partitioned" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> complex text
+<strong>Length:</strong> N/A
+<strong>Multiline:</strong> Yes
+This is used to partition a variable into levels, for instance
+<div class="highlight"><pre><span></span><code>PARTITIONED(&quot;region&quot;)=&quot;municipality&quot;,1,4;
+PARTITIONED(&quot;region&quot;)=&quot;subarea&quot;,5;
+</code></pre></div>
+states that the first four positions for the regional values contain the
+municipality code, and that the subarea code starts in position 5. Thus the
+values for the variable region after the key word <code>VALUES</code> must be written in
+code, not plain text. Max 3 levels can be used, each gives start position and
+length except for the last level where length is implied as rest of the code.</p>
+<h4 id="precision">PRECISION<a class="headerlink" href="#precision" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> integer
+<strong>Length:</strong> N/A
+<strong>Multiline:</strong> No
+Can occur for single values. Determines that the value shall be presented
+with a number of decimals that differs from the keyword
+<code>SHOWDECIMALS</code>. Is to be written as
+<code>PRECISION("variable name","value name")=n</code> where n is a figure between <code>1</code>
+and <code>6</code>. The number of decimals for precision must be higher than the number
+of decimals for <code>SHOWDECIMALS</code> to have any effect.</p>
+<h4 id="prestext">PRESTEXT<a class="headerlink" href="#prestext" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> integer
+<strong>Length:</strong> N/A
+<strong>Multiline:</strong> No</p>
+<p>From PX file format version 2010 and later the definition of PRESTEXT is
+changed the prior versions defines it as:
+States if texts or codes are shown for the keyword <code>VALUES</code>. Normally a file
+is created so that texts are found after the keyword <code>VALUES</code> and codes after
+the keyword <code>CODES</code>. This is equivalent to <code>PRESTEXT("variable name")=1;</code>
+which is the default. If a user changes presentation from texts to codes and
+saves the file the value codes will be saved after the keyword <code>VALUES</code> and
+value texts after the keyword <code>CODES</code>. In this case the keyword <code>PRESTEXT</code> is
+written as <code>PRESTEXT("variable name")=0</code>. This enables PC-Axis to know if
+it is necessary to switch to codes if aggregation is selected. The user can also
+decide to show both codes and texts for a value and in this case the keyword
+is saved as <code>PRESTEXT("variable name")=2</code> or <code>PRESTEXT("variable name")=3</code>. <code>PRESTEXT</code> becomes 2 if it originally was 1 and 3 if it originally
+was 0.
+In the new definition the <code>PRESTEXT</code> is that it is an integer value between 0-
+3 that describes how the value should be presented in a user interface. The
+values text should always be defined by the <code>VALUES</code> keyword and the
+codes should always be defined by the <code>CODES</code> keyword.
+- 0 - Only the value code should be displayed.
+- 1 - Only the value text should be displayed.
+- 2 - Both code and value should be displayed and the order should be
+the code and then the value text.
+- 3 - Both code and value should be displayed and the order should be
+the value text then the value code.</p>
+<p><strong>Example</strong>
+<div class="highlight"><pre><span></span><code>VALUES(&quot;region&quot;)=&quot;Albania&quot;,&quot;Austria&quot;,…
+…
+CODES(&quot;region&quot;)=&quot;AL&quot;,&quot;AT&quot;,…
+…
+PRESTEXT(&quot;region&quot;)=2
+Since the PRESTEXT is set to 2 the values would be presented as
+AL Albania
+AT Austria
+…
+</code></pre></div></p>
+<h4 id="px-server">PX-SERVER<a class="headerlink" href="#px-server" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> 256 characters
+<strong>Multiline:</strong> Yes</p>
+<p>This keyword is read and saved in the PX-file but not shown in PC-axis.</p>
+<h4 id="refperiod">REFPERIOD<a class="headerlink" href="#refperiod" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> 256 characters
+<strong>Multiline:</strong> Yes</p>
+<p>Text with information on the exact period for the statistics. Is shown with the
+footnote. If there is a contents variable the keyword is repeated for each
+value of the contents variable.</p>
+<h4 id="rounding">ROUNDING<a class="headerlink" href="#rounding" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> integer
+<strong>Length:</strong> 0-1
+<strong>Multiline:</strong> Yes</p>
+<p>If rounding is missing then rounding will be done in accordance with
+information in the pcax2000.ini file. If the keyword is missing then the
+decimal rule in pcax2000.ini is used.
+- Rounding = <code>0</code> means that .5 is rounded up if the previous figure is odd, 1.5
+becomes 2.
+- Rounding = <code>1</code> means that .5 is always rounded up. 0.5 becomes 1 and 1.5
+becomes 2.</p>
+<h4 id="seasadj">SEASADJ<a class="headerlink" href="#seasadj" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> {YES, NO}
+<strong>Length:</strong> N/A
+<strong>Multiline:</strong> No</p>
+<p><code>SEASADJ=YES</code> means that data is seasonally adjusted. Default is
+<code>SEASADJ=NO</code> or <code>SEASADJ("value")=NO</code>.</p>
+<h4 id="showdecimals">SHOWDECIMALS<a class="headerlink" href="#showdecimals" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> integer
+<strong>Length:</strong> N/A
+<strong>Multiline:</strong> No</p>
+<p>The number of decimals to be shown in the table, 0-6. Must be the same or
+smaller than the number stored as indicated by the keyword <code>DECIMALS</code>. If
+<code>SHOWDECIMALS</code> is not stated in the file the number stated by
+<code>DECIMALS</code> will be used.</p>
+<h4 id="source">SOURCE<a class="headerlink" href="#source" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> 256 characters
+<strong>Multiline:</strong> Yes</p>
+<p>States the organization which is responsible for the statistics. Is shown with
+the footnote.</p>
+<h4 id="stockfa">STOCKFA<a class="headerlink" href="#stockfa" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> {S, F, A}
+<strong>Length:</strong> N/A
+<strong>Multiline:</strong> No</p>
+<p>Indicates if data is stock, flow or average. The used characters <code>S</code> (stock), <code>F</code>
+(flow) and <code>A</code> (average) must be within quotation marks. <code>STOCKFA="S"</code> or
+<code>STOCKFA("value")="S"</code>.</p>
+<h4 id="survey">SURVEY<a class="headerlink" href="#survey" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> 256 characters
+<strong>Multiline:</strong> Yes</p>
+<p>This keyword is read and saved in the PX-file but not shown in PC-axis. Is
+shown on information screen in PX-web if installation parameter true.</p>
+<h4 id="synonyms">SYNONYMS<a class="headerlink" href="#synonyms" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> 256 characters
+<strong>Multiline:</strong> Yes</p>
+<p>This is used for search in PX-Web. If the table concerns CPI the synonym
+can be “Inflation”. Several words can be included within “ “ and the total line
+can be max 256 chars.</p>
+<h4 id="tableid">TABLEID<a class="headerlink" href="#tableid" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> 256 characters
+<strong>Multiline:</strong> Yes
+A text that is the identity of the table.</p>
+<h4 id="timeval">TIMEVAL<a class="headerlink" href="#timeval" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> N/A
+<strong>Multiline:</strong> Yes</p>
+<p>New keyword in version 1.5 to enable the use of time series. After the
+keyword is the name of the time variable given, e.g. <code>TIMEVAL(”time”)</code>.
+<code>TLIST</code> gives information on timescale and timeperiods. The time periods
+must be consecutive.
+If the table contains the time periods <code>1994</code>, <code>1995</code>, <code>1996</code> <code>TIMEVAL</code> can be
+written in this way:
+<div class="highlight"><pre><span></span><code>TIMEVAL(”time”)=TLIST(A1, ”1994”-”1996”);
+</code></pre></div>
+or
+<div class="highlight"><pre><span></span><code>TIMEVAL(”time”)=TLIST(A1), ”1994”, ”1995”,&quot;1996”;
+</code></pre></div>
+The following formats are used:
+- <code>A1</code> for annual statistics written as <code>CCYY</code> (<code>C</code> for century, <code>Y</code> for year)
+- <code>H1</code> for halfyear in format <code>CCYYH</code>, where <code>H</code> is 1 or 2
+- <code>Q1</code> for quarterly data written <code>CCYYQ</code>, where <code>Q</code> is 1 - 4.
+- <code>M1</code> for monthly statistics written <code>CCYYMM</code>
+- <code>W1</code> for weekly data written <code>CCYYWW</code></p>
+<p><code>TIMEVAL</code> is used in PC-AXIS version 1.7 when converting to Aremos and
+Gesmes/Ecoser format. It is also used for start and stop time in list of
+contents in HTML-format.
+The variable time can be used both after the keyword <code>VALUES</code> and after
+<code>TIMEVAL</code>. If both exist <code>TIMEVAL</code> must be placed after <code>VALUES</code>. If only
+<code>TIMEVAL</code> exists <code>VALUES</code> for time are created as follows:
+Time scale time periods shown as
+<div class="highlight"><pre><span></span><code>A1 1995, 1996, 1997
+H1 1995H1, 1995H2, 1996H1
+Q1 1995Q1, 1995Q2, 1995Q3
+M1 1995M01, 1995M02, 1995M03
+W1 1995W01, 1995W02, 1005W03
+</code></pre></div></p>
+<h4 id="update-frequency">UPDATE-FREQUENCY<a class="headerlink" href="#update-frequency" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> 256 characters
+<strong>Multiline:</strong> Yes</p>
+<p>This keyword is read and saved in the PX-file but not shown in PC-axis.</p>
+<h4 id="valuenote">VALUENOTE<a class="headerlink" href="#valuenote" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> Lines of 256 characters
+<strong>Multiline:</strong> Yes</p>
+<p>A footnote for separate variable values. Should be written with the variable
+name and the value names in parentheses.</p>
+<h4 id="valuenotex">VALUENOTEX<a class="headerlink" href="#valuenotex" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> Lines of 256 characters
+<strong>Multiline:</strong> Yes</p>
+<p>Mandatory footnote for single values for a variable. Is written with the
+variable name and the value name in parentheses. Is shown the same way as
+<code>NOTEX</code>.</p>
+<h4 id="variable-type">VARIABLE-TYPE<a class="headerlink" href="#variable-type" title="Permanent link">&para;</a></h4>
+<p><strong>Type:</strong> text
+<strong>Length:</strong> 256 characters
+<strong>Multiline:</strong> Yes</p>
+<p>This keyword is read and saved in the PX-file but not shown in PC-Axis.</p>
+<h3 id="recommended-order-of-the-keywords">Recommended order of the keywords<a class="headerlink" href="#recommended-order-of-the-keywords" title="Permanent link">&para;</a></h3>
+<p>Some keywords must be written before some other keywords e.g. <code>STUB</code> and
+<code>HEADING</code> must precede <code>VALUES</code> and <code>CODES</code>. Here follows a list of
+recommended order for how keywords should be written I PX-files though
+applications should not depend on that this order is used.</p>
+<ul>
+<li>CHARSET</li>
+<li>AXIS-VERSION</li>
+<li>CODEPAGE</li>
+<li>LANGUAGE</li>
+<li>LANGUAGES</li>
+<li>CREATION-DATE</li>
+<li>NEXT-UPDATE</li>
+<li>PX-SERVER</li>
+<li>DIRECTORY-PATH</li>
+<li>UPDATE-FREQUENCY</li>
+<li>TABLEID</li>
+<li>SYNONYMS</li>
+<li>DEFAULT-GRAPH</li>
+<li>DECIMALS</li>
+<li>SHOWDECIMALS</li>
+<li>ROUNDING</li>
+<li>MATRIX</li>
+<li>AGGREGALLOWED</li>
+<li>AUTOPEN</li>
+<li>SUBJECT</li>
+<li>CODE</li>
+<li>SUBJECT-AREA</li>
+<li>CONFIDENTIAL</li>
+<li>COPYRIGHT</li>
+<li>DESCRIPTION</li>
+<li>TITLE</li>
+<li>DESCRIPTIONDEFAULT</li>
+<li>CONTENTS</li>
+<li>UNITS</li>
+<li>STUB</li>
+<li>HEADING</li>
+<li>CONTVARIABLE</li>
+<li>VALUES</li>
+<li>TIMEVAL</li>
+<li>CODES</li>
+<li>DOUBLECOLUMN</li>
+<li>PRESTEXT</li>
+<li>DOMAIN</li>
+<li>VARIABLE-TYPE</li>
+<li>HIERARCHIES</li>
+<li>HIERARCHYLEVELS</li>
+<li>HIERARCHYLEVELSOPEN</li>
+<li>HIERARCHYNAMES</li>
+<li>MAP</li>
+<li>PARTITIONED</li>
+<li>ELIMINATION</li>
+<li>PRECISION</li>
+<li>LAST-UPDATED</li>
+<li>STOCKFA</li>
+<li>CFPRICES</li>
+<li>DAYADJ</li>
+<li>SEASADJ</li>
+<li>UNITS</li>
+<li>CONTACT</li>
+<li>REFPERIOD</li>
+<li>BASEPERIOD</li>
+<li>DATABASE</li>
+<li>SOURCE</li>
+<li>SURVEY</li>
+<li>LINK</li>
+<li>INFOFILE</li>
+<li>FIRST-PUBLISHED</li>
+<li>META-ID</li>
+<li>OFFICIAL-STATISTICS</li>
+<li>INFO</li>
+<li>NOTEX</li>
+<li>NOTE</li>
+<li>VALUENOTEX</li>
+<li>VALUENOTE</li>
+<li>CELLNOTEX</li>
+<li>CELLNOTE</li>
+<li>DATASYMBOL1</li>
+<li>DATASYMBOL2</li>
+<li>DATASYMBOL3</li>
+<li>DATASYMBOL4</li>
+<li>DATASYMBOL5</li>
+<li>DATASYMBOL6</li>
+<li>DATASYMBOLSUM</li>
+<li>DATASYMBOLNIL</li>
+<li>DATANOTECELL</li>
+<li>DATANOTESUM</li>
+<li>DATANOTE</li>
+<li>KEYS</li>
+<li>ATTRIBUTE-ID</li>
+<li>ATTRIBUTE-TEXT</li>
+<li>ATTRIBUTES</li>
+<li>PRECISION</li>
+<li>DATA</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+    
+      
+        
+        <nav class="md-footer__inner md-grid" aria-label="Footer" >
+          
+            
+            <a href="../../PxWeb2/documentation/docker/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Try PxWeb 2 with Docker">
+              <div class="md-footer__button md-icon">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+              </div>
+              <div class="md-footer__title">
+                <span class="md-footer__direction">
+                  Previous
+                </span>
+                <div class="md-ellipsis">
+                  Try PxWeb 2 with Docker
+                </div>
+              </div>
+            </a>
+          
+          
+            
+          <a href="../../PxWebApi/documentation/user-guide/" class="md-footer__link md-footer__link--next" aria-label="Next: PxWebApi 2 User Guide">
+              <div class="md-footer__title">
+                <span class="md-footer__direction">
+                  Next
+                </span>
+                <div class="md-ellipsis">
+                  PxWebApi 2 User Guide
+                </div>
+              </div>
+              <div class="md-footer__button md-icon">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+              </div>
+            </a>
+          
+        </nav>
+      
+    
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Statistics Sweden and Statistics Norway
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+        
+      </div>
+    </div>
+  </footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
