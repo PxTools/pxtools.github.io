@@ -97,7 +97,7 @@ PxWeb retrieves table metadata and data from a PxWeb API 2.0 instance.
 Open `config/config.js` and set `apiUrl`:
 
 ```js hl_lines="11"
-  window.PxWeb2Config = {
+  globalThis.PxWeb2Config = {
     language: {
       supportedLanguages: [
         { shorthand: 'en', languageName: 'English' }
@@ -109,6 +109,7 @@ Open `config/config.js` and set `apiUrl`:
     baseApplicationPath: '/',
     apiUrl: "https://your.api.server/PxWeb/api/v2",
     maxDataCells: 100000,
+    useDynamicContentInTitle: false,
     showBreadCrumbOnStartPage: false,
     specialCharacters: ['.', '..', ':', '-', '...', '*'],
     variableFilterExclusionList: {
@@ -161,6 +162,34 @@ maxDataCells: 500000
     The API has its own limit. Do not set the UI limit higher than the API’s
     backend limit to avoid inconsistent behavior. Usually they should match.
 
+### Table title configuration
+
+The default behaviour when creating the table title is to use content text at table level followed by an enumeration of selected variable names. Example:
+
+```
+Content at table level by variable1, variable2 and variable3
+```
+
+For CNMM databases it is possible to configure an alternative way of creating the table title with the following behaviour:
+
+#### One content value selected: 
+```
+Alternative text for selected content by variable1, variable2 and variable3
+```
+#### Two or more content values selected: 
+```
+Content at table level by variable1, variable2 and variable3
+```
+
+If you want to use dynamic content texts in the table title, set `useDynamicContentInTitle` in `config/config.js` to `true`:
+
+```js
+useDynamicContentInTitle: true
+```
+
+!!! note "Only for CNMM databases"
+    This setting can only be used for CNMM databases. If your database is a PX-file database, this setting should be set to `false`.
+
 ### Change the default characters for missing values
 
 Edit the `specialCharacters` array in `config/config.js`:
@@ -190,7 +219,7 @@ Repeat for every supported language.
 In `config/config.js`:
 
 ```js hl_lines="2 3 4 5 6 7 8 9 10"
-  window.PxWeb2Config = {
+  globalThis.PxWeb2Config = {
     language: {
       supportedLanguages: [
         { shorthand: 'en', languageName: 'English' },
@@ -203,6 +232,7 @@ In `config/config.js`:
     baseApplicationPath: '/',
     apiUrl: "https://your.api.server/PxWeb/api/v2",
     maxDataCells: 100000,
+    useDynamicContentInTitle: false,
     showBreadCrumbOnStartPage: false,
     specialCharacters: ['.', '..', ':', '-', '...', '*'],
     variableFilterExclusionList: {
@@ -353,7 +383,7 @@ Here is an example of how to override both decimal and group separators for simp
 
 Toggle:
 ```js hl_lines="8"
-  window.PxWeb2Config = {
+  globalThis.PxWeb2Config = {
     language: {
       supportedLanguages: [
         { shorthand: 'en', languageName: 'English' }
@@ -365,6 +395,7 @@ Toggle:
     baseApplicationPath: '/',
     apiUrl: "https://your.api.server/PxWeb/api/v2",
     maxDataCells: 100000,
+    useDynamicContentInTitle: false,
     showBreadCrumbOnStartPage: false,
     specialCharacters: ['.', '..', ':', '-', '...', '*'],
     variableFilterExclusionList: {
@@ -388,7 +419,7 @@ in the `language` section of `config/config.js`.
 ### Change the position of the language code in the URL
 
 ```js hl_lines="9"
-  window.PxWeb2Config = {
+  globalThis.PxWeb2Config = {
     language: {
       supportedLanguages: [
         { shorthand: 'en', languageName: 'English' }
@@ -401,6 +432,7 @@ in the `language` section of `config/config.js`.
     baseApplicationPath: '/pxweb/',
     apiUrl: "https://your.api.server/PxWeb/api/v2",
     maxDataCells: 100000,
+    useDynamicContentInTitle: false,
     showBreadCrumbOnStartPage: false,
     specialCharacters: ['.', '..', ':', '-', '...', '*'],
     variableFilterExclusionList: {
