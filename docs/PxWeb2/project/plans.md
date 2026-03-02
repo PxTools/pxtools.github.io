@@ -1,7 +1,7 @@
 # Upcoming features
 
 ## Remaining to develop in PxWeb 
-- Show PxWebApi 2 in PxWeb
+
 - Freeze table head
 - Search in beginning of words in variable list
 - Hide empty rows from table
@@ -18,6 +18,10 @@
 
 ## Release versions
 - Latest releases: [Version history](https://github.com/PxTools/PxWeb2/releases)
+
+## Functionality released after October 2025
+- Show PxWebApi 2 in PxWeb 2
+
 --------------------------------------------------------------------------------------------  
 ## Releases in the project 
 
@@ -29,7 +33,7 @@
 - Pivoting
 - Head and footer
 
-## PxWebApi 2.0 Release September 2025
+## PxWebApi v2 Release September 2025
 - Follows JSON-stat2 format
 - Save to file
 - Saved query
