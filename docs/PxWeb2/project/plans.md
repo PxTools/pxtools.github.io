@@ -7,10 +7,10 @@
 - Hide empty rows from table
 - Chose to show code or text
 - Manual pivoting
-- Possibility for bulk download of tables
 
 ## Further plans for PxWeb 2.x
 - Graph
+- Possibility for bulk download of tables
 - Hierarchy
 - Sort order
 - Sum
@@ -21,6 +21,13 @@
 
 ## Functionality released after October 2025
 - Show PxWebApi 2 in PxWeb 2
+- Improved search at start page (search for variables, values and content in tables)
+- Possibility for text and links in Help
+- Button to improve table layout
+- Possibility för own link in logo
+- Saved query as alternative to algoritmn (documentation)
+- WCAG-improvements
+- Bug fixes 
 
 --------------------------------------------------------------------------------------------  
 ## Releases in the project 
