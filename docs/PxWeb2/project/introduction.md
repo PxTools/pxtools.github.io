@@ -12,7 +12,7 @@ Its popularity comes from being:
 ## PxWeb offers
 ### 1. A user centric approach to dissemination of statistics
 PxWeb is developed with user needs at the forefront. We care about the professionals who uses PxWeb for work, but also more casual users who need statistics to make informed decisions in their daily lifes. 
-### 2.  A multidimensional Table Engine
+### 2.  A multidimensional table engine
 PxWeb handles datasets with many variables (e.g. year × region × sex). Users can
 - Select which variables to include
 - Filter or pivot data
