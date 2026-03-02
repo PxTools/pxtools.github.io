@@ -20,14 +20,20 @@
 - Latest releases: [Version history](https://github.com/PxTools/PxWeb2/releases)
 
 ## Functionality released after October 2025
+
+PxWeb
 - Show PxWebApi 2 in PxWeb 2
-- Improved search at start page (search for variables, values and content in tables)
+- Improved search at start page (search for variables, values and content in tables. Search for different symbols.)
 - Possibility for text and links in Help
 - Button to improve table layout
 - Possibility för own link in logo
 - Saved query as alternative to algoritmn (documentation)
 - WCAG-improvements
-- Bug fixes 
+- Bug fixes
+
+PxWebApi v2
+- Sort in meny at level 4 and 5 at sort code
+- Search with AND
 
 --------------------------------------------------------------------------------------------  
 ## Releases in the project 
