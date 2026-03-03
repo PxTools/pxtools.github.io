@@ -22,7 +22,7 @@
 ### Release versions
 - Latest releases: [Version history](https://github.com/PxTools/PxWeb2/releases)
 
-### PxWeb
+### PxWeb 2
 - Show PxWebApi 2 in PxWeb 2
 - Improved search at start page (search for variables, values and content in tables. Search for different symbols.)
 - Possibility for text and links in Help
