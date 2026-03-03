@@ -3,7 +3,7 @@
 ## Remaining to develop in PxWeb 
 
 - Performance at table page
-- Hide empty rows from table
+- Hide empty rows in table
 - Possibility to change width of the navigation drawer
 - Freeze table head
 - Search in beginning of words in variable list
