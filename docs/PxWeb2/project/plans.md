@@ -35,6 +35,7 @@
 ### PxWebApi v2
 - Sort in meny at level 4 and 5 at sort code
 - Search with AND
+- When creating a saved query in the API the return type has changed to SavedQueryResponse instead of a SavedQuery.
 
 --------------------------------------------------------------------------------------------  
 ## Releases in the project 
