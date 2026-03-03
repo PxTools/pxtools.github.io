@@ -11,4 +11,4 @@ You are free to test PxWeb2 with your own data. It works both with px-files and 
 - [Read the documentation](https://www.pxtools.net/documentation/overview/)
 
 ## Follow the releases
-[Release versions](https://github.com/PxTools/PxWeb2/releases)
+- [Release versions](https://github.com/PxTools/PxWeb2/releases)
