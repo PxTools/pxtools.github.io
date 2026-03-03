@@ -1,6 +1,6 @@
 # Upcoming features
 
-## Remaining to develop in PxWeb 
+## Remaining to develop in PxWeb 2
 
 - Performance at table page
 - Hide empty rows in table
