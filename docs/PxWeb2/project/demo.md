@@ -4,7 +4,7 @@
 - [The latest version](https://pxweb2.pages.dev/en/)
   
 ## PxWeb at Statistics Norway
-[Statbank Norway](https://www.ssb.no/statbank/)
+- [Statbank Norway](https://www.ssb.no/statbank/)
 
 ## Try it with your own data
 You are free to test PxWeb2 with your own data. It works both with px-files and cnmm database
