@@ -4,14 +4,14 @@
 
 - Performance at table page
 - Hide empty rows in table
-- Possibility to change width of the navigation drawer
 - Freeze table head
+- Graph
 - Search in beginning of words in variable list
 - Chose to show code or text
 - Manual pivoting
 
 ## Further plans for PxWeb 2.x
-- Graph
+
 - Possibility for table bulk download
 - Hierarchy
 - Sort order
