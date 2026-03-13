@@ -21,6 +21,7 @@
   - loading symbol
   - advances settings for file export
   - additional file formats
+  - rezisable navigation drawer
 ### Graph
 
 ## Further plans for PxWeb 2.x
