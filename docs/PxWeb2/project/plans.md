@@ -2,13 +2,17 @@
 
 ## Remaining to develop in PxWeb 2
 
-- Performance at table page
-- Hide empty rows in table
-- Freeze table head
-- Graph
-- Search in beginning of words in variable list
-- Chose to show code or text
-- Manual pivoting
+###Table page
+  - improve performance
+  - hide empty rows
+  - manual pivoting
+  - freeze table head
+  - search in beginning of words in variable list
+  - chose to show code or text
+###Graph
+- ###Startpage
+  - show filter count
+- 
 
 ## Further plans for PxWeb 2.x
 
