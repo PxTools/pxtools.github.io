@@ -2,13 +2,27 @@
 
 ## Remaining to develop in PxWeb 2
 
-- Performance at table page
-- Hide empty rows in table
-- Freeze table head
-- Graph
-- Search in beginning of words in variable list
-- Chose to show code or text
-- Manual pivoting
+### Startpage
+  - show filter count for each category
+  - filter for selecting regional levels
+  - remove "other" from Time period
+  - improve the table card
+  - improve search
+    
+### Table page
+  - improve performance and layout
+  - hide empty rows
+  - manual pivoting
+  - sticky table head and first column
+  - search in beginning of words in variable list
+  - chose to show code or text
+  - improve back-button to start-page
+  - select multile check boxes at once
+  - loading symbol
+  - advances settings for file export
+  - additional file formats
+  - rezisable navigation drawer
+### Graph
 
 ## Further plans for PxWeb 2.x
 
