@@ -1,6 +1,6 @@
 # Upcoming features
 
-## Remaining to develop in PxWeb 2
+## Remaining to develop in PxWeb 2 2026
 
 ### Startpage
   - show filter count for each category
@@ -22,8 +22,14 @@
   - advances settings for file export
   - additional file formats
   - rezisable navigation drawer
-### Graph
-
+    
+### Graph tool
+ - Try and choose between
+    - Apache Echarts
+    - Chart.js
+    - Recharts
+- Implement tool
+  
 ## Further plans for PxWeb 2.x
 
 - Possibility for table bulk download
