@@ -40,6 +40,10 @@ This instruction guides you in how to install PxWeb 2 on IIS.
 
 1. Open "http(s)://"server adress"/pxweb2 .
 
+## Security tips
+
+You can use [HTTP Header Security Test - HTTP Observatory | MDN](https://developer.mozilla.org/en-US/observatory) for testing your security headers.
+
 ## Troubleshooting
 
 ### PxWeb refuses to connect to PxWebApi
