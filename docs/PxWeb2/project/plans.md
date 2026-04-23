@@ -1,14 +1,14 @@
-# Upcoming features
+# Upcoming features 2026
 
-## Remaining to develop in PxWeb 2 2026
+## Remaining to develop in PxWeb 2 
 
 ### Startpage
-  - show filter count for each category
   - filter for selecting regional levels
+  - improve search with more areas i.e. short names, maintable-id, metaid
+  - show filter count for each category
   - remove "other" from Time period
   - improve the table card
-  - improve search
-    
+     
 ### Table page
   - improve performance and layout
   - hide empty rows
@@ -31,7 +31,6 @@
 - Implement tool
   
 ## Further plans for PxWeb 2.x
-
 - Possibility for table bulk download
 - Hierarchy
 - Sort order
@@ -43,6 +42,7 @@
 - Latest releases: [Version history](https://github.com/PxTools/PxWeb2/releases)
 
 ### PxWeb 2
+- Open table card in new tab (right click)
 - Show PxWebApi 2 in PxWeb 2
 - Improved search at start page (search for variables, values and content in tables. Search for different symbols.)
 - Possibility for text and links in Help
