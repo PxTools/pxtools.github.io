@@ -28,6 +28,7 @@
   
 ## Further plans for PxWeb 2.x
 - Possibility for table bulk download
+- DCAT-AP format
 - Hierarchy
 - Maps
 - Sum
