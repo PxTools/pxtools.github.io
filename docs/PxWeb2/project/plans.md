@@ -24,16 +24,13 @@
   - rezisable navigation drawer
     
 ### Graph tool
- - Try and choose between
-    - Apache Echarts
-    - Chart.js
-    - Recharts
-- Implement tool
+- Implement Apache Echarts
   
 ## Further plans for PxWeb 2.x
 - Possibility for table bulk download
+- DCAT-AP format
 - Hierarchy
-- Sort order
+- Maps
 - Sum
 - more...
 
