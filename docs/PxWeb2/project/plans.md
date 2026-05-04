@@ -4,28 +4,31 @@
 
 ### Startpage
   - filter for selecting regional levels
-  - improve search with more areas i.e. short names, maintable-id, metaid
+  - improve search with more areas i.e.
+     - subject structure/path (Enables searching across the entire subject structure, including short names)
+     - maintable-id
+     - metaid
   - show filter count for each category
   - remove "other" from Time period
   - improve the table card
      
 ### Table page
   - improve performance and layout
+  - sticky table head and first column
   - hide empty rows
   - manual pivoting
-  - sticky table head and first column
   - search in beginning of words in variable list
   - chose to show code or text
-  - improve back-button to start-page
   - select multile check boxes at once
-  - loading symbol
   - advances settings for file export
   - additional file formats
+  - loading symbol
   - rezisable navigation drawer
+  - improve back-button to start-page
     
 ### Graph tool
-- Implement Apache Echarts
-  
+- Implement [Apache Echarts](https://echarts.apache.org/en/index.html)
+    
 ## Further plans for PxWeb 2.x
 - Possibility for table bulk download
 - DCAT-AP format
