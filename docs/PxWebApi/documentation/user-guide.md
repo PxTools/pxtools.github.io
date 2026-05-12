@@ -1251,11 +1251,12 @@ should be in.
 
 Possible error codes if the query does not return a response:
 
-- `400` – “Bad request” - errors in syntax of the query.
-- `403` – Blocking when querying for large data sets. The API limit varies between
-  organizations cells.
-- `404` – Resource not found. May be due to a misspelled URL or URL exceeding
-  the limit of approximately 2100 characters.
+- `400` – Bad request, errors in parameters. Type and title will often explain this in more detail. Here are some examples:
+  - "Non-existent variable" means that the variable name your are asking for does not exist.
+  - "Non-existent value" means that the value code you are asking for does not exist.
+  - "Too many cells selected" means that you are requesting too large a dataset. The API limit varies between organizations.
+- `404` – File or directory not found. May be due to a misspelled URL or URL exceeding the limit of approximately 2100 characters.  
+   - "Non-existent table" means you are querying for a table number that does not exist.
 - `429` – Too many queries within a minute. The limit varies between organizations.
   Run large queries in sequence. Get the result of the first, before you run the
   next.
