@@ -1141,7 +1141,6 @@ You select the format you want the response to be in by setting the parameter `o
     -  <https://github.com/badosa>
     -  <https://bl.ocks.org/badosa>.
 
-
 ### Parquet
 
 New in this API is the [Apache Parquet](https://parquet.apache.org/) output format.
@@ -1225,12 +1224,10 @@ memory D SELECT * FROM read_parquet('https://data.qa.ssb.no/api/pxwebapi/v2/tabl
 !!! warning
     We may have to change the format to fix some of these issues
 
-- [x] ~~[Multiple contents and time odering bug](https://github.com/PxTools/PxWebApi/issues/511)~~
-- [ ] Parquet serializer cannot create `timestamp` and fails when `TimeUnit=Other`
-- [ ] Parquet serializer cannot create `timestamp` and fails on invalid `TimeUnit`
-- [ ] Consider switching from `DataField` to `DecimalDataField` in [Parquet.Net](https://github.com/aloneguid/parquet-dotnet)
-- [ ] Onyxia [Data Explorer](https://datalab.sspcloud.fr/data-explorer)
-      fail with parquet from PxWebApi.
+- [x] [Multiple contents and time odering bug](https://github.com/PxTools/PxWebApi/issues/511)
+- [ ] [Parquet seralizer throws exception on TimeScaleType](https://github.com/PxTools/PxWebApi/issues/595)
+- [ ] [Consider switching from `DataField` to `DecimalDataField`](https://github.com/PxTools/PxWebApi/issues/596)
+- [ ] [Parquet does not work in Onyxia Data Explorer](https://github.com/PxTools/PxWebApi/issues/597)
 
 ### Additionally parameters
 
