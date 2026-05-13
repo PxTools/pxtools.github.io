@@ -1099,7 +1099,7 @@ The API can provide the result in 7 main formats:
 - `xlsx` (Excel)
 - `html`
 - `json-px`
-- `parquet`
+- `parquet` (beta)
 
 You select the format you want the response to be in by setting the parameter `outputFormat`.
 
@@ -1141,7 +1141,7 @@ You select the format you want the response to be in by setting the parameter `o
     -  <https://github.com/badosa>
     -  <https://bl.ocks.org/badosa>.
 
-### Parquet
+### Parquet (beta)
 
 New in this API is the [Apache Parquet](https://parquet.apache.org/) output format.
 
@@ -1219,7 +1219,7 @@ memory D SELECT * FROM read_parquet('https://data.qa.ssb.no/api/pxwebapi/v2/tabl
 └──────────────────┴─────────┴─────────────────────┴─────────┴──────────────┘
 ```
 
-#### Known issues
+#### Parquet Known issues
 
 !!! warning
     We may have to change the format to fix some of these issues
@@ -1365,3 +1365,5 @@ Possible error codes if the query does not return a response:
   to include all newer periods the next time you run it. In that case, you must
   adjust the URL to `valueCode[Time]=*` or `from(start time)`, alternatively
   `top(number of newest periods)`.
+
+- See also [knows issues under parquet](#parquet-known-issues) output format
