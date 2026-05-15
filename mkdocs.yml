@@ -11,7 +11,6 @@ nav:
       - Is PxWeb right for you?: PxWeb2/project/solution.md
       - Demo: PxWeb2/project/demo.md
       - Plans: PxWeb2/project/plans.md
-     
   - Documentation:
       - Overview: documentation/overview.md
       - Getting Started:
@@ -20,16 +19,12 @@ nav:
       - Customization:
           - Customize PxWebApi 2: PxWebApi/documentation/configuration.md
           - Customize PxWeb 2: PxWeb2/documentation/customization.md
-      - Demo:
-          - Try PxWeb 2 with Docker: PxWeb2/documentation/docker.md
-      - Px File Format:
-          - Version 2013: px-file-format/px-2013.md
       - User Guides:
           - PxWebApi 2 User Guide: PxWebApi/documentation/user-guide.md
       - Other:
+          - Try PxWeb 2 with Docker: PxWeb2/documentation/docker.md
           - Changes in savedquery usage: Other/changes-in-savedquery-usage.md
-  - Tools:
-      - PxWeb: tools/pxweb.md
+          - PX file format 2013: https://github.com/PxTools/PxFileFormat/blob/main/px-file-format.md
 
 extra_css:
   - stylesheets/extra.css
