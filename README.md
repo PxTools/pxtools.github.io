@@ -12,7 +12,7 @@ this site
 ### Docker
 
 ``` sh
-docker run --rm -it -p 8000:8000 -v ${PWD}:/docs squidfunk/mkdocs-material
+docker run --rm -it -p 8000:8000 -v ${PWD}:/docs squidfunk/mkdocs-material:9.6.20
 ```
 
 Browse <http://localhost:8000/>

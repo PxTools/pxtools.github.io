@@ -1106,9 +1106,11 @@ The API can provide the result in 7 main formats:
 - `xlsx` (Excel)
 - `html`
 - `json-px`
-- `parquet`
+- `parquet` (beta)
 
 You select the format you want the response to be in by setting the parameter `outputFormat`.
+
+### JSON-stat v2
 
 ??? info "About JSON-stat v2"
 
@@ -1146,6 +1148,94 @@ You select the format you want the response to be in by setting the parameter `o
     - <https://observablehq.com/@jsonstat>
     - <https://github.com/badosa>
     - <https://bl.ocks.org/badosa>
+
+### Parquet (beta)
+
+New in this API is the [Apache Parquet](https://parquet.apache.org/) output format.
+
+We create a column for each varible and separate colums for `timestamp`, `value`
+and `value_symbol`. When more content variables are selected the `value` and
+`value_symbol` colums will be renamed with the `ContentsCode_` prefix.
+
+Inspecting this request with [parqeye](https://github.com/kaushiksrini/parqeye)
+shows the following views.
+
+Request
+
+```sh
+https://data.qa.ssb.no/api/pxwebapi/v2/tables/04475/data?lang=en&outputFormat=parquet&valuecodes[Tid]=2025K1,2025K2,2025K3,2025K4&valuecodes[ContentsCode]=ForbrukVareliter&valuecodes[Alkohol]=03
+```
+
+Visualize
+
+```sh
+        type of beverage  quarter   timestamp            value     value_symbol
+──────┬─────────────────────────────────────────────────────────────────────────
+1     │  "03"              "2025K1"  2025-01-01 00:00:00  54185.0   NULL
+2     │  "03"              "2025K2"  2025-04-01 00:00:00  73012.0   NULL
+3     │  "03"              "2025K3"  2025-07-01 00:00:00  65806.0   NULL
+4     │  "03"              "2025K4"  2025-10-01 00:00:00  67327.0   NULL
+```
+
+Metadata
+
+```sh
+╭────────────────────────────────File Metadata─────────────────────────────────╮
+│    Format version 1                                                          │
+│        Created by Parquet.Net version 4.25.0 (build 687fbb462e94eddd1dc5a0aa26
+│              Rows 4                                                          │
+│           Columns 5                                                          │
+│        Row groups 1                                                          │
+│        Size (raw) 411 B                                                      │
+│ Size (compressed) 394 B                                                      │
+│ Compression ratio 1.04x                                                      │
+│     Codecs (cols) SNAPPY(5)                                                  │
+│         Encodings BIT_PACKED, PLAIN, RLE                                     │
+│      Avg row size 102 B                                                      │
+╰──────────────────────────────────────────────────────────────────────────────╯
+```
+
+Schema
+
+```sh
+╭───────Schema Tree───────╮╭─────────────────Column Statistics─────────────────╮
+│└─ root                  ││Repetition  Physical    Compressed  Uncompressed   │
+│   ├─ type of beverage   ││OPTIONAL    BYTE_ARRAY  71 B        67 B           │
+│   ├─ quarter            ││OPTIONAL    BYTE_ARRAY  90 B        99 B           │
+│   ├─ timestamp          ││REQUIRED    INT96       111 B       125 B          │
+│   ├─ value              ││REQUIRED    DOUBLE      93 B        93 B           │
+│   └─ value_symbol       ││OPTIONAL    BYTE_ARRAY  29 B        27 B           │
+│                         ││                                                   │
+╰───────Leaf, Group───────╯╰───────────────────────────────────────────────────╯
+```
+
+#### DuckDB example
+
+```sh
+% duckdb
+DuckDB v1.5.2 (Variegata)
+Enter ".help" for usage hints.
+memory D SELECT * FROM read_parquet('https://data.qa.ssb.no/api/pxwebapi/v2/tables/04475/data?lang=en&outputFormat=parquet&valuecodes[Tid]=2025K1,2025K2,2025K3,2025K4&valuecodes[ContentsCode]=ForbrukVareliter&valuecodes[Alkohol]=03');
+┌──────────────────┬─────────┬─────────────────────┬─────────┬──────────────┐
+│ type of beverage │ quarter │      timestamp      │  value  │ value_symbol │
+│     varchar      │ varchar │      timestamp      │ double  │   varchar    │
+├──────────────────┼─────────┼─────────────────────┼─────────┼──────────────┤
+│ 03               │ 2025K1  │ 2025-01-01 00:00:00 │ 54185.0 │ NULL         │
+│ 03               │ 2025K2  │ 2025-04-01 00:00:00 │ 73012.0 │ NULL         │
+│ 03               │ 2025K3  │ 2025-07-01 00:00:00 │ 65806.0 │ NULL         │
+│ 03               │ 2025K4  │ 2025-10-01 00:00:00 │ 67327.0 │ NULL         │
+└──────────────────┴─────────┴─────────────────────┴─────────┴──────────────┘
+```
+
+#### Parquet Known issues
+
+!!! warning
+    We may have to change the format to fix some of these issues
+
+- [x] [Multiple contents and time odering bug](https://github.com/PxTools/PxWebApi/issues/511)
+- [ ] [Parquet seralizer throws exception on TimeScaleType](https://github.com/PxTools/PxWebApi/issues/595)
+- [ ] [Consider switching from `DataField` to `DecimalDataField`](https://github.com/PxTools/PxWebApi/issues/596)
+- [ ] [Parquet does not work in Onyxia Data Explorer](https://github.com/PxTools/PxWebApi/issues/597)
 
 ### Additionally parameters
 
@@ -1290,3 +1380,5 @@ Possible error codes if the query does not return a response:
   to include all newer periods the next time you run it. In that case, you must
   adjust the URL to `valueCode[Time]=*` or `from(start time)`, alternatively
   `top(number of newest periods)`.
+
+- See also [knows issues under parquet](#parquet-known-issues) output format
