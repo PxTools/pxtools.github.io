@@ -1,4 +1,4 @@
-# PxWebApi 2 user guide
+# PxWebApi 2 User Guide
 
 This guide describes how the PxWebApi works in general. Note that each
 organization that installs PxWebApi to make their database accessible can
@@ -120,7 +120,8 @@ This will return the following response
     "tables": [
         {
             "id": "13760",
-            "label": "13760: Labour force, employment, unemployment and man-weeks worked, by sex and age. Break and seasonally adjusted figures 2006M01-2025M09",
+            "label": "13760: Labour force, employment, unemployment and man-weeks
+            worked, by sex and age. Break and seasonally adjusted figures 2006M01-2025M09",
             "description": "",
             "updated": "2025-10-23T06:00:00Z",
             "firstPeriod": "2006M01",
@@ -205,7 +206,8 @@ This will return the following response
         },
         {
             "id": "14483",
-            "label": "14483: Population, by labour force status, age and sex. Break and seasonally adjusted figures 2009K1-2025K3",
+            "label": "14483: Population, by labour force status, age and sex.
+            Break and seasonally adjusted figures 2009K1-2025K3",
             "description": "",
             "updated": "2025-11-06T07:00:00Z",
             "firstPeriod": "2009K1",
@@ -290,7 +292,8 @@ This will return the following response
         },
         {
             "id": "13618",
-            "label": "13618: Population, by labour force status, age and sex. Break adjusted figures 2009-2024",
+            "label": "13618: Population, by labour force status, age and sex.
+            Break adjusted figures 2009-2024",
             "description": "",
             "updated": "2025-02-10T07:00:00Z",
             "firstPeriod": "2009",
@@ -414,7 +417,8 @@ select a specific slice of the resulting list of tables:
 - `query` an query string that can filter out tables.
 - `pastDays` filters out tables in the result so only tables updated since the
    number of `pastDays`.
-- `includeDiscontinued` if discontinued tables should be included or not in the result.
+- `includeDiscontinued` if discontinued tables should be included or not in the
+   result.
 - `pageSize` All tables might not be included in the response depending on how
    many tables there is in the result and the `pageSize` sets how many tables
    are returned in the response. The default value might be changed by the organization.
@@ -542,8 +546,8 @@ This would give us the following result
 
 Here you can see among other things the table title (`label`), the first and
 latest period in the time series (`firstPeriod` and `lastPeriod`), and which
-variables are included (`variableNames`). `Paths` shows the table's location(s) in
-the subject structure.
+variables are included (`variableNames`). `Paths` shows the table's location(s)
+in the subject structure.
 
 ## Metadata for the table
 
@@ -568,7 +572,8 @@ This would result in the following response.
     "source": "Statistics Norway",
     "updated": "2025-02-25T07:00:00Z",
     "note": [
-        "Until 1990 the figures correspond per 31 Desember. As from 1995 the figures correspond per 1 January."
+        "Until 1990 the figures correspond per 31 Desember. As from 1995 the
+        figures correspond per 1 January."
     ],
     "role": {
         "time": [
@@ -789,10 +794,12 @@ This would result in the following response.
                 },
                 "note": {
                     "1845": [
-                        "The sum of age groups or the sum of sexes can not be added up to the total for the years 1845 and 1855."
+                        "The sum of age groups or the sum of sexes can not be
+                        added up to the total for the years 1845 and 1855."
                     ],
                     "1855": [
-                        "The sum of age groups or the sum of sexes can not be added up to the total for the years 1845 and 1855."
+                        "The sum of age groups or the sum of sexes can not be
+                        added up to the total for the years 1845 and 1855."
                     ]
                 }
             },
@@ -909,7 +916,7 @@ selection expressions.
 
 To specify variable and values, use the following syntax:
 
-```
+```sh
 valueCodes[variable-id]=value-code1, value-code2
 ```
 
@@ -924,8 +931,8 @@ are given in the metadata response. In these cases, you need to add the paramter
 in `valueCodes` are the value codes in the selected codelist.
 You select the codelist in the following syntax
 
-```
-codelist[variable-id]=codelist-id.
+```sh
+codelist[variable-id]=codelist-id
 ```
 
 You can also specify the format you want the data in. See Output formats bellow.
@@ -1010,7 +1017,7 @@ as specified in the metadata.
 
 The syntax of the experssion is:
 
-```
+```sh
 top(numberOfValues, offset)
 ```
 
@@ -1028,7 +1035,7 @@ as specified in the metadata.
 
 The syntax of the experssion is:
 
-```
+```sh
 bottom(numberOfValues, offset)
 ```
 
@@ -1046,7 +1053,7 @@ in the metadata.
 
 The syntax is in the form
 
-```
+```sh
 range(value-code1, value-code2)
 ```
 
@@ -1059,7 +1066,7 @@ This expression selects all value code from the specified value code.
 
 The syntax is in the form
 
-```
+```sh
 from(value-code1)
 ```
 
@@ -1073,7 +1080,7 @@ This expression selects all value code the bottom to the specified value code.
 
 The syntax is in the form
 
-```
+```sh
 to(value-code1)
 ```
 
@@ -1104,6 +1111,7 @@ The API can provide the result in 7 main formats:
 You select the format you want the response to be in by setting the parameter `outputFormat`.
 
 ??? info "About JSON-stat v2"
+
     JSON-stat is a format specifically developed to display statistical tables,
     that is, datasets with many dimensions. JSON-stat represents the values in
     the data cubes as a flat array (row-major order). It shows a tree structure,
@@ -1111,11 +1119,11 @@ You select the format you want the response to be in by setting the parameter `o
     addition, contents variables, geographical variables, and time are assigned
     their own roles ('role') for easy access.
 
-    JSON-stat is used by many statistical agencies, as well as the APIs of 
-    Eurostat and the World Bank. There are also ready-made libraries for, among 
-    others: Javascript, Python, R, and Java. 
+    JSON-stat is used by many statistical agencies, as well as the APIs of
+    Eurostat and the World Bank. There are also ready-made libraries for, among
+    others: Javascript, Python, R, and Java.
 
-    JSON-stat Toolkit is useful, especially for JavaScript. To understand the 
+    JSON-stat Toolkit is useful, especially for JavaScript. To understand the
     structure of JSON-stat, it is recommended to try out the JSON-stat explorer.
     The toolkit also includes JSON-stat Command Line Conversion Tools. These
     flexible conversion tools such as jsonstat2csv provide a better-customized
@@ -1130,14 +1138,14 @@ You select the format you want the response to be in by setting the parameter `o
     - `jsonstat2objarr` converts JSON-stat into an object of column-oriented arrays
     - `jsonstat2object` converts JSON-stat into a Google DataTable object
     - `jsonstatdice` creates JSON-stat from JSON-stat
-    - `sdmx2jsonstat` converts SDMX(JSON) into JSON-stat - convert OECD, UN and 
-       IMF API-data to JSON-stat
+    - `sdmx2jsonstat` converts SDMX(JSON) into JSON-stat - convert OECD, UN and
+        IMF API-data to JSON-stat
 
     For JSON-stat examples in Javascript, see:
 
-    -  <https://observablehq.com/@jsonstat>
-    -  <https://github.com/badosa>
-    -  <https://bl.ocks.org/badosa>.
+    - <https://observablehq.com/@jsonstat>
+    - <https://github.com/badosa>
+    - <https://bl.ocks.org/badosa>
 
 ### Additionally parameters
 
@@ -1251,12 +1259,18 @@ should be in.
 
 Possible error codes if the query does not return a response:
 
-- `400` – Bad request, errors in parameters. Type and title will often explain this in more detail. Here are some examples:
-  - "Non-existent variable" means that the variable name your are asking for does not exist.
-  - "Non-existent value" means that the value code you are asking for does not exist.
-  - "Too many cells selected" means that you are requesting too large a dataset. The API limit varies between organizations.
-- `404` – File or directory not found. May be due to a misspelled URL or URL exceeding the limit of approximately 2100 characters.  
-   - "Non-existent table" means you are querying for a table number that does not exist.
+- `400` – Bad request, errors in parameters. Type and title will often explain
+  this in more detail. Here are some examples:
+    - "Non-existent variable" means that the variable name your are asking for
+      does not exist.
+    - "Non-existent value" means that the value code you are asking for
+      does not exist.
+    - "Too many cells selected" means that you are requesting too large a
+      dataset. The API limit varies between organizations.
+- `404` – File or directory not found. May be due to a misspelled URL or URL
+  exceeding the limit of approximately 2100 characters.  
+    - "Non-existent table" means you are querying for a table number that
+      does not exist.
 - `429` – Too many queries within a minute. The limit varies between organizations.
   Run large queries in sequence. Get the result of the first, before you run the
   next.

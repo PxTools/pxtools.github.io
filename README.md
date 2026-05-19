@@ -2,7 +2,8 @@
 
 This repo contain the MarkDown for [www.pxtools.net](https://www.pxtools.net/)
 
-We use [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) for this site
+We use [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) for
+this site
 
 ## Preview documentation locally while writing
 
@@ -15,3 +16,9 @@ docker run --rm -it -p 8000:8000 -v ${PWD}:/docs squidfunk/mkdocs-material
 ```
 
 Browse <http://localhost:8000/>
+
+## Lint as you write in Visual Studio Code
+
+Install [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
+
+> Markdown/CommonMark linting and style checking for Visual Studio Code

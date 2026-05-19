@@ -1,4 +1,4 @@
-# Docker
+# Try PxWeb 2 with Docker
 
 This document describes how you can use [Docker Compose](https://docs.docker.com/compose/)
 to try out the new PxWeb 2.0 with your excisting database. The reason we need
