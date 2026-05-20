@@ -4,11 +4,11 @@
 
 - [The latest version](https://pxweb2.pages.dev/en/)
   
-## PxWeb2 at Statistics Norway
+## PxWeb 2 at Statistics Norway
 
 - [Statbank Norway](https://www.ssb.no/statbank/)
 
-## PxWeb2 at Statistics Sweden
+## PxWeb 2 at Statistics Sweden
 
 - [Statistical Database](https://statistikdatabasen2.scb.se/en/)
   
