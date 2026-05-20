@@ -19,11 +19,12 @@
 - improve performance and layout
 - sticky table head and first column
 - hide empty rows
+- show links only to translated tables
 - manual pivoting
 - search in beginning of words in variable list
 - chose to show code or text
-- select multile check boxes at once
-- advances settings for file export
+- select multible check boxes at once
+- advanced settings for file export
 - additional file formats
 - loading symbol
 - rezisable navigation drawer
@@ -31,7 +32,11 @@
 
 ### Graph tool
 
-- Implement [Apache Echarts](https://echarts.apache.org/en/index.html)
+- Implement four types of graphs i apache Echarts [Apache Echarts](https://echarts.apache.org/en/index.html)
+  - Bar chart
+  - Horisontal bar chart
+  - Line chart
+  - population pyramide
 
 ## Further plans for PxWeb 2.x
 
@@ -50,6 +55,7 @@
 
 ### PxWeb 2
 
+- Connection to MetaID so you can link to metainformation at the tab Definitions
 - Open table card in new tab (right click)
 - Show PxWebApi 2 in PxWeb 2
 - Improved search at start page (search for variables, values and content in
