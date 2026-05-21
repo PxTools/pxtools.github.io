@@ -15,7 +15,7 @@ You can:
 - Limit table sizes.
 - Control how and where languages appear in URLs.
 - Hide variables from the variable filter.
-- Customize Definitions panel content. WIP
+- Customize Definitions panel content.
 - Customize start page text and footer links (examples included below).
 - Define characters used for missing values.
 
@@ -464,7 +464,7 @@ Edit these CSS variables in `theme/variables.css`:
 Do not alter `--px-border-radius-none` or `--px-border-radius-full` unless you
 know the side effects (they are used for logical extremes).
 
-### Customize Definitions panel content WIP
+### Customize Definitions panel content
 
 The Definitions panel in the right sidebar on the table page, can be
 customized by changing translation strings in the "presentation_page.main_content.about_table.definitions" section of the relevant `locales/<lang>/translation.json` file.
