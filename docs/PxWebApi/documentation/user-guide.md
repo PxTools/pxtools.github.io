@@ -1373,12 +1373,8 @@ Possible error codes if the query does not return a response:
 
 - The URL in the GET request cannot exceed a limit of approximately 2100
   characters. Instead of listing long value lists in the query, use * (asterisk),
-  question mark, from/to or range.
+  question mark, from/to or range. If you select all the values of the variable, PxWeb v2 will automatically put * in the query.
 
-- Also note that the GET URL that PxWeb generates will always list exactly the
-  same periods that you selected. In practice, you will most often want the query
-  to include all newer periods the next time you run it. In that case, you must
-  adjust the URL to `valueCode[Time]=*` or `from(start time)`, alternatively
-  `top(number of newest periods)`.
+- If you do not select all the periods, PxWeb will list in the query exactly the same periods you selected. In practice, you will most often want the query to include all newer periods the next time you run it. In that case, you must  adjust the URL to `valueCode[Time]=*` or `from(start time)`, alternatively `top(number of newest periods)`.
 
 - See also [knows issues under parquet](#parquet-known-issues) output format
