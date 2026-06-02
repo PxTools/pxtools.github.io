@@ -51,8 +51,7 @@ Installation package for PxWeb 2 and PxWebApi v2
 - Latest releases: [Version history](https://github.com/PxTools/PxWeb2/releases)
 
 ### PxWeb 2 
-- Search in beginning of word in variable box
-- Added more search options
+- Added more search options in variable box
 - Table: It is only possible to switch to a language that is supported
 - Improved format for footnotes
 - Button to show groupings for a variable 
