@@ -17,10 +17,9 @@
 ### Table page
 
 - improve performance and layout
+- manual pivoting
 - sticky table head and first column
 - hide empty rows
-- show links only to translated tables
-- manual pivoting
 - search in beginning of words in variable list
 - chose to show code or text
 - select multible check boxes at once
@@ -33,10 +32,10 @@
 ### Graph tool
 
 - Implement four types of graphs i apache Echarts [Apache Echarts](https://echarts.apache.org/en/index.html)
+  - Line chart
   - Bar chart
   - Horisontal bar chart
-  - Line chart
-  - population pyramide
+  - Population pyramide
 
 ## Further plans for PxWeb 2.x
 
@@ -53,8 +52,11 @@
 
 - Latest releases: [Version history](https://github.com/PxTools/PxWeb2/releases)
 
-### PxWeb 2
-
+### PxWeb 2 (see release versions for details)
+- Added more search options
+- Table: It is only possible to switch to a language that is supported
+- Improved format for footnotes
+- Button to show groupings for a variable 
 - Connection to MetaID so you can link to metainformation at the tab Definitions
 - Open table card in new tab (right click)
 - Show PxWebApi 2 in PxWeb 2
