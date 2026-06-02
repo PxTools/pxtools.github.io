@@ -3,7 +3,6 @@
 ## Remaining to develop in PxWeb 2
 
 ### Startpage
-
 - filter for selecting regional levels
 - improve search with more areas i.e.
     - subject structure/path (Enables searching across the entire subject
@@ -15,12 +14,10 @@
 - improve the table card
 
 ### Table page
-
 - improve performance and layout
 - manual pivoting
 - sticky table head and first column
 - hide empty rows
-- search in beginning of words in variable list
 - chose to show code or text
 - select multible check boxes at once
 - advanced settings for file export
@@ -30,15 +27,16 @@
 - improve back-button to start-page
 
 ### Graph tool
-
-- Implement four types of graphs i apache Echarts [Apache Echarts](https://echarts.apache.org/en/index.html)
+- Implement four types of graphs in Apache Echarts [Apache Echarts](https://echarts.apache.org/en/index.html)
   - Line chart
   - Bar chart
   - Horisontal bar chart
   - Population pyramide
 
-## Further plans for PxWeb 2.x
+### Installation package
+Installation package for PxWeb 2 and PxWebApi v2
 
+## Further plans for PxWeb 2.x
 - Possibility for table bulk download
 - DCAT-AP format
 - Hierarchy
@@ -52,7 +50,8 @@
 
 - Latest releases: [Version history](https://github.com/PxTools/PxWeb2/releases)
 
-### PxWeb 2 (see release versions for details)
+### PxWeb 2 
+- Search in beginning of word in variable box
 - Added more search options
 - Table: It is only possible to switch to a language that is supported
 - Improved format for footnotes
