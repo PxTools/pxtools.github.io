@@ -1,4 +1,4 @@
-# Customization
+# Customize PxWeb 2
 
 PxWeb comes prebuilt with configuration for tables in English, a set of fonts
 colors and icons. This guide help you customize PxWeb to your needs.
@@ -15,6 +15,7 @@ You can:
 - Limit table sizes.
 - Control how and where languages appear in URLs.
 - Hide variables from the variable filter.
+- Customize Definitions panel content.
 - Customize start page text and footer links (examples included below).
 - Define characters used for missing values.
 
@@ -164,31 +165,38 @@ maxDataCells: 500000
 
 ### Table title configuration
 
-The default behaviour when creating the table title is to use content text at table level followed by an enumeration of selected variable names. Example:
+The default behaviour when creating the table title is to use content text at
+table level followed by an enumeration of selected variable names. Example:
 
-```
+```sh
 Content at table level by variable1, variable2 and variable3
 ```
 
-For CNMM databases it is possible to configure an alternative way of creating the table title with the following behaviour:
+For CNMM databases it is possible to configure an alternative way of creating
+the table title with the following behaviour:
 
-#### One content value selected: 
-```
+#### One content value selected
+
+```sh
 Alternative text for selected content by variable1, variable2 and variable3
 ```
-#### Two or more content values selected: 
-```
+
+#### Two or more content values selected
+
+```sh
 Content at table level by variable1, variable2 and variable3
 ```
 
-If you want to use dynamic content texts in the table title, set `useDynamicContentInTitle` in `config/config.js` to `true`:
+If you want to use dynamic content texts in the table title, set
+`useDynamicContentInTitle` in `config/config.js` to `true`:
 
 ```js
 useDynamicContentInTitle: true
 ```
 
 !!! note "Only for CNMM databases"
-    This setting can only be used for CNMM databases. If your database is a PX-file database, this setting should be set to `false`.
+    This setting can only be used for CNMM databases. If your database is a
+    PX-file database, this setting should be set to `false`.
 
 ### Change the default characters for missing values
 
@@ -251,7 +259,8 @@ In `config/config.js`:
   };
 ```
 
-- `supportedLanguages`: The active languages (must match those available in the API).
+- `supportedLanguages`: The active languages (must match those available in the
+  API).
 - `defaultLanguage`: The primary language.
 - `fallbackLanguage`: Used if a translation key is missing for the active language.
 - `showDefaultLanguageInPath`: If `true`, URLs include the default language code.
@@ -272,15 +281,21 @@ Replace the font files in the `fonts` directory. Keep file names.
 Make sure you have the proper license to self-host fonts.
 
 ### Change logo and favicon
-The svg **must** include viewbox and width/height attributes for it to be rendered correctly.
 
-To change the logo/favicon in PxWeb replace svgs in the image folder. The names must be the same.
+The svg **must** include viewbox and width/height attributes for it to be
+rendered correctly.
+
+To change the logo/favicon in PxWeb replace svgs in the image folder. The names
+must be the same.
 
 For image replace `images/logo.svg` with your own logo.
 Replace `images/favicon.ico` / `images/favicon-darkmode.svg` with your own favicon.
 
 ### Change logo URL
-By default you will come to the PxWeb start page when clicking the logo. However, it is possible to configure this. You can configure a new logo URL per language by editing `homePage` in `config/config.js`:
+
+By default you will come to the PxWeb start page when clicking the logo.
+However, it is possible to configure this. You can configure a new logo URL per
+language by editing `homePage` in `config/config.js`:
 
 ```js
   homePage: {
@@ -290,6 +305,7 @@ By default you will come to the PxWeb start page when clicking the logo. However
 ```
 
 ### Show breadcrumb on start page
+
 You can set if breadcrumbs should be shown on start page
 Set `showBreadCrumbOnStartPage` in `config/config.js`. Example:
 
@@ -319,17 +335,22 @@ Keys reflect where in the UI a string is used. Only modify values.
 ### Change date format in translation file
 
 Edit the relevant `locales/<lang>/translation.json` file.  
-We have two date formats defined under `date` in translation files - `simple_date` and `simple_date_with_time`. 
+We have two date formats defined under `date` in translation files -
+`simple_date` and `simple_date_with_time`.
 
-Change the format options as needed. **PxWeb2** uses `Intl.DateTimeFormat` for date formatting. See documentation for options here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat
+Change the format options as needed. **PxWeb2** uses `Intl.DateTimeFormat` for
+date formatting. See documentation for options here:
+<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat>
 
 Here is an examples configuration used for english and norwegian:
 
 ??? tip "english date formats"
+
     ```json
     "date": {
       "simple_date": "{{value, datetime}}",
-      "simple_date_with_time": "{{value, datetime(year: 'numeric'; month: 'numeric'; day: 'numeric'; hour: 'numeric'; minute: 'numeric')}}"
+      "simple_date_with_time": "{{value, datetime(year: 'numeric';
+      month: 'numeric'; day: 'numeric'; hour: 'numeric'; minute: 'numeric')}}"
     }
     ``` 
 
@@ -337,21 +358,27 @@ Example of how `simple_date_with_time` for english is displayed in PxWeb2 UI:
 `2/21/2025, 8:00 AM`
 
 ??? tip "norwegian date formats"
+
     ```json
     "date": {
-      "simple_date": "{{value, datetime(day: '2-digit'; month: '2-digit'; year: 'numeric')}}",
-      "simple_date_with_time": "{{value, datetime(year: 'numeric'; month: '2-digit'; day: '2-digit'; hour: 'numeric'; minute: 'numeric')}}"
+      "simple_date": "{{value, datetime(day: '2-digit'; month: '2-digit';
+      year: 'numeric')}}",
+      "simple_date_with_time": "{{value, datetime(year: 'numeric';
+      month: '2-digit'; day: '2-digit'; hour: 'numeric'; minute: 'numeric')}}"
     }
     ```
 
-Example of how `simple_date_with_time` for norwegian is displayed with two digit configuration in PxWeb2 UI:
-`21.02.2025, 08:00`
+Example of how `simple_date_with_time` for norwegian is displayed with two digit
+configuration in PxWeb2 UI: `21.02.2025, 08:00`
 
 ### Override separators in number formatting per language
+
 Edit the relevant `locales/<lang>/translation.json` file.
-We have defined multiple number formatting rules under `number` in translation files. Here are some expamples of number formats that are used:
+We have defined multiple number formatting rules under `number` in translation
+files. Here are some expamples of number formats that are used:
 
 ??? tip "number formats"
+
     ```json
     "number": {
         "simple_number": "{{value, pxNumber}}",
@@ -366,22 +393,33 @@ We have defined multiple number formatting rules under `number` in translation f
 - `simple_number_with_one_decimal`: Number formatting with one decimal place.
 - `simple_number_with_two_decimals`: Number formatting with two decimal places.
 
-The group and decimal separators are determined by the language locale. However, if you want to customize the number formatting further, you can add additional options to the `pxNumber` formatter.
+The group and decimal separators are determined by the language locale. However,
+if you want to customize the number formatting further, you can add additional
+options to the `pxNumber` formatter.
 
-To override decimal add `decimalSeparator` to the `number_format` object. Likewise, to override group separator add `thousandSeparator` to the `number_format` object.
+To override decimal add `decimalSeparator` to the `number_format` object.
+Likewise, to override group separator add `thousandSeparator` to the
+`number_format` object.
 
-If you need to add space as a group separator, you add the value `nbsp` for non-breaking space or `nnbsp` for narrow non-breaking space, e.g. `thousandSeparator: 'nbsp'`.
+If you need to add space as a group separator, you add the value `nbsp` for
+non-breaking space or `nnbsp` for narrow non-breaking space, e.g.
+`thousandSeparator: 'nbsp'`.
 
-Here is an example of how to override both decimal and group separators for simple_number_with_two_decimals. Use `,` as decimal separator and non-breaking space as group separator:
+Here is an example of how to override both decimal and group separators for
+simple_number_with_two_decimals. Use `,` as decimal separator and non-breaking
+space as group separator:
+
 ```json
 "number": {
-    "simple_number_with_two_decimals": "{{value, pxNumber(minimumFractionDigits: 2; maximumFractionDigits: 2; decimalSeparator: ','; thousandSeparator: 'nbsp';)}}",
+    "simple_number_with_two_decimals": "{{value, pxNumber(minimumFractionDigits: 2;
+    maximumFractionDigits: 2; decimalSeparator: ','; thousandSeparator: 'nbsp';)}}",
   }
 ```
 
 ### Hide or show the default language in the URL
 
 Toggle:
+
 ```js hl_lines="8"
   globalThis.PxWeb2Config = {
     language: {
@@ -495,12 +533,22 @@ Edit these CSS variables in `theme/variables.css`:
 Do not alter `--px-border-radius-none` or `--px-border-radius-full` unless you
 know the side effects (they are used for logical extremes).
 
+### Customize Definitions panel content
+
+The Definitions panel in the right sidebar on the table page, can be
+customized by changing translation strings in the "presentation_page.main_content.about_table.definitions" section of the relevant `locales/<lang>/translation.json` file.
+
+If the strings inside the "about_statistics" and "metadata" sections are empty, the Definitions panel will only show the primary links from the API. The keys inside the "about_statistics" will add a header and text description to the primary links section.
+
+If the API also returns variable definitions, the keys inside the "metadata" section will add a header and text description to the variable definitions section.
+
 ### Change the text and related links on the startpage, table page and in the footer
 
 The `content.json` file defines customizable text and links that appear in
 **PxWeb’s user interface** This file allows you to configure localized UI
-content: you can add a **detailsSection** after the ingress on the start page, update the **help section** on the table page, or update the
-**footer** content for the application.
+content: you can add a **detailsSection** after the ingress on the start page,
+update the **help section** on the table page, or update the **footer** content
+for the application.
 
 ```sh
 root/content
@@ -531,7 +579,10 @@ root/content
                 {
           "textBlock": {
             "header": "When to use this section",
-            "text": "This is an optional section that can be used for content that may be useful for some users, but is not essential for everyone. Key information that all users need to see should always appear in the lead paragraph."
+            "text": "This is an optional section that can be used for content
+            that may be useful for some users, but is not essential for
+            everyone. Key information that all users need to see should always
+            appear in the lead paragraph."
           }
         },
         {
@@ -556,7 +607,8 @@ root/content
       "enabled": true,
       "helpText": [
         "Use *title:* to search only in the table name, for example *title:stockholm*.",
-        "You can add or remove items from this search help list to make it relevant for your specific database."
+        "You can add or remove items from this search help list to make it
+        relevant for your specific database."
       ]
     }
   },
@@ -577,7 +629,8 @@ root/content
   },
   "tableViewer": {
     "helpSection": {
-      "description": "Help and guidance on how to use the PxWeb interface can be found on our help pages:",
+      "description": "Help and guidance on how to use the PxWeb interface can be
+      found on our help pages:",
       "links": [
         {
           "text": "Example link 1",
@@ -590,7 +643,8 @@ root/content
       ],
       "informationCard": {
         "enabled": true,
-        "text": "For questions about the figures and table content, see the “Information” button."
+        "text": "For questions about the figures and table content, see the
+        “Information” button."
       }
     }
   }
@@ -607,15 +661,20 @@ root/content
 - **startPage.noResultSearchHelp** – Optional section displayed below
   the “no results” message when no tables match the search or filters.
   When `enabled` is `true`, each string in the `helpText` array is shown
-  as a separate list item under a help heading. The text will be rendered using a custom markdown renderer to allow *italic* formatting with asterisks.
+  as a separate list item under a help heading. The text will be rendered using
+  a custom markdown renderer to allow *italic* formatting with asterisks.
 
 - **footer**
-  One or more footer columns with `header` and list of `links`. If links have `external` set to `true`, they automatically will have the icon for external links and will open in a new tab. See example above.
+  One or more footer columns with `header` and list of `links`. If links have
+  `external` set to `true`, they automatically will have the icon for external
+  links and will open in a new tab. See example above.
 
 - **tableViewer.helpSection** – Optional help section on the table page.
   Contains a `description` string, a list of `links` (with `text` and `url`), and
-  an optional `informationCard` (with `enabled` boolean and `text`). Links will always be opened in a new tab.
-  When at least on the above is defined, the application renders the **`HelpSection` component**.
+  an optional `informationCard` (with `enabled` boolean and `text`). Links will
+  always be opened in a new tab.
+  When at least on the above is defined, the application renders the
+  **`HelpSection` component**.
 
   This setup allows administrators to adjust localized content (text and links)
   for each language without modifying the application code.
@@ -629,9 +688,9 @@ Token categories:
 
 1. Primitive (Base) Tokens: Raw color values (brand, accent, neutrals, semantic
    palettes). Example: `--px-color-brand-400`.
-2. Semantic (System) Tokens: Contextual meaning-based tokens mapping to 
+2. Semantic (System) Tokens: Contextual meaning-based tokens mapping to
    primitives. Example: `--px-color-surface-default`, `--px-color-text-action`.
-3. Component / Alias Tokens (if introduced later): Optional intermediary 
+3. Component / Alias Tokens (if introduced later): Optional intermediary
    re-mappings for specific components.
 
 Principles:
@@ -789,7 +848,7 @@ Below is the mapping of primitive tokens to semantic tokens that consume them:
 ## Troubleshooting
 
 | Issue | Possible Cause | Fix |
-|-------|----------------|-----|
+| ----- | -------------- | --- |
 | Language not switching | Missing folder or translation key | Verify `locales/<lang>/translation.json` exists and is valid JSON |
 | Icons not showing | File name mismatch | Ensure mapping file matches actual SVG names |
 | Colors look inconsistent | Edited semantic tokens directly | Revert semantic tokens; adjust primitives only |

@@ -1,4 +1,4 @@
-# PxWebApi 2 user guide
+# PxWebApi 2 User Guide
 
 This guide describes how the PxWebApi works in general. Note that each
 organization that installs PxWebApi to make their database accessible can
@@ -120,7 +120,8 @@ This will return the following response
     "tables": [
         {
             "id": "13760",
-            "label": "13760: Labour force, employment, unemployment and man-weeks worked, by sex and age. Break and seasonally adjusted figures 2006M01-2025M09",
+            "label": "13760: Labour force, employment, unemployment and man-weeks
+            worked, by sex and age. Break and seasonally adjusted figures 2006M01-2025M09",
             "description": "",
             "updated": "2025-10-23T06:00:00Z",
             "firstPeriod": "2006M01",
@@ -205,7 +206,8 @@ This will return the following response
         },
         {
             "id": "14483",
-            "label": "14483: Population, by labour force status, age and sex. Break and seasonally adjusted figures 2009K1-2025K3",
+            "label": "14483: Population, by labour force status, age and sex.
+            Break and seasonally adjusted figures 2009K1-2025K3",
             "description": "",
             "updated": "2025-11-06T07:00:00Z",
             "firstPeriod": "2009K1",
@@ -290,7 +292,8 @@ This will return the following response
         },
         {
             "id": "13618",
-            "label": "13618: Population, by labour force status, age and sex. Break adjusted figures 2009-2024",
+            "label": "13618: Population, by labour force status, age and sex.
+            Break adjusted figures 2009-2024",
             "description": "",
             "updated": "2025-02-10T07:00:00Z",
             "firstPeriod": "2009",
@@ -414,7 +417,8 @@ select a specific slice of the resulting list of tables:
 - `query` an query string that can filter out tables.
 - `pastDays` filters out tables in the result so only tables updated since the
    number of `pastDays`.
-- `includeDiscontinued` if discontinued tables should be included or not in the result.
+- `includeDiscontinued` if discontinued tables should be included or not in the
+   result.
 - `pageSize` All tables might not be included in the response depending on how
    many tables there is in the result and the `pageSize` sets how many tables
    are returned in the response. The default value might be changed by the organization.
@@ -542,8 +546,8 @@ This would give us the following result
 
 Here you can see among other things the table title (`label`), the first and
 latest period in the time series (`firstPeriod` and `lastPeriod`), and which
-variables are included (`variableNames`). `Paths` shows the table's location(s) in
-the subject structure.
+variables are included (`variableNames`). `Paths` shows the table's location(s)
+in the subject structure.
 
 ## Metadata for the table
 
@@ -568,7 +572,8 @@ This would result in the following response.
     "source": "Statistics Norway",
     "updated": "2025-02-25T07:00:00Z",
     "note": [
-        "Until 1990 the figures correspond per 31 Desember. As from 1995 the figures correspond per 1 January."
+        "Until 1990 the figures correspond per 31 Desember. As from 1995 the
+        figures correspond per 1 January."
     ],
     "role": {
         "time": [
@@ -789,10 +794,12 @@ This would result in the following response.
                 },
                 "note": {
                     "1845": [
-                        "The sum of age groups or the sum of sexes can not be added up to the total for the years 1845 and 1855."
+                        "The sum of age groups or the sum of sexes can not be
+                        added up to the total for the years 1845 and 1855."
                     ],
                     "1855": [
-                        "The sum of age groups or the sum of sexes can not be added up to the total for the years 1845 and 1855."
+                        "The sum of age groups or the sum of sexes can not be
+                        added up to the total for the years 1845 and 1855."
                     ]
                 }
             },
@@ -909,7 +916,7 @@ selection expressions.
 
 To specify variable and values, use the following syntax:
 
-```
+```sh
 valueCodes[variable-id]=value-code1, value-code2
 ```
 
@@ -924,8 +931,8 @@ are given in the metadata response. In these cases, you need to add the paramter
 in `valueCodes` are the value codes in the selected codelist.
 You select the codelist in the following syntax
 
-```
-codelist[variable-id]=codelist-id.
+```sh
+codelist[variable-id]=codelist-id
 ```
 
 You can also specify the format you want the data in. See Output formats bellow.
@@ -1010,7 +1017,7 @@ as specified in the metadata.
 
 The syntax of the experssion is:
 
-```
+```sh
 top(numberOfValues, offset)
 ```
 
@@ -1028,7 +1035,7 @@ as specified in the metadata.
 
 The syntax of the experssion is:
 
-```
+```sh
 bottom(numberOfValues, offset)
 ```
 
@@ -1046,7 +1053,7 @@ in the metadata.
 
 The syntax is in the form
 
-```
+```sh
 range(value-code1, value-code2)
 ```
 
@@ -1059,7 +1066,7 @@ This expression selects all value code from the specified value code.
 
 The syntax is in the form
 
-```
+```sh
 from(value-code1)
 ```
 
@@ -1073,7 +1080,7 @@ This expression selects all value code the bottom to the specified value code.
 
 The syntax is in the form
 
-```
+```sh
 to(value-code1)
 ```
 
@@ -1099,11 +1106,14 @@ The API can provide the result in 7 main formats:
 - `xlsx` (Excel)
 - `html`
 - `json-px`
-- `parquet`
+- `parquet` (beta)
 
 You select the format you want the response to be in by setting the parameter `outputFormat`.
 
+### JSON-stat v2
+
 ??? info "About JSON-stat v2"
+
     JSON-stat is a format specifically developed to display statistical tables,
     that is, datasets with many dimensions. JSON-stat represents the values in
     the data cubes as a flat array (row-major order). It shows a tree structure,
@@ -1111,11 +1121,11 @@ You select the format you want the response to be in by setting the parameter `o
     addition, contents variables, geographical variables, and time are assigned
     their own roles ('role') for easy access.
 
-    JSON-stat is used by many statistical agencies, as well as the APIs of 
-    Eurostat and the World Bank. There are also ready-made libraries for, among 
-    others: Javascript, Python, R, and Java. 
+    JSON-stat is used by many statistical agencies, as well as the APIs of
+    Eurostat and the World Bank. There are also ready-made libraries for, among
+    others: Javascript, Python, R, and Java.
 
-    JSON-stat Toolkit is useful, especially for JavaScript. To understand the 
+    JSON-stat Toolkit is useful, especially for JavaScript. To understand the
     structure of JSON-stat, it is recommended to try out the JSON-stat explorer.
     The toolkit also includes JSON-stat Command Line Conversion Tools. These
     flexible conversion tools such as jsonstat2csv provide a better-customized
@@ -1130,14 +1140,102 @@ You select the format you want the response to be in by setting the parameter `o
     - `jsonstat2objarr` converts JSON-stat into an object of column-oriented arrays
     - `jsonstat2object` converts JSON-stat into a Google DataTable object
     - `jsonstatdice` creates JSON-stat from JSON-stat
-    - `sdmx2jsonstat` converts SDMX(JSON) into JSON-stat - convert OECD, UN and 
-       IMF API-data to JSON-stat
+    - `sdmx2jsonstat` converts SDMX(JSON) into JSON-stat - convert OECD, UN and
+        IMF API-data to JSON-stat
 
     For JSON-stat examples in Javascript, see:
 
-    -  <https://observablehq.com/@jsonstat>
-    -  <https://github.com/badosa>
-    -  <https://bl.ocks.org/badosa>.
+    - <https://observablehq.com/@jsonstat>
+    - <https://github.com/badosa>
+    - <https://bl.ocks.org/badosa>
+
+### Parquet (beta)
+
+New in this API is the [Apache Parquet](https://parquet.apache.org/) output format.
+
+We create a column for each varible and separate colums for `timestamp`, `value`
+and `value_symbol`. When more content variables are selected the `value` and
+`value_symbol` colums will be renamed with the `ContentsCode_` prefix.
+
+Inspecting this request with [parqeye](https://github.com/kaushiksrini/parqeye)
+shows the following views.
+
+Request
+
+```sh
+https://data.qa.ssb.no/api/pxwebapi/v2/tables/04475/data?lang=en&outputFormat=parquet&valuecodes[Tid]=2025K1,2025K2,2025K3,2025K4&valuecodes[ContentsCode]=ForbrukVareliter&valuecodes[Alkohol]=03
+```
+
+Visualize
+
+```sh
+        type of beverage  quarter   timestamp            value     value_symbol
+──────┬─────────────────────────────────────────────────────────────────────────
+1     │  "03"              "2025K1"  2025-01-01 00:00:00  54185.0   NULL
+2     │  "03"              "2025K2"  2025-04-01 00:00:00  73012.0   NULL
+3     │  "03"              "2025K3"  2025-07-01 00:00:00  65806.0   NULL
+4     │  "03"              "2025K4"  2025-10-01 00:00:00  67327.0   NULL
+```
+
+Metadata
+
+```sh
+╭────────────────────────────────File Metadata─────────────────────────────────╮
+│    Format version 1                                                          │
+│        Created by Parquet.Net version 4.25.0 (build 687fbb462e94eddd1dc5a0aa26
+│              Rows 4                                                          │
+│           Columns 5                                                          │
+│        Row groups 1                                                          │
+│        Size (raw) 411 B                                                      │
+│ Size (compressed) 394 B                                                      │
+│ Compression ratio 1.04x                                                      │
+│     Codecs (cols) SNAPPY(5)                                                  │
+│         Encodings BIT_PACKED, PLAIN, RLE                                     │
+│      Avg row size 102 B                                                      │
+╰──────────────────────────────────────────────────────────────────────────────╯
+```
+
+Schema
+
+```sh
+╭───────Schema Tree───────╮╭─────────────────Column Statistics─────────────────╮
+│└─ root                  ││Repetition  Physical    Compressed  Uncompressed   │
+│   ├─ type of beverage   ││OPTIONAL    BYTE_ARRAY  71 B        67 B           │
+│   ├─ quarter            ││OPTIONAL    BYTE_ARRAY  90 B        99 B           │
+│   ├─ timestamp          ││REQUIRED    INT96       111 B       125 B          │
+│   ├─ value              ││REQUIRED    DOUBLE      93 B        93 B           │
+│   └─ value_symbol       ││OPTIONAL    BYTE_ARRAY  29 B        27 B           │
+│                         ││                                                   │
+╰───────Leaf, Group───────╯╰───────────────────────────────────────────────────╯
+```
+
+#### DuckDB example
+
+```sh
+% duckdb
+DuckDB v1.5.2 (Variegata)
+Enter ".help" for usage hints.
+memory D SELECT * FROM read_parquet('https://data.qa.ssb.no/api/pxwebapi/v2/tables/04475/data?lang=en&outputFormat=parquet&valuecodes[Tid]=2025K1,2025K2,2025K3,2025K4&valuecodes[ContentsCode]=ForbrukVareliter&valuecodes[Alkohol]=03');
+┌──────────────────┬─────────┬─────────────────────┬─────────┬──────────────┐
+│ type of beverage │ quarter │      timestamp      │  value  │ value_symbol │
+│     varchar      │ varchar │      timestamp      │ double  │   varchar    │
+├──────────────────┼─────────┼─────────────────────┼─────────┼──────────────┤
+│ 03               │ 2025K1  │ 2025-01-01 00:00:00 │ 54185.0 │ NULL         │
+│ 03               │ 2025K2  │ 2025-04-01 00:00:00 │ 73012.0 │ NULL         │
+│ 03               │ 2025K3  │ 2025-07-01 00:00:00 │ 65806.0 │ NULL         │
+│ 03               │ 2025K4  │ 2025-10-01 00:00:00 │ 67327.0 │ NULL         │
+└──────────────────┴─────────┴─────────────────────┴─────────┴──────────────┘
+```
+
+#### Parquet Known issues
+
+!!! warning
+    We may have to change the format to fix some of these issues
+
+- [x] [Multiple contents and time odering bug](https://github.com/PxTools/PxWebApi/issues/511)
+- [ ] [Parquet seralizer throws exception on TimeScaleType](https://github.com/PxTools/PxWebApi/issues/595)
+- [ ] [Consider switching from `DataField` to `DecimalDataField`](https://github.com/PxTools/PxWebApi/issues/596)
+- [ ] [Parquet does not work in Onyxia Data Explorer](https://github.com/PxTools/PxWebApi/issues/597)
 
 ### Additionally parameters
 
@@ -1251,11 +1349,18 @@ should be in.
 
 Possible error codes if the query does not return a response:
 
-- `400` – “Bad request” - errors in syntax of the query.
-- `403` – Blocking when querying for large data sets. The API limit varies between
-  organizations cells.
-- `404` – Resource not found. May be due to a misspelled URL or URL exceeding
-  the limit of approximately 2100 characters.
+- `400` – Bad request, errors in parameters. Type and title will often explain
+  this in more detail. Here are some examples:
+    - "Non-existent variable" means that the variable name your are asking for
+      does not exist.
+    - "Non-existent value" means that the value code you are asking for
+      does not exist.
+    - "Too many cells selected" means that you are requesting too large a
+      dataset. The API limit varies between organizations.
+- `404` – File or directory not found. May be due to a misspelled URL or URL
+  exceeding the limit of approximately 2100 characters.  
+    - "Non-existent table" means you are querying for a table number that
+      does not exist.
 - `429` – Too many queries within a minute. The limit varies between organizations.
   Run large queries in sequence. Get the result of the first, before you run the
   next.
@@ -1268,10 +1373,8 @@ Possible error codes if the query does not return a response:
 
 - The URL in the GET request cannot exceed a limit of approximately 2100
   characters. Instead of listing long value lists in the query, use * (asterisk),
-  question mark, from/to or range.
+  question mark, from/to or range. If you select all the values of the variable, PxWeb v2 will automatically put * in the query.
 
-- Also note that the GET URL that PxWeb generates will always list exactly the
-  same periods that you selected. In practice, you will most often want the query
-  to include all newer periods the next time you run it. In that case, you must
-  adjust the URL to `valueCode[Time]=*` or `from(start time)`, alternatively
-  `top(number of newest periods)`.
+- If you do not select all the periods, PxWeb will list in the query exactly the same periods you selected. In practice, you will most often want the query to include all newer periods the next time you run it. In that case, you must  adjust the URL to `valueCode[Time]=*` or `from(start time)`, alternatively `top(number of newest periods)`.
+
+- See also [knows issues under parquet](#parquet-known-issues) output format

@@ -1,4 +1,4 @@
-# Configuring PxWebApi 2
+# Customize PxWebApi 2
 
 The configuration is split into several different files, each with a specific
 purpose. The main file you will need to modify is `appsettings.json`.
@@ -202,7 +202,7 @@ Notes:
 ### Rate limiting
 
 API rate limiting settings are found under `IpRateLimiting`. You can read more
-about the options [here](https://github.com/stefanprodan/aspnetcoreratelimit/wiki/ipratelimitmiddleware).
+about the options in [IpRateLimitMiddleware](https://github.com/stefanprodan/aspnetcoreratelimit/wiki/ipratelimitmiddleware).
 The most important settings are `IpRateLimiting.GeneralRules.Period` and
 `IpRateLimiting.GeneralRules.Limit`, which control the time window and the number
 of calls allowed during that period.
@@ -245,8 +245,8 @@ only have one database specified.
 The `log4net.config` file manages how PxWebApi 2.0 creates and stores logs. By
 default, logs are saved in the `/logs` directory. PxWebApi 2.0 relies on log4net
 for logging, which allows you to customize log levels, formats, and destinations.
-For more information on how to configure log4net, please refer to the official
-documentation [here](https://logging.apache.org/log4net/manual/configuration.html).
+For more information on how to configure log4net, please refer to the [official
+documentation](https://logging.apache.org/log4net/manual/configuration.html).
 
 ## Default selection
 
