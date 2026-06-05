@@ -24,6 +24,7 @@ nav:
       - Other:
           - Try PxWeb 2 with Docker: PxWeb2/documentation/docker.md
           - Changes in savedquery usage: Other/changes-in-savedquery-usage.md
+          - Links from a dataset (metaid): Other/metaid.md
           - PX file format 2013: https://github.com/PxTools/PxFileFormat/blob/main/px-file-format.md
 
 extra_css:
