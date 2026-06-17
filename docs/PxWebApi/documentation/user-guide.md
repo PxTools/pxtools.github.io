@@ -1342,8 +1342,8 @@ They are then separated by quotation marks and commas. See e.g.
 
 In PxWeb all HTML will be rendered as text only. You can include links by using Mardown. We support two formats:
 
-- [My-url-text](https://your-url-here.com\) 
-- <https://your-url-here.com >
+- [My-link-text](https://my-url-here.com\) 
+- <https://my-url-here.com >
 
 ## Language
 
