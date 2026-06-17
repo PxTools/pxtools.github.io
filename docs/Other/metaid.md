@@ -1,12 +1,12 @@
 # Links from a dataset
-A table may have links to external resources, e.g. definitions in a classification database or some Statistics home page. PxWebApi needs to provide links to these resources.
+A table may have links to external resources, such as definitions in a classification database or a statistics home page. PxWebApi needs to provide links to these resources.
 
-The usecase is to provide content in the Information pane of the PxWeb gui:
+The use case is to provide content in the Information pane of the PxWeb gui:
 
   ![Information pane in PxWeb](MetaIdInGUI_1.png?raw=true)
 
 If you click on "Statistics page" you go to https://www.ssb.no/en/arblonn . 
-The response from the api contains the following information for this link:
+The response from the API contains the following information for this link:
 
 ```
  "link": {
@@ -24,44 +24,44 @@ The response from the api contains the following information for this link:
 
 So information for a link includes:
 ```
-href:  an url e.g. "https://www.ssb.no/en/arblonn" , pointing to a resource
+href:  a URL e.g. "https://www.ssb.no/en/arblonn" , pointing to a resource
 label: text describing the resource, like "Statisticspage". 
 relation: some description of how the resource is related to the table , like "statistics-homepage". 
 
-type: the mime type of the resource, typically "text/html", but could also be e.g. markdown. 
+type: the MIME type of the resource, typically "text/html", but could also be e.g. markdown. 
 metaid: the META-ID that is the source of the link, e.g. "KORTNAVN:arblonn". 
 ```
 
 
-The datasource of the api has a propperty called META-ID. You can attach a META-ID to a table, variable or value, which gets you a link on the table, a variable or a value.
-The META-ID-values are urns e.g. "KORTNAVN:arblonn". If you want to attach more than one urn use a comma to separate them.
+The datasource of the API has a property called META-ID. You can attach a META-ID to a table, variable or value to make the API generate a link on the table, a variable or a value.
+The META-ID values are urns e.g. "KORTNAVN:arblonn". To attach more than one urn, separate them with a comma. 
 
-The api transforms it to href,type,label and relation according to rules
-given in a config file called Metaid.config.
+The API transforms it to href,type,label and relation according to rules
+given in a config file called metaid.config.
 
-## Metaid.config
+## metaid.config
 For links to metadata systems shall be created, the metaid.config file must be placed in the root directory of the application. 
-In metadid.config the rules are divided into three sections in the metaid.config file for attachments at tables, variables and values. The sections are be named:
+In metaid.config the rules are divided into three sections in the metaid.config file for attachments at tables, variables and values. The sections are be named:
 * onTable
 * onVariable
 * onValue
 
-A "rule" is called a metaSystem and is identified by an id which is a string.
-When the api finds a META-ID, it loops all metasystems for the attachment level and see if the META-ID starts with the id of the metasystem. If so, output is produced.
+A "rule" is called a metaSystem and is identified by an ID which is a string.
+When the API finds a META-ID, it iterates through  all metasystems for the attachment level and checks whether the META-ID starts with the ID of the metasystem.  If it matches, one or more links are generated.
 
-The rest of the META-ID after the id of the metasystem is considered to be arguments. If the META-ID value is KORTNAVN:arblonn and there is a metasystem with id KORTNAVN, the argument is arblonn. 
-If the META-ID value is KORTNAVN:arblonn:arg2 and there is a metasystem with id KORTNAVN, the arguments are arblonn and arg2.
+The rest of the META-ID after the ID of the metasystem is considered to be arguments. If the META-ID value is KORTNAVN:arblonn and there is a metasystem with ID KORTNAVN, the argument is arblonn. 
+If the META-ID value is KORTNAVN:arblonn:arg2 and there is a metasystem with ID KORTNAVN, the arguments are arblonn and arg2.
 
-In addtion to the id, each Metadata system has configuration for 
+In addition to the ID, each Metadata system has configuration for 
 * relation to the table, variable or value it is attached to 
 * Language
 * Label (text) format
 * URL format
 
 The URL format normally contains placeholders {0}, {1} … {n} where the arguments from the META-ID will be inserted. 
-The label format may contain placeholders depending on the attachment level, for values {0} will be replaces by the name of the variable and {1} by the name of the value.
-For variables its just {0} for the name of the variable. For label formats in the onTable section there are no placeholdes.
-(A metasystem may contain the name of a labelsFile. This is for cases where a good text cannot be generated and need to be handwritten.)
+The label format may contain placeholders depending on the attachment level, for values {0} will be replaced by the name of the variable and {1} by the name of the value.
+For variables it's just {0} for the name of the variable. For label formats in the onTable section there are no placeholders.
+(A metasystem may contain the name of a labelsFile. This is for cases where a good text cannot be generated and needs to be handwritten.)
 
 For example this fragment of the config file:
 ```
@@ -77,7 +77,7 @@ For example this fragment of the config file:
  
 ```
 
-When the api finds this META-ID "KORTNAVN:arblonn", on table level, it creates
+When the API finds this META-ID "KORTNAVN:arblonn", on table level, it creates
 ```
  "link": {
     "related": [
@@ -91,7 +91,7 @@ When the api finds this META-ID "KORTNAVN:arblonn", on table level, it creates
         "type": "text/html"
       },
 ```
-for an english request.
+for an English request.
 
 
 Here is a full metaid.config:
@@ -143,6 +143,7 @@ Here is a full metaid.config:
 ```
 
 Note: 
+* The GUI looks for links with relation "statistics-homepage", "about-statistics" and "definitions" to show in the Information pane.
 * The metaSystem KORTNAVN creates 2 links per language. 
 * The last metaSystem on value does not use the name of the variable, only the name of the value.
 
@@ -159,7 +160,7 @@ and
 ```
 work together to specify a file wwwroot\cnmm-database\metaid\klass_map_no.txt
 
-These files looks like: 
+These files look like: 
 ```
 urn:ssb:classification:klass:1 Standard for delområde- og grunnkretsinndeling
 urn:ssb:classification:klass:2 Standard for kjønn
@@ -169,10 +170,3 @@ urn:ssb:classification:klass:5 Standard for PRODCOM koder
 ```
 If the META-ID is found here the text after the urn is used and  the labelStringFormat is ignored.
 
-
-## META-ID 
-In a Px-file , it may look like:
-```
-META-ID(“my_variable”)=”classifications:region”;
-```
-(For more information about the META-ID keyword, see the PX-file format documentation.)
