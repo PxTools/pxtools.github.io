@@ -8,7 +8,7 @@ The use case is to provide content in the Information pane of the PxWeb gui:
 If you click on "Statistics page" you go to https://www.ssb.no/en/arblonn . 
 The response from the API contains the following information for this link:
 
-```
+```json
  "link": {
     "related": [
       {
@@ -61,10 +61,10 @@ In addition to the ID, each Metadata system has configuration for
 The URL format normally contains placeholders {0}, {1} … {n} where the arguments from the META-ID will be inserted. 
 The label format may contain placeholders depending on the attachment level, for values {0} will be replaced by the name of the variable and {1} by the name of the value.
 For variables it's just {0} for the name of the variable. For label formats in the onTable section there are no placeholders.
-(A metasystem may contain the name of a labelsFile. This is for cases where a good text cannot be generated and needs to be handwritten.)
+(A metasystem may contain the name of a labelsFile. This is for cases where the generated text is not suitable and  manually writen texts are needed.)
 
 For example this fragment of the config file:
-```
+```xml
 <?xml version="1.0"?>
 <metaId>
   <onTable>
@@ -78,7 +78,7 @@ For example this fragment of the config file:
 ```
 
 When the API finds this META-ID "KORTNAVN:arblonn", on table level, it creates
-```
+```json
  "link": {
     "related": [
       {
@@ -95,7 +95,7 @@ for an English request.
 
 
 Here is a full metaid.config:
-```
+```xml
 <?xml version="1.0"?>
 <metaId labelFilesFolder="wwwroot\cnmm-database\metaid">
   <onTable>
@@ -148,11 +148,11 @@ Note:
 * The last metaSystem on value does not use the name of the variable, only the name of the value.
 
 ### Labels file
-```
+```xml
 <metaId labelFilesFolder="wwwroot\cnmm-database\metaid">
 ```
 and
-```
+```xml
 <onVariable>
     <metaSystem id="urn:ssb:classification:klass">
        <relationalGroup relation="definitions" type="text/html">   
