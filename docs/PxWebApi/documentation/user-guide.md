@@ -1334,11 +1334,16 @@ codes:
 
 ## Footnotes
 
-Any footnotes are provided under note and may be associated with a table,
+Footnotes are provided under note and may be associated with a table,
 variable, or value. Multiple footnotes may be attached to the same element.
 They are then separated by quotation marks and commas. See e.g.
 
 > <https://data.ssb.no/api/pxwebapi/v2/tables/12880/metadata?lang=en>.
+
+In PxWeb all HTML will be rendered as text only. You can include links by using Mardown. We support two formats:
+
+- [My-url-text](https://your-url-here.com\) 
+- <https://your-url-here.com >
 
 ## Language
 
