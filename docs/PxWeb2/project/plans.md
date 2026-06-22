@@ -1,7 +1,5 @@
 # Upcoming features 2026
 
-## Remaining to develop in PxWeb 2
-
 ### Startpage
 - filter for selecting regional levels
 - improve search with more areas i.e.
@@ -9,16 +7,13 @@
       structure, including short names)
     - maintable-id
     - metaid
-- show filter count for each category
 - remove "other" from Time period
 - improve the table card
 
 ### Table page
-- improve performance and layout
 - manual pivoting
 - sticky table head and first column
 - hide empty rows
-- chose to show code or text
 - select multible check boxes at once
 - advanced settings for file export
 - additional file formats
@@ -44,13 +39,16 @@ Installation package for PxWeb 2 and PxWebApi v2
 - Sum
 - more...
 
-## Functionality released after October 2025
+## Functionality released 2026
 
 ### Release versions
 
 - Latest releases: [Version history](https://github.com/PxTools/PxWeb2/releases)
 
 ### PxWeb 2 
+- improve performance and layout at table page
+- chose to show code or text
+- show filter count for each category
 - Added more search options in variable box
 - Table: It is only possible to switch to a language that is supported
 - Improved format for footnotes
