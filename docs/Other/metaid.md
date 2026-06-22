@@ -94,10 +94,10 @@ When the API finds this META-ID "KORTNAVN:arblonn", on table level, it creates
 for an English request.
 
 
-Here is a full metaid.config:
+Here is a full metaid.config example:
 ```xml
 <?xml version="1.0"?>
-<metaId labelFilesFolder="wwwroot\cnmm-database\metaid">
+<metaId labelFilesFolder="wwwroot/cnmm-database/metaid">
   <onTable>
     <metaSystem id="KORTNAVN">
       <relationalGroup relation="statistics-homepage" type="text/html">
@@ -141,15 +141,13 @@ Here is a full metaid.config:
 </metaId>
 
 ```
+The example has the three different relation strings the GUI looks. In the information pane links with relation "statistics-homepage" and "about-statistics" are placed under the "About the Statistics" heading and links with relation "definitions" are palced below the "Metadata" heading. In the example both "statistics-homepage" and "about-statistics" are output from the metaSystem KORTNAVN.
 
-Note: 
-* The GUI looks for links with relation "statistics-homepage", "about-statistics" and "definitions" to show in the Information pane.
-* The metaSystem KORTNAVN creates 2 links per language. 
-* The last metaSystem on value does not use the name of the variable, only the name of the value.
+In the example, the last metaSystem on value does not use the name of the variable, only the name of the value.
 
 ### Labels file
 ```xml
-<metaId labelFilesFolder="wwwroot\cnmm-database\metaid">
+<metaId labelFilesFolder="wwwroot/cnmm-database/metaid">
 ```
 and
 ```xml
@@ -158,7 +156,7 @@ and
        <relationalGroup relation="definitions" type="text/html">   
          <link pxLang="no" labelsFile="klass_map_no.txt"
 ```
-work together to specify a file wwwroot\cnmm-database\metaid\klass_map_no.txt
+work together to specify a file wwwroot/cnmm-database/metaid/klass_map_no.txt
 
 These files look like: 
 ```
