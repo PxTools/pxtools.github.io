@@ -1340,10 +1340,14 @@ They are then separated by quotation marks and commas. See e.g.
 
 > <https://data.ssb.no/api/pxwebapi/v2/tables/12880/metadata?lang=en>.
 
-In PxWeb all HTML will be rendered as text only. You can include links by using Mardown. We support two formats:
+In PxWeb all HTML will be rendered as text only. You can include links by using Markdown. We support two formats:
 
 - `[My-link-text](https://my-url-here.com)` 
 - `<https://my-url-here.com>`
+
+To create a line break in a note, end a line with two spaces, and then type return.
+
+The system guarantees support for links and line breaks (written in Markdown). Other formatting features should not be used at this time.
 
 ## Language
 
