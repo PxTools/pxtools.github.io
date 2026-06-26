@@ -1345,7 +1345,7 @@ In PxWeb all HTML will be rendered as text only. You can include links by using 
 - `[My-link-text](https://my-url-here.com)` 
 - `<https://my-url-here.com>`
 
-To create a line break in a note, end a line with two spaces, and then type return, apply the same formatting style for any repeated line breaks or new paragraphs.
+To create a line break in a note, end a line with two spaces, and then type return.
 
 The system guarantees support for links and line breaks (written in Markdown). Other formatting features should not be used at this time.
 
