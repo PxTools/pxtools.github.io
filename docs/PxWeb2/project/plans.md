@@ -46,6 +46,8 @@ Installation package for PxWeb 2 and PxWebApi v2
 - Latest releases: [Version history](https://github.com/PxTools/PxWeb2/releases)
 
 ### PxWeb 2 
+- Show PxWeb version in the source code
+- Links in global alert 
 - improve performance and layout at table page
 - chose to show code or text
 - show filter count for each category
