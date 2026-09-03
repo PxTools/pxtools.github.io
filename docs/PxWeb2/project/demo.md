@@ -1,4 +1,4 @@
-# Demo
+# Demos
 
 ## Watch the latest version at Github (with data from Statistics Sweden)
 
@@ -11,6 +11,9 @@
 ## PxWeb 2 at Statistics Sweden
 
 - [Statistical Database](https://statistikdatabasen2.scb.se/en/)
+  
+## PxWeb 2 at Statistics Faroe Islands
+- [Statbank Faroe Islands] (https://beta.statbank.fo/en/)
   
 ## Try it with your own data
 
