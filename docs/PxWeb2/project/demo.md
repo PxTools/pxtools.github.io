@@ -13,7 +13,7 @@
 - [Statistical Database](https://statistikdatabasen2.scb.se/en/)
   
 ## PxWeb 2 at Statistics Faroe Islands
-- [Statbank Faroe Islands] (https://beta.statbank.fo/en/)
+- [Statbank Faroe Islands](https://beta.statbank.fo/en/)
   
 ## Try it with your own data
 
