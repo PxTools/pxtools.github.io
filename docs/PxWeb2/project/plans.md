@@ -1,7 +1,7 @@
 # Upcoming features 2026
 
 ### Startpage
-- filter for selecting regional levels
+- filter for selecting regional levels 
 - improve search with more areas i.e.
     - subject structure/path (Enables searching across the entire subject
       structure, including short names)
@@ -47,7 +47,6 @@
 - Show PxWeb version in the source code
 - Links in global alert 
 - improve performance and layout at table page
-- chose to show code or text
 - show filter count for each category
 - Added more search options in variable box
 - Table: It is only possible to switch to a language that is supported
