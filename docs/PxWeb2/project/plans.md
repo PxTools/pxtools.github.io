@@ -30,7 +30,7 @@
 - Possibility for table bulk download
 - DCAT-AP format
 - Filter for selecting regional levels
-- Save code or text separeted
+- Save code or text separately
 - Maps
 - Sum
 - more...
