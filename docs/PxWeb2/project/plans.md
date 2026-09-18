@@ -2,7 +2,7 @@
 
 ### Startpage
 - improve search with more areas i.e.
-    - subject structure/path (Enables searching across the entire subject
+    - subject structure/path (enables searching across the entire subject
       structure, including short names)
     - maintable-id
     - metaid
@@ -30,7 +30,7 @@
 - Possibility for table bulk download
 - DCAT-AP format
 - Filter for selecting regional levels
-- Save code or text separately
+- Chose to show code or text
 - Maps
 - Sum
 - more...
@@ -66,7 +66,6 @@
 ### PxWebApi v2
 
 - Sort in meny at level 4 and 5 at sort code
-- Search with AND
 - When creating a saved query in the API the return type has changed to
   SavedQueryResponse instead of a SavedQuery.
 
