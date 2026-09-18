@@ -1,13 +1,11 @@
 # Upcoming features 2026
 
 ### Startpage
-- filter for selecting regional levels 
 - improve search with more areas i.e.
     - subject structure/path (Enables searching across the entire subject
       structure, including short names)
     - maintable-id
     - metaid
-- remove "other" from Time period
 - improve the table card
 
 ### Table page
@@ -31,7 +29,8 @@
 ## Further plans for PxWeb 2.x
 - Possibility for table bulk download
 - DCAT-AP format
-- Hierarchy
+- Filter for selecting regional levels
+- Save code or text separeted
 - Maps
 - Sum
 - more...
