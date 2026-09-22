@@ -1,13 +1,11 @@
 # Upcoming features 2026
 
 ### Startpage
-- filter for selecting regional levels
 - improve search with more areas i.e.
-    - subject structure/path (Enables searching across the entire subject
+    - subject structure/path (enables searching across the entire subject
       structure, including short names)
     - maintable-id
     - metaid
-- remove "other" from Time period
 - improve the table card
 
 ### Table page
@@ -31,7 +29,8 @@
 ## Further plans for PxWeb 2.x
 - Possibility for table bulk download
 - DCAT-AP format
-- Hierarchy
+- Filter for selecting regional levels
+- Chose to show code or text
 - Maps
 - Sum
 - more...
@@ -47,7 +46,6 @@
 - Show PxWeb version in the source code
 - Links in global alert 
 - improve performance and layout at table page
-- chose to show code or text
 - show filter count for each category
 - Added more search options in variable box
 - Table: It is only possible to switch to a language that is supported
@@ -68,7 +66,6 @@
 ### PxWebApi v2
 
 - Sort in meny at level 4 and 5 at sort code
-- Search with AND
 - When creating a saved query in the API the return type has changed to
   SavedQueryResponse instead of a SavedQuery.
 
