@@ -13,7 +13,7 @@ The priorities below reflect our current focus areas. They may change over time 
 
 ### Table page
 - Manual pivot
-- Chart functionality ([Apache Echarts] (https://echarts.apache.org/en/index.html)):
+- Chart functionality, using [Apache ECharts](https://echarts.apache.org/en/index.html):
   - Line chart
   - Bar chart
   - Keyboard navigation
