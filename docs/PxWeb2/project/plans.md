@@ -1,113 +1,64 @@
-# Upcoming features 2026
+# Plans
 
-### Startpage
-- improve search with more areas i.e.
-    - subject structure/path (enables searching across the entire subject
-      structure, including short names)
-    - maintable-id
-    - metaid
-- improve the table card
+The priorities below reflect our current focus areas. They may change over time based on user insights, technical constraints, strategic goals, available capacity, and new findings that emerge during development.
+
+## 2026
+
+### Start page
+- Expand search scope to include:
+    - Subject structure/path (enables searching across the entire subject structure, including short names)
+    - Maintable-id
+    - Meta-id
+- Enable topic filter sorting by sort code
 
 ### Table page
-- manual pivoting
-- sticky table head and first column
-- hide empty rows
-- select multible check boxes at once
-- advanced settings for file export
-- additional file formats
-- loading symbol
-- rezisable navigation drawer
-- improve back-button to start-page
-
-### Graph tool
-- Implement four types of graphs in Apache Echarts [Apache Echarts](https://echarts.apache.org/en/index.html)
+- Manual pivot
+- Chart functionality ([Apache Echarts] (https://echarts.apache.org/en/index.html)):
   - Line chart
   - Bar chart
+  - Keyboard navigation
+  - Improve the layout and presentation of downloaded chart files
+  - Consistent number formatting
+- Enhance performance
+- Bulk selection in variable lists (select multiple values at once within a variable)
+
+### Entire application
+- Global alerts and service notifications (enable editors to publish and manage alerts that can be displayed across the entire application)
+
+## 2027 (highlights)
+
+### Start page
+- Improve table search
+- Filter for regional level
+- Expand the time period filter with additional period options, and remove the option “Other”
+- Consistent table sorting within topics (tables remain consistently sorted when browsing within a topic, making frequently used tables easier to find)
+- Allow users to choose how the table list is sorted
+- Evaluate alternative table list views (including compact list and card-based layouts to support different user needs and browsing preferences)
+- Improve table card layout
+
+### Table page
+- Additional chart types:
   - Horisontal bar chart
-  - Population pyramide
+  - Population pyramid
+- Table component:
+  - Sticky header
+  - Fixed first column
+  - Improve horizontal scrolling
+  - Column hover
+  - Improve loading (better feedback)
+- Add more download formats and advanced configuration options
+- Hide empty rows
+- Display as code, text or both
+- Enhance the variable selection experience
+- Show status Not updated and table ID
+- Predefined table layouts to simplify data extraction
+- Enhance the handling of notes
 
-## Further plans for PxWeb 2.x
-- Possibility for table bulk download
-- DCAT-AP format
-- Filter for selecting regional levels
-- Chose to show code or text
-- Maps
-- Sum
-- more...
-
-## Functionality released 2026
-
-### Release versions
-
-- Latest releases: [Version history](https://github.com/PxTools/PxWeb2/releases)
-
-### PxWeb 2 
-- Installation package for PxWeb 2 and PxWebApi v2
-- Show PxWeb version in the source code
-- Links in global alert 
-- improve performance and layout at table page
-- show filter count for each category
-- Added more search options in variable box
-- Table: It is only possible to switch to a language that is supported
-- Improved format for footnotes
-- Button to show groupings for a variable 
-- Connection to MetaID so you can link to metainformation at the tab Definitions
-- Open table card in new tab (right click)
-- Show PxWebApi 2 in PxWeb 2
-- Improved search at start page (search for variables, values and content in
-  tables. Search for different symbols.)
-- Possibility for text and links in Help
-- Button to improve table layout
-- Possibility för own link in logo
-- Saved query as alternative to algoritmn (documentation)
-- WCAG-improvements
-- Bug fixes
-
-### PxWebApi v2
-
-- Sort in meny at level 4 and 5 at sort code
-- When creating a saved query in the API the return type has changed to
-  SavedQueryResponse instead of a SavedQuery.
-
---------------------------------------------------------------------------------
-
-## Releases in the project
-
-### PxWeb 2 Release October 2025
-
-- Startpage
-- Save to file
-- Saved query
-- URL and breadcrumb
-- Pivoting
-- Head and footer
-
-### PxWebApi v2 Release September 2025
-
-- Follows JSON-stat2 format
-- Save to file
-- Saved query
-- Pivot
-
---------------------------------------------------------------------------------
-
-### PxWeb 2.0 testversion December 2024
-
-- Comprehensible table at first glance - Using an algorithm to show an
-  understandable table the first time you look at it
-- Search for codes in variables/contents
-- Change value-list in a variable/content
-- Opportunity to see main functionality, buttons and setup
-- Possible to choose values in variables/contents and it will be updated in the
-  table at once
-- Number, decimal and updates in table
-- Using PxWebApi 2.0 to get information in PxWeb 2.0
-- The test version gets data from a test database in SCB – it shows Swedish and
-  English texts
-
-### PxWeb 2.0 testversion June 2024
-
-- New PxWeb page with variablebox and table, getting data from API 2.0
-- Language management
-- Algorithm for choosing the best result for displaying a table
-- Choose different values in variable and see changes in the table
+## Future (highlights)
+- Enable one-click downloads of complete tables
+- Support linking to replaced (closed), related, and/or external tables
+- Sum variable values
+- Improve handling of tables with multiple topic placements
+- Show notes in context (in the table)
+- Hierarchies
+- Map
