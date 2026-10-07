@@ -14,11 +14,11 @@ The priorities below reflect our current focus areas. They may change over time 
 ### Table page
 - Manual pivot
 - Chart functionality, using [Apache ECharts](https://echarts.apache.org/en/index.html):
-  - Line chart
-  - Bar chart
-  - Keyboard navigation
-  - Improve the layout and presentation of downloaded chart files
-  - Consistent number formatting
+    - Line chart
+    - Bar chart
+    - Keyboard navigation
+    - Improve the layout and presentation of downloaded chart files
+    - Consistent number formatting
 - Enhance performance
 - Bulk selection in variable lists (select multiple values at once within a variable)
 
@@ -38,14 +38,14 @@ The priorities below reflect our current focus areas. They may change over time 
 
 ### Table page
 - Additional chart types:
-  - Horisontal bar chart
-  - Population pyramid
+    - Horisontal bar chart
+    - Population pyramid
 - Table component:
-  - Sticky header
-  - Fixed first column
-  - Improve horizontal scrolling
-  - Column hover
-  - Improve loading (better feedback)
+    - Sticky header
+    - Fixed first column
+    - Improve horizontal scrolling
+    - Column hover
+    - Improve loading (better feedback)
 - Add more download formats and advanced configuration options
 - Hide empty rows
 - Display as code, text or both
