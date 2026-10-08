@@ -1096,7 +1096,7 @@ comma separated from each other.
 When doing a POST query, the placement are given i the `placement` property of
 the query.
 
-## Output formats
+### Output formats
 
 The API can provide the result in 7 main formats:
 
@@ -1110,7 +1110,7 @@ The API can provide the result in 7 main formats:
 
 You select the format you want the response to be in by setting the parameter `outputFormat`.
 
-### JSON-stat v2
+#### JSON-stat v2
 
 ??? info "About JSON-stat v2"
 
@@ -1149,7 +1149,7 @@ You select the format you want the response to be in by setting the parameter `o
     - <https://github.com/badosa>
     - <https://bl.ocks.org/badosa>
 
-### Parquet (beta)
+#### Parquet (beta)
 
 New in this API is the [Apache Parquet](https://parquet.apache.org/) output format.
 
@@ -1209,7 +1209,7 @@ Schema
 ╰───────Leaf, Group───────╯╰───────────────────────────────────────────────────╯
 ```
 
-#### DuckDB example
+##### DuckDB example
 
 ```sh
 % duckdb
@@ -1227,7 +1227,7 @@ memory D SELECT * FROM read_parquet('https://data.qa.ssb.no/api/pxwebapi/v2/tabl
 └──────────────────┴─────────┴─────────────────────┴─────────┴──────────────┘
 ```
 
-#### Parquet Known issues
+##### Parquet Known issues
 
 !!! warning
     We may have to change the format to fix some of these issues
@@ -1237,7 +1237,7 @@ memory D SELECT * FROM read_parquet('https://data.qa.ssb.no/api/pxwebapi/v2/tabl
 - [ ] [Consider switching from `DataField` to `DecimalDataField`](https://github.com/PxTools/PxWebApi/issues/596)
 - [ ] [Parquet does not work in Onyxia Data Explorer](https://github.com/PxTools/PxWebApi/issues/597)
 
-### Additionally parameters
+#### Additionally parameters
 
 Some of the output format can take extra parameters that determines how the
 table is serialized.
@@ -1261,11 +1261,110 @@ are specified use a comma to separate them apart. E.g.
 
 > <https://data.ssb.no/api/pxwebapi/v2/tables/03024/data?lang=en&valuecodes[ContentsCode]=*&valuecodes[Varegrupper2]=*&stub=VareGrupper2,Tid&heading=ContentsCode&valuecodes[Tid]=top(3)&outputformat=csv&outputformatparams=separatorsemicolon,usecodesandtexts>
 
+### Variable placement examples
+
 !!! tip "Placement of variables"
     In output formats `csv`, `html`, and `xlsx`, you can use `stub` and `heading`
     to specify where variables are to be placed.
-    If you place all variables in the `stub`, you get a so-called pivot-friendly
-    e.g. <https://data.ssb.no/api/pxwebapi/v2/tables/03024/data?lang=en&valuecodes[ContentsCode]=*&valuecodes[Varegrupper2]=*&stub=VareGrupper2,Tid,ContentsCode&valuecodes[Tid]=top(3)&outputformat=csv&outputformatparams=separatorsemicolon,usecodesandtexts>
+
+#### All variables in the stub (pivot-friendly)
+
+Place every variable in the `stub` to get one row for each selected data cell,
+with the variable values in columns. This flat layout is useful when importing
+the data into tools that can pivot it later.
+[example](https://data.ssb.no/api/pxwebapi/v2/tables/03024/data?lang=en&valuecodes[Tid]=top(3)&valuecodes[ContentsCode]=*&valuecodes[Varegrupper2]=*&outputformat=csv&stub=Tid,ContentsCode,VareGrupper2)
+
+```js
+GET https://data.ssb.no/api/pxwebapi/v2/tables/03024/data?lang=en 
+  &valuecodes[Tid]=top(3)
+  &valuecodes[ContentsCode]=*
+  &valuecodes[Varegrupper2]=*
+  &outputformat=csv
+  &stub=Tid,ContentsCode,VareGrupper2
+
+"Tid","ContentsCode","VareGrupper2","03024: Export of salmon, fish-farm bred,"
+"2026U38","Vekt","01",31087
+"2026U38","Vekt","02",860
+"2026U38","Kilopris","01",71.41
+"2026U38","Kilopris","02",73.09
+"2026U39","Vekt","01",32385
+"2026U39","Vekt","02",654
+"2026U39","Kilopris","01",73.59
+"2026U39","Kilopris","02",74.68
+"2026U40","Vekt","01",30277
+"2026U40","Vekt","02",936
+"2026U40","Kilopris","01",73.80
+"2026U40","Kilopris","02",75.31
+```
+
+#### Tidy data (long format): contents in columns
+
+Place the contents variable in the `heading` and the time and classification
+variables in the `stub`. Each row represents one time and classification
+observation, and each selected contents value has its own column. This tidy
+layout is also called long format here because time periods remain in rows;
+each contents value represents a separate measurement variable.
+[example](https://data.ssb.no/api/pxwebapi/v2/tables/03024/data?lang=en&valuecodes[Tid]=top(3)&valuecodes[ContentsCode]=*&valuecodes[Varegrupper2]=*&outputformat=csv&stub=Tid,VareGrupper2&head=ContentsCode)
+
+```js
+GET https://data.ssb.no/api/pxwebapi/v2/tables/03024/data?lang=en
+  &valuecodes[Tid]=top(3)
+  &valuecodes[ContentsCode]=*
+  &valuecodes[Varegrupper2]=*
+  &outputformat=csv
+  &stub=Tid,VareGrupper2
+  &head=ContentsCode
+
+"Tid","VareGrupper2","Vekt","Kilopris"
+"2026U38","01",31087,71.41
+"2026U38","02",860,73.09
+"2026U39","01",32385,73.59
+"2026U39","02",654,74.68
+"2026U40","01",30277,73.80
+"2026U40","02",936,75.31
+```
+
+#### Classifications and contents in columns (wide format)
+
+Place time in the `stub` and the classification and contents variables in the
+`heading`. Each row represents a time period, while each classification and
+contents combination gets its own column.
+[example](https://data.ssb.no/api/pxwebapi/v2/tables/03024/data?lang=en&valuecodes[Tid]=top(3)&valuecodes[ContentsCode]=*&valuecodes[Varegrupper2]=*&outputformat=csv&stub=Tid&head=VareGrupper2,ContentsCode)
+
+```js
+GET https://data.ssb.no/api/pxwebapi/v2/tables/03024/data?lang=en
+  &valuecodes[Tid]=top(3)&valuecodes[ContentsCode]=*&valuecodes[Varegrupper2]=*
+  &outputformat=csv
+  &stub=Tid
+  &head=VareGrupper2,ContentsCode
+
+"Tid","Vekt 01","Vekt 02","Kilopris 01","Kilopris 02"
+"2026U38",31087,860,71.41,73.09
+"2026U39",32385,654,73.59,74.68
+"2026U40",30277,936,73.80,75.31
+
+```
+
+#### Time periods in columns (wide format)
+
+Place the time variable in the `heading` and the classification and contents
+variables in the `stub`. Each row represents a classification and contents
+combination, with a separate column for each selected time period.
+[example](https://data.ssb.no/api/pxwebapi/v2/tables/03024/data?lang=en&valuecodes[Tid]=top(3)&valuecodes[ContentsCode]=*&valuecodes[Varegrupper2]=*&outputformat=csv&stub=VareGrupper2,ContentsCode&head=Tid)
+
+```js
+GET https://data.ssb.no/api/pxwebapi/v2/tables/03024/data?lang=en
+  &valuecodes[Tid]=top(3)&valuecodes[ContentsCode]=*&valuecodes[Varegrupper2]=*
+  &outputformat=csv
+  &stub=VareGrupper2,ContentsCode
+  &head=Tid
+
+"VareGrupper2","ContentsCode","2026U38","2026U39","2026U40"
+"01","Vekt",31087,32385,30277
+"01","Kilopris",71.41,73.59,73.80
+"02","Vekt",860,654,936
+"02","Kilopris",73.09,74.68,75.31
+```
 
 ## Elimination
 
@@ -1340,14 +1439,16 @@ They are then separated by quotation marks and commas. See e.g.
 
 > <https://data.ssb.no/api/pxwebapi/v2/tables/12880/metadata?lang=en>.
 
-In PxWeb all HTML will be rendered as text only. You can include links by using Markdown. We support two formats:
+In PxWeb all HTML will be rendered as text only. You can include links by using
+Markdown. We support two formats:
 
-- `[My-link-text](https://my-url-here.com)` 
+- `[My-link-text](https://my-url-here.com)`
 - `<https://my-url-here.com>`
 
 To create a line break in a note, end a line with two spaces, and then type return.
 
-The system guarantees support for links and line breaks (written in Markdown). Other formatting features should not be used at this time.
+The system guarantees support for links and line breaks (written in Markdown).
+Other formatting features should not be used at this time.
 
 ## Language
 
@@ -1381,9 +1482,14 @@ Possible error codes if the query does not return a response:
   tables shows the table's location(s) in the subject structure under paths.
 
 - The URL in the GET request cannot exceed a limit of approximately 2100
-  characters. Instead of listing long value lists in the query, use * (asterisk),
-  question mark, from/to or range. If you select all the values of the variable, PxWeb v2 will automatically put * in the query.
+  characters. Instead of listing long value lists in the query, use `*` (asterisk),
+  question mark, from/to or range. If you select all the values of the variable,
+  PxWeb v2 will automatically put * in the query.
 
-- If you do not select all the periods, PxWeb will list in the query exactly the same periods you selected. In practice, you will most often want the query to include all newer periods the next time you run it. In that case, you must  adjust the URL to `valueCode[Time]=*` or `from(start time)`, alternatively `top(number of newest periods)`.
+- If you do not select all the periods, PxWeb will list in the query exactly the
+  same periods you selected. In practice, you will most often want the query to
+  include all newer periods the next time you run it. In that case, you must
+  adjust the URL to `valueCode[Time]=*` or `from(start time)`, alternatively
+  `top(number of newest periods)`.
 
 - See also [knows issues under parquet](#parquet-known-issues) output format
