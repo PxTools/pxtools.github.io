@@ -1274,7 +1274,7 @@ with the variable values in columns. This flat layout is useful when importing
 the data into tools that can pivot it later.
 [example](https://data.ssb.no/api/pxwebapi/v2/tables/03024/data?lang=en&valuecodes[Tid]=top(3)&valuecodes[ContentsCode]=*&valuecodes[Varegrupper2]=*&outputformat=csv&stub=Tid,ContentsCode,VareGrupper2)
 
-```js
+```sh
 GET https://data.ssb.no/api/pxwebapi/v2/tables/03024/data?lang=en 
   &valuecodes[Tid]=top(3)
   &valuecodes[ContentsCode]=*
@@ -1306,7 +1306,7 @@ layout is also called long format here because time periods remain in rows;
 each contents value represents a separate measurement variable.
 [example](https://data.ssb.no/api/pxwebapi/v2/tables/03024/data?lang=en&valuecodes[Tid]=top(3)&valuecodes[ContentsCode]=*&valuecodes[Varegrupper2]=*&outputformat=csv&stub=Tid,VareGrupper2&head=ContentsCode)
 
-```js
+```sh
 GET https://data.ssb.no/api/pxwebapi/v2/tables/03024/data?lang=en
   &valuecodes[Tid]=top(3)
   &valuecodes[ContentsCode]=*
@@ -1331,7 +1331,7 @@ Place time in the `stub` and the classification and contents variables in the
 contents combination gets its own column.
 [example](https://data.ssb.no/api/pxwebapi/v2/tables/03024/data?lang=en&valuecodes[Tid]=top(3)&valuecodes[ContentsCode]=*&valuecodes[Varegrupper2]=*&outputformat=csv&stub=Tid&head=VareGrupper2,ContentsCode)
 
-```js
+```sh
 GET https://data.ssb.no/api/pxwebapi/v2/tables/03024/data?lang=en
   &valuecodes[Tid]=top(3)&valuecodes[ContentsCode]=*&valuecodes[Varegrupper2]=*
   &outputformat=csv
@@ -1342,7 +1342,6 @@ GET https://data.ssb.no/api/pxwebapi/v2/tables/03024/data?lang=en
 "2026U38",31087,860,71.41,73.09
 "2026U39",32385,654,73.59,74.68
 "2026U40",30277,936,73.80,75.31
-
 ```
 
 #### Time periods in columns (wide format)
@@ -1352,7 +1351,7 @@ variables in the `stub`. Each row represents a classification and contents
 combination, with a separate column for each selected time period.
 [example](https://data.ssb.no/api/pxwebapi/v2/tables/03024/data?lang=en&valuecodes[Tid]=top(3)&valuecodes[ContentsCode]=*&valuecodes[Varegrupper2]=*&outputformat=csv&stub=VareGrupper2,ContentsCode&head=Tid)
 
-```js
+```sh
 GET https://data.ssb.no/api/pxwebapi/v2/tables/03024/data?lang=en
   &valuecodes[Tid]=top(3)&valuecodes[ContentsCode]=*&valuecodes[Varegrupper2]=*
   &outputformat=csv
