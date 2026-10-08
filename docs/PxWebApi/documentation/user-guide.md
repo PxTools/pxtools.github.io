@@ -1301,8 +1301,9 @@ GET https://data.ssb.no/api/pxwebapi/v2/tables/03024/data?lang=en
 
 Place the contents variable in the `heading` and the time and classification
 variables in the `stub`. Each row represents one time and classification
-observation, and each selected contents value has its own column. This tidy
-layout is also called long format here because time periods remain in rows;
+observation, and each selected contents value has its own column. 
+This [tidy layout](https://data.europa.eu/apps/data-visualisation-guide/intro-to-tidy-data)
+is also called long format here because time periods remain in rows;
 each contents value represents a separate measurement variable.
 [example](https://data.ssb.no/api/pxwebapi/v2/tables/03024/data?lang=en&valuecodes[Tid]=top(3)&valuecodes[ContentsCode]=*&valuecodes[Varegrupper2]=*&outputformat=csv&stub=Tid,VareGrupper2&head=ContentsCode)
 
