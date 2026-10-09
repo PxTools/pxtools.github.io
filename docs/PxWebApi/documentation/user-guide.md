@@ -977,8 +977,8 @@ following properties:
   that specific variable.
 - `codelist` (optional) if a specific codelist should be selected for that variable.
 
-??? tip "Doing POST queries in Python examples"
-    See how you can do POST queries in Python here <https://github.com/janbrus/ssb-api-python-examples/blob/master/PxWebApi2/laks_nor.ipynb>
+!!! tip "Doing POST queries in Python examples"
+    See how you can do POST queries in Python here <https://github.com/janbrus/pxwebapi-skills/blob/main/laks_nor.ipynb>
 
 #### Selection expressions
 
