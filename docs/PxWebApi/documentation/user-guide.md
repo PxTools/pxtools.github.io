@@ -1253,7 +1253,7 @@ code/text and table title:
 And for `csv` files, you can choose between different separators:
 
 - `SeparatorTab` (tabulator between columns)
-- `SparatorSpace` (space between columns)
+- `SeparatorSpace` (space between columns)
 - `SeparatorSemicolon` (semicolon between columns)
 
 You can set these on the `outputFormatParams` parameter. If multiple parameters
