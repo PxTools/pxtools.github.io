@@ -922,11 +922,11 @@ valueCodes[variable-id]=value-code1, value-code2
 
 You need to specify value codes for each variable that is not eliminable. The
 value codes are given in a comma separated list. If the value code should be
-surrounded by square brackets like `3,[1,2],4+5`. See bellow on how to specify
+surrounded by square brackets like `3,[1,2],4+5`. See below on how to specify
 value codes.
 
-You change can specify a different codelist for a variable the possible once
-are given in the metadata response. In these cases, you need to add the paramter
+You change can specify a different codelist for a variable; the possible once
+are given in the metadata response. In these cases, you need to add the parameter
 `codelist` that specifies which codelist to use. When doing so the value codes referred
 in `valueCodes` are the value codes in the selected codelist.
 You select the codelist in the following syntax
@@ -995,7 +995,7 @@ The following expressions exists:
 
 ##### `*` (wildcard)
 
-This matche based on a criteria that contains 1 or 2 wildcards e.g.
+This matches based on a criteria that contains 1 or 2 wildcards e.g.
 
 - `*` selects all codes.
 - `12*` select all codes that starts with *12*.
@@ -1004,7 +1004,7 @@ This matche based on a criteria that contains 1 or 2 wildcards e.g.
 
 ##### `?` (mask)
 
-This matche on a criteria that contains a question mark e.g.
+This matches on a criteria that contains a question mark e.g.
 
 - `??` selects all codes that are two characters long.
 - `1?` select all codes that are two characters long and starts with `1`.
@@ -1015,7 +1015,7 @@ This expression selects the top number of values. If the variable is the time
 variable that will be the latest time periods otherwise it will be the first code
 as specified in the metadata.
 
-The syntax of the experssion is:
+The syntax of the expression is:
 
 ```sh
 top(numberOfValues, offset)
@@ -1033,7 +1033,7 @@ This expression selects the bottom number of values. If the variable is the time
 variable that will be the first time periods otherwise it will be the last code
 as specified in the metadata.
 
-The syntax of the experssion is:
+The syntax of the expression is:
 
 ```sh
 bottom(numberOfValues, offset)
@@ -1153,9 +1153,9 @@ You select the format you want the response to be in by setting the parameter `o
 
 New in this API is the [Apache Parquet](https://parquet.apache.org/) output format.
 
-We create a column for each varible and separate colums for `timestamp`, `value`
+We create a column for each variable and separate columns for `timestamp`, `value`
 and `value_symbol`. When more content variables are selected the `value` and
-`value_symbol` colums will be renamed with the `ContentsCode_` prefix.
+`value_symbol` columns will be renamed with the `ContentsCode_` prefix.
 
 Inspecting this request with [parqeye](https://github.com/kaushiksrini/parqeye)
 shows the following views.
@@ -1233,11 +1233,11 @@ memory D SELECT * FROM read_parquet('https://data.qa.ssb.no/api/pxwebapi/v2/tabl
     We may have to change the format to fix some of these issues
 
 - [x] [Multiple contents and time odering bug](https://github.com/PxTools/PxWebApi/issues/511)
-- [ ] [Parquet seralizer throws exception on TimeScaleType](https://github.com/PxTools/PxWebApi/issues/595)
+- [ ] [Parquet serializer throws exception on TimeScaleType](https://github.com/PxTools/PxWebApi/issues/595)
 - [ ] [Consider switching from `DataField` to `DecimalDataField`](https://github.com/PxTools/PxWebApi/issues/596)
 - [ ] [Parquet does not work in Onyxia Data Explorer](https://github.com/PxTools/PxWebApi/issues/597)
 
-#### Additionally parameters
+#### Additional parameters
 
 Some of the output format can take extra parameters that determines how the
 table is serialized.
