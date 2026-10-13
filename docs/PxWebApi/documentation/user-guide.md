@@ -1163,7 +1163,7 @@ shows the following views.
 Request
 
 ```sh
-https://data.qa.ssb.no/api/pxwebapi/v2/tables/04475/data?lang=en&outputFormat=parquet&valuecodes[Tid]=2025K1,2025K2,2025K3,2025K4&valuecodes[ContentsCode]=ForbrukVareliter&valuecodes[Alkohol]=03
+https://data.ssb.no/api/pxwebapi/v2/tables/04475/data?lang=en&outputFormat=parquet&valuecodes[Tid]=2025K1,2025K2,2025K3,2025K4&valuecodes[ContentsCode]=ForbrukVareliter&valuecodes[Alkohol]=03
 ```
 
 Visualize
@@ -1215,7 +1215,7 @@ Schema
 % duckdb
 DuckDB v1.5.2 (Variegata)
 Enter ".help" for usage hints.
-memory D SELECT * FROM read_parquet('https://data.qa.ssb.no/api/pxwebapi/v2/tables/04475/data?lang=en&outputFormat=parquet&valuecodes[Tid]=2025K1,2025K2,2025K3,2025K4&valuecodes[ContentsCode]=ForbrukVareliter&valuecodes[Alkohol]=03');
+memory D SELECT * FROM read_parquet('https://data.ssb.no/api/pxwebapi/v2/tables/04475/data?lang=en&outputFormat=parquet&valuecodes[Tid]=2025K1,2025K2,2025K3,2025K4&valuecodes[ContentsCode]=ForbrukVareliter&valuecodes[Alkohol]=03');
 ┌──────────────────┬─────────┬─────────────────────┬─────────┬──────────────┐
 │ type of beverage │ quarter │      timestamp      │  value  │ value_symbol │
 │     varchar      │ varchar │      timestamp      │ double  │   varchar    │
