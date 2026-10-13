@@ -921,8 +921,7 @@ valueCodes[variable-id]=value-code1, value-code2
 ```
 
 You need to specify value codes for each variable that is not eliminable. The
-value codes are given in a comma separated list. If the value code should be
-surrounded by square brackets like `3,[1,2],4+5`. See bellow on how to specify
+value codes are given in a comma separated list. If a value code or a selection expression contains a comma, wrap it in square brackets, e.g. `valueCodes[Tid]=[range(2002,2005)]` or `[top(5,1)]`. In a POST body, write the expression without brackets: `"range(2002,2005)"`. A bracketed string in POST is looked up as a value code and fails with `Non-existent value`. See bellow on how to specify
 value codes.
 
 You change can specify a different codelist for a variable the possible once
@@ -1018,14 +1017,14 @@ as specified in the metadata.
 The syntax of the experssion is:
 
 ```sh
-top(numberOfValues, offset)
+top(numberOfValues,offset)
 ```
 
 where `numberOfValues` specifies the number of values codes that should be
 selected from the top and `offset` is an optional offset from the top. E.g.
 
 - `top(5)` will select the first 5 values.
-- `top(5, 1)` will skip the first value and select the next 5 values.
+- `top(5,1)` will skip the first value and select the next 5 values.
 
 ##### bottom
 
@@ -1036,14 +1035,14 @@ as specified in the metadata.
 The syntax of the experssion is:
 
 ```sh
-bottom(numberOfValues, offset)
+bottom(numberOfValues,offset)
 ```
 
 where `numberOfValues` specifies the number of values codes that should be
 selected from the bottom and `offset` is an optional offset from the bottom. E.g.
 
 - `bottom(5)` will select the last 5 values.
-- `bottom(5, 1)` will skip the last value and select the next 5 values counting
+- `bottom(5,1)` will skip the last value and select the next 5 values counting
   from the bottom.
 
 ##### range
@@ -1054,7 +1053,7 @@ in the metadata.
 The syntax is in the form
 
 ```sh
-range(value-code1, value-code2)
+range(value-code1,value-code2)
 ```
 
 Example if you have a time variable that have codes from the year 2000 to 2025
