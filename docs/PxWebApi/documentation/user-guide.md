@@ -433,7 +433,7 @@ Add the `query` parameter to the URL like
 
 > <https://data.ssb.no/api/pxwebapi/v2/tables?lang=en&query=pizza>
 
-#### Search for not discontinued tables where also containing the term "children"
+#### Search including discontinued tables containing the term "children"
 
 Add the `includeDiscontinued` query parameter like
 
