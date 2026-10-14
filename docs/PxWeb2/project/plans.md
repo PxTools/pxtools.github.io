@@ -53,9 +53,9 @@ The priorities below reflect our current focus areas. They may change over time 
 - Show status Not updated and table ID
 - Predefined table layouts to simplify data extraction
 - Enhance the handling of notes
+- Enable one-click downloads of complete tables (bulk download)
 
 ## Future (highlights)
-- Enable one-click downloads of complete tables
 - Support linking to replaced (closed), related, and/or external tables
 - Sum variable values
 - Improve handling of tables with multiple topic placements
