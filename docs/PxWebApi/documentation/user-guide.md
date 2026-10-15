@@ -551,7 +551,7 @@ in the subject structure.
 
 ## Metadata for the table
 
-Detailed metadata for a given table can be retrieved using he endpoint `tables/{TABLE-ID}/metadata`.
+Detailed metadata for a given table can be retrieved using the endpoint `tables/{TABLE-ID}/metadata`.
 The metadata is displayed in the JSON-stat v2 format.
 
 !!! note
@@ -865,10 +865,10 @@ important properties are:
 Each variable object contains two lists (level 3), one with value codes index
 and one with presentation texts for the values label.
 
-For contents variables, the unit of measurement and the number of decimals are
+For **contents variables**, the unit of measurement and the number of decimals are
 always specified.
 
-For each value of the content variable, there may be more metadata under extension:
+For each **contents variable**, there may be more metadata under keyword **extension**:
 
 - Measuring type (`Stock`, `Flow`, `Average`, `Other`)
 - Price type (`Current`, `Fixed`, `NotApplicable`)
