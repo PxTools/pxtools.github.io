@@ -39,10 +39,10 @@ structure of the API and the data that it provides.
 ### Table
 
 A table is the representation of a statistical table. Others may sometimes refer
-to the same concept a dataset, cube, or multi-dimensional cube. But we have
-chose to call it a table due to historical reasons. A table consists of two
-parts the data that contains the numbers and the metadata that gives the data a
-context/meaning. E.g. data 10 452 326 and the metadata the population of Sweden
+to the table as the same concept a dataset, cube, or multi-dimensional cube. But we have
+chosen to call it a table for historical reasons. A table consists of two
+parts: the data that contains the figures, and the metadata that gives the data a
+context/meaning. E.g. data: 10 452 326, and the metadata: the population of Sweden
 December 31 2021.
 
 ### Database
@@ -58,52 +58,50 @@ the database.
 
 ### Folder
 
-Folders are used to organize tables in a database. A folder can contain other
-folders or tables. Usually, the first level of folders in a database are referred
+Folders are used to organize tables in a database. A folder can contain sub-folders
+or tables. Usually, the first level of folders in a database are referred
 to the subject areas of the database. Others might also call them the themes of
 the database.
 
 ### Variable
 
 Tables are multidimensional and variables are the concept used to describe the
-data (others may refer to variables as dimensions).  Take the example data
-10 452 326 and the metadata the population of Sweden December 31 2021. 10 452 326
-is described by tree variables
+data (others may refer to variables as dimensions). Take the example data:
+10 452 326, and the metadata: the population of Sweden December 31 2021. 10 452 326
+is described by three variables
 
-1. What we are measuring, in our case this is the population. This variable is
-   special and is referred to as the content variable. There and only be one
-   content variable. Sometimes when there is just one content the content
-   variable may be omitted instead the context is given by other metadata for
-   the table.
-2. The point in time that the number is associated to in our case 31 December
-   2021. This variable type is also special and is referred to as the time
-   variable. There should always be one and only one time variable.
-3. The region. In our case it is Sweden. This is also a special kind of variable
-   called a geographical variable. A table might have zero or many geographical
+1. What we are measuring, in our case this is the population. This variable 
+   is referred to as the **contents variable**. Sometimes when there is just one content the content
+   variable may be omitted in  the px file. Instead the content is desribed by the table title.
+2. The point in time that the figure is associated to, in our case 31 December
+   2021. This variable type is referred to as the **time
+   variable**. There should always be one and only one time variable.
+3. The region. In our case it is Sweden. This is 
+   called a **geographical variable**. A table might have zero or many geographical
    variables but usually only have one if they have any.
 
-There is a fourth kind of variable that is just called a variable that is used
-to describe the data. Imagen, that we had divided 10 452 326 by gender so we
-have two data cells instead 5 260 707 and 5 191 619 one for male and one for
+There is a fourth kind of variable that is just called a **variable** that is used
+to describe the data. Imagine that we had distributed 10 452 326 by gender so we
+have two data cells instead: 5 260 707 and 5 191 619, one for male and one for
 female. Then that fourth variable would be gender.
 
 ### Value
 
-Variables have distinct values that make up the space for it. E.g. our gender
-variable above have two values one for male and one for female.
+A variable is distributed in distinct categories, called **values**. E.g. our gender
+variable above have two values: male and female.
 
 ### Codelist
 
-A variable might have code list associated to that defined a new space for the
-variable by providing different sets of values. E.g. imagine, you have a regional
+A variable might have codelist associated to that define a new space for the
+variable by providing different sets of values. E.g. imagine you have a regional
 variable with values for each municipality in Sweden. Then you might have a
 codelist that transforms the municipalities into counties.
 
 ### Data cell
 
-A data cell is the individual measure in a table.
+A data cell is the individual figure in a table.
 The total number of cells for a table is given by the product of the number of
-values for each variable.
+categories (values) for each variable.
 
 ## Finding tables
 
