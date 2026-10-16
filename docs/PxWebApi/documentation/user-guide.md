@@ -884,14 +884,14 @@ following endpoint `tables/{TABLE-ID}}/data`.
 
 > [https://data.ssb.no/api/pxwebapi/v2/tables/05810/data?lang=en](https://data.ssb.no/api/pxwebapi/v2/tables/05810/data?lang=en)
 
-This will provide a table broken down by gender and age for the latest period.
+This will provide a table broken down by gender and age for the most recent period.
 This corresponds to the default extraction you get when you select the same
-table in PxWeb. Please note that in the default table, only two dimensions will
-show more than one value. To extract numbers in multiple dimensions, this must
+table in PxWeb. Please note that in most default tables, only two variables will
+have more than one value. To extract figures from more variables, this must
 be specified in the API query (see section Queries against a table).
 
 !!! note
-    The data from Statistics Norway API is in the JSON-stat v2. And that the
+    The data from Statistics Norway API is in the JSON-stat v2. The
     default format that you get the data in may vary depending on the organization.
 
 ### Queries against a table
@@ -900,16 +900,16 @@ You can use PxWeb to build API queries, or you can create queries from scratch
 by looking at the metadata and construct the right objects.
 
 The query contains per variable a list of values that should be included in the
-response and also if a specific codelist so be applied.
+response and also if a specific codelist should be applied.
 
-The query can be represented in two way:
+The query can be represented in two ways:
 
 1. As query parameters in the URL when doing a HTTP GET request.
 2. As a JSON object attached as the content when doing a HTTP POST request.
 
-When the listing the values that should be selected you can either list the
+When the listing the values that should be selected, you can either list the
 specific codes or you could use special selection expressions to select value
-codes that matches the expression. You can also combine value codes and.
+codes that matches the expression. You can also combine value codes and
 selection expressions.
 
 #### Query as URL parameters
@@ -925,8 +925,8 @@ value codes are given in a comma separated list. If the value code should be
 surrounded by square brackets like `3,[1,2],4+5`. See below on how to specify
 value codes.
 
-You change can specify a different codelist for a variable; the possible once
-are given in the metadata response. In these cases, you need to add the parameter
+You change can specify a different codelist for a variable. The possible ones
+are given in the `metadata` response. In these cases, you need to add the parameter
 `codelist` that specifies which codelist to use. When doing so the value codes referred
 in `valueCodes` are the value codes in the selected codelist.
 You select the codelist in the following syntax
@@ -982,8 +982,8 @@ following properties:
 
 #### Selection expressions
 
-Selection expression  can be used to select value codes that matches the expression.
-The following expressions exists:
+Selection expression can be used to select value codes that match the expression.
+The following expressions exist:
 
 - `*` (wildcard)
 - `?` (mask)
@@ -995,16 +995,16 @@ The following expressions exists:
 
 ##### `*` (wildcard)
 
-This matches based on a criteria that contains 1 or 2 wildcards e.g.
+This match based on a criteria that may contain one or two wildcards. For example
 
 - `*` selects all codes.
-- `12*` select all codes that starts with *12*.
-- `*2` selects all codes that ends with *2*.
-- `*4*` select all codes that contains a *4*.
+- `12*` select all codes that start with *12*.
+- `*2` selects all codes that end with *2*.
+- `*4*` select all codes that contain a *4*.
 
 ##### `?` (mask)
 
-This matches on a criteria that contains a question mark e.g.
+This match based on a criteria that contain one or more question marks. For example
 
 - `??` selects all codes that are two characters long.
 - `1?` select all codes that are two characters long and starts with `1`.
@@ -1012,7 +1012,7 @@ This matches on a criteria that contains a question mark e.g.
 ##### top
 
 This expression selects the top number of values. If the variable is the time
-variable that will be the latest time periods otherwise it will be the first code
+variable that will be the most recent time periods, otherwise it will be the first listed codes
 as specified in the metadata.
 
 The syntax of the expression is:
@@ -1021,17 +1021,17 @@ The syntax of the expression is:
 top(numberOfValues, offset)
 ```
 
-where `numberOfValues` specifies the number of values codes that should be
-selected from the top and `offset` is an optional offset from the top. E.g.
+where `numberOfValues` specifies the number of values that should be
+selected from the top and `offset` is an optional offset from the top. For example
 
-- `top(5)` will select the first 5 values.
-- `top(5, 1)` will skip the first value and select the next 5 values.
+- `top(5)` will select the first 5 values in the value list.
+- `top(5, 1)` will skip the first value and select the next 5 values in the value list.
 
 ##### bottom
 
 This expression selects the bottom number of values. If the variable is the time
-variable that will be the first time periods otherwise it will be the last code
-as specified in the metadata.
+variable that will be the first time periods from the list. Otherwise it will be the bottom values in the value list
+specified in the metadata.
 
 The syntax of the expression is:
 
@@ -1048,7 +1048,7 @@ selected from the bottom and `offset` is an optional offset from the bottom. E.g
 
 ##### range
 
-This expression selects all value code between two value codes as they are given
+This expression selects all value codes between two value codes as they are given
 in the metadata.
 
 The syntax is in the form
@@ -1057,12 +1057,12 @@ The syntax is in the form
 range(value-code1, value-code2)
 ```
 
-Example if you have a time variable that have codes from the year 2000 to 2025
-then `range(2002,2005)` would select the codes for the years 2002 to 2005.
+Example if you have a time variable that has codes from the year 2000 to 2025
+then `range(2002,2005)` would select the all codes for the years 2002 to 2005.
 
 ##### from
 
-This expression selects all value code from the specified value code.
+This expression selects all value codes from the specified value code.
 
 The syntax is in the form
 
@@ -1070,13 +1070,13 @@ The syntax is in the form
 from(value-code1)
 ```
 
-Example if you have a time variable that have codes from the year 2000 to 2025
-then `from(2005)` would select the codes for the 2005 to 2025. When new data
+Example if you have a time variable that has codes from the year 2000 to 2025
+then `from(2005)` would select the codes for the year 2005 to 2025. When new data
 comes for the year 2026 that will also be included.
 
 ##### to
 
-This expression selects all value code the bottom to the specified value code.
+This expression selects all value codes from the bottom up to the specified value code.
 
 The syntax is in the form
 
@@ -1089,9 +1089,9 @@ then `to(2005)` would select the codes from the 2000 to 2005.
 
 #### Variable placements
 
-The placement of variables can be set when fetching data. When doing `GET` query
-you set the `stub` and `heading` query parameters and specify the variables id
-comma separated from each other.
+The placement of variables can be set when fetching data. When doing `GET` query,
+you set the `stub` and `heading` query parameters and specify the variable's id
+with commas separating the various variables from each other.
 
 When doing a POST query, the placement are given i the `placement` property of
 the query.
