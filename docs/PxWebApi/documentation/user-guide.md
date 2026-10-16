@@ -71,7 +71,7 @@ data (others may refer to variables as dimensions). Take the example data:
 is described by three variables
 
 1. What we are measuring, in our case this is the population. This variable 
-   is referred to as the **content variable**. Sometimes when there is just one content the content
+   is referred to as the **contents variable**. Sometimes when there is just one content the content
    variable may be omitted in  the px file. Instead the content is desribed by the table title.
 2. The point in time that the figure is associated to, in our case 31 December
    2021. This variable type is referred to as the **time
