@@ -105,7 +105,7 @@ categories (values) for each variable.
 
 ## Finding tables
 
-You can find tables via the API by hiting the `tables` endpoint. E.g. you can
+You can find tables via the API by including the keyword `tables` in your URL. E.g. you can
 get the tables in english for Statistics Norways database with the following URL
 
 > [https://data.ssb.no/api/pxwebapi/v2/tables?lang=en](https://data.ssb.no/api/pxwebapi/v2/tables?lang=en)
@@ -404,23 +404,23 @@ This will return the following response
 ```
 
 The response will contains a list of tables that are in the database in that
-specific language. It also conatins information about result pages. The hole list
-is not returned in one response instead the list is split up in pages containing
+specific language. It also conatins information about result pages. The complete list
+is not returned in one response, instead the list is split up in pages containing
 subparts of the complete list of tables.
 
 The `tables` endpoint can take the following optional arguments to filter and
 select a specific slice of the resulting list of tables:
 
-- `lang` an language parameter specifying which language the result should be in.
-- `query` an query string that can filter out tables.
-- `pastDays` filters out tables in the result so only tables updated since the
+- `lang` a parameter specifying which language the result should be in.
+- `query` a query string that can filter out tables.
+- `pastDays` only tables updated since the
    number of `pastDays`.
-- `includeDiscontinued` if discontinued tables should be included or not in the
+- `includeDiscontinued` determines whether discontinued tables should be included in the
    result.
-- `pageSize` All tables might not be included in the response depending on how
-   many tables there is in the result and the `pageSize` sets how many tables
+- `pageSize` All tables might not be included in the response, depending on how
+   many tables there are in the result. The `pageSize` determines how many tables
    are returned in the response. The default value might be changed by the organization.
-- `pageNumber`  The `pageNumber` specifies which page should be in the response.
+- `pageNumber` specifies which page should be in the response.
   The default is the first page.
 
 ### Examples
@@ -542,7 +542,7 @@ This would give us the following result
 }
 ```
 
-Here you can see among other things the table title (`label`), the first and
+Here you can see, among other things, the table title (`label`), the first and
 latest period in the time series (`firstPeriod` and `lastPeriod`), and which
 variables are included (`variableNames`). `Paths` shows the table's location(s)
 in the subject structure.
