@@ -1407,13 +1407,12 @@ can see how the grouping is constructed:
 
 Excerpt from table *07459* about groupings.
 Under `valueMap` you can see which municipality codes are summed up to the group
-codes `K-3101`, `K-3203`, etc. The grouping is used together with `outputValues[Region]=`
-aggregated to select aggregated numbers, here to sum up numbers for merged
+codes `K-3101`, `K-3203`, etc. The grouping is used to select aggregated numbers, here to sum up numbers for merged
 municipalities and municipalities that have changed codes over the years.
 Example for *Moss*, which in *2020* was merged by municipalities `0104` and `0136`,
 and which in *2024* changed code from `3002` to `3103`:
 
-> <https://data.ssb.no/api/pxwebapi/v2/tables/07459/data?lang=en&valueCodes[Region]=K-3103&valueCodes[Tid]=*&valueCodes[ContentsCode]=Personer1&codelist[Region]=agg_KommSummer&outputValues[Region]=aggregated>
+> <https://data.ssb.no/api/pxwebapi/v2/tables/07459/data?lang=en&valueCodes[Region]=K-3103&valueCodes[Tid]=*&valueCodes[ContentsCode]=Personer1&codelist[Region]=agg_KommSummer>
 
 Another example from the same table is Counties 2024-:
 
@@ -1422,14 +1421,13 @@ From <https://data.ssb.no/api/pxwebapi/v2/codeLists/agg_Fylker2024?lang=en> you
 can see how the grouping is constructed:
 
 Excerpt from table 07459 shows how the grouping is structured.
-Here code and valueMap are the same. The grouping is used together with
-`outputValues[Region]=` single to select some values ​​from the full list, in
+Here code and valueMap are the same. The grouping is used to select some values ​​from the full list, in
 this case the latest county division.  
 
 Example where we retrieve figures for the latest year for all the current county
 codes:
 
-> <https://data.ssb.no/api/pxwebapi/v2/tables/07459/data?lang=en&valueCodes[Region]=*&valueCodes[ContentsCode]=Personer1&valueCodes[Tid]=top(1)&codelist[Region]=agg_Fylker2024&outputValues[Region]=single>
+> <https://data.ssb.no/api/pxwebapi/v2/tables/07459/data?lang=en&valueCodes[Region]=*&valueCodes[ContentsCode]=Personer1&valueCodes[Tid]=top(1)&codelist[Region]=agg_Fylker2024>
 
 ## Footnotes
 
