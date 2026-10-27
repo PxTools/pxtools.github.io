@@ -55,6 +55,9 @@ The priorities below reflect our current focus areas. They may change over time 
 - Enhance the handling of notes
 - Enable one-click downloads of complete tables (bulk download)
 
+### Other
+- DCAT-AP format
+  
 ## Future (highlights)
 - Support linking to replaced (closed), related, and/or external tables
 - Sum variable values
