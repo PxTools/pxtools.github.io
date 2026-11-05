@@ -1490,3 +1490,9 @@ Possible error codes if the query does not return a response:
   `top(number of newest periods)`.
 
 - See also [knows issues under parquet](#parquet-known-issues) output format
+
+- The `UseTexts` format will display both the code and the text for some variables.
+
+- The `UseCodesAndTexts` format will display the code twice for some variables.
+
+- Footnotes at the data-cell level (cellnotes) are not displayed.
