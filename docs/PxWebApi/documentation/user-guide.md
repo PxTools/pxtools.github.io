@@ -39,10 +39,10 @@ structure of the API and the data that it provides.
 ### Table
 
 A table is the representation of a statistical table. Others may sometimes refer
-to the same concept a dataset, cube, or multi-dimensional cube. But we have
-chose to call it a table due to historical reasons. A table consists of two
-parts the data that contains the numbers and the metadata that gives the data a
-context/meaning. E.g. data 10 452 326 and the metadata the population of Sweden
+to the table as the same concept a dataset, cube, or multi-dimensional cube. But we have
+chosen to call it a table for historical reasons. A table consists of two
+parts: the data that contains the figures, and the metadata that gives the data a
+context/meaning. E.g. data: 10 452 326, and the metadata: the population of Sweden
 December 31 2021.
 
 ### Database
@@ -58,56 +58,54 @@ the database.
 
 ### Folder
 
-Folders are used to organize tables in a database. A folder can contain other
-folders or tables. Usually, the first level of folders in a database are referred
+Folders are used to organize tables in a database. A folder can contain sub-folders
+or tables. Usually, the first level of folders in a database are referred
 to the subject areas of the database. Others might also call them the themes of
 the database.
 
 ### Variable
 
 Tables are multidimensional and variables are the concept used to describe the
-data (others may refer to variables as dimensions).  Take the example data
-10 452 326 and the metadata the population of Sweden December 31 2021. 10 452 326
-is described by tree variables
+data (others may refer to variables as dimensions). Take the example data:
+10 452 326, and the metadata: the population of Sweden December 31 2021. 10 452 326
+is described by three variables
 
-1. What we are measuring, in our case this is the population. This variable is
-   special and is referred to as the content variable. There and only be one
-   content variable. Sometimes when there is just one content the content
-   variable may be omitted instead the context is given by other metadata for
-   the table.
-2. The point in time that the number is associated to in our case 31 December
-   2021. This variable type is also special and is referred to as the time
-   variable. There should always be one and only one time variable.
-3. The region. In our case it is Sweden. This is also a special kind of variable
-   called a geographical variable. A table might have zero or many geographical
+1. What we are measuring, in our case this is the population. This variable 
+   is referred to as the **contents variable**. Sometimes when there is just one content the content
+   variable may be omitted in  the px file. Instead the content is desribed by the table title.
+2. The point in time that the figure is associated to, in our case 31 December
+   2021. This variable type is referred to as the **time
+   variable**. There should always be one and only one time variable.
+3. The region. In our case it is Sweden. This is 
+   called a **geographical variable**. A table might have zero or many geographical
    variables but usually only have one if they have any.
 
-There is a fourth kind of variable that is just called a variable that is used
-to describe the data. Imagen, that we had divided 10 452 326 by gender so we
-have two data cells instead 5 260 707 and 5 191 619 one for male and one for
+There is a fourth kind of variable that is just called a **variable** that is used
+to describe the data. Imagine that we had distributed 10 452 326 by gender so we
+have two data cells instead: 5 260 707 and 5 191 619, one for male and one for
 female. Then that fourth variable would be gender.
 
 ### Value
 
-Variables have distinct values that make up the space for it. E.g. our gender
-variable above have two values one for male and one for female.
+A variable is distributed in distinct categories, called **values**. E.g. our gender
+variable above have two values: male and female.
 
 ### Codelist
 
-A variable might have code list associated to that defined a new space for the
-variable by providing different sets of values. E.g. imagine, you have a regional
+A variable might have codelist associated to that define a new space for the
+variable by providing different sets of values. E.g. imagine you have a regional
 variable with values for each municipality in Sweden. Then you might have a
 codelist that transforms the municipalities into counties.
 
 ### Data cell
 
-A data cell is the individual measure in a table.
+A data cell is the individual figure in a table.
 The total number of cells for a table is given by the product of the number of
-values for each variable.
+categories (values) for each variable.
 
 ## Finding tables
 
-You can find tables via the API by hiting the `tables` endpoint. E.g. you can
+You can find tables via the API by including the keyword `tables` in your URL. E.g. you can
 get the tables in english for Statistics Norways database with the following URL
 
 > [https://data.ssb.no/api/pxwebapi/v2/tables?lang=en](https://data.ssb.no/api/pxwebapi/v2/tables?lang=en)
@@ -406,23 +404,23 @@ This will return the following response
 ```
 
 The response will contains a list of tables that are in the database in that
-specific language. It also conatins information about result pages. The hole list
-is not returned in one response instead the list is split up in pages containing
+specific language. It also conatins information about result pages. The complete list
+is not returned in one response, instead the list is split up in pages containing
 subparts of the complete list of tables.
 
 The `tables` endpoint can take the following optional arguments to filter and
 select a specific slice of the resulting list of tables:
 
-- `lang` an language parameter specifying which language the result should be in.
-- `query` an query string that can filter out tables.
-- `pastDays` filters out tables in the result so only tables updated since the
+- `lang` a parameter specifying which language the result should be in.
+- `query` a query string that can filter out tables.
+- `pastDays` only tables updated since the
    number of `pastDays`.
-- `includeDiscontinued` if discontinued tables should be included or not in the
+- `includeDiscontinued` determines whether discontinued tables should be included in the
    result.
-- `pageSize` All tables might not be included in the response depending on how
-   many tables there is in the result and the `pageSize` sets how many tables
+- `pageSize` All tables might not be included in the response, depending on how
+   many tables there are in the result. The `pageSize` determines how many tables
    are returned in the response. The default value might be changed by the organization.
-- `pageNumber`  The `pageNumber` specifies which page should be in the response.
+- `pageNumber` specifies which page should be in the response.
   The default is the first page.
 
 ### Examples
@@ -433,7 +431,7 @@ Add the `query` parameter to the URL like
 
 > <https://data.ssb.no/api/pxwebapi/v2/tables?lang=en&query=pizza>
 
-#### Search for not discontinued tables where also containing the term "children"
+#### Search including discontinued tables containing the term "children"
 
 Add the `includeDiscontinued` query parameter like
 
@@ -544,14 +542,14 @@ This would give us the following result
 }
 ```
 
-Here you can see among other things the table title (`label`), the first and
+Here you can see, among other things, the table title (`label`), the first and
 latest period in the time series (`firstPeriod` and `lastPeriod`), and which
 variables are included (`variableNames`). `Paths` shows the table's location(s)
 in the subject structure.
 
 ## Metadata for the table
 
-Detailed metadata for a given table can be retrieved using he endpoint `tables/{TABLE-ID}/metadata`.
+Detailed metadata for a given table can be retrieved using the endpoint `tables/{TABLE-ID}/metadata`.
 The metadata is displayed in the JSON-stat v2 format.
 
 !!! note
@@ -865,10 +863,10 @@ important properties are:
 Each variable object contains two lists (level 3), one with value codes index
 and one with presentation texts for the values label.
 
-For contents variables, the unit of measurement and the number of decimals are
+For **contents variables**, the unit of measurement and the number of decimals are
 always specified.
 
-For each value of the content variable, there may be more metadata under extension:
+For each **contents variable**, there may be more metadata under keyword **extension**:
 
 - Measuring type (`Stock`, `Flow`, `Average`, `Other`)
 - Price type (`Current`, `Fixed`, `NotApplicable`)
@@ -884,14 +882,14 @@ following endpoint `tables/{TABLE-ID}}/data`.
 
 > [https://data.ssb.no/api/pxwebapi/v2/tables/05810/data?lang=en](https://data.ssb.no/api/pxwebapi/v2/tables/05810/data?lang=en)
 
-This will provide a table broken down by gender and age for the latest period.
+This will provide a table broken down by gender and age for the most recent period.
 This corresponds to the default extraction you get when you select the same
-table in PxWeb. Please note that in the default table, only two dimensions will
-show more than one value. To extract numbers in multiple dimensions, this must
+table in PxWeb. Please note that in most default tables, only two variables will
+have more than one value. To extract figures from more variables, this must
 be specified in the API query (see section Queries against a table).
 
 !!! note
-    The data from Statistics Norway API is in the JSON-stat v2. And that the
+    The data from Statistics Norway API is in the JSON-stat v2. The
     default format that you get the data in may vary depending on the organization.
 
 ### Queries against a table
@@ -900,16 +898,16 @@ You can use PxWeb to build API queries, or you can create queries from scratch
 by looking at the metadata and construct the right objects.
 
 The query contains per variable a list of values that should be included in the
-response and also if a specific codelist so be applied.
+response and also if a specific codelist should be applied.
 
-The query can be represented in two way:
+The query can be represented in two ways:
 
 1. As query parameters in the URL when doing a HTTP GET request.
 2. As a JSON object attached as the content when doing a HTTP POST request.
 
-When the listing the values that should be selected you can either list the
+When the listing the values that should be selected, you can either list the
 specific codes or you could use special selection expressions to select value
-codes that matches the expression. You can also combine value codes and.
+codes that matches the expression. You can also combine value codes and
 selection expressions.
 
 #### Query as URL parameters
@@ -921,11 +919,11 @@ valueCodes[variable-id]=value-code1, value-code2
 ```
 
 You need to specify value codes for each variable that is not eliminable. The
-value codes are given in a comma separated list. If a value code or a selection expression contains a comma, wrap it in square brackets, e.g. `valueCodes[Tid]=[range(2002,2005)]` or `[top(5,1)]`. In a POST body, write the expression without brackets: `"range(2002,2005)"`. A bracketed string in POST is looked up as a value code and fails with `Non-existent value`. See bellow on how to specify
-value codes.
+value codes are given in a comma separated list. If a value code or a selection expression contains a comma, wrap it in square brackets, e.g. `valueCodes[Tid]=[range(2002,2005)]` or `[top(5,1)]`. 
+In a POST body, write the expression without brackets: `"range(2002,2005)"`. See below on how to specify value codes.
 
-You change can specify a different codelist for a variable the possible once
-are given in the metadata response. In these cases, you need to add the paramter
+You change can specify a different codelist for a variable. The possible ones
+are given in the `metadata` response. In these cases, you need to add the parameter
 `codelist` that specifies which codelist to use. When doing so the value codes referred
 in `valueCodes` are the value codes in the selected codelist.
 You select the codelist in the following syntax
@@ -981,8 +979,8 @@ following properties:
 
 #### Selection expressions
 
-Selection expression  can be used to select value codes that matches the expression.
-The following expressions exists:
+Selection expression can be used to select value codes that match the expression.
+The following expressions exist:
 
 - `*` (wildcard)
 - `?` (mask)
@@ -994,16 +992,16 @@ The following expressions exists:
 
 ##### `*` (wildcard)
 
-This matche based on a criteria that contains 1 or 2 wildcards e.g.
+This match based on a criteria that may contain one or two wildcards. For example
 
 - `*` selects all codes.
-- `12*` select all codes that starts with *12*.
-- `*2` selects all codes that ends with *2*.
-- `*4*` select all codes that contains a *4*.
+- `12*` select all codes that start with *12*.
+- `*2` selects all codes that end with *2*.
+- `*4*` select all codes that contain a *4*.
 
 ##### `?` (mask)
 
-This matche on a criteria that contains a question mark e.g.
+This match based on a criteria that contain one or more question marks. For example
 
 - `??` selects all codes that are two characters long.
 - `1?` select all codes that are two characters long and starts with `1`.
@@ -1011,28 +1009,30 @@ This matche on a criteria that contains a question mark e.g.
 ##### top
 
 This expression selects the top number of values. If the variable is the time
-variable that will be the latest time periods otherwise it will be the first code
+variable that will be the most recent time periods, otherwise it will be the first listed codes
 as specified in the metadata.
 
-The syntax of the experssion is:
+The syntax of the expression is:
 
 ```sh
 top(numberOfValues,offset)
 ```
 
-where `numberOfValues` specifies the number of values codes that should be
-selected from the top and `offset` is an optional offset from the top. E.g.
+where `numberOfValues` specifies the number of values that should be
+selected from the top and `offset` is an optional offset from the top. For example
 
-- `top(5)` will select the first 5 values.
-- `top(5,1)` will skip the first value and select the next 5 values.
+
+- `top(5)` will select the first 5 values in the value list.
+- `top(5,1)` will skip the first value and select the next 5 values in the value list.
+
 
 ##### bottom
 
 This expression selects the bottom number of values. If the variable is the time
-variable that will be the first time periods otherwise it will be the last code
-as specified in the metadata.
+variable that will be the first time periods from the list. Otherwise it will be the bottom values in the value list
+specified in the metadata.
 
-The syntax of the experssion is:
+The syntax of the expression is:
 
 ```sh
 bottom(numberOfValues,offset)
@@ -1047,7 +1047,7 @@ selected from the bottom and `offset` is an optional offset from the bottom. E.g
 
 ##### range
 
-This expression selects all value code between two value codes as they are given
+This expression selects all value codes between two value codes as they are given
 in the metadata.
 
 The syntax is in the form
@@ -1056,12 +1056,12 @@ The syntax is in the form
 range(value-code1,value-code2)
 ```
 
-Example if you have a time variable that have codes from the year 2000 to 2025
-then `range(2002,2005)` would select the codes for the years 2002 to 2005.
+Example if you have a time variable that has codes from the year 2000 to 2025
+then `range(2002,2005)` would select the all codes for the years 2002 to 2005.
 
 ##### from
 
-This expression selects all value code from the specified value code.
+This expression selects all value codes from the specified value code.
 
 The syntax is in the form
 
@@ -1069,13 +1069,13 @@ The syntax is in the form
 from(value-code1)
 ```
 
-Example if you have a time variable that have codes from the year 2000 to 2025
-then `from(2005)` would select the codes for the 2005 to 2025. When new data
+Example if you have a time variable that has codes from the year 2000 to 2025
+then `from(2005)` would select the codes for the year 2005 to 2025. When new data
 comes for the year 2026 that will also be included.
 
 ##### to
 
-This expression selects all value code the bottom to the specified value code.
+This expression selects all value codes from the bottom up to the specified value code.
 
 The syntax is in the form
 
@@ -1088,9 +1088,9 @@ then `to(2005)` would select the codes from the 2000 to 2005.
 
 #### Variable placements
 
-The placement of variables can be set when fetching data. When doing `GET` query
-you set the `stub` and `heading` query parameters and specify the variables id
-comma separated from each other.
+The placement of variables can be set when fetching data. When doing `GET` query,
+you set the `stub` and `heading` query parameters and specify the variable's id
+with commas separating the various variables from each other.
 
 When doing a POST query, the placement are given i the `placement` property of
 the query.
@@ -1152,9 +1152,9 @@ You select the format you want the response to be in by setting the parameter `o
 
 New in this API is the [Apache Parquet](https://parquet.apache.org/) output format.
 
-We create a column for each varible and separate colums for `timestamp`, `value`
+We create a column for each variable and separate columns for `timestamp`, `value`
 and `value_symbol`. When more content variables are selected the `value` and
-`value_symbol` colums will be renamed with the `ContentsCode_` prefix.
+`value_symbol` columns will be renamed with the `ContentsCode_` prefix.
 
 Inspecting this request with [parqeye](https://github.com/kaushiksrini/parqeye)
 shows the following views.
@@ -1162,7 +1162,7 @@ shows the following views.
 Request
 
 ```sh
-https://data.qa.ssb.no/api/pxwebapi/v2/tables/04475/data?lang=en&outputFormat=parquet&valuecodes[Tid]=2025K1,2025K2,2025K3,2025K4&valuecodes[ContentsCode]=ForbrukVareliter&valuecodes[Alkohol]=03
+https://data.ssb.no/api/pxwebapi/v2/tables/04475/data?lang=en&outputFormat=parquet&valuecodes[Tid]=2025K1,2025K2,2025K3,2025K4&valuecodes[ContentsCode]=ForbrukVareliter&valuecodes[Alkohol]=03
 ```
 
 Visualize
@@ -1214,7 +1214,7 @@ Schema
 % duckdb
 DuckDB v1.5.2 (Variegata)
 Enter ".help" for usage hints.
-memory D SELECT * FROM read_parquet('https://data.qa.ssb.no/api/pxwebapi/v2/tables/04475/data?lang=en&outputFormat=parquet&valuecodes[Tid]=2025K1,2025K2,2025K3,2025K4&valuecodes[ContentsCode]=ForbrukVareliter&valuecodes[Alkohol]=03');
+memory D SELECT * FROM read_parquet('https://data.ssb.no/api/pxwebapi/v2/tables/04475/data?lang=en&outputFormat=parquet&valuecodes[Tid]=2025K1,2025K2,2025K3,2025K4&valuecodes[ContentsCode]=ForbrukVareliter&valuecodes[Alkohol]=03');
 ┌──────────────────┬─────────┬─────────────────────┬─────────┬──────────────┐
 │ type of beverage │ quarter │      timestamp      │  value  │ value_symbol │
 │     varchar      │ varchar │      timestamp      │ double  │   varchar    │
@@ -1232,11 +1232,11 @@ memory D SELECT * FROM read_parquet('https://data.qa.ssb.no/api/pxwebapi/v2/tabl
     We may have to change the format to fix some of these issues
 
 - [x] [Multiple contents and time odering bug](https://github.com/PxTools/PxWebApi/issues/511)
-- [ ] [Parquet seralizer throws exception on TimeScaleType](https://github.com/PxTools/PxWebApi/issues/595)
+- [ ] [Parquet serializer throws exception on TimeScaleType](https://github.com/PxTools/PxWebApi/issues/595)
 - [ ] [Consider switching from `DataField` to `DecimalDataField`](https://github.com/PxTools/PxWebApi/issues/596)
 - [ ] [Parquet does not work in Onyxia Data Explorer](https://github.com/PxTools/PxWebApi/issues/597)
 
-#### Additionally parameters
+#### Additional parameters
 
 Some of the output format can take extra parameters that determines how the
 table is serialized.
@@ -1252,7 +1252,7 @@ code/text and table title:
 And for `csv` files, you can choose between different separators:
 
 - `SeparatorTab` (tabulator between columns)
-- `SparatorSpace` (space between columns)
+- `SeparatorSpace` (space between columns)
 - `SeparatorSemicolon` (semicolon between columns)
 
 You can set these on the `outputFormatParams` parameter. If multiple parameters
@@ -1477,18 +1477,23 @@ Possible error codes if the query does not return a response:
 
 ## Known issues
 
-- Endpoint navigation has been removed for the time being. Instead, the endpoint
-  tables shows the table's location(s) in the subject structure under paths.
+- Endpoint `navigation` has been removed for the time being. Instead, the endpoint
+  `tables` shows the table's location(s) in the subject structure under `paths`.
 
 - The URL in the GET request cannot exceed a limit of approximately 2100
   characters. Instead of listing long value lists in the query, use `*` (asterisk),
   question mark, from/to or range. If you select all the values of the variable,
   PxWeb v2 will automatically put * in the query.
 
-- If you do not select all the periods, PxWeb will list in the query exactly the
-  same periods you selected. In practice, you will most often want the query to
+- If you generate the query via PxWeb, it will list exactly the same periods that you selected, unless you selected alle the periods. In practice, you will most often want the query to
   include all newer periods the next time you run it. In that case, you must
   adjust the URL to `valueCode[Time]=*` or `from(start time)`, alternatively
   `top(number of newest periods)`.
 
 - See also [knows issues under parquet](#parquet-known-issues) output format
+
+- The `UseTexts` format will display both the code and the text for some variables.
+
+- The `UseCodesAndTexts` format will display the code twice for some variables.
+
+- Footnotes at the data-cell level (cellnotes) are not displayed.
