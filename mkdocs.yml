@@ -22,6 +22,7 @@ nav:
           - Customize PxWeb 2: PxWeb2/documentation/customization.md
       - User Guides:
           - PxWebApi 2 User Guide: PxWebApi/documentation/user-guide.md
+          - PxWeb 2 User Guide: PxWeb2/documentation/General.md
       - Other:
           - Try PxWeb 2 with Docker: PxWeb2/documentation/docker.md
           - Changes in savedquery usage: Other/changes-in-savedquery-usage.md
