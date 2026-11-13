@@ -7,6 +7,7 @@ You can:
 
 - Configure available languages and set a default fallback.
 - Add a new language or adjust existing translations.
+- Enable/disable use of charts
 - Change colors (design tokens).
 - Adjust corner radii of UI elements.
 - Replace fonts.
@@ -125,6 +126,9 @@ Open `config/config.js` and set `apiUrl`:
     },
     homePage: {
       en: '', 
+    },
+    features: {
+      chartEnabled: false,
     },
   };
 ```
@@ -256,6 +260,9 @@ In `config/config.js`:
     homePage: {
       en: '', 
     },
+    features: {
+      chartEnabled: false,
+    },
   };
 ```
 
@@ -273,6 +280,17 @@ In `config/config.js`:
 4. Add `"fr"` to `supportedLanguages`.
 5. (Optional) Add localized content under `content/fr/content.json` if your
    content system uses it.
+
+### Enable/disable use of charts
+
+The feature of displaying charts is configured by setting `chartEnabled`
+in `config/config.js`. Example:
+
+```js
+    features: {
+      chartEnabled: true,
+    },
+```
 
 ### Change fonts
 
@@ -449,6 +467,9 @@ Toggle:
     homePage: {
       en: '', 
     },
+    features: {
+      chartEnabled: false,
+    },
   };
 ```
 
@@ -485,6 +506,9 @@ in the `language` section of `config/config.js`.
     },
     homePage: {
       en: '', 
+    },
+    features: {
+      chartEnabled: false,
     },
   };
 ```
@@ -842,6 +866,14 @@ Below is the mapping of primitive tokens to semantic tokens that consume them:
 - `--px-color-danger-600`
     - `--px-color-border-error`
     - `--px-color-icon-error`
+
+#### Chart Colors
+
+Colors used in charts for data series are defined by
+
+- `--px-color-chart-series: #274247, #e07400, #6d120d, #7E9866, #0083a3, #673c4f, #d95979, #b07156, #b28d2e;`
+
+You can change these values, add new ones or remove values as you like.
 
 ---
 
