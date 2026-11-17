@@ -90,17 +90,17 @@ The algorithm is created based on these criteria:
 
 The algorithm can be replaced by a saved query for each individual table. See [Default selection](https://www.pxtools.net/PxWebApi/documentation/configuration/#default-selection).
 	
-The algorithm works like this for a desktop:
-1.  A matrix of values from the first and last classification variable is displayed, with the one that has the most values in the stub
-2.  Mandatory classification variables are prioritized over optional ones.
-3.  The first contents variable and the most recent period are displayed at the top of the table header.
-4.   If the table has no classification variables, a matrix of contents variables and the 13 most recent periods is displayed. Fewer than 6 statistical variables are shown in the heading. 6 or more statistical variables are shown in the stub.
-5.   If the table only has one classification variable and one contents variable, a matrix of the 13 most recent periods is shown in the heading and the classification variable in the stub.
-6.   If the table only has one classification variable and several contents variables, a matrix of the contents variables and the classification variable, the one with the most values in the stub, is shown. 
-7.   If a variable has a preferred grouping or set of values, this should be shown. 
-8.   If a variable doesn't have a preferred grouping, the entire set of values should be shown. 
-9.   If a variable doesn't have a preferred set of values, the first set of values should be shown. 
-10.	  A limit of 1500 rows and 13 columns has been set.
+The algorithm works like this for a desktop:  
+1.  A matrix of values from the first and last classification variable is displayed, with the one that has the most values in the stub.  
+2.  Mandatory classification variables are prioritized over optional ones.  
+3.  The first contents variable and the most recent period are displayed at the top of the table header.  
+4.   If the table has no classification variables, a matrix of contents variables and the 13 most recent periods is displayed. Fewer than 6 statistical variables are shown in the heading. 6 or more statistical variables are shown in the stub.  
+5.   If the table only has one classification variable and one contents variable, a matrix of the 13 most recent periods is shown in the heading and the classification variable in the stub.  
+6.   If the table only has one classification variable and several contents variables, a matrix of the contents variables and the classification variable, the one with the most values in the stub, is shown.   
+7.   If a variable has a preferred grouping or set of values, this should be shown.   
+8.   If a variable doesn't have a preferred grouping, the entire set of values should be shown.   
+9.   If a variable doesn't have a preferred set of values, the first set of values should be shown.   
+10.	  A limit of 1500 rows and 13 columns has been set.  
 
 In mobile view the table always have only one column of figures. Variables with few values are sorted before variables with many values.
 
