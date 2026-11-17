@@ -68,6 +68,30 @@ only configure one at a time. Set `DataSource.DataSourceType` to either `PX` or
 For the PX file datasource, you can set `DataSource.DataSourceType.PX.StrictAggregations`
 to either `true` or `false` to determine if aggregations can be overlapping or not.
 
+##### Menu branch name customization using Alias.txt
+
+By adding a file called Alias.txt (Alias_.txt) to a folder it is
+possible to change the name of the menu branch in the user interface.
+If a folder contains a file called Alias.text when the Menu.xml file is
+generated, the generator will use the text within the Alias.txt file as the
+branch name instead of the name of the file system folder.
+
+Example:
+The name of a folder in the file system is “Population projections”.
+However in the user interface we would like to display the text
+“Projections” when English language is selected and ”Beräkning” when
+Swedish language is selected. The way to accomplish this is:
+- Create two Alias files:
+  -  Alias.txt containing the text “Projections”
+  - Alias_sv.txt containing the text “Beräkning”
+- Place these files in the “Population projections” folder.
+- Generate the Menu.xml file using the Generate database tool.
+The user interface will now display the text within the Alias file as
+the branch name in the menu. This text will also be used to
+determine the sort order between the branches on the same level of
+the menu. If the folder don´t contain an Alias.txt the name of the
+file system folder will be used.
+
 #### CNMM datasource
 
 You should only have one database specified, and you must set `DataSource.DataSourceType.CNMM.DatabaseId`
