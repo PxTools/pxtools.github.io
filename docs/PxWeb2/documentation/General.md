@@ -29,26 +29,26 @@ If you enter multiple words in the search field, you will get hits on tables tha
 If you want to search for two or more words that are found right after each other in the table, put quotation marks before and after the phrase. 
 
 ### Search at the beginning of words
-You can use the character * after the search term to get hits on all words that start with those letters. For example, searching for hydro* will return hits on "hydropower companies".
+You can use the character `*` after the search term to get hits on all words that start with those letters. For example, searching for `hydro*` will return hits on "hydropower companies".
 
 ### Limit search to table title
-If you want the search term to be found in the table title, put title: in front of the search term.
+If you want the search term to be found in the table title, put `title:` in front of the search term.
 
 ### Using logical operators
-You can use the logical operators AND, OR or NOT. With OR you get a match if one of the terms matches. With NOT you can filter out words you don't want to include. The AND operator is implied if you type several words in succession.
+You can use the logical operators `AND`, `OR` or `NOT`. With `OR` you get a match if one of the terms matches. With `NOT` you can filter out words you don't want to include. The `AND` operator is implied if you type several words in succession.
 
 ### Hyphens and other special characters
-It is possible to search for the characters . (period) and _ (underscore). 
-However, as of today, you cannot search for the characters - (hyphen), + (plus), = (equals), / (slash) and ( ) (parentheses). Use quotation marks to search for texts containing such characters.
+It is possible to search for the characters `.` (period) and `_` (underscore). 
+However, as of today, you cannot search for the characters `-` (hyphen), `+` (plus), `=` (equals), `/` (slash) and `( )` (parentheses). Use quotation marks to search for texts containing such characters.
 
 ### Stop words
 Small words that are very common are ignored, unless they are part of a phrase. Example: and, or, for, but, in, then, the, it, of, on, to.
 
 ### Proximity operator ~
-Example "children adults" ~5 searches for "children" and "adults" less than 5 words apart.
+Example `"children adults" ~5` searches for "children" and "adults" less than 5 words apart.
 
 ### Search conditions that apply to multiple words
-Use parentheses to group multiple search words under the same condition. Example: title:("retail trade" industry) searches for tables where both the phrase "retail trade" and the word "industry" appear in the title.
+Use parentheses to group multiple search words under the same condition. Example: `title:("retail trade" industry)` searches for tables where both the phrase "retail trade" and the word "industry" appear in the title.
 
 ## Filtering
 The start page shows the most recently updated tables, with filters on the left. Above the table list, you’ll see how many tables match your criteria. Up to 15 tables are shown on the first page. If there are more matches, a “Show more” button appears at the bottom of the list.
@@ -113,9 +113,9 @@ In mobile view the table always have only one column of figures. Variables with 
 ## Search in long value lists
 
 -	You will get matches for words that start with the search term you enter.
--	If you also want to search inside words, put * before and after the search term.
+-	If you also want to search inside words, put `*` before and after the search term.
 -	If you want to search for several words in a row (a phrase), put quotation marks before and after the phrase.
--	The search term, in addition to letters and numbers, can contain characters such as . (period), _ (underscore), - (hyphen), + (plus), = (equals), / (slash) and ( ) (parentheses).
+-	The search term, in addition to letters and numbers, can contain characters such as `.` (period), `_` (underscore), `-` (hyphen), `+` (plus), `=` (equals), `/` (slash) and `( )` (parentheses).
 -	If the selection box (variable) contains many values, you will find a search field labeled “Search in list” at the top of the box.
 -	If “Select all” is checked and you don’t need all the values, click “Select all” and you will see that the selections are cleared.
 -	Search for what you want and check the items you want to include in the table.
@@ -123,7 +123,7 @@ In mobile view the table always have only one column of figures. Variables with 
 -	When you search for a word, only the matching results will be displayed. Remove the search term if you want to search the entire list again.
 -	A new search does not automatically remove previously selected values.
 -	If you want to start over, click “Select all” twice, and all selections will be cleared.
--	The search field applies to the list of possible choices, not the table itself. If you want to search within the table, you can use Ctrl+F.
+-	The search field applies to the list of possible choices, not the table itself. If you want to search within the table, you can use `Ctrl+F`.
 
 ## Information
 The “Information” button provides:
@@ -137,9 +137,9 @@ The “Information” button provides:
 *Graph display is under development.*
 
 ## Edit
-- “Organise table automatically”: You can use this if you have made new selections in the table and want to rotate it for better readability.
-- “Organise table manually”: You can arrange rows and columns just as you like, by drag and drop.
-- “Rotate table”: Sometimes the table becomes easier to read if you switch rows and columns. You can rotate the table multiple times until you’re satisfied.
+- **Organise table automatically**: You can use this if you have made new selections in the table and want to rotate it for better readability.
+- **Organise table manually**: You can arrange rows and columns just as you like, by drag and drop.
+- **Rotate table**: Sometimes the table becomes easier to read if you switch rows and columns. You can rotate the table multiple times until you’re satisfied.
 
 In mobile view, "rotate the table" is the only choice, since such tables always have only one column of figures.
 
@@ -170,7 +170,7 @@ You’ll get a unique link to your table, which we keep updated for you. You cho
   
 After making your selections, you’ll get a unique link based on your choices. If you make changes, a new link is created.
 
-“Saved query” is not intended for automation. Instead, one should use the API for automation. 
+**Link to updated table** is not intended for automation. Instead, one should use the API for automation. 
 
 ## API Query
 Use API query if you want to automatically download data to Excel, Power BI, or other systems. You can choose different formats. Read more about this in the PxWebApi user guide.
