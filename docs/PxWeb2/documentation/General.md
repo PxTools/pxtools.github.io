@@ -3,15 +3,17 @@
 ## Search for tables on start page
 
 The search normally includes
+
 -	Table titles
 -	Contents variables, i.e. what is counted or measured
 -	Variable headings (classifications)
 - Groupings under variables
 -	Value lists, for example numbers and names of municipalities or goods
 -	Topics
--	
+  
 The hit list is sorted by publication date. The most updated tables are placed at the top of the hit list.
 The search does not include
+
 -	Notes
 - Contact information
   
@@ -52,6 +54,7 @@ Use parentheses to group multiple search words under the same condition. Example
 The start page shows the most recently updated tables, with filters on the left. Above the table list, you’ll see how many tables match your criteria. Up to 15 tables are shown on the first page. If there are more matches, a “Show more” button appears at the bottom of the list.
 
 Filters include:
+
 -	Topic
 -	Year (from–to)
 -	Time period (year, quarter, month, week)
@@ -68,6 +71,7 @@ Above the result list, you’ll see the filters and search terms you’ve used. 
 
 ## Table page
 The table page is divided into three sections. On the far left, there are five buttons:
+
 -	Filter
 -	Display
 -	Edit
@@ -82,6 +86,7 @@ To view more of the table at once, click “Hide” and the arrows in the top ri
 The purpose of the algorithm is to select two dimensions and display them for the user as stub and heading, respectively. Preferably, the two most characteristic dimensions should be shown so that the default view is as unique as possible. By dimension, we mean: contents variables, time, or another classification variable. 
 
 The algorithm is created based on these criteria:
+
 -	The table should be easy to understand.
 -	The table should display a useful sample of the content.
 -	We pick two dimensions and show them as columns and rows.
@@ -90,7 +95,8 @@ The algorithm is created based on these criteria:
 
 The algorithm can be replaced by a saved query for each individual table. See [Default selection](https://www.pxtools.net/PxWebApi/documentation/configuration/#default-selection).
 	
-The algorithm works like this for a desktop:  
+The algorithm works like this for a desktop:
+
 1.  A matrix of values from the first and last classification variable is displayed, with the one that has the most values in the stub.  
 2.  Mandatory classification variables are prioritized over optional ones.  
 3.  The first contents variable and the most recent period are displayed at the top of the table header.  
@@ -105,6 +111,7 @@ The algorithm works like this for a desktop:
 In mobile view the table always have only one column of figures. Variables with few values are sorted before variables with many values.
 
 ## Search in long value lists
+
 -	You will get matches for words that start with the search term you enter.
 -	If you also want to search inside words, put * before and after the search term.
 -	If you want to search for several words in a row (a phrase), put quotation marks before and after the phrase.
@@ -120,6 +127,7 @@ In mobile view the table always have only one column of figures. Variables with 
 
 ## Information
 The “Information” button provides:
+
 -	Notes (before footnotes) and symbol explanations
 -	Definitions (links to variable definitions, classification standards and other metadata, if the px file contains meta-id’s for this.)
 -	Table details (e.g., update date, unit of measurement, reference time)
@@ -145,6 +153,7 @@ In mobile view, "rotate the table" is the only choice, since such tables always 
 
 ## Save
 You can save the finished table as a file. Available formats:
+
 - Excel (.xlsx)
 -	Semicolon-separated with header (.csv)
 -	PC-Axis (.px)
@@ -154,6 +163,7 @@ You can save the finished table as a file. Available formats:
 
 ## Link to updated table
 You’ll get a unique link to your table, which we keep updated for you. You choose how new time periods are added:
+
 -	Don’t add new time periods (table will only show your current selections)
 -	Add new time periods (new periods will be added to your current selections)
 -	Add new, time periods, but keep same number (new period added, oldest removed)
