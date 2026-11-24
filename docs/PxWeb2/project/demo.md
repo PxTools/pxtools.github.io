@@ -15,6 +15,9 @@
 ## PxWeb 2 at Statistics Faroe Islands
 - [Statbank Faroe Islands](https://beta.statbank.fo/en/)
   
+## PxWeb 2 at Oslo municipality (in norwegian) 
+- [Oslo municipality](https://statistikkbanken.oslo.kommune.no/)
+  
 ## Try it with your own data
 
 You are free to test PxWeb2 with your own data. It works both with px-files and
