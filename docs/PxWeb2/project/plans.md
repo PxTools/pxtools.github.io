@@ -16,6 +16,7 @@ The priorities below reflect our current focus areas. They may change over time 
 - Chart functionality, using [Apache ECharts](https://echarts.apache.org/en/index.html):
     - Line chart
     - Bar chart
+    - Horisontal bar chart
     - Keyboard navigation
     - Improve the layout and presentation of downloaded chart files
     - Consistent number formatting
@@ -38,7 +39,7 @@ The priorities below reflect our current focus areas. They may change over time 
 
 ### Table page
 - Additional chart types:
-    - Horisontal bar chart
+   
     - Population pyramid
 - Table component:
     - Sticky header
@@ -56,7 +57,7 @@ The priorities below reflect our current focus areas. They may change over time 
 - Enable one-click downloads of complete tables (bulk download)
 
 ### Other
-- DCAT-AP format
+- DCAT-AP format (Q1 2027)
   
 ## Future (highlights)
 - Support linking to replaced (closed), related, and/or external tables
