@@ -36,6 +36,7 @@ The priorities below reflect our current focus areas. They may change over time 
 - Allow users to choose how the table list is sorted
 - Evaluate alternative table list views (including compact list and card-based layouts to support different user needs and browsing preferences)
 - Improve table card layout
+- Preserve filtering on language change
 
 ### Table page
 - Additional chart types:
