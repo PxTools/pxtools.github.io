@@ -15,7 +15,7 @@
 ## PxWeb 2 at Statistics Faroe Islands
 - [Statbank Faroe Islands](https://beta.statbank.fo/en/)
   
-## PxWeb 2 at Oslo municipality (in norwegian) 
+## PxWeb 2 at Oslo municipality (in Norwegian) 
 - [Oslo municipality](https://statistikkbanken.oslo.kommune.no/)
   
 ## Try it with your own data
